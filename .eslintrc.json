@@ -27,7 +27,7 @@
             "position": "before"
           },
           {
-            "pattern": "{@prismicio/**,@prismicio/*}",
+            "pattern": "{@prismicio/**,@prismicio/*,@/prismicio}",
             "group": "external",
             "position": "before"
           },
