@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 
-import { Content } from './Content'
 import { NavbarProps } from './navbar'
+import { Wrapper } from './Wrapper'
 
 export const Navbar = ({ menuItens, logo }: NavbarProps) => {
   return (
@@ -14,7 +14,7 @@ export const Navbar = ({ menuItens, logo }: NavbarProps) => {
       top={0}
       mb={4}
     >
-      <Content menuItens={menuItens} logo={logo} />
+      <Wrapper menuItens={menuItens} logo={logo} />
     </Box>
   )
 }
