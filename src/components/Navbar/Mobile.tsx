@@ -4,10 +4,10 @@ import { useDisclosure, Button } from '@chakra-ui/react'
 import { List } from 'phosphor-react'
 
 import { MobileDrawer } from './MobileDrawer'
-import { ItemMenu } from './navbar'
+import { NavbarProps } from './navbar'
 
 type MobileProps = {
-  menuItens: Array<ItemMenu>
+  menuItens: NavbarProps['menuItens']
 }
 
 export const Mobile = ({ menuItens }: MobileProps) => {

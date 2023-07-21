@@ -7,10 +7,10 @@ import { Text } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
 
-import { ItemMenu } from './navbar'
+import { NavbarProps } from './navbar'
 
 type ItensProps = {
-  menuItens: Array<ItemMenu>
+  menuItens: NavbarProps['menuItens']
 }
 
 const label: JSXMapSerializer = {

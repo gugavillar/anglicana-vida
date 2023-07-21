@@ -2,10 +2,10 @@ import { useBreakpointValue } from '@chakra-ui/react'
 
 import { Itens } from './Itens'
 import { Mobile } from './Mobile'
-import { ItemMenu } from './navbar'
+import { NavbarProps } from './navbar'
 
 type ContentProps = {
-  menuItens: Array<ItemMenu>
+  menuItens: NavbarProps['menuItens']
 }
 
 export const Content = ({ menuItens }: ContentProps) => {

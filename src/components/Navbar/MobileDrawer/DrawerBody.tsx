@@ -1,10 +1,10 @@
 import { DrawerBody as ChakraDrawerBody, VStack } from '@chakra-ui/react'
 
 import { Itens } from '../Itens'
-import { ItemMenu } from '../navbar'
+import { NavbarProps } from '../navbar'
 
 type DrawerBodyProps = {
-  menuItens: Array<ItemMenu>
+  menuItens: NavbarProps['menuItens']
 }
 
 export const DrawerBody = ({ menuItens }: DrawerBodyProps) => {

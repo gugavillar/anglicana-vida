@@ -1,12 +1,11 @@
-import { ImageField, RichTextField } from '@prismicio/client'
-import { LinkField } from '@prismicio/types'
+import { ImageField } from '@prismicio/client'
 
-export type ItemMenu = {
-  label: RichTextField
-  link: LinkField
-}
+import type {
+  NavbarDocumentDataMenuItensItem,
+  Simplify,
+} from '../../../prismicio-types'
 
 export type NavbarProps = {
-  menuItens: Array<ItemMenu>
+  menuItens: Array<Simplify<NavbarDocumentDataMenuItensItem>>
   logo: ImageField
 }

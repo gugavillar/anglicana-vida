@@ -7,12 +7,12 @@ import {
 
 import { DrawerBody } from './DrawerBody'
 import { DrawerHeader } from './DrawerHeader'
-import { ItemMenu } from '../navbar'
+import { NavbarProps } from '../navbar'
 
 type MobileDrawerProps = {
   isOpen: boolean
   onClose: () => void
-  menuItens: Array<ItemMenu>
+  menuItens: NavbarProps['menuItens']
 }
 
 export const MobileDrawer = ({
