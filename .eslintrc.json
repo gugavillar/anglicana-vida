@@ -4,6 +4,7 @@
   },
   "extends": ["@rocketseat/eslint-config/react", "plugin:import/recommended", "plugin:import/errors", "plugin:import/warnings"],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
     "import/order": [
       "error",
       {
