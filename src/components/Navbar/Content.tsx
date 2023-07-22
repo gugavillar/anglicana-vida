@@ -17,6 +17,6 @@ export const Content = ({ menuItens }: ContentProps) => {
   return isMobile ? (
     <Mobile menuItens={menuItens} />
   ) : (
-    <Itens menuItens={menuItens} />
+    <Itens menuItens={menuItens} direction="row" spacing={9} />
   )
 }
