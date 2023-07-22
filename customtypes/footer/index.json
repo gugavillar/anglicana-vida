@@ -1,0 +1,70 @@
+{
+  "id": "footer",
+  "label": "Footer",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "site_info": {
+        "type": "Group",
+        "config": {
+          "label": "site_info",
+          "fields": {
+            "phone": {
+              "type": "StructuredText",
+              "config": {
+                "label": "phone",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph"
+              }
+            },
+            "address": {
+              "type": "StructuredText",
+              "config": {
+                "label": "address",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph"
+              }
+            },
+            "mail": {
+              "type": "StructuredText",
+              "config": {
+                "label": "mail",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph"
+              }
+            }
+          }
+        }
+      },
+      "social_media": {
+        "type": "Group",
+        "config": {
+          "label": "social_media",
+          "fields": {
+            "instagram": {
+              "type": "Link",
+              "config": {
+                "label": "instagram",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "facebook": {
+              "type": "Link",
+              "config": {
+                "label": "facebook",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
