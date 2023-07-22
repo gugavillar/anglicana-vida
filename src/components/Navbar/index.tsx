@@ -8,7 +8,7 @@ export const Navbar = ({ menuItens, logo }: NavbarProps) => {
     <Box
       as="header"
       h={20}
-      px={4}
+      px={6}
       bg="gray.700"
       position="sticky"
       top={0}

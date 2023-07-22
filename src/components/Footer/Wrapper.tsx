@@ -33,7 +33,7 @@ export const Wrapper = ({ siteInfo, socialMedia, menuItens }: WrapperProps) => {
         flexWrap="wrap"
         maxW="37.5rem"
         width="full"
-        align="center"
+        align="flex-start"
         justify="space-between"
       >
         <InfoSiteBlock siteInfo={siteInfo} />

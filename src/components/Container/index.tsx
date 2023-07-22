@@ -32,7 +32,9 @@ export const Container = ({
   return (
     <Box w="full" h="100vh">
       <Navbar menuItens={menuItens} logo={logo} />
-      {children}
+      <Box mx="auto" maxW="75rem" p={6}>
+        {children}
+      </Box>
       <Footer
         siteInfo={siteInfo}
         socialMedia={socialMedia}
