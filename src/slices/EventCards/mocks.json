@@ -1,0 +1,92 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Matter"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2021-06-12"
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading5",
+									"content": {
+										"text": "Slide"
+									}
+								}
+							]
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Do id ipsum nostrud officia nostrud duis voluptate. Dolore minim incididunt enim tempor labore aliqua et fugiat aliquip cupidatat ullamco mollit."
+									}
+								}
+							]
+						}
+					],
+					[
+						"initial_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2013-01-29T14:53:45Z"
+						}
+					],
+					[
+						"final_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2019-01-14T10:41:16Z"
+						}
+					],
+					[
+						"location",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Quis amet ea reprehenderit commodo cillum do amet sunt pariatur mollit laborum non. Irure dolor non ex aliqua voluptate commodo elit deserunt eiusmod esse adipisicing cillum velit occaecat. Excepteur mollit quis non proident."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]
