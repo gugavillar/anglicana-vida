@@ -32,7 +32,7 @@ export const Container = ({
   return (
     <Flex direction="column" w="full" minH="100vh">
       <Navbar menuItens={menuItens} logo={logo} />
-      <Flex direction="column" flex={1}>
+      <Flex direction="column" flex={1} as="main">
         {children}
       </Flex>
       <Footer
