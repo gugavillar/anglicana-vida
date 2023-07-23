@@ -17,7 +17,7 @@ const label: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <Text
       className={roboto?.style?.fontFamily}
-      color="whiteAlpha.700"
+      color="white"
       textTransform="uppercase"
       cursor="pointer"
     >

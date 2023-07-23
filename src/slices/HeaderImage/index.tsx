@@ -6,7 +6,7 @@ import {
   SliceComponentProps,
 } from '@prismicio/react'
 
-import { Box, Flex, Heading } from '@chakra-ui/react'
+import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
 
@@ -15,10 +15,12 @@ export type HeaderImageProps = SliceComponentProps<Content.HeaderImageSlice>
 const title: JSXMapSerializer = {
   heading2: ({ children }) => (
     <Heading
+      as="h1"
       textTransform="uppercase"
       fontSize={{ base: 'xl', md: '5xl', lg: '5xl' }}
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
+      color="white"
     >
       {children}
     </Heading>
@@ -27,15 +29,16 @@ const title: JSXMapSerializer = {
 
 const label: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <Heading
+    <Text
       textTransform="uppercase"
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={400}
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
       mb={4}
+      color="flesh.200"
     >
       {children}
-    </Heading>
+    </Text>
   ),
 }
 

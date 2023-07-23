@@ -22,7 +22,7 @@ export const Wrapper = ({ siteInfo, socialMedia, menuItens }: WrapperProps) => {
       p={4}
     >
       <Text
-        color="whiteAlpha.700"
+        color="white"
         mb={8}
         fontFamily={roboto.style.fontFamily}
         fontSize="xs"

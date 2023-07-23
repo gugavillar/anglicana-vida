@@ -20,7 +20,7 @@ export const InfoSiteSocialMedia = ({
     <Box>
       <Text
         fontSize="md"
-        color="whiteAlpha.700"
+        color="white"
         fontFamily={roboto?.style?.fontFamily}
         mb={5}
       >

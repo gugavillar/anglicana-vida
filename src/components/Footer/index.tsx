@@ -11,7 +11,7 @@ export const Footer = ({ siteInfo, socialMedia, menuItens }: FooterProps) => {
       width="full"
       minH="fit-content"
       p={6}
-      bg="gray.700"
+      bg="cinder.950"
     >
       <Wrapper
         siteInfo={siteInfo}

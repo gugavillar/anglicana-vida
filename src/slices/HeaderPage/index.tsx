@@ -14,10 +14,12 @@ export type HeaderPageProps = SliceComponentProps<Content.HeaderPageSlice>
 const heading: JSXMapSerializer = {
   heading3: ({ children }) => (
     <Heading
+      as="h3"
       textTransform="uppercase"
       fontSize={{ base: 'xl', md: '5xl', lg: '5xl' }}
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
+      color="cinder.950"
     >
       {children}
     </Heading>
@@ -27,11 +29,13 @@ const heading: JSXMapSerializer = {
 const subHeading: JSXMapSerializer = {
   heading6: ({ children }) => (
     <Heading
+      as="h6"
       textTransform="uppercase"
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={400}
       mb={4}
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
+      color="cinder.950"
     >
       {children}
     </Heading>

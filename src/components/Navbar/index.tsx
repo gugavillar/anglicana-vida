@@ -9,7 +9,7 @@ export const Navbar = ({ menuItens, logo }: NavbarProps) => {
       as="header"
       minH={20}
       px={6}
-      bg="gray.700"
+      bg="cinder.950"
       position="sticky"
       top={0}
       zIndex={10}

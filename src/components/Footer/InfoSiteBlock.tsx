@@ -18,7 +18,7 @@ export const InfoSiteBlock = ({ siteInfo }: InfoSiteBlockProps) => {
       spacing={4}
       align="left"
       fontSize="xs"
-      color="whiteAlpha.700"
+      color="white"
       textTransform="uppercase"
       fontFamily={roboto?.style?.fontFamily}
     >
