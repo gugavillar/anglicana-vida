@@ -50,10 +50,12 @@ const HeaderPage = ({ slice }: HeaderPageProps): JSX.Element => {
       my={12}
     >
       <Box textAlign="center" maxW="35.3125rem">
-        <PrismicRichText
-          components={subHeading}
-          field={slice.primary.sub_heading}
-        />
+        {slice?.variation === 'default' ? (
+          <PrismicRichText
+            components={subHeading}
+            field={slice.primary?.sub_heading}
+          />
+        ) : null}
         <PrismicRichText components={heading} field={slice.primary.heading} />
       </Box>
     </Flex>
