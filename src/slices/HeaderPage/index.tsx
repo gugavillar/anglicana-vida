@@ -53,7 +53,7 @@ const HeaderPage = ({ slice }: HeaderPageProps): JSX.Element => {
       mx="auto"
       my={12}
     >
-      <Box textAlign="center" maxW="35.3125rem">
+      <Box textAlign="center" maxW="35.3125rem" px={6}>
         {slice?.variation === 'default' ? (
           <PrismicRichText
             components={subHeading}
