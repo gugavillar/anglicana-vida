@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import { GroupField, ImageField } from '@prismicio/client'
 
-import { Box } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 
 import { Footer } from '../Footer'
 import { Navbar } from '../Navbar'
@@ -30,16 +30,16 @@ export const Container = ({
   socialMedia,
 }: ContainerProps) => {
   return (
-    <Box w="full" h="100vh">
+    <Flex direction="column" w="full" minH="100vh">
       <Navbar menuItens={menuItens} logo={logo} />
-      <Box mx="auto" maxW="75rem" p={6}>
+      <Flex direction="column" flex={1}>
         {children}
-      </Box>
+      </Flex>
       <Footer
         siteInfo={siteInfo}
         socialMedia={socialMedia}
         menuItens={menuItens}
       />
-    </Box>
+    </Flex>
   )
 }

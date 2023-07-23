@@ -8,10 +8,8 @@ export const Footer = ({ siteInfo, socialMedia, menuItens }: FooterProps) => {
     <Box
       as="footer"
       mt="16px"
-      position="absolute"
-      bottom={0}
       width="full"
-      height="fit-content"
+      minH="fit-content"
       p={6}
       bg="gray.700"
     >
