@@ -23,8 +23,8 @@ export const MobileDrawer = ({
   return (
     <Drawer isOpen={isOpen} onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent bg="gray.700">
-        <DrawerCloseButton size="lg" top={3} color="whiteAlpha.700" />
+      <DrawerContent bg="cinder.950">
+        <DrawerCloseButton size="lg" top={3} color="white" />
         <DrawerHeader title="Menu principal" />
         <DrawerBody menuItens={menuItens} />
       </DrawerContent>

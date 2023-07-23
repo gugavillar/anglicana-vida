@@ -8,10 +8,7 @@ type DrawerHeaderProps = {
 
 export const DrawerHeader = ({ title }: DrawerHeaderProps) => {
   return (
-    <ChakraDrawerHeader
-      color="whiteAlpha.700"
-      fontFamily={roboto?.style?.fontFamily}
-    >
+    <ChakraDrawerHeader color="white" fontFamily={roboto?.style?.fontFamily}>
       {title}
     </ChakraDrawerHeader>
   )
