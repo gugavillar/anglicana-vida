@@ -1,0 +1,37 @@
+{
+  "id": "header_page",
+  "type": "SharedSlice",
+  "name": "HeaderPage",
+  "description": "HeaderPage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sub_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "sub_heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading6"
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

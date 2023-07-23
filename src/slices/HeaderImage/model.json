@@ -1,0 +1,45 @@
+{
+  "id": "header_image",
+  "type": "SharedSlice",
+  "name": "HeaderImage",
+  "description": "HeaderImage",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "background_image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "label": {
+          "type": "StructuredText",
+          "config": {
+            "label": "label",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
