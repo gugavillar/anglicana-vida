@@ -1,0 +1,81 @@
+{
+  "id": "register_event",
+  "type": "SharedSlice",
+  "name": "RegisterEvent",
+  "description": "RegisterEvent",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sub_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "sub_heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading6"
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {
+        "date": {
+          "type": "Date",
+          "config": { "label": "date", "placeholder": "" }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading5"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "initial_date": {
+          "type": "Timestamp",
+          "config": { "label": "initial_date", "placeholder": "" }
+        },
+        "final_date": {
+          "type": "Timestamp",
+          "config": { "label": "final_date", "placeholder": "" }
+        },
+        "location": {
+          "type": "StructuredText",
+          "config": {
+            "label": "location",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    }
+  ]
+}

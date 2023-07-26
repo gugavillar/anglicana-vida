@@ -1,0 +1,127 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"sub_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading6",
+						"content": {
+							"text": "Range"
+						}
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Thirty"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2012-05-25"
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading5",
+									"content": {
+										"text": "Obtain"
+									}
+								}
+							]
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Eu culpa id aliqua voluptate nisi Lorem dolore aliquip esse dolore ut exercitation in. Amet pariatur proident ea consequat in ad."
+									}
+								}
+							]
+						}
+					],
+					[
+						"initial_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2021-05-29T01:18:36Z"
+						}
+					],
+					[
+						"final_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2021-02-21T13:30:40Z"
+						}
+					],
+					[
+						"location",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Id Lorem duis ad do labore. Amet ipsum exercitation ex aliqua voluptate reprehenderit culpa duis labore enim."
+									}
+								}
+							]
+						}
+					],
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+								"width": 4480,
+								"height": 4480
+							},
+							"url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
+							"width": 4480,
+							"height": 4480,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	}
+]
