@@ -52,8 +52,9 @@ export const Header = ({
       gap={4}
       direction="column"
       maxW="38.75rem"
-      textAlign="center"
       mb={16}
+      mx="auto"
+      textAlign="center"
     >
       <PrismicRichText components={subHeadingComponent} field={subHeading} />
       <PrismicRichText components={headingComponent} field={heading} />

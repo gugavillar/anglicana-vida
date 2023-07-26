@@ -103,7 +103,7 @@ export const EventCardBody = ({
     dayOfWeekNameAndHourWithMinutes(new Date(finalDate as string)),
   )
   return (
-    <CardBody p={0}>
+    <CardBody p={0} maxWidth="32rem">
       <VStack align="flex-start" spacing={4} mb={8}>
         <IfComponent
           condition={!!gradientText}

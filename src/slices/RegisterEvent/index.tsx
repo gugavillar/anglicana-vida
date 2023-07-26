@@ -1,7 +1,7 @@
 import type { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
-import { Flex } from '@chakra-ui/react'
+import { Flex, Box } from '@chakra-ui/react'
 
 import { EventBlockContainer } from './EventBlock'
 import { Header } from './Header'
@@ -14,13 +14,15 @@ const RegisterEvent = ({ slice }: RegisterEventProps): JSX.Element => {
       as="section"
       align="center"
       justify="center"
+      maxW="75rem"
       direction="column"
       mx="auto"
-      maxWidth="80rem"
       my={12}
     >
-      <Header primary={slice.primary} />
-      <EventBlockContainer items={slice?.items} />
+      <Box px={6}>
+        <Header primary={slice.primary} />
+        <EventBlockContainer items={slice?.items} />
+      </Box>
     </Flex>
   )
 }

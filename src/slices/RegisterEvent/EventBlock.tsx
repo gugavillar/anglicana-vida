@@ -14,12 +14,9 @@ export const EventBlockContainer = ({ items }: EventBlockProps) => {
   return items.map((item, index) => (
     <Flex
       key={index}
-      minHeight="32rem"
-      maxWidth={{ base: 'full', md: 'full', lg: 'inherit' }}
-      px={6}
-      align="center"
-      justify="center"
-      direction={{ base: 'column-reverse', md: 'row', lg: 'row' }}
+      direction={{ base: 'column-reverse', md: 'column-reverse', lg: 'row' }}
+      maxWidth="full"
+      mx="auto"
     >
       <CardEvent item={item} />
       <PrismicNextImage field={item.image} />
