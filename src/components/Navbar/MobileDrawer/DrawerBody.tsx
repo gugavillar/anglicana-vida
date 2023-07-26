@@ -5,12 +5,13 @@ import { NavbarProps } from '../navbar'
 
 type DrawerBodyProps = {
   menuItens: NavbarProps['menuItens']
+  onClose: () => void
 }
 
-export const DrawerBody = ({ menuItens }: DrawerBodyProps) => {
+export const DrawerBody = ({ menuItens, onClose }: DrawerBodyProps) => {
   return (
     <ChakraDrawerBody>
-      <Itens menuItens={menuItens} spacing={5} />
+      <Itens onClose={onClose} menuItens={menuItens} spacing={5} />
     </ChakraDrawerBody>
   )
 }

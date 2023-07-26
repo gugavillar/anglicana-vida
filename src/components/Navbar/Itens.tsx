@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 
 import { PrismicNextLink } from '@prismicio/next'
-import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
+import { PrismicRichText } from '@prismicio/react'
 
 import { Stack, StackProps, Text } from '@chakra-ui/react'
 
@@ -11,28 +11,31 @@ import { NavbarProps } from './navbar'
 
 type ItensProps = StackProps & {
   menuItens: NavbarProps['menuItens']
+  onClose?: () => void
 }
 
-const label: JSXMapSerializer = {
-  paragraph: ({ children }) => (
-    <Text
-      className={roboto?.style?.fontFamily}
-      color="white"
-      textTransform="uppercase"
-      cursor="pointer"
-    >
-      {children}
-    </Text>
-  ),
-}
-
-export const Itens = ({ menuItens, ...props }: ItensProps) => {
+export const Itens = ({ menuItens, onClose, ...props }: ItensProps) => {
   return (
     <Stack {...props}>
       {menuItens.map((item, index) => (
         <Fragment key={index}>
           <PrismicNextLink field={item.link}>
-            <PrismicRichText components={label} field={item.label} />
+            <PrismicRichText
+              components={{
+                paragraph: ({ children }) => (
+                  <Text
+                    className={roboto?.style?.fontFamily}
+                    color="white"
+                    textTransform="uppercase"
+                    cursor="pointer"
+                    {...(!!onClose && { onClick: onClose })}
+                  >
+                    {children}
+                  </Text>
+                ),
+              }}
+              field={item.label}
+            />
           </PrismicNextLink>
         </Fragment>
       ))}

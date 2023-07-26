@@ -26,7 +26,7 @@ export const MobileDrawer = ({
       <DrawerContent bg="cinder.950">
         <DrawerCloseButton size="lg" top={3} color="white" />
         <DrawerHeader title="Menu principal" />
-        <DrawerBody menuItens={menuItens} />
+        <DrawerBody onClose={onClose} menuItens={menuItens} />
       </DrawerContent>
     </Drawer>
   )
