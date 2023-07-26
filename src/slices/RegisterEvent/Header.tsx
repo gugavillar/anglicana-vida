@@ -32,7 +32,6 @@ const subHeadingComponent: JSXMapSerializer = {
       textTransform="uppercase"
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={400}
-      mb={4}
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
       color="cinder.950"
     >
