@@ -4,7 +4,6 @@ import { SliceComponentProps } from '@prismicio/react'
 import { Box, Card, Flex, SimpleGrid } from '@chakra-ui/react'
 
 import { EventCardBody } from './EventCardBody'
-import { EventCardFooter } from './EventCardFooter'
 import { EventCardHeader } from './EventCardHeader'
 import { HeaderBlock } from './HeaderBlock'
 
@@ -35,7 +34,11 @@ const EventCards = ({ slice }: EventCardsProps): JSX.Element => {
               bg="serenade.50"
               boxShadow="none"
               borderRadius={0}
-              pb={6}
+              p={{
+                base: 4,
+                md: 6,
+                lg: '24px 26px 24px 40px',
+              }}
               borderBottom="1rem solid transparent"
               _hover={{
                 borderBottom: '1rem solid',
@@ -43,8 +46,7 @@ const EventCards = ({ slice }: EventCardsProps): JSX.Element => {
               }}
             >
               <EventCardHeader card={card} />
-              <EventCardBody card={card} />
-              <EventCardFooter card={card} />
+              <EventCardBody card={card} gradientText="Próximo evento" />
             </Card>
           ))}
         </SimpleGrid>
