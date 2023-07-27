@@ -1,6 +1,6 @@
 {
-  "id": "events",
-  "label": "Events",
+  "id": "about_us",
+  "label": "About Us",
   "format": "page",
   "repeatable": false,
   "status": true,
@@ -12,8 +12,8 @@
         "config": {
           "choices": {
             "header_image": { "type": "SharedSlice" },
-            "event_cards": { "type": "SharedSlice" },
-            "register_event": { "type": "SharedSlice" },
+            "summary_about_us": { "type": "SharedSlice" },
+            "info_content": { "type": "SharedSlice" },
             "header_text": { "type": "SharedSlice" }
           }
         }

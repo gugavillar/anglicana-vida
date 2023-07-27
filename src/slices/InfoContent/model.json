@@ -1,8 +1,8 @@
 {
-  "id": "event_cards",
+  "id": "info_content",
   "type": "SharedSlice",
-  "name": "EventCards",
-  "description": "EventCards",
+  "name": "InfoContent",
+  "description": "InfoContent",
   "variations": [
     {
       "id": "default",
@@ -13,40 +13,28 @@
       "imageUrl": "",
       "primary": {},
       "items": {
-        "date": {
-          "type": "Date",
-          "config": { "label": "date", "placeholder": "" }
-        },
-        "title": {
+        "label": {
           "type": "StructuredText",
           "config": {
-            "label": "title",
+            "label": "label",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading5"
+            "single": "paragraph"
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading4"
           }
         },
         "description": {
           "type": "StructuredText",
           "config": {
             "label": "description",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "paragraph"
-          }
-        },
-        "initial_date": {
-          "type": "Timestamp",
-          "config": { "label": "initial_date", "placeholder": "" }
-        },
-        "final_date": {
-          "type": "Timestamp",
-          "config": { "label": "final_date", "placeholder": "" }
-        },
-        "location": {
-          "type": "StructuredText",
-          "config": {
-            "label": "location",
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "paragraph"

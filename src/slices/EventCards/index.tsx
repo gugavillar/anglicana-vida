@@ -1,7 +1,9 @@
 import type { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
-import { Box, Card, Flex, SimpleGrid } from '@chakra-ui/react'
+import { Box, Card, SimpleGrid } from '@chakra-ui/react'
+
+import { SliceContainer } from '@/components/SliceContainer'
 
 import { EventCardBody } from './EventCardBody'
 import { EventCardHeader } from './EventCardHeader'
@@ -11,15 +13,7 @@ export type EventCardsProps = SliceComponentProps<Content.EventCardsSlice>
 
 const EventCards = ({ slice }: EventCardsProps): JSX.Element => {
   return (
-    <Flex
-      as="section"
-      align="center"
-      justify="center"
-      maxW="75rem"
-      direction="column"
-      mx="auto"
-      my={12}
-    >
+    <SliceContainer>
       <Box px={6}>
         <HeaderBlock primary={slice.primary} />
         <SimpleGrid
@@ -51,7 +45,7 @@ const EventCards = ({ slice }: EventCardsProps): JSX.Element => {
           ))}
         </SimpleGrid>
       </Box>
-    </Flex>
+    </SliceContainer>
   )
 }
 

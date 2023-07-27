@@ -7,7 +7,7 @@ export const Footer = ({ siteInfo, socialMedia, menuItens }: FooterProps) => {
   return (
     <Box
       as="footer"
-      mt="16px"
+      mt={12}
       width="full"
       minH="fit-content"
       p={6}

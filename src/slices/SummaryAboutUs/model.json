@@ -1,0 +1,23 @@
+{
+  "id": "summary_about_us",
+  "type": "SharedSlice",
+  "name": "SummaryAboutUs",
+  "description": "SummaryAboutUs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+        }
+      }
+    }
+  ]
+}
