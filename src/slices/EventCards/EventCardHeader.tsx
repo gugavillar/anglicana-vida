@@ -11,7 +11,7 @@ import { dayOfMonth, monthAbbreviation } from '@/formatters'
 import type { Simplify } from '../../../prismicio-types'
 
 type EventDateProps = {
-  children: Simplify<Content.EventCardsSliceDefaultItem>['date']
+  children: Simplify<Content.EventCardsSlice>['items'][number]['date']
   gradientText?: string
 }
 
@@ -48,7 +48,7 @@ const EventDate = ({ children, gradientText }: EventDateProps) => {
 }
 
 type EventCardHeaderProps = {
-  card: Simplify<Content.EventCardsSliceDefaultItem>
+  card: Simplify<Content.EventCardsSlice>['items'][number]
   gradientText?: string
 }
 

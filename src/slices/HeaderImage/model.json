@@ -16,7 +16,7 @@
           "type": "Image",
           "config": {
             "label": "background_image",
-            "constraint": {},
+            "constraint": { "width": 1500, "height": 500 },
             "thumbnails": []
           }
         },

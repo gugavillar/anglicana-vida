@@ -82,7 +82,7 @@ const InitialAndFinalDateTime = ({
 )
 
 type EventCardBodyProps = {
-  card: Simplify<Content.EventCardsSliceDefaultItem>
+  card: Simplify<Content.EventCardsSliceDefault>['items'][number]
   gradientText?: string
 }
 

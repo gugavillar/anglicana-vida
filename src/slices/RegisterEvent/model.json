@@ -54,7 +54,11 @@
         },
         "image": {
           "type": "Image",
-          "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "label": "image",
+            "constraint": { "width": 845, "height": 512 },
+            "thumbnails": []
+          }
         }
       }
     }
