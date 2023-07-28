@@ -10,26 +10,24 @@
 					[
 						"image",
 						{
+							"__TYPE__": "ImageContent",
 							"origin": {
 								"id": "main",
-								"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
-								"width": 4024,
-								"height": 4024
+								"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
+								"width": 3168,
+								"height": 4752
 							},
-							"url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
-							"width": 4024,
-							"height": 4024,
+							"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613?rect=0%2C300%2C3168%2C4152&w=293&h=384",
+							"width": 293,
+							"height": 384,
 							"edit": {
 								"zoom": 1,
 								"crop": {
 									"x": 0,
-									"y": 0
+									"y": 300
 								},
 								"background": "transparent"
 							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
 							"thumbnails": {}
 						}
 					]

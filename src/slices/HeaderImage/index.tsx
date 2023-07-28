@@ -19,6 +19,7 @@ const HeaderImage = ({ slice }: HeaderImageProps): JSX.Element => {
       <BoxWithText primary={slice?.primary} />
       <Skeleton isLoaded={!!slice.primary.background_image?.url}>
         <Image
+          maxHeight="31.25rem"
           objectFit="cover"
           src={slice.primary.background_image?.url as string}
           alt={slice.primary.background_image?.alt as string}

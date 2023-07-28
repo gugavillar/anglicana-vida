@@ -15,7 +15,11 @@
       "items": {
         "image": {
           "type": "Image",
-          "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "label": "image",
+            "constraint": { "width": 293, "height": 384 },
+            "thumbnails": []
+          }
         }
       }
     }
