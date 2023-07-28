@@ -27,7 +27,7 @@ const EventDate = ({ children, gradientText }: EventDateProps) => {
       />
       <Box textAlign="end">
         <Text
-          fontSize={{ base: 'xl', md: '2xl', lg: '2xl' }}
+          fontSize={{ base: 'lg', md: '2xl', lg: '1.75rem' }}
           fontWeight={700}
           fontFamily={roboto?.style?.fontFamily}
         >

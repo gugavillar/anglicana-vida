@@ -12,7 +12,7 @@ const titleComponent: JSXMapSerializer = {
     <Heading
       as="h1"
       textTransform="uppercase"
-      fontSize={{ base: 'xl', md: '4xl', lg: '5xl' }}
+      fontSize={{ base: '2xl', md: '4xl', lg: '5xl' }}
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
       color="white"
