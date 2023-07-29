@@ -1,0 +1,184 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2023-01-12"
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading5",
+									"content": {
+										"text": "Tried"
+									}
+								}
+							]
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Labore sunt incididunt labore aliquip deserunt culpa mollit anim ad. Consectetur cillum velit sunt excepteur fugiat eiusmod aliqua aliqua elit cupidatat incididunt sint aute magna ipsum. Excepteur velit incididunt laborum duis qui eu tempor ipsum do elit."
+									}
+								}
+							]
+						}
+					],
+					[
+						"initial_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2017-11-13T12:08:10Z"
+						}
+					],
+					[
+						"final_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2015-03-04T16:13:58Z"
+						}
+					],
+					[
+						"location",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Minim sint voluptate fugiat nisi officia culpa."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "registration",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Date",
+							"value": "2013-11-08"
+						}
+					],
+					[
+						"title",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading5",
+									"content": {
+										"text": "Without"
+									}
+								}
+							]
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Mollit adipisicing aliquip fugiat ad incididunt esse eiusmod sint. Nostrud aliqua id dolor. Aliqua id aute occaecat."
+									}
+								}
+							]
+						}
+					],
+					[
+						"initial_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2012-06-21T01:15:04Z"
+						}
+					],
+					[
+						"final_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2020-08-28T18:33:30Z"
+						}
+					],
+					[
+						"location",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Velit id ad consectetur. Eu enim fugiat est in minim non occaecat irure tempor proident cillum nostrud consequat. Culpa sunt commodo consequat incididunt aute magna ut non consectetur irure incididunt incididunt esse qui sit."
+									}
+								}
+							]
+						}
+					],
+					[
+						"image",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+								"width": 3456,
+								"height": 3456
+							},
+							"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?rect=0%2C681%2C3456%2C2094&w=845&h=512",
+							"width": 845,
+							"height": 512,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 681
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	}
+]

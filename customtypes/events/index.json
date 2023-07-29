@@ -13,7 +13,6 @@
           "choices": {
             "header_image": { "type": "SharedSlice" },
             "event_cards": { "type": "SharedSlice" },
-            "register_event": { "type": "SharedSlice" },
             "header_text": { "type": "SharedSlice" }
           }
         }

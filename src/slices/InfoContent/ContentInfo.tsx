@@ -56,7 +56,7 @@ export const ContentInfo = ({
   item: { label, description, heading },
 }: ContentInfoProps) => {
   return (
-    <VStack spacing={4} align="flex-start">
+    <VStack spacing={4} align="flex-start" minWidth="50%">
       <PrismicRichText components={labelComponent} field={label} />
       <PrismicRichText components={headingComponent} field={heading} />
       <PrismicRichText components={descriptionComponent} field={description} />

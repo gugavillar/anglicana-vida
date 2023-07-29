@@ -1,9 +1,9 @@
-import { format, getDate } from 'date-fns'
+import { format } from 'date-fns'
 import * as locale from 'date-fns/locale'
 
 const ptBR = locale.ptBR
 
-export const dayOfMonth = (date: Date) => getDate(date)
+export const dayOfMonth = (date: Date) => format(date, 'dd', { locale: ptBR })
 
 export const monthAbbreviation = (date: Date) =>
   format(date, 'MMMM', { locale: ptBR })
