@@ -14,8 +14,8 @@ type EventDateProps = {
 }
 
 const EventDate = ({ children, gradientText }: EventDateProps) => {
-  const eventDay = dayOfMonth(new Date(children as string))
-  const eventMonth = monthAbbreviation(new Date(children as string))
+  const eventDay = dayOfMonth(children as string)
+  const eventMonth = monthAbbreviation(children as string)
   const justify = gradientText ? 'space-between' : 'end'
   return (
     <Flex align="end" justify={justify}>
