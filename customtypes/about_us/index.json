@@ -15,8 +15,7 @@
             "summary_about_us": { "type": "SharedSlice" },
             "info_content": { "type": "SharedSlice" },
             "header_text": { "type": "SharedSlice" },
-            "content_with_image": { "type": "SharedSlice" },
-            "people_cards": { "type": "SharedSlice" }
+            "content_with_image": { "type": "SharedSlice" }
           }
         }
       }
