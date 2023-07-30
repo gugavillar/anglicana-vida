@@ -1,11 +1,15 @@
 import { ReactNode } from 'react'
 
-import { Flex } from '@chakra-ui/react'
+import { Flex, Box } from '@chakra-ui/react'
 
 type SliceContainerProps = {
   children: ReactNode
+  isBoxContainer?: boolean
 }
-export const SliceContainer = ({ children }: SliceContainerProps) => {
+export const SliceContainer = ({
+  children,
+  isBoxContainer,
+}: SliceContainerProps) => {
   return (
     <Flex
       as="section"
@@ -16,7 +20,7 @@ export const SliceContainer = ({ children }: SliceContainerProps) => {
       mx="auto"
       mt={12}
     >
-      {children}
+      {isBoxContainer ? <Box px={6}>{children}</Box> : children}
     </Flex>
   )
 }

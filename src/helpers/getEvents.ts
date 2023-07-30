@@ -7,7 +7,11 @@ export const getEvents = async ({ previewData }: GetStaticPropsContext) => {
 
   try {
     const events = await client.getSingle('events')
-    return { ...events }
+    const cardEvents = await client.getAllByType('card_event')
+    return {
+      ...events,
+      cardEvents,
+    }
   } catch (error: any) {
     throw Error(error)
   }

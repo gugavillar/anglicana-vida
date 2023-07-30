@@ -18,7 +18,11 @@ export default function Page({
           <meta name="description" content={page.data.meta_description} />
         ) : null}
       </Head>
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone
+        context={page?.cardEvents}
+        slices={page.data.slices}
+        components={components}
+      />
     </>
   )
 }

@@ -24,6 +24,10 @@
 						}
 					}
 				]
+			},
+			"has_component": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []
@@ -42,6 +46,10 @@
 						}
 					}
 				]
+			},
+			"has_component": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [

@@ -7,11 +7,19 @@ import {
 
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 
+import { IfComponent } from '@/components/IfComponent'
 import { SliceContainer } from '@/components/SliceContainer'
 
 import { roboto } from '@/fonts/roboto'
 
-export type HeaderTextProps = SliceComponentProps<Content.HeaderTextSlice>
+import { CardEventDocument } from '../../../prismicio-types'
+import { EventCardsProps } from '../Event'
+import { DefaultEvent } from '../Event/DefaultEvent'
+
+export type HeaderTextProps = SliceComponentProps<
+  Content.HeaderTextSlice,
+  CardEventDocument<string>[]
+>
 
 const headingComponent: JSXMapSerializer = {
   heading3: ({ children }) => (
@@ -57,7 +65,17 @@ const descriptionComponent: JSXMapSerializer = {
   ),
 }
 
-const HeaderText = ({ slice }: HeaderTextProps): JSX.Element => {
+const components = {
+  card_event: (items: EventCardsProps['slice']['items']) => (
+    <SliceContainer isBoxContainer>
+      <DefaultEvent items={items} />
+    </SliceContainer>
+  ),
+  none: () => null,
+}
+
+const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
+  const items = context?.map((item) => ({ ...item.data, type: item.type }))
   return (
     <SliceContainer>
       <Box as="header" maxW="48rem" mx="auto" px={6}>
@@ -80,6 +98,13 @@ const HeaderText = ({ slice }: HeaderTextProps): JSX.Element => {
           />
         ) : null}
       </Box>
+      <IfComponent
+        condition={
+          slice?.variation !== 'withDescription' &&
+          slice?.primary?.has_component
+        }
+        component={components[items[0].type](items)}
+      />
     </SliceContainer>
   )
 }
