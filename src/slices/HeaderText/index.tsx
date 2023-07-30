@@ -7,6 +7,8 @@ import {
 
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 
+import { PeopleCardType } from '@/components/AboutComponents/about'
+import { PeopleCardGridContainer } from '@/components/AboutComponents/PeopleCardGridContainer'
 import {
   EventCardType,
   RegisterCardType,
@@ -20,6 +22,7 @@ import { roboto } from '@/fonts/roboto'
 
 import type {
   CardEventDocument,
+  PeopleCardDocument,
   RegisterCardEventDocument,
 } from '../../../prismicio-types'
 
@@ -28,6 +31,7 @@ export type HeaderTextProps = SliceComponentProps<
   {
     cardEvents: CardEventDocument<string>[]
     registerCardEvents: RegisterCardEventDocument<string>[]
+    peopleCards: PeopleCardDocument<string>[]
   }
 >
 
@@ -86,6 +90,11 @@ const components = {
       <EventRegisterContainer items={items} />
     </SliceContainer>
   ),
+  people_card: (items: Array<PeopleCardType>) => (
+    <SliceContainer isBoxContainer>
+      <PeopleCardGridContainer items={items} />
+    </SliceContainer>
+  ),
   none: () => null,
 }
 
@@ -94,6 +103,7 @@ const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
   const registerCardEvents = context?.registerCardEvents?.map((item) => ({
     ...item.data,
   }))
+  const peopleCards = context?.peopleCards?.map((item) => ({ ...item.data }))
   return (
     <SliceContainer>
       <Box as="header" maxW="48rem" mx="auto" px={6}>
@@ -119,15 +129,26 @@ const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
       <IfComponent
         condition={
           slice?.variation === 'withoutSubHeading' &&
-          slice?.primary?.has_component
+          slice?.primary?.has_component &&
+          !!cardEvents?.length
         }
         component={components.card_event(cardEvents)}
       />
       <IfComponent
         condition={
-          slice?.variation === 'default' && slice?.primary?.has_component
+          slice?.variation === 'default' &&
+          slice?.primary?.has_component &&
+          !!registerCardEvents?.length
         }
         component={components.register_card_event(registerCardEvents)}
+      />
+      <IfComponent
+        condition={
+          slice?.variation === 'default' &&
+          slice?.primary?.has_component &&
+          !!peopleCards?.length
+        }
+        component={components.people_card(peopleCards)}
       />
     </SliceContainer>
   )

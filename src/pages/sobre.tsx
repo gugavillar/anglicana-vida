@@ -19,7 +19,7 @@ export default function Page({
         ) : null}
       </Head>
       <SliceZone
-        context={[]}
+        context={page?.context}
         slices={page.data.slices}
         components={components}
       />
