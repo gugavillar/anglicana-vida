@@ -7,18 +7,28 @@ import {
 
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 
+import {
+  EventCardType,
+  RegisterCardType,
+} from '@/components/EventsComponents/event'
+import { EventGridContainer } from '@/components/EventsComponents/EventGridContainer'
+import { EventRegisterContainer } from '@/components/EventsComponents/EventRegisterContainer'
 import { IfComponent } from '@/components/IfComponent'
 import { SliceContainer } from '@/components/SliceContainer'
 
 import { roboto } from '@/fonts/roboto'
 
-import { CardEventDocument } from '../../../prismicio-types'
-import { EventCardsProps } from '../Event'
-import { DefaultEvent } from '../Event/DefaultEvent'
+import type {
+  CardEventDocument,
+  RegisterCardEventDocument,
+} from '../../../prismicio-types'
 
 export type HeaderTextProps = SliceComponentProps<
   Content.HeaderTextSlice,
-  CardEventDocument<string>[]
+  {
+    cardEvents: CardEventDocument<string>[]
+    registerCardEvents: RegisterCardEventDocument<string>[]
+  }
 >
 
 const headingComponent: JSXMapSerializer = {
@@ -66,16 +76,24 @@ const descriptionComponent: JSXMapSerializer = {
 }
 
 const components = {
-  card_event: (items: EventCardsProps['slice']['items']) => (
+  card_event: (items: Array<EventCardType>) => (
     <SliceContainer isBoxContainer>
-      <DefaultEvent items={items} />
+      <EventGridContainer items={items} />
+    </SliceContainer>
+  ),
+  register_card_event: (items: Array<RegisterCardType>) => (
+    <SliceContainer isBoxContainer>
+      <EventRegisterContainer items={items} />
     </SliceContainer>
   ),
   none: () => null,
 }
 
 const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
-  const items = context?.map((item) => ({ ...item.data, type: item.type }))
+  const cardEvents = context?.cardEvents?.map((item) => ({ ...item.data }))
+  const registerCardEvents = context?.registerCardEvents?.map((item) => ({
+    ...item.data,
+  }))
   return (
     <SliceContainer>
       <Box as="header" maxW="48rem" mx="auto" px={6}>
@@ -100,10 +118,16 @@ const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
       </Box>
       <IfComponent
         condition={
-          slice?.variation !== 'withDescription' &&
+          slice?.variation === 'withoutSubHeading' &&
           slice?.primary?.has_component
         }
-        component={components[items[0].type](items)}
+        component={components.card_event(cardEvents)}
+      />
+      <IfComponent
+        condition={
+          slice?.variation === 'default' && slice?.primary?.has_component
+        }
+        component={components.register_card_event(registerCardEvents)}
       />
     </SliceContainer>
   )

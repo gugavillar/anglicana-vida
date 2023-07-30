@@ -12,7 +12,6 @@
         "config": {
           "choices": {
             "header_image": { "type": "SharedSlice" },
-            "event_cards": { "type": "SharedSlice" },
             "header_text": { "type": "SharedSlice" }
           }
         }
