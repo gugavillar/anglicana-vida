@@ -1,6 +1,6 @@
 import { Flex, Image } from '@chakra-ui/react'
 
-import { CardEvent } from './CardEvent'
+import { RegistrationCard } from './RegistrationCard'
 
 import type {
   EventCardsSliceRegistrationItem,
@@ -22,7 +22,7 @@ export const RegistrationEvent = ({ items }: RegistrationEventProps) => {
         mx="auto"
         {...(!isLastIndex && { mt: 6 })}
       >
-        <CardEvent item={item} />
+        <RegistrationCard item={item} />
         <Image
           objectFit="cover"
           src={item.image.url as string}

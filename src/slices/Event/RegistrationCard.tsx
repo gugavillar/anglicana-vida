@@ -7,11 +7,11 @@ import { EventCardHeader } from './EventCardHeader'
 
 import { EventCardsProps } from '.'
 
-type CardEventProps = {
+type RegistrationCardProps = {
   item: EventCardsProps['slice']['items'][number]
 }
 
-export const CardEvent = ({ item }: CardEventProps) => {
+export const RegistrationCard = ({ item }: RegistrationCardProps) => {
   return (
     <Card
       bg="serenade.50"
