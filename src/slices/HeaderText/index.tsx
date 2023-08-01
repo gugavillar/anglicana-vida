@@ -16,6 +16,8 @@ import {
 import { EventGridContainer } from '@/components/EventsComponents/EventGridContainer'
 import { EventRegisterContainer } from '@/components/EventsComponents/EventRegisterContainer'
 import { IfComponent } from '@/components/IfComponent'
+import { SermonCardType } from '@/components/SermonsComponents/sermon'
+import { SermonGridContainer } from '@/components/SermonsComponents/SermonGridContainer'
 import { SliceContainer } from '@/components/SliceContainer'
 
 import { roboto } from '@/fonts/roboto'
@@ -24,6 +26,7 @@ import type {
   CardEventDocument,
   PeopleCardDocument,
   RegisterCardEventDocument,
+  SermonCardDocument,
 } from '../../../prismicio-types'
 
 export type HeaderTextProps = SliceComponentProps<
@@ -32,6 +35,7 @@ export type HeaderTextProps = SliceComponentProps<
     cardEvents: CardEventDocument<string>[]
     registerCardEvents: RegisterCardEventDocument<string>[]
     peopleCards: PeopleCardDocument<string>[]
+    sermonCards: SermonCardDocument<string>[]
   }
 >
 
@@ -95,6 +99,11 @@ const components = {
       <PeopleCardGridContainer items={items} />
     </SliceContainer>
   ),
+  sermon_card: (items: Array<SermonCardType>) => (
+    <SliceContainer isBoxContainer>
+      <SermonGridContainer items={items} />
+    </SliceContainer>
+  ),
   none: () => null,
 }
 
@@ -104,6 +113,7 @@ const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
     ...item.data,
   }))
   const peopleCards = context?.peopleCards?.map((item) => ({ ...item.data }))
+  const sermonCards = context?.sermonCards?.map((item) => ({ ...item.data }))
   return (
     <SliceContainer>
       <Box as="header" maxW="48rem" mx="auto" px={6}>
@@ -149,6 +159,14 @@ const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
           !!peopleCards?.length
         }
         component={components.people_card(peopleCards)}
+      />
+      <IfComponent
+        condition={
+          slice?.variation === 'withoutSubHeading' &&
+          slice?.primary?.has_component &&
+          !!sermonCards?.length
+        }
+        component={components.sermon_card(sermonCards)}
       />
     </SliceContainer>
   )

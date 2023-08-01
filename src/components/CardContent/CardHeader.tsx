@@ -1,4 +1,9 @@
-import { Box, CardHeader, Text, Flex } from '@chakra-ui/react'
+import {
+  Box,
+  CardHeader as ChakraCardHeader,
+  Text,
+  Flex,
+} from '@chakra-ui/react'
 
 import { GradientText } from '@/components/GradientText'
 import { IfComponent } from '@/components/IfComponent'
@@ -6,10 +11,10 @@ import { IfComponent } from '@/components/IfComponent'
 import { roboto } from '@/fonts/roboto'
 import { dayOfMonth, monthAbbreviation } from '@/formatters'
 
-import { EventCardType, RegisterCardType } from '../event'
+import { CardType } from './card'
 
 type EventDateProps = {
-  children: EventCardType['date'] | RegisterCardType['date']
+  children: CardType['date']
   gradientText?: string
 }
 
@@ -45,18 +50,18 @@ const EventDate = ({ children, gradientText }: EventDateProps) => {
   )
 }
 
-type EventCardHeaderProps = {
-  card: EventCardType | RegisterCardType
+type CardHeaderProps = {
+  card: CardType
   gradientText?: string
 }
 
-export const EventCardHeader = ({
+export const CardHeader = ({
   card: { date },
   gradientText,
-}: EventCardHeaderProps) => {
+}: CardHeaderProps) => {
   return (
-    <CardHeader p={0} mb={2}>
+    <ChakraCardHeader p={0} mb={2}>
       <EventDate gradientText={gradientText}>{date}</EventDate>
-    </CardHeader>
+    </ChakraCardHeader>
   )
 }

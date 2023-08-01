@@ -1,7 +1,7 @@
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import {
-  CardBody,
+  CardBody as ChakraCardBody,
   VStack,
   Text,
   Heading,
@@ -14,9 +14,13 @@ import { GradientText } from '@/components/GradientText'
 import { IfComponent } from '@/components/IfComponent'
 
 import { roboto } from '@/fonts/roboto'
-import { dayOfWeekNameAndHourWithMinutes, dayOfWeekReplace } from '@/formatters'
+import {
+  dayOfWeekNameAndDayMonthYear,
+  hourAndMinutes,
+  dayOfWeekReplace,
+} from '@/formatters'
 
-import { EventCardType } from '../event'
+import { CardType } from './card'
 
 const titleComponent: JSXMapSerializer = {
   heading5: ({ children }) => (
@@ -61,31 +65,45 @@ const locationComponent: JSXMapSerializer = {
   ),
 }
 
-type InitialAndFinalDateTimeProps = {
-  children: string
+type TimeComponentProps = {
+  weekNameAndDate: string
+  hourAndMinutes: string
 }
 
-const InitialAndFinalDateTime = ({
-  children,
-}: InitialAndFinalDateTimeProps) => (
-  <Text
-    color="cinder.950"
-    fontWeight={400}
-    lineHeight={{ base: '16px', md: '24px', lg: '24px' }}
-    fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
-    fontFamily={roboto?.style?.fontFamily}
-    textTransform="capitalize"
-  >
-    {children}
-  </Text>
+const TimeComponent = ({
+  hourAndMinutes,
+  weekNameAndDate,
+}: TimeComponentProps) => (
+  <VStack spacing={0} align="flex-start">
+    <Text
+      color="cinder.950"
+      fontWeight={400}
+      lineHeight={{ base: '16px', md: '24px', lg: '24px' }}
+      fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
+      fontFamily={roboto?.style?.fontFamily}
+      textTransform="capitalize"
+    >
+      {weekNameAndDate}
+    </Text>
+    <Text
+      color="cinder.950"
+      fontWeight={400}
+      lineHeight={{ base: '16px', md: '24px', lg: '24px' }}
+      fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
+      fontFamily={roboto?.style?.fontFamily}
+      textTransform="capitalize"
+    >
+      {hourAndMinutes}
+    </Text>
+  </VStack>
 )
 
-type EventCardBodyProps = {
-  card: EventCardType
+type CardBodyProps = {
+  card: CardType
   gradientText?: string
 }
 
-export const EventCardBody = ({
+export const CardBody = ({
   card: {
     title,
     description,
@@ -94,15 +112,21 @@ export const EventCardBody = ({
     location,
   },
   gradientText,
-}: EventCardBodyProps) => {
-  const initial = dayOfWeekReplace(
-    dayOfWeekNameAndHourWithMinutes(new Date(initialDate as string)),
+}: CardBodyProps) => {
+  const formatInitialDate = dayOfWeekReplace(
+    dayOfWeekNameAndDayMonthYear(new Date(initialDate as string)),
   )
-  const final = dayOfWeekReplace(
-    dayOfWeekNameAndHourWithMinutes(new Date(finalDate as string)),
+  const formatFinalDate = dayOfWeekReplace(
+    dayOfWeekNameAndDayMonthYear(new Date(finalDate as string)),
+  )
+  const formatInitialHourAndMinutes = hourAndMinutes(
+    new Date(initialDate as string),
+  )
+  const formatFinalHourAndMinutes = hourAndMinutes(
+    new Date(finalDate as string),
   )
   return (
-    <CardBody p={0} maxWidth="32rem">
+    <ChakraCardBody p={0} maxWidth="32rem">
       <VStack align="flex-start" spacing={4} mb={8}>
         <IfComponent
           condition={!!gradientText}
@@ -115,16 +139,28 @@ export const EventCardBody = ({
         />
       </VStack>
       <VStack align="flex-start" spacing={4}>
-        <Grid templateColumns={'25px 1fr'} columnGap={4}>
+        <Grid
+          templateColumns={{ base: '16px 1fr', md: '25px 1fr', lg: '25px 1fr' }}
+          columnGap={{ base: 2, md: 4, lg: 4 }}
+        >
           <GridItem>
             <Clock size={20} />
           </GridItem>
           <GridItem>
-            <InitialAndFinalDateTime>{initial}</InitialAndFinalDateTime>
-            <InitialAndFinalDateTime>{final}</InitialAndFinalDateTime>
+            <TimeComponent
+              weekNameAndDate={formatInitialDate}
+              hourAndMinutes={formatInitialHourAndMinutes}
+            />
+            <TimeComponent
+              weekNameAndDate={formatFinalDate}
+              hourAndMinutes={formatFinalHourAndMinutes}
+            />
           </GridItem>
         </Grid>
-        <Grid templateColumns={'25px 1fr'} columnGap={4}>
+        <Grid
+          templateColumns={{ base: '16px 1fr', md: '25px 1fr', lg: '25px 1fr' }}
+          columnGap={{ base: 2, md: 4, lg: 4 }}
+        >
           <GridItem>
             <MapPinLine size={20} />
           </GridItem>
@@ -133,6 +169,6 @@ export const EventCardBody = ({
           </GridItem>
         </Grid>
       </VStack>
-    </CardBody>
+    </ChakraCardBody>
   )
 }

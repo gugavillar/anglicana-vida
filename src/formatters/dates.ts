@@ -11,8 +11,11 @@ export const dayOfMonth = (date: string) =>
 export const monthAbbreviation = (date: string) =>
   format(parse(date, 'yyyy-MM-dd', new Date()), 'MMMM', { locale: ptBR })
 
-export const dayOfWeekNameAndHourWithMinutes = (date: Date) =>
-  format(date, 'cccc, HH:mm', { locale: ptBR })
+export const dayOfWeekNameAndDayMonthYear = (date: Date) =>
+  format(date, 'cccc, dd/MM', { locale: ptBR })
+
+export const hourAndMinutes = (date: Date) =>
+  format(date, 'HH:mm', { locale: ptBR })
 
 export const dayOfWeekReplace = (day: string) => {
   if (!day) return ''

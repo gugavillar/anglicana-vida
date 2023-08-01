@@ -3,17 +3,17 @@ import { Card } from '@chakra-ui/react'
 import { CardBody } from '@/components/CardContent/CardBody'
 import { CardHeader } from '@/components/CardContent/CardHeader'
 
-import { EventCardType } from '../event'
+import { SermonCardType } from '../sermon'
 
-type EventCardProps = {
-  items: Array<EventCardType>
+type SermonCardProps = {
+  items: Array<SermonCardType>
 }
 
-export const EventCard = ({ items }: EventCardProps) => {
+export const SermonCard = ({ items }: SermonCardProps) => {
   return items?.map((card, index) => (
     <Card
       key={index}
-      bg="serenade.50"
+      bg="white"
       boxShadow="none"
       borderRadius={0}
       p={{
@@ -28,7 +28,7 @@ export const EventCard = ({ items }: EventCardProps) => {
       }}
     >
       <CardHeader card={card} />
-      <CardBody card={card} gradientText="Próximo evento" />
+      <CardBody card={card} gradientText="Próximo sermão" />
     </Card>
   ))
 }

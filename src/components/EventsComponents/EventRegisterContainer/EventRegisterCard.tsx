@@ -2,8 +2,8 @@ import { Card } from '@chakra-ui/react'
 
 import { SecondaryButton } from '@/components/Buttons'
 
-import { EventCardBody } from '../common/EventCardBody'
-import { EventCardHeader } from '../common/EventCardHeader'
+import { CardBody } from '../../CardContent/CardBody'
+import { CardHeader } from '../../CardContent/CardHeader'
 import { RegisterCardType } from '../event'
 
 type RegistrationCardProps = {
@@ -23,8 +23,8 @@ export const EventRegisterCard = ({ item }: RegistrationCardProps) => {
         lg: 6,
       }}
     >
-      <EventCardHeader gradientText="Inscrições abertas" card={item} />
-      <EventCardBody card={item} />
+      <CardHeader gradientText="Inscrições abertas" card={item} />
+      <CardBody card={item} />
       <SecondaryButton
         textButton="Inscrever"
         mt={8}

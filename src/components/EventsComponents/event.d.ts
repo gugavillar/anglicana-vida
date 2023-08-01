@@ -1,19 +1,6 @@
-import {
-  DateField,
-  TitleField,
-  RichTextField,
-  TimestampField,
-  ImageField,
-} from '@prismicio/client'
+import { ImageField } from '@prismicio/client'
 
-type CardType = {
-  date: DateField
-  title: TitleField
-  description: RichTextField
-  initial_date: TimestampField
-  final_date: TimestampField
-  location: RichTextField
-}
+import { CardType } from '../CardContent/card'
 
 export type RegisterCardType = CardType & {
   image: ImageField

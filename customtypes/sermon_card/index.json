@@ -1,0 +1,51 @@
+{
+  "id": "sermon_card",
+  "label": "SermonCard",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "date": {
+        "type": "Date",
+        "config": { "label": "date", "placeholder": "" }
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading5"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "initial_date": {
+        "type": "Timestamp",
+        "config": { "label": "initial_date", "placeholder": "" }
+      },
+      "final_date": {
+        "type": "Timestamp",
+        "config": { "label": "final_date", "placeholder": "" }
+      },
+      "location": {
+        "type": "StructuredText",
+        "config": {
+          "label": "location",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      }
+    }
+  }
+}
