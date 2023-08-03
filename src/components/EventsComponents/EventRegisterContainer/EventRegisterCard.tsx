@@ -14,7 +14,7 @@ export const EventRegisterCard = ({ item }: RegistrationCardProps) => {
   return (
     <Card
       bg="serenade.50"
-      boxShadow="none"
+      boxShadow="base"
       borderRadius={0}
       maxWidth={{ base: 'full', md: 'full', lg: '27.1875rem' }}
       p={{

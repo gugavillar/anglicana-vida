@@ -14,7 +14,7 @@ export const EventCard = ({ items }: EventCardProps) => {
     <Card
       key={index}
       bg="serenade.50"
-      boxShadow="none"
+      boxShadow="base"
       borderRadius={0}
       p={{
         base: 4,
