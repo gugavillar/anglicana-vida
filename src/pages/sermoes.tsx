@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { isFilled } from '@prismicio/client'
 import { SliceZone } from '@prismicio/react'
 
+import { DarkMode, GlobalStyle } from '@chakra-ui/react'
+
 import { getSermons } from '@/helpers'
 import { components } from '@/slices'
 
@@ -11,7 +13,8 @@ export default function Page({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <>
+    <DarkMode>
+      <GlobalStyle />
       <Head>
         <title>{page.data.meta_title}</title>
         {isFilled.keyText(page.data.meta_description) ? (
@@ -23,7 +26,7 @@ export default function Page({
         slices={page.data.slices}
         components={components}
       />
-    </>
+    </DarkMode>
   )
 }
 
