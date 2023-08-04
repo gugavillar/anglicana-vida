@@ -33,6 +33,7 @@ const EventDate = ({ children, gradientText }: EventDateProps) => {
           fontSize={{ base: 'lg', md: '2xl', lg: '1.75rem' }}
           fontWeight={700}
           fontFamily={roboto?.style?.fontFamily}
+          color="cinder.950"
         >
           {eventDay}
         </Text>

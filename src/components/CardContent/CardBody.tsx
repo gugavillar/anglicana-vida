@@ -144,7 +144,7 @@ export const CardBody = ({
           columnGap={{ base: 2, md: 4, lg: 4 }}
         >
           <GridItem>
-            <Clock size={20} />
+            <Clock color="#161722" size={20} />
           </GridItem>
           <GridItem>
             <TimeComponent
@@ -162,7 +162,7 @@ export const CardBody = ({
           columnGap={{ base: 2, md: 4, lg: 4 }}
         >
           <GridItem>
-            <MapPinLine size={20} />
+            <MapPinLine color="#161722" size={20} />
           </GridItem>
           <GridItem>
             <PrismicRichText components={locationComponent} field={location} />
