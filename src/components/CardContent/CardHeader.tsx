@@ -14,7 +14,7 @@ import { dayOfMonth, monthAbbreviation } from '@/formatters'
 import { CardType } from './card'
 
 type EventDateProps = {
-  children: CardType['date']
+  children: CardType['initial_date']
   gradientText?: string
 }
 
@@ -57,12 +57,12 @@ type CardHeaderProps = {
 }
 
 export const CardHeader = ({
-  card: { date },
+  card: { initial_date: initialDate },
   gradientText,
 }: CardHeaderProps) => {
   return (
     <ChakraCardHeader p={0} mb={2}>
-      <EventDate gradientText={gradientText}>{date}</EventDate>
+      <EventDate gradientText={gradientText}>{initialDate}</EventDate>
     </ChakraCardHeader>
   )
 }

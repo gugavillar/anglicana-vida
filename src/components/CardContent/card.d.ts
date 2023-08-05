@@ -1,12 +1,6 @@
-import {
-  DateField,
-  TitleField,
-  RichTextField,
-  TimestampField,
-} from '@prismicio/client'
+import { TitleField, RichTextField, TimestampField } from '@prismicio/client'
 
 export type CardType = {
-  date: DateField
   title: TitleField
   description: RichTextField
   initial_date: TimestampField

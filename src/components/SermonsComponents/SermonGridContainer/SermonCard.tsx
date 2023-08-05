@@ -35,7 +35,7 @@ export const SermonCard = ({ items }: SermonCardProps) => {
             }}
           >
             <CardHeader card={card} />
-            <CardBody card={card} gradientText="Próximo sermão" />
+            <CardBody card={card} gradientText={card?.series as string} />
           </Card>
         }
       />

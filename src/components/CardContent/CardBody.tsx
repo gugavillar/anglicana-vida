@@ -114,17 +114,13 @@ export const CardBody = ({
   gradientText,
 }: CardBodyProps) => {
   const formatInitialDate = dayOfWeekReplace(
-    dayOfWeekNameAndDayMonthYear(new Date(initialDate as string)),
+    dayOfWeekNameAndDayMonthYear(initialDate as string),
   )
   const formatFinalDate = dayOfWeekReplace(
-    dayOfWeekNameAndDayMonthYear(new Date(finalDate as string)),
+    dayOfWeekNameAndDayMonthYear(finalDate as string),
   )
-  const formatInitialHourAndMinutes = hourAndMinutes(
-    new Date(initialDate as string),
-  )
-  const formatFinalHourAndMinutes = hourAndMinutes(
-    new Date(finalDate as string),
-  )
+  const formatInitialHourAndMinutes = hourAndMinutes(initialDate as string)
+  const formatFinalHourAndMinutes = hourAndMinutes(finalDate as string)
   return (
     <ChakraCardBody p={0} maxWidth="32rem">
       <VStack align="flex-start" spacing={4} mb={8}>

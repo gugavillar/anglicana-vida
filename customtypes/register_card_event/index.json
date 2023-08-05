@@ -15,10 +15,6 @@
           "thumbnails": []
         }
       },
-      "date": {
-        "type": "Date",
-        "config": { "label": "date", "placeholder": "" }
-      },
       "title": {
         "type": "StructuredText",
         "config": {

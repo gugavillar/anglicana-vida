@@ -7,9 +7,9 @@
   "json": {
     "Main": {
       "uid": { "config": { "label": "UID" }, "type": "UID" },
-      "date": {
-        "type": "Date",
-        "config": { "label": "date", "placeholder": "" }
+      "series": {
+        "type": "Text",
+        "config": { "label": "series", "placeholder": "" }
       },
       "title": {
         "type": "StructuredText",

@@ -7,10 +7,6 @@
   "json": {
     "Main": {
       "uid": { "config": { "label": "UID" }, "type": "UID" },
-      "date": {
-        "type": "Date",
-        "config": { "label": "date", "placeholder": "" }
-      },
       "title": {
         "type": "StructuredText",
         "config": {
