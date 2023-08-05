@@ -5,18 +5,14 @@ import { ArrowRight } from 'phosphor-react'
 
 import { roboto } from '@/fonts/roboto'
 
+import { NavigationButtonProps } from './buttons'
 import { IfComponent } from '../IfComponent'
-
-type NavigationButtonProps = {
-  pathRouter: string
-  textButton: string
-  pathsToShow: Array<string>
-}
 
 export const NavigationButton = ({
   pathRouter,
   textButton,
   pathsToShow,
+  ...props
 }: NavigationButtonProps) => {
   const { push, asPath } = useRouter()
 
@@ -40,6 +36,7 @@ export const NavigationButton = ({
             opacity: 0.8,
           }}
           onClick={() => push(pathRouter)}
+          {...props}
         >
           {textButton}
         </Button>
