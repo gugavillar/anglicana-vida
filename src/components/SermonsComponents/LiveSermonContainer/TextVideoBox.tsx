@@ -28,7 +28,7 @@ const quoteComponent: JSXMapSerializer = {
       borderLeft="3px solid"
       borderColor="flesh.200"
       pl={5}
-      py={1}
+      py={3}
       lineHeight={{ base: '24px', md: '28px', lg: '36px' }}
       fontSize={{ base: 'md', md: 'lg', lg: '2xl' }}
     >
@@ -47,7 +47,10 @@ export const TextVideoBox = ({
   return (
     <Box
       minWidth={{ base: 'full', md: '50%', lg: '40%' }}
-      p={{ base: 4, md: 4, lg: 6 }}
+      py={{ base: 4, md: 4, lg: 6 }}
+      color="cinder.950"
+      mt={{ base: 6, md: 0, lg: 0 }}
+      ml={{ base: 0, md: 6, lg: 6 }}
     >
       <PrismicRichText components={headingComponent} field={heading} />
       <PrismicRichText components={quoteComponent} field={quote} />
