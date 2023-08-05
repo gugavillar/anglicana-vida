@@ -1,6 +1,6 @@
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, Text } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
 
@@ -11,13 +11,29 @@ const headingComponent: JSXMapSerializer = {
     <Heading
       as="h4"
       textTransform="uppercase"
-      fontSize={{ base: 'xl', md: '3xl', lg: '4xl' }}
+      fontSize={{ base: 'xl', md: '2xl', lg: '4xl' }}
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
       color="cinder.950"
+      mb={4}
     >
       {children}
     </Heading>
+  ),
+}
+
+const quoteComponent: JSXMapSerializer = {
+  paragraph: ({ children }) => (
+    <Text
+      borderLeft="3px solid"
+      borderColor="flesh.200"
+      pl={5}
+      py={1}
+      lineHeight={{ base: '24px', md: '28px', lg: '36px' }}
+      fontSize={{ base: 'md', md: 'lg', lg: '2xl' }}
+    >
+      {children}
+    </Text>
   ),
 }
 
@@ -29,9 +45,12 @@ export const TextVideoBox = ({
   data: { heading, quote },
 }: TextVideoBoxProps) => {
   return (
-    <Box minWidth={{ base: 'full', md: '50%', lg: '40%' }} p={6}>
+    <Box
+      minWidth={{ base: 'full', md: '50%', lg: '40%' }}
+      p={{ base: 4, md: 4, lg: 6 }}
+    >
       <PrismicRichText components={headingComponent} field={heading} />
-      <PrismicRichText field={quote} />
+      <PrismicRichText components={quoteComponent} field={quote} />
     </Box>
   )
 }
