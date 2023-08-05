@@ -29,15 +29,6 @@
             "allowTargetBlank": true,
             "single": "heading3"
           }
-        },
-        "has_component": {
-          "type": "Boolean",
-          "config": {
-            "label": "hasComponent",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": false
-          }
         }
       },
       "items": {}
@@ -57,15 +48,6 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "heading3"
-          }
-        },
-        "has_component": {
-          "type": "Boolean",
-          "config": {
-            "label": "hasComponent",
-            "default_value": false,
-            "placeholder_true": "true",
-            "placeholder_false": "false"
           }
         }
       },
@@ -104,6 +86,133 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "paragraph"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "withCardEvent",
+      "name": "WithCardEvent",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "withSermonCard",
+      "name": "WithSermonCard",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "withRegisterCardEvent",
+      "name": "WithRegisterCardEvent",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sub_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "sub_heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading6"
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "withPeopleCard",
+      "name": "WithPeopleCard",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sub_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "sub_heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading6"
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "withCellCard",
+      "name": "WithCellCard",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "sub_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "sub_heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading6"
+          }
+        },
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
           }
         }
       },
