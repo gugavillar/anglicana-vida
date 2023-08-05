@@ -53,6 +53,15 @@
           "allowTargetBlank": true,
           "single": "paragraph"
         }
+      },
+      "inscription_link": {
+        "type": "Link",
+        "config": {
+          "label": "inscription_link",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
       }
     }
   }
