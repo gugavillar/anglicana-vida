@@ -4,7 +4,7 @@ import { roboto } from '@/fonts/roboto'
 
 import { GradientTextProps } from './gradientText'
 
-export const GradientText = ({ text }: GradientTextProps) => {
+export const GradientText = ({ text, ...props }: GradientTextProps) => {
   return (
     <Text
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
@@ -13,6 +13,7 @@ export const GradientText = ({ text }: GradientTextProps) => {
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
       textTransform="uppercase"
+      {...props}
     >
       {text}
     </Text>

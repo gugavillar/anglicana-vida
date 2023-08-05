@@ -26,6 +26,8 @@ export const EventRegisterCard = ({ item }: RegistrationCardProps) => {
       <CardHeader gradientText="Inscrições abertas" card={item} />
       <CardBody card={item} />
       <SecondaryButton
+        initialInscriptionDate={item.initial_date}
+        inscriptionLink={item.inscription_link}
         textButton="Inscrever"
         mt={8}
         maxW={{ base: 'full', md: 48, lg: 48 }}
