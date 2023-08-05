@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 import type { Content } from '@prismicio/client'
 import {
   JSXMapSerializer,
@@ -16,6 +18,7 @@ import {
 import { EventGridContainer } from '@/components/EventsComponents/EventGridContainer'
 import { EventRegisterContainer } from '@/components/EventsComponents/EventRegisterContainer'
 import { IfComponent } from '@/components/IfComponent'
+import { LiveSermonContainer } from '@/components/SermonsComponents/LiveSermonContainer'
 import { SermonCardType } from '@/components/SermonsComponents/sermon'
 import { SermonGridContainer } from '@/components/SermonsComponents/SermonGridContainer'
 import { SliceContainer } from '@/components/SliceContainer'
@@ -24,6 +27,7 @@ import { roboto } from '@/fonts/roboto'
 
 import type {
   CardEventDocument,
+  LiveSermonDocument,
   PeopleCardDocument,
   RegisterCardEventDocument,
   SermonCardDocument,
@@ -36,6 +40,7 @@ export type HeaderTextProps = SliceComponentProps<
     registerCardEvents: RegisterCardEventDocument<string>[]
     peopleCards: PeopleCardDocument<string>[]
     sermonCards: SermonCardDocument<string>[]
+    liveSermon: LiveSermonDocument<string>[]
   }
 >
 
@@ -108,14 +113,33 @@ const components = {
 }
 
 const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
-  const cardEvents = context?.cardEvents?.map((item) => ({ ...item.data }))
-  const registerCardEvents = context?.registerCardEvents?.map((item) => ({
-    ...item.data,
-  }))
-  const peopleCards = context?.peopleCards?.map((item) => ({ ...item.data }))
-  const sermonCards = context?.sermonCards?.map((item) => ({ ...item.data }))
+  const cardEvents = useMemo(
+    () => context?.cardEvents?.map((item) => ({ ...item.data })),
+    [context?.cardEvents],
+  )
+  const registerCardEvents = useMemo(
+    () =>
+      context?.registerCardEvents?.map((item) => ({
+        ...item.data,
+      })),
+    [context?.registerCardEvents],
+  )
+  const peopleCards = useMemo(
+    () => context?.peopleCards?.map((item) => ({ ...item.data })),
+    [context?.peopleCards],
+  )
+  const sermonCards = useMemo(
+    () => context?.sermonCards?.map((item) => ({ ...item.data })),
+    [context?.sermonCards],
+  )
   return (
     <SliceContainer>
+      <IfComponent
+        condition={!!context?.liveSermon?.[0]?.data}
+        component={
+          <LiveSermonContainer data={context?.liveSermon?.[0]?.data} />
+        }
+      />
       <Box as="header" maxW="48rem" mx="auto" px={6}>
         <VStack spacing={4} textAlign="center">
           {slice?.variation !== 'withoutSubHeading' ? (
