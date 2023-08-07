@@ -1,12 +1,12 @@
 import type {
   FooterDocumentDataSiteInfoItem,
   FooterDocumentDataSocialMediaItem,
-  NavbarDocumentDataMenuItensItem,
+  FooterDocumentDataRecommendationItem,
   Simplify,
 } from '../../../prismicio-types'
 
 export type FooterProps = {
   siteInfo: Array<Simplify<FooterDocumentDataSiteInfoItem>>
   socialMedia: Array<Simplify<FooterDocumentDataSocialMediaItem>>
-  menuItens: Array<Simplify<NavbarDocumentDataMenuItensItem>>
+  recommendation: Array<Simplify<FooterDocumentDataRecommendationItem>>
 }

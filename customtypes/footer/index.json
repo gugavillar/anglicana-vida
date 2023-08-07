@@ -61,6 +61,30 @@
                 "placeholder": "",
                 "select": null
               }
+            },
+            "youtube": {
+              "type": "Link",
+              "config": {
+                "label": "youtube",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "recommendation": {
+        "type": "Group",
+        "config": {
+          "label": "recommendation",
+          "fields": {
+            "external_link": {
+              "type": "Link",
+              "config": {
+                "label": "external_link",
+                "placeholder": "",
+                "select": null
+              }
             }
           }
         }

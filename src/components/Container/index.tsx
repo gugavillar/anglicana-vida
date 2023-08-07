@@ -10,6 +10,7 @@ export const Container = ({
   logo,
   siteInfo,
   socialMedia,
+  recommendation,
 }: ContainerProps) => {
   return (
     <Flex direction="column" w="full" minH="100vh">
@@ -20,7 +21,7 @@ export const Container = ({
       <Footer
         siteInfo={siteInfo}
         socialMedia={socialMedia}
-        menuItens={menuItens}
+        recommendation={recommendation}
       />
     </Flex>
   )

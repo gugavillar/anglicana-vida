@@ -13,6 +13,7 @@ import { getFooter, getNavbar } from '@/helpers'
 import { theme } from '@/theme'
 
 import type {
+  FooterDocumentDataRecommendationItem,
   FooterDocumentDataSiteInfoItem,
   FooterDocumentDataSocialMediaItem,
   NavbarDocumentDataMenuItensItem,
@@ -27,6 +28,7 @@ interface InitialProps extends AppProps {
   footer: {
     siteInfo: GroupField<Simplify<FooterDocumentDataSiteInfoItem>>
     socialMedia: GroupField<Simplify<FooterDocumentDataSocialMediaItem>>
+    recommendation: GroupField<Simplify<FooterDocumentDataRecommendationItem>>
   }
 }
 
@@ -36,7 +38,7 @@ App.getInitialProps = async ({ previewData }: GetStaticPropsContext) => {
       data: { menu_itens: menuItens, logo },
     },
     {
-      data: { site_info: siteInfo, social_media: socialMedia },
+      data: { site_info: siteInfo, social_media: socialMedia, recommendation },
     },
   ] = await Promise.all([
     getNavbar({ previewData }),
@@ -50,6 +52,7 @@ App.getInitialProps = async ({ previewData }: GetStaticPropsContext) => {
     footer: {
       siteInfo,
       socialMedia,
+      recommendation,
     },
   }
 }
@@ -67,6 +70,7 @@ export default function App({
         logo={navbar?.logo}
         siteInfo={footer?.siteInfo}
         socialMedia={footer?.socialMedia}
+        recommendation={footer?.recommendation}
       >
         <Component {...pageProps} />
       </Container>

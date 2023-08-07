@@ -2,8 +2,8 @@ import { Fragment } from 'react'
 
 import { PrismicNextLink } from '@prismicio/next'
 
-import { Flex, Box, Text } from '@chakra-ui/react'
-import { FacebookLogo, InstagramLogo } from 'phosphor-react'
+import { Flex, Box, Text, Icon } from '@chakra-ui/react'
+import { FacebookLogo, InstagramLogo, YoutubeLogo } from 'phosphor-react'
 
 import { roboto } from '@/fonts/roboto'
 
@@ -16,6 +16,12 @@ type InfoSiteSocialMediaProps = {
 export const InfoSiteSocialMedia = ({
   socialMedia,
 }: InfoSiteSocialMediaProps) => {
+  const iconProps = {
+    width: 8,
+    height: 8,
+    color: 'white',
+    _hover: { color: 'flesh.200', transition: 'color 0.3s' },
+  }
   return (
     <Box>
       <Text
@@ -29,11 +35,14 @@ export const InfoSiteSocialMedia = ({
       <Flex gap={5}>
         {socialMedia?.map((media, index) => (
           <Fragment key={index}>
-            <PrismicNextLink field={media.instagram}>
-              <InstagramLogo width={24} height={24} color="white" />
+            <PrismicNextLink field={media.instagram} target="_blank">
+              <Icon as={InstagramLogo} {...iconProps} />
             </PrismicNextLink>
-            <PrismicNextLink field={media.facebook}>
-              <FacebookLogo width={24} height={24} color="white" />
+            <PrismicNextLink field={media.facebook} target="_blank">
+              <Icon as={FacebookLogo} {...iconProps} />
+            </PrismicNextLink>
+            <PrismicNextLink field={media.youtube} target="_blank">
+              <Icon as={YoutubeLogo} {...iconProps} />
             </PrismicNextLink>
           </Fragment>
         ))}

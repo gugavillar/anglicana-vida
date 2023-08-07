@@ -3,7 +3,11 @@ import { Box } from '@chakra-ui/react'
 import { FooterProps } from './footer'
 import { Wrapper } from './Wrapper'
 
-export const Footer = ({ siteInfo, socialMedia, menuItens }: FooterProps) => {
+export const Footer = ({
+  siteInfo,
+  socialMedia,
+  recommendation,
+}: FooterProps) => {
   return (
     <Box
       as="footer"
@@ -16,7 +20,7 @@ export const Footer = ({ siteInfo, socialMedia, menuItens }: FooterProps) => {
       <Wrapper
         siteInfo={siteInfo}
         socialMedia={socialMedia}
-        menuItens={menuItens}
+        recommendation={recommendation}
       />
     </Box>
   )

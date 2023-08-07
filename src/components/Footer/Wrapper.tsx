@@ -9,7 +9,11 @@ import { LinksSiteBlock } from './LinksSiteBlock'
 
 type WrapperProps = FooterProps
 
-export const Wrapper = ({ siteInfo, socialMedia, menuItens }: WrapperProps) => {
+export const Wrapper = ({
+  siteInfo,
+  socialMedia,
+  recommendation,
+}: WrapperProps) => {
   const year = new Date().getFullYear()
   return (
     <Flex
@@ -35,9 +39,10 @@ export const Wrapper = ({ siteInfo, socialMedia, menuItens }: WrapperProps) => {
         width="full"
         align="flex-start"
         justify="space-between"
+        gap={6}
       >
         <InfoSiteBlock siteInfo={siteInfo} />
-        <LinksSiteBlock menuItens={menuItens} />
+        <LinksSiteBlock recommendation={recommendation} />
         <InfoSiteSocialMedia socialMedia={socialMedia} />
       </Flex>
     </Flex>

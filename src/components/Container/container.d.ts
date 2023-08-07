@@ -4,6 +4,7 @@ import type {
   FooterDocumentDataSiteInfoItem,
   FooterDocumentDataSocialMediaItem,
   NavbarDocumentDataMenuItensItem,
+  FooterDocumentDataRecommendationItem,
   Simplify,
 } from '../../../prismicio-types'
 
@@ -13,4 +14,5 @@ export type ContainerProps = {
   logo: ImageField
   siteInfo: GroupField<Simplify<FooterDocumentDataSiteInfoItem>>
   socialMedia: GroupField<Simplify<FooterDocumentDataSocialMediaItem>>
+  recommendation: GroupField<Simplify<FooterDocumentDataRecommendationItem>>
 }
