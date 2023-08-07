@@ -329,6 +329,31 @@ export interface FooterDocumentDataSocialMediaItem {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   facebook: prismic.LinkField;
+
+  /**
+   * youtube field in *Footer → social_media*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.social_media[].youtube
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  youtube: prismic.LinkField;
+}
+
+/**
+ * Item in *Footer → recommendation*
+ */
+export interface FooterDocumentDataRecommendationItem {
+  /**
+   * external_link field in *Footer → recommendation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.recommendation[].external_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  external_link: prismic.LinkField;
 }
 
 /**
@@ -356,6 +381,19 @@ interface FooterDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   social_media: prismic.GroupField<Simplify<FooterDocumentDataSocialMediaItem>>;
+
+  /**
+   * recommendation field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.recommendation[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  recommendation: prismic.GroupField<
+    Simplify<FooterDocumentDataRecommendationItem>
+  >;
 }
 
 /**

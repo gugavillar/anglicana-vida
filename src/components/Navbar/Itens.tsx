@@ -29,6 +29,9 @@ export const Itens = ({ menuItens, onClose, ...props }: ItensProps) => {
                     textTransform="uppercase"
                     cursor="pointer"
                     {...(!!onClose && { onClick: onClose })}
+                    _hover={{
+                      color: 'flesh.200',
+                    }}
                   >
                     {children}
                   </Text>

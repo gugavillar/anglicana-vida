@@ -1,4 +1,6 @@
-import { Flex, Image } from '@chakra-ui/react'
+import { PrismicNextImage } from '@prismicio/next'
+
+import { Flex } from '@chakra-ui/react'
 
 import { NavigationButton } from '@/components/Buttons'
 
@@ -31,11 +33,7 @@ export const EventRegisterContainer = ({
             {...(!isLastIndex && { mt: 6 })}
           >
             <EventRegisterCard item={item} />
-            <Image
-              objectFit="cover"
-              src={item.image.url as string}
-              alt={item.image?.alt as string}
-            />
+            <PrismicNextImage field={item.image} />
           </Flex>
         )
       })}
