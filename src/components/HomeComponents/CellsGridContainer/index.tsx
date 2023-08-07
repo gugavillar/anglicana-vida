@@ -1,4 +1,4 @@
-import { SimpleGrid } from '@chakra-ui/react'
+import { SimpleCardsGrid } from '@/components/SimpleCardsGrid'
 
 import { CellCard } from './common/CellCard'
 import { CellCardType } from '../home'
@@ -9,15 +9,10 @@ type CellsGridContainerProps = {
 
 export const CellsGridContainer = ({ items }: CellsGridContainerProps) => {
   return (
-    <SimpleGrid
-      columns={{ base: 1, md: 3, lg: 4 }}
-      minWidth="18.75rem"
-      rowGap={6}
-      columnGap={6}
-    >
+    <SimpleCardsGrid columns={{ base: 1, md: 3, lg: 4 }}>
       {items.map((card, index) => (
         <CellCard key={index} card={card} />
       ))}
-    </SimpleGrid>
+    </SimpleCardsGrid>
   )
 }

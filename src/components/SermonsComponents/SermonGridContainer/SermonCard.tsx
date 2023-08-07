@@ -1,7 +1,7 @@
-import { Card } from '@chakra-ui/react'
 import { isFuture, parseISO } from 'date-fns'
 
 import { CardBody } from '@/components/CardContent/CardBody'
+import { CardContent } from '@/components/CardContent/CardContent'
 import { CardHeader } from '@/components/CardContent/CardHeader'
 import { IfComponent } from '@/components/IfComponent'
 
@@ -19,24 +19,10 @@ export const SermonCard = ({ items }: SermonCardProps) => {
         key={index}
         condition={isFutureDate}
         component={
-          <Card
-            bg="white"
-            boxShadow="none"
-            borderRadius={0}
-            p={{
-              base: 4,
-              md: 6,
-              lg: '24px 26px 24px 40px',
-            }}
-            borderBottom="1rem solid transparent"
-            _hover={{
-              borderBottom: '1rem solid',
-              borderColor: '#FFD0A0',
-            }}
-          >
+          <CardContent bg="white" boxShadow="none">
             <CardHeader card={card} />
             <CardBody card={card} gradientText={card?.series as string} />
-          </Card>
+          </CardContent>
         }
       />
     )

@@ -1,4 +1,4 @@
-import { SimpleGrid } from '@chakra-ui/react'
+import { SimpleCardsGrid } from '@/components/SimpleCardsGrid'
 
 import { PeopleCard } from './PeopleCard'
 import { PeopleCardType } from '../about'
@@ -11,13 +11,8 @@ export const PeopleCardGridContainer = ({
   items,
 }: PeopleCardGridContainerProps) => {
   return (
-    <SimpleGrid
-      columns={{ base: 2, md: 3, lg: 4 }}
-      minWidth="18.75rem"
-      rowGap={6}
-      columnGap={6}
-    >
+    <SimpleCardsGrid columns={{ base: 1, md: 2, lg: 4 }} minWidth="17.5rem">
       <PeopleCard items={items} />
-    </SimpleGrid>
+    </SimpleCardsGrid>
   )
 }
