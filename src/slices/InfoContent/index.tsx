@@ -18,7 +18,7 @@ const InfoContent = ({ slice }: InfoContentProps): JSX.Element => {
         gap={6}
         maxW="47.9375rem"
         direction={{ base: 'column', md: 'row', lg: 'row' }}
-        px={4}
+        px={6}
       >
         {slice?.items?.map((item, index) => (
           <ContentInfo key={index} item={item} />

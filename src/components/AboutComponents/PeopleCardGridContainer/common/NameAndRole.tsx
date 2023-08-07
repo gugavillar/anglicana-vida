@@ -17,7 +17,7 @@ const headingComponent: JSXMapSerializer = {
       fontWeight={700}
       textTransform="uppercase"
       color="cinder.950"
-      fontSize={{ base: 'md', md: 'lg', lg: '2xl' }}
+      fontSize={{ base: 'lg', md: 'lg', lg: 'xl' }}
     >
       {children}
     </Heading>
@@ -27,7 +27,7 @@ const headingComponent: JSXMapSerializer = {
 const roleComponent: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <Text
-      fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
+      fontSize="md"
       fontFamily={roboto?.style?.fontFamily}
       color="cinder.950"
       lineHeight="24px"
@@ -40,7 +40,7 @@ const roleComponent: JSXMapSerializer = {
 
 export const NameAndRole = ({ item: { heading, role } }: NameAndRoleProps) => {
   return (
-    <Flex direction="column" align="center" justify="center" mt={6} gap={2}>
+    <Flex direction="column" align="center" justify="center" gap={2}>
       <PrismicRichText components={headingComponent} field={heading} />
       <PrismicRichText components={roleComponent} field={role} />
     </Flex>

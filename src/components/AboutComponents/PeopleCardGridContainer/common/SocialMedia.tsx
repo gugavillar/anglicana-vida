@@ -13,7 +13,7 @@ export const SocialMedia = ({
   item: { facebook, instagram },
 }: SocialMediaProps) => {
   return (
-    <Flex align="center" justify="center" gap={5} mt={4}>
+    <Flex align="center" justify="center" gap={5}>
       <PrismicNextLink field={instagram}>
         <InstagramLogo width={24} height={24} color="black" />
       </PrismicNextLink>

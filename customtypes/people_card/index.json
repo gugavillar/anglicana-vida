@@ -33,6 +33,15 @@
           "single": "paragraph"
         }
       },
+      "church": {
+        "type": "StructuredText",
+        "config": {
+          "label": "church",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
       "facebook": {
         "type": "Link",
         "config": { "label": "facebook", "placeholder": "", "select": null }

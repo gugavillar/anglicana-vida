@@ -588,6 +588,17 @@ interface PeopleCardDocumentData {
   role: prismic.RichTextField;
 
   /**
+   * church field in *PeopleCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_card.church
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  church: prismic.RichTextField;
+
+  /**
    * facebook field in *PeopleCard*
    *
    * - **Field Type**: Link
