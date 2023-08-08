@@ -1,6 +1,6 @@
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Flex, Heading, Text } from '@chakra-ui/react'
+import { Flex, Heading, Text, VStack } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
 
@@ -27,10 +27,9 @@ const headingComponent: JSXMapSerializer = {
 const roleComponent: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <Text
-      fontSize="md"
+      fontSize="sm"
       fontFamily={roboto?.style?.fontFamily}
       color="cinder.950"
-      lineHeight="24px"
       opacity={0.69}
     >
       {children}
@@ -38,11 +37,31 @@ const roleComponent: JSXMapSerializer = {
   ),
 }
 
-export const NameAndRole = ({ item: { heading, role } }: NameAndRoleProps) => {
+const departmentComponent: JSXMapSerializer = {
+  paragraph: ({ children }) => (
+    <Text
+      fontSize="md"
+      fontFamily={roboto?.style?.fontFamily}
+      color="cinder.950"
+    >
+      {children}
+    </Text>
+  ),
+}
+
+export const NameAndRole = ({
+  item: { heading, role, department, church },
+}: NameAndRoleProps) => {
   return (
-    <Flex direction="column" align="center" justify="center" gap={2}>
-      <PrismicRichText components={headingComponent} field={heading} />
-      <PrismicRichText components={roleComponent} field={role} />
+    <Flex direction="column" align="center" justify="center" gap={4}>
+      <VStack spacing={0}>
+        <PrismicRichText components={roleComponent} field={role} />
+        <PrismicRichText components={headingComponent} field={heading} />
+      </VStack>
+      <VStack spacing={0}>
+        <PrismicRichText components={departmentComponent} field={department} />
+        <PrismicRichText components={roleComponent} field={church} />
+      </VStack>
     </Flex>
   )
 }

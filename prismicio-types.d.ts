@@ -604,6 +604,17 @@ interface PeopleCardDocumentData {
   image: prismic.ImageField<never>;
 
   /**
+   * role field in *PeopleCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people_card.role
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  role: prismic.RichTextField;
+
+  /**
    * heading field in *PeopleCard*
    *
    * - **Field Type**: Title
@@ -615,15 +626,15 @@ interface PeopleCardDocumentData {
   heading: prismic.TitleField;
 
   /**
-   * role field in *PeopleCard*
+   * department field in *PeopleCard*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: people_card.role
+   * - **API ID Path**: people_card.department
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  role: prismic.RichTextField;
+  department: prismic.RichTextField;
 
   /**
    * church field in *PeopleCard*

@@ -3,6 +3,8 @@ import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { Text } from '@chakra-ui/react'
 
+import { roboto } from '@/fonts/roboto'
+
 export type PrimaryDescription =
   Content.HeaderTextSliceWithDescription['primary']
 
@@ -13,6 +15,8 @@ const descriptionComponent: JSXMapSerializer = {
       lineHeight="24px"
       color="cinder.950"
       textAlign="center"
+      fontWeight={400}
+      fontFamily={roboto?.style?.fontFamily}
       mt={8}
     >
       {children}

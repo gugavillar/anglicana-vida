@@ -7,7 +7,12 @@ export const getAboutUs = async ({ previewData }: GetStaticPropsContext) => {
 
   try {
     const aboutUs = await client.getSingle('about_us')
-    const peopleCards = await client.getAllByType('people_card')
+    const peopleCards = await client.getAllByType('people_card', {
+      orderings: {
+        field: 'document.first_publication_date',
+        direction: 'asc',
+      },
+    })
     return {
       ...aboutUs,
       context: {

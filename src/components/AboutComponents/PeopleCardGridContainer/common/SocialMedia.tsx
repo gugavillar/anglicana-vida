@@ -28,7 +28,7 @@ export const SocialMedia = ({
       <IfComponent
         condition={instagram?.link_type === 'Web'}
         component={
-          <PrismicNextLink field={instagram}>
+          <PrismicNextLink field={instagram} target="_blank">
             <Icon as={InstagramLogo} {...iconProps} />
           </PrismicNextLink>
         }
@@ -36,7 +36,7 @@ export const SocialMedia = ({
       <IfComponent
         condition={facebook?.link_type === 'Web'}
         component={
-          <PrismicNextLink field={facebook}>
+          <PrismicNextLink field={facebook} target="_blank">
             <Icon as={FacebookLogo} {...iconProps} />
           </PrismicNextLink>
         }

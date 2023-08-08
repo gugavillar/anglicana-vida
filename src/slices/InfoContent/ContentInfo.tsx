@@ -46,6 +46,8 @@ const descriptionComponent: JSXMapSerializer = {
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
       lineHeight="24px"
       color="cinder.950"
+      fontWeight={400}
+      fontFamily={roboto?.style?.fontFamily}
     >
       {children}
     </Text>

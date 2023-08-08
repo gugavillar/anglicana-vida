@@ -11,7 +11,7 @@ const headingComponent: JSXMapSerializer = {
     <Heading
       as="h4"
       textTransform="uppercase"
-      fontSize={{ base: 'xl', md: '2xl', lg: '4xl' }}
+      fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
       color="cinder.950"
@@ -29,8 +29,9 @@ const quoteComponent: JSXMapSerializer = {
       borderColor="flesh.200"
       pl={5}
       py={3}
+      fontFamily={roboto?.style?.fontFamily}
       lineHeight={{ base: '24px', md: '28px', lg: '36px' }}
-      fontSize={{ base: 'md', md: 'lg', lg: '2xl' }}
+      fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
     >
       {children}
     </Text>

@@ -15,6 +15,15 @@
           "thumbnails": []
         }
       },
+      "role": {
+        "type": "StructuredText",
+        "config": {
+          "label": "role",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
       "heading": {
         "type": "StructuredText",
         "config": {
@@ -24,10 +33,10 @@
           "single": "heading4"
         }
       },
-      "role": {
+      "department": {
         "type": "StructuredText",
         "config": {
-          "label": "role",
+          "label": "department",
           "placeholder": "",
           "allowTargetBlank": true,
           "single": "paragraph"
