@@ -276,14 +276,14 @@ export type EventsDocument<Lang extends string = string> =
  */
 export interface FooterDocumentDataSiteInfoItem {
   /**
-   * phone field in *Footer → site_info*
+   * schedules field in *Footer → site_info*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.site_info[].phone
+   * - **API ID Path**: footer.site_info[].schedules
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  phone: prismic.RichTextField;
+  schedules: prismic.RichTextField;
 
   /**
    * address field in *Footer → site_info*
@@ -304,6 +304,16 @@ export interface FooterDocumentDataSiteInfoItem {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   mail: prismic.RichTextField;
+
+  /**
+   * logo_anglicana field in *Footer → site_info*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.site_info[].logo_anglicana
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo_anglicana: prismic.ImageField<never>;
 }
 
 /**

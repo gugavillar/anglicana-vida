@@ -35,11 +35,10 @@ export const Wrapper = ({
       </Text>
       <Flex
         flexWrap="wrap"
-        maxW="37.5rem"
+        maxW="50rem"
         width="full"
         align="flex-start"
-        justify="space-between"
-        gap={6}
+        gap={8}
       >
         <InfoSiteBlock siteInfo={siteInfo} />
         <LinksSiteBlock recommendation={recommendation} />

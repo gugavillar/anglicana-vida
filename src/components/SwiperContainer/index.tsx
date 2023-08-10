@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { Flex, FlexProps, useBreakpointValue } from '@chakra-ui/react'
+import { Flex, FlexProps } from '@chakra-ui/react'
 import { Navigation } from 'swiper/modules'
 import { Swiper } from 'swiper/react'
 
@@ -9,25 +9,24 @@ import 'swiper/css/navigation'
 
 type SwiperContainerProps = FlexProps & {
   children: ReactNode
+  slidesPerView: number | undefined
+  spaceBetween: number
 }
 
 export const SwiperContainer = ({
   children,
+  slidesPerView,
+  spaceBetween,
   ...props
 }: SwiperContainerProps) => {
-  const slidesPerView = useBreakpointValue({
-    base: 1.2,
-    md: 2.5,
-    lg: 4.2,
-  })
   return (
     <Flex width="calc(100vw - 13vw)" {...props}>
       <Swiper
         slidesPerView={slidesPerView}
-        spaceBetween={25}
-        loop
+        spaceBetween={spaceBetween}
         modules={[Navigation]}
         navigation
+        loop
       >
         {children}
       </Swiper>

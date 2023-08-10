@@ -11,13 +11,13 @@
         "config": {
           "label": "site_info",
           "fields": {
-            "phone": {
+            "schedules": {
               "type": "StructuredText",
               "config": {
-                "label": "phone",
+                "label": "schedules",
                 "placeholder": "",
                 "allowTargetBlank": true,
-                "single": "paragraph"
+                "multi": "paragraph"
               }
             },
             "address": {
@@ -36,6 +36,14 @@
                 "placeholder": "",
                 "allowTargetBlank": true,
                 "single": "paragraph"
+              }
+            },
+            "logo_anglicana": {
+              "type": "Image",
+              "config": {
+                "label": "logo_anglicana",
+                "constraint": {},
+                "thumbnails": []
               }
             }
           }
