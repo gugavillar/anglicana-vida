@@ -145,6 +145,17 @@ export type CardEventDocument<Lang extends string = string> =
  */
 interface CellCardDocumentData {
   /**
+   * type field in *CellCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cell_card.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  type: prismic.RichTextField;
+
+  /**
    * name field in *CellCard*
    *
    * - **Field Type**: Title
@@ -156,15 +167,15 @@ interface CellCardDocumentData {
   name: prismic.TitleField;
 
   /**
-   * location field in *CellCard*
+   * description field in *CellCard*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.location
+   * - **API ID Path**: cell_card.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  location: prismic.RichTextField;
+  description: prismic.RichTextField;
 
   /**
    * leader field in *CellCard*

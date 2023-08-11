@@ -15,7 +15,6 @@ const headingComponent: JSXMapSerializer = {
   heading4: ({ children }) => (
     <Heading
       as="h4"
-      textTransform="uppercase"
       fontSize={{ base: 'lg', md: '2xl', lg: '3xl' }}
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
@@ -29,7 +28,6 @@ const headingComponent: JSXMapSerializer = {
 const labelComponent: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <Text
-      textTransform="uppercase"
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={400}
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}

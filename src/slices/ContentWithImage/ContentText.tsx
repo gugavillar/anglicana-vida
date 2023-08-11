@@ -18,7 +18,6 @@ const headingComponent: JSXMapSerializer = {
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
       lineHeight="44px"
-      textTransform="uppercase"
       fontSize={{ base: 'lg', md: '2xl', lg: '3xl' }}
       mb={4}
     >

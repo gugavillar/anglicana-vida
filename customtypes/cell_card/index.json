@@ -7,6 +7,15 @@
   "json": {
     "Main": {
       "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "type": {
+        "type": "StructuredText",
+        "config": {
+          "label": "type",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "name": {
         "type": "StructuredText",
         "config": {
@@ -16,13 +25,13 @@
           "single": "heading5"
         }
       },
-      "location": {
+      "description": {
         "type": "StructuredText",
         "config": {
-          "label": "location",
+          "label": "description",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph"
+          "multi": "paragraph"
         }
       },
       "leader": {
@@ -31,7 +40,7 @@
           "label": "leader",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph"
+          "multi": "paragraph"
         }
       },
       "week_day": {

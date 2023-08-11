@@ -21,7 +21,7 @@ const nameComponent: JSXMapSerializer = {
   ),
 }
 
-const locationComponent: JSXMapSerializer = {
+const descriptionComponent: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <Text
       fontFamily={roboto?.style?.fontFamily}
@@ -37,17 +37,17 @@ const locationComponent: JSXMapSerializer = {
 
 type CellCardAndLocationType = {
   name: CellCardType['name']
-  location: CellCardType['location']
+  location: CellCardType['description']
 }
 
-export const CellNameAndLocation = ({
+export const CellNameAndDescription = ({
   location,
   name,
 }: CellCardAndLocationType) => {
   return (
-    <VStack align="flex-start" spacing={4} mb={12}>
+    <VStack align="flex-start" spacing={4} mb={6}>
       <PrismicRichText components={nameComponent} field={name} />
-      <PrismicRichText components={locationComponent} field={location} />
+      <PrismicRichText components={descriptionComponent} field={location} />
     </VStack>
   )
 }

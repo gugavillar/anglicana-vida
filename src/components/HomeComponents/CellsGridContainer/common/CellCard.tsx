@@ -1,9 +1,8 @@
 import { Box } from '@chakra-ui/react'
 
-import { GradientText } from '@/components/GradientText'
-
 import { CellInformation } from './CellInformation'
-import { CellNameAndLocation } from './CellNameAndLocation'
+import { CellNameAndDescription } from './CellNameAndDescription'
+import { CellType } from './CellType'
 import { CellCardType } from '../../home'
 
 type CellCardProps = {
@@ -22,8 +21,8 @@ export const CellCard = ({ card }: CellCardProps) => {
       borderBottom="1rem solid"
       borderBottomColor="#ffd0a0"
     >
-      <GradientText text="Kids" mb={4} />
-      <CellNameAndLocation name={card.name} location={card.location} />
+      <CellType type={card.type} />
+      <CellNameAndDescription name={card.name} location={card.description} />
       <CellInformation
         initialTime={card.initial_time}
         leader={card.leader}

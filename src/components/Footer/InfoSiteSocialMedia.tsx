@@ -30,7 +30,7 @@ export const InfoSiteSocialMedia = ({
         fontFamily={roboto?.style?.fontFamily}
         mb={5}
       >
-        Connect
+        Siga-nos
       </Text>
       <Flex gap={5}>
         {socialMedia?.map((media, index) => (

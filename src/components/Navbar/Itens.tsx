@@ -26,7 +26,6 @@ export const Itens = ({ menuItens, onClose, ...props }: ItensProps) => {
                   <Text
                     className={roboto?.style?.fontFamily}
                     color="white"
-                    textTransform="uppercase"
                     cursor="pointer"
                     {...(!!onClose && { onClick: onClose })}
                     _hover={{

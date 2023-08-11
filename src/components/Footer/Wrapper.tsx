@@ -31,7 +31,7 @@ export const Wrapper = ({
         fontFamily={roboto.style.fontFamily}
         fontSize="xs"
       >
-        © COPYRIGHT {year}
+        © Copyright {year}
       </Text>
       <Flex
         flexWrap="wrap"

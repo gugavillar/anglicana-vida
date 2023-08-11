@@ -39,9 +39,8 @@ export const InfoSiteBlock = ({ siteInfo }: InfoSiteBlockProps) => {
     <VStack
       spacing={4}
       align="left"
-      fontSize="xs"
+      fontSize="sm"
       color="white"
-      textTransform="uppercase"
       fontFamily={roboto?.style?.fontFamily}
       width="15rem"
       flexDirection={{ base: 'column-reverse', md: 'column', lg: 'column' }}
