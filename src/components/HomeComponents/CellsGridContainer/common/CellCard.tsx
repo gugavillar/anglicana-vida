@@ -27,6 +27,7 @@ export const CellCard = ({ card }: CellCardProps) => {
         initialTime={card.initial_time}
         leader={card.leader}
         weekDay={card.week_day}
+        location={card?.location}
       />
     </Box>
   )

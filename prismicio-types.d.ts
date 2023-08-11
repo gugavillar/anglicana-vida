@@ -178,17 +178,6 @@ interface CellCardDocumentData {
   description: prismic.RichTextField;
 
   /**
-   * leader field in *CellCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.leader
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  leader: prismic.RichTextField;
-
-  /**
    * week_day field in *CellCard*
    *
    * - **Field Type**: Rich Text
@@ -209,6 +198,28 @@ interface CellCardDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   initial_time: prismic.RichTextField;
+
+  /**
+   * location field in *CellCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cell_card.location
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  location: prismic.RichTextField;
+
+  /**
+   * leader field in *CellCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cell_card.leader
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  leader: prismic.RichTextField;
 }
 
 /**
