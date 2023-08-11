@@ -13,9 +13,9 @@ type NameAndRoleProps = {
 const headingComponent: JSXMapSerializer = {
   heading4: ({ children }) => (
     <Heading
+      as="h5"
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
-      textTransform="uppercase"
       color="cinder.950"
       fontSize={{ base: 'lg', md: 'lg', lg: 'xl' }}
     >
