@@ -719,6 +719,93 @@ export type PeopleCardDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for RecurrentEventCard documents
+ */
+interface RecurrentEventCardDocumentData {
+  /**
+   * type field in *RecurrentEventCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recurrent_event_card.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  type: prismic.RichTextField;
+
+  /**
+   * name field in *RecurrentEventCard*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recurrent_event_card.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  name: prismic.TitleField;
+
+  /**
+   * description field in *RecurrentEventCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recurrent_event_card.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * recurrent_day field in *RecurrentEventCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recurrent_event_card.recurrent_day
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  recurrent_day: prismic.RichTextField;
+
+  /**
+   * initial_time field in *RecurrentEventCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recurrent_event_card.initial_time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  initial_time: prismic.RichTextField;
+
+  /**
+   * location field in *RecurrentEventCard*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recurrent_event_card.location
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  location: prismic.RichTextField;
+}
+
+/**
+ * RecurrentEventCard document from Prismic
+ *
+ * - **API ID**: `recurrent_event_card`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RecurrentEventCardDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<RecurrentEventCardDocumentData>,
+    "recurrent_event_card",
+    Lang
+  >;
+
+/**
  * Content for RegisterCardEvent documents
  */
 interface RegisterCardEventDocumentData {
@@ -968,6 +1055,7 @@ export type AllDocumentTypes =
   | LiveSermonDocument
   | NavbarDocument
   | PeopleCardDocument
+  | RecurrentEventCardDocument
   | RegisterCardEventDocument
   | SermonCardDocument
   | SermonsDocument;
@@ -1437,6 +1525,45 @@ export type HeaderTextSliceWithCellCard = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HeaderText → Primary*
+ */
+export interface HeaderTextSliceWithRecurrentEventPrimary {
+  /**
+   * heading field in *HeaderText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header_text.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * is_color field in *HeaderText → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: header_text.primary.is_color
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_color: prismic.BooleanField;
+}
+
+/**
+ * WithRecurrentEvent variation for HeaderText Slice
+ *
+ * - **API ID**: `withRecurrentEvent`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeaderTextSliceWithRecurrentEvent = prismic.SharedSliceVariation<
+  "withRecurrentEvent",
+  Simplify<HeaderTextSliceWithRecurrentEventPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *HeaderText*
  */
 type HeaderTextSliceVariation =
@@ -1447,7 +1574,8 @@ type HeaderTextSliceVariation =
   | HeaderTextSliceWithSermonCard
   | HeaderTextSliceWithRegisterCardEvent
   | HeaderTextSliceWithPeopleCard
-  | HeaderTextSliceWithCellCard;
+  | HeaderTextSliceWithCellCard
+  | HeaderTextSliceWithRecurrentEvent;
 
 /**
  * HeaderText Shared Slice
@@ -1692,6 +1820,8 @@ declare module "@prismicio/client" {
       NavbarDocumentData,
       PeopleCardDocument,
       PeopleCardDocumentData,
+      RecurrentEventCardDocument,
+      RecurrentEventCardDocumentData,
       RegisterCardEventDocument,
       RegisterCardEventDocumentData,
       SermonCardDocument,
@@ -1717,6 +1847,7 @@ declare module "@prismicio/client" {
       HeaderTextSliceWithRegisterCardEvent,
       HeaderTextSliceWithPeopleCard,
       HeaderTextSliceWithCellCard,
+      HeaderTextSliceWithRecurrentEvent,
       InfoContentSlice,
       InfoContentSliceVariation,
       InfoContentSliceDefault,

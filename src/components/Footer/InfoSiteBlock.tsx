@@ -15,6 +15,7 @@ type InfoSiteBlockProps = {
 const componentLinkMap: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <Link
+      _hover={{ color: 'flesh.200', transition: 'color 0.3s' }}
       target="_blank"
       href="https://www.google.com/maps/dir/?api=1&destination=igreja+anglicana+vida&travelmode=driving"
     >
@@ -26,6 +27,7 @@ const componentLinkMap: JSXMapSerializer = {
 const componentLinkMail: JSXMapSerializer = {
   paragraph: ({ children, text }) => (
     <Link
+      _hover={{ color: 'flesh.200', transition: 'color 0.3s' }}
       target="_blank"
       href={`mailto:${text}?subject=Dúvidas ou Informações`}
     >

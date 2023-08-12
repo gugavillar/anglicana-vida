@@ -4,7 +4,7 @@ import { Heading, VStack, Text } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
 
-import { CellCardType } from '../../home'
+import { CommonCardType } from '../../home'
 
 const nameComponent: JSXMapSerializer = {
   heading5: ({ children }) => (
@@ -35,15 +35,15 @@ const descriptionComponent: JSXMapSerializer = {
   ),
 }
 
-type CellCardAndLocationType = {
-  name: CellCardType['name']
-  location: CellCardType['description']
+type NameAndDescriptionType = {
+  name: CommonCardType['name']
+  location: CommonCardType['description']
 }
 
-export const CellNameAndDescription = ({
+export const NameAndDescription = ({
   location,
   name,
-}: CellCardAndLocationType) => {
+}: NameAndDescriptionType) => {
   return (
     <VStack align="flex-start" spacing={4} mb={6}>
       <PrismicRichText components={nameComponent} field={name} />

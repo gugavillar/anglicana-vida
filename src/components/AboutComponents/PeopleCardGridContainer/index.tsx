@@ -16,7 +16,7 @@ export const PeopleCardGridContainer = ({
   const slidesPerView = useBreakpointValue({
     base: 1.2,
     md: 2.5,
-    lg: 4.2,
+    lg: 4,
   })
 
   return (

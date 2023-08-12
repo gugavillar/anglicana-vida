@@ -1,6 +1,7 @@
 import { SimpleCardsGrid } from '@/components/SimpleCardsGrid'
 
-import { CellCard } from './common/CellCard'
+import { Card } from '../common/Card'
+import { Information } from '../common/Card/Information'
 import { CellCardType } from '../home'
 
 type CellsGridContainerProps = {
@@ -11,7 +12,14 @@ export const CellsGridContainer = ({ items }: CellsGridContainerProps) => {
   return (
     <SimpleCardsGrid columns={{ base: 1, md: 3, lg: 4 }}>
       {items.map((card, index) => (
-        <CellCard key={index} card={card} />
+        <Card key={index} card={card}>
+          <Information
+            initialTime={card?.initial_time}
+            location={card?.location}
+            leader={card?.leader}
+            weekDay={card?.week_day}
+          />
+        </Card>
       ))}
     </SimpleCardsGrid>
   )

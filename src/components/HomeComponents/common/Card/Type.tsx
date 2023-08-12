@@ -4,10 +4,10 @@ import { Text } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
 
-import { CellCardType } from '../../home'
+import { CommonCardType } from '../../home'
 
-type CellTypeProps = {
-  type: CellCardType['type']
+type TypeProps = {
+  type: CommonCardType['type']
 }
 
 const typeComponent: JSXMapSerializer = {
@@ -26,6 +26,6 @@ const typeComponent: JSXMapSerializer = {
   ),
 }
 
-export const CellType = ({ type }: CellTypeProps) => {
+export const Type = ({ type }: TypeProps) => {
   return <PrismicRichText components={typeComponent} field={type} />
 }
