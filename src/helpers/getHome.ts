@@ -8,6 +8,7 @@ export const getHome = async ({ previewData }: GetStaticPropsContext) => {
   try {
     const home = await client.getSingle('home')
     const cellCards = await client.getAllByType('cell_card')
+    const recurrentCards = await client.getAllByType('recurrent_event_card')
     const registerCardEvents = await client.getAllByType(
       'register_card_event',
       {
@@ -22,6 +23,7 @@ export const getHome = async ({ previewData }: GetStaticPropsContext) => {
       context: {
         registerCardEvents,
         cellCards,
+        recurrentCards,
       },
     }
   } catch (error: any) {

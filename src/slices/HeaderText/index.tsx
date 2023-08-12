@@ -17,6 +17,7 @@ import { CardPeople } from './components/CardPeople'
 import { CardSermon } from './components/CardSermon'
 import { Description, PrimaryDescription } from './components/Description'
 import { LiveSermon } from './components/LiveSermon'
+import { RecurrentEvent } from './components/RecurrentEvent'
 import { RegisterCardEvent } from './components/RegisterCardEvent'
 import { PrimarySubHeading, SubHeading } from './components/SubHeading'
 
@@ -25,6 +26,7 @@ import type {
   CellCardDocument,
   LiveSermonDocument,
   PeopleCardDocument,
+  RecurrentEventCardDocument,
   RegisterCardEventDocument,
   SermonCardDocument,
 } from '../../../prismicio-types'
@@ -38,6 +40,7 @@ export type HeaderTextProps = SliceComponentProps<
     sermonCards: SermonCardDocument<string>[]
     liveSermon: LiveSermonDocument<string>[]
     cellCards: CellCardDocument<string>[]
+    recurrentCards: RecurrentEventCardDocument<any>[]
   }
 >
 
@@ -56,8 +59,10 @@ const headingComponent: JSXMapSerializer = {
 }
 
 const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
+  const isColor =
+    slice?.variation === 'withRecurrentEvent' ? slice?.primary?.is_color : false
   return (
-    <SliceContainer>
+    <SliceContainer isColorSlice={isColor}>
       <LiveSermon liveSermon={context?.liveSermon} />
       <Box as="header" maxW="48rem" mx="auto" px={6}>
         <VStack spacing={4} textAlign="center">
@@ -89,6 +94,10 @@ const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
       />
       <CardSermon
         sermonCard={context?.sermonCards}
+        variation={slice?.variation}
+      />
+      <RecurrentEvent
+        recurrentCard={context?.recurrentCards}
         variation={slice?.variation}
       />
       <CardCell cellCard={context?.cellCards} variation={slice?.variation} />

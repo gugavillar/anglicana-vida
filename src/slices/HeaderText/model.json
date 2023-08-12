@@ -217,6 +217,35 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "withRecurrentEvent",
+      "name": "WithRecurrentEvent",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        },
+        "is_color": {
+          "type": "Boolean",
+          "config": {
+            "label": "is_color",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
