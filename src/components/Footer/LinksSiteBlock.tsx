@@ -35,6 +35,7 @@ const LabelLink = ({ label }: LabelLinkProps) => {
       fontSize="md"
       color="white"
       fontWeight={400}
+      height={0}
       p={0}
       _hover={{
         bg: 'transparent',
@@ -49,7 +50,7 @@ const LabelLink = ({ label }: LabelLinkProps) => {
 
 export const LinksSiteBlock = ({ recommendation }: LinksSiteBlockProps) => {
   return (
-    <VStack align="flex-start" spacing={2}>
+    <VStack align="flex-start" spacing={4}>
       {recommendation.map(({ external_link: externalLink }, index) => (
         <PrismicNextLink
           key={index}

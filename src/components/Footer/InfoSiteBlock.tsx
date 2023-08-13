@@ -2,7 +2,8 @@ import { Fragment } from 'react'
 
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Image, VStack, Link } from '@chakra-ui/react'
+import { Image, VStack, Link, Flex, Icon } from '@chakra-ui/react'
+import { Envelope, MapPin } from 'phosphor-react'
 
 import { roboto } from '@/fonts/roboto'
 
@@ -14,25 +15,39 @@ type InfoSiteBlockProps = {
 
 const componentLinkMap: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <Link
+    <Flex
+      align="center"
+      gap={2}
       _hover={{ color: 'flesh.200', transition: 'color 0.3s' }}
-      target="_blank"
-      href="https://www.google.com/maps/dir/?api=1&destination=igreja+anglicana+vida&travelmode=driving"
     >
-      {children}
-    </Link>
+      <Icon as={MapPin} size={4} />
+      <Link
+        _hover={{ textDecoration: 'none' }}
+        target="_blank"
+        href="https://www.google.com/maps/dir/?api=1&destination=igreja+anglicana+vida&travelmode=driving"
+      >
+        {children}
+      </Link>
+    </Flex>
   ),
 }
 
 const componentLinkMail: JSXMapSerializer = {
   paragraph: ({ children, text }) => (
-    <Link
+    <Flex
+      align="center"
+      gap={2}
       _hover={{ color: 'flesh.200', transition: 'color 0.3s' }}
-      target="_blank"
-      href={`mailto:${text}?subject=Dúvidas ou Informações`}
     >
-      {children}
-    </Link>
+      <Icon as={Envelope} size={4} />
+      <Link
+        _hover={{ textDecoration: 'none' }}
+        target="_blank"
+        href={`mailto:${text}?subject=Dúvidas ou Informações`}
+      >
+        {children}
+      </Link>
+    </Flex>
   ),
 }
 
@@ -41,17 +56,22 @@ export const InfoSiteBlock = ({ siteInfo }: InfoSiteBlockProps) => {
     <VStack
       spacing={4}
       align="left"
-      fontSize="sm"
+      fontSize="md"
       color="white"
       fontFamily={roboto?.style?.fontFamily}
       width="15rem"
-      flexDirection={{ base: 'column-reverse', md: 'column', lg: 'column' }}
+      flexDirection="column"
     >
       {siteInfo?.map((info, index) => (
         <Fragment key={index}>
           <PrismicRichText field={info.schedules} />
-          <PrismicRichText components={componentLinkMap} field={info.address} />
-          <PrismicRichText components={componentLinkMail} field={info.mail} />
+          <VStack align="flex-start" spacing={4}>
+            <PrismicRichText
+              components={componentLinkMap}
+              field={info.address}
+            />
+            <PrismicRichText components={componentLinkMail} field={info.mail} />
+          </VStack>
           <Image
             maxWidth="80%"
             src={info?.logo_anglicana?.url as string}
