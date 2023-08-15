@@ -10,6 +10,7 @@ export const CardContent = ({ children, ...props }: CardContentProps) => {
   return (
     <Card
       borderRadius={0}
+      minWidth="16.875rem"
       p={{
         base: 4,
         md: 6,

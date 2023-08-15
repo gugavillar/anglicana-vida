@@ -9,7 +9,7 @@ import { DarkMode, GlobalStyle } from '@chakra-ui/react'
 import { getSermons } from '@/helpers'
 import { components } from '@/slices'
 
-export default function Page({
+export default function SermonsPage({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (

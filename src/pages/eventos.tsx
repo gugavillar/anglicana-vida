@@ -7,7 +7,7 @@ import { SliceZone } from '@prismicio/react'
 import { getEvents } from '@/helpers'
 import { components } from '@/slices'
 
-export default function Page({
+export default function EventsPage({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (

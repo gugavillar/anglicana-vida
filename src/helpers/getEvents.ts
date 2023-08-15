@@ -6,9 +6,11 @@ export const getEvents = async ({ previewData }: GetStaticPropsContext) => {
   const client = createClient({ previewData })
 
   try {
-    const events = await client.getSingle('events')
-    const cardEvents = await client.getAllByType('card_event')
-    const registerCardEvents = await client.getAllByType('register_card_event')
+    const [events, cardEvents, registerCardEvents] = await Promise.all([
+      client.getSingle('events'),
+      client.getAllByType('card_event'),
+      client.getAllByType('register_card_event'),
+    ])
     return {
       ...events,
       context: {

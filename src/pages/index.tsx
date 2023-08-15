@@ -7,7 +7,7 @@ import { SliceZone } from '@prismicio/react'
 import { getHome } from '@/helpers'
 import { components } from '@/slices'
 
-export default function Page({
+export default function HomePage({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
