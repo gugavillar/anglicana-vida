@@ -18,7 +18,7 @@ export const Card = ({ card, children, ...props }: CardProps) => {
       py={12}
       maxWidth="18.75rem"
       minHeight="22.9375rem"
-      bg="cinder.100"
+      bg="cinder.50"
       boxShadow="base"
       borderBottom="1rem solid"
       borderBottomColor="cinder.500"

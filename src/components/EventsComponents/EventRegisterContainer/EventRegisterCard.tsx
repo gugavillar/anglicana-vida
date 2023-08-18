@@ -13,7 +13,7 @@ type RegistrationCardProps = {
 export const EventRegisterCard = ({ item }: RegistrationCardProps) => {
   return (
     <Card
-      bg="cinder.100"
+      bg="cinder.50"
       boxShadow="base"
       borderRadius={0}
       maxWidth={{ base: 'full', md: 'full', lg: '27.1875rem' }}

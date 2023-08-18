@@ -28,7 +28,7 @@ type CardIconProps = {
 
 export const CardIcon = ({ type }: CardIconProps) => {
   return (
-    <Flex borderRadius="full" bg="flesh.200" p={3} maxWidth={12} mb={6}>
+    <Flex borderRadius="full" bg="cinder.50" p={3} maxWidth={12} mb={6}>
       <PrismicRichText components={iconComponent} field={type} />
     </Flex>
   )
