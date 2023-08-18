@@ -20,7 +20,7 @@ export const WeDoCards = ({ data }: WeDoCardsProps) => {
       mt={16}
     >
       {data?.map((item, index) => (
-        <Box bg="serenade.50" p={{ base: 8, md: 10, lg: 12 }} key={index}>
+        <Box bg="cinder.100" p={{ base: 8, md: 10, lg: 12 }} key={index}>
           <CardIcon type={item.type} />
           <CardText heading={item.heading} paragraph={item.paragraph} />
         </Box>
