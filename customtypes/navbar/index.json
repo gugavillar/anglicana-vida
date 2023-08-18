@@ -6,10 +6,6 @@
   "status": true,
   "json": {
     "Main": {
-      "logo": {
-        "type": "Image",
-        "config": { "label": "logo", "constraint": {}, "thumbnails": [] }
-      },
       "menu_itens": {
         "type": "Group",
         "config": {

@@ -582,17 +582,6 @@ export interface NavbarDocumentDataMenuItensItem {
  */
 interface NavbarDocumentData {
   /**
-   * logo field in *Navbar*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navbar.logo
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  logo: prismic.ImageField<never>;
-
-  /**
    * menu_itens field in *Navbar*
    *
    * - **Field Type**: Group

@@ -2,7 +2,7 @@ import { GetStaticPropsContext } from 'next'
 import { AppProps } from 'next/app'
 
 import { repositoryName } from '@/prismicio'
-import { GroupField, ImageField } from '@prismicio/client'
+import { GroupField } from '@prismicio/client'
 import { PrismicPreview } from '@prismicio/next'
 
 import { ChakraProvider } from '@chakra-ui/react'
@@ -23,7 +23,6 @@ import type {
 interface InitialProps extends AppProps {
   navbar: {
     menuItens: GroupField<Simplify<NavbarDocumentDataMenuItensItem>>
-    logo: ImageField
   }
   footer: {
     siteInfo: GroupField<Simplify<FooterDocumentDataSiteInfoItem>>
@@ -35,7 +34,7 @@ interface InitialProps extends AppProps {
 App.getInitialProps = async ({ previewData }: GetStaticPropsContext) => {
   const [
     {
-      data: { menu_itens: menuItens, logo },
+      data: { menu_itens: menuItens },
     },
     {
       data: { site_info: siteInfo, social_media: socialMedia, recommendation },
@@ -47,7 +46,6 @@ App.getInitialProps = async ({ previewData }: GetStaticPropsContext) => {
   return {
     navbar: {
       menuItens,
-      logo,
     },
     footer: {
       siteInfo,
@@ -67,7 +65,6 @@ export default function App({
     <ChakraProvider theme={theme}>
       <Container
         menuItens={navbar?.menuItens}
-        logo={navbar?.logo}
         siteInfo={footer?.siteInfo}
         socialMedia={footer?.socialMedia}
         recommendation={footer?.recommendation}

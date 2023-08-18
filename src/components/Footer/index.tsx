@@ -15,7 +15,7 @@ export const Footer = ({
       width="full"
       minH="fit-content"
       p={6}
-      bg="cinder.950"
+      bg="cinder.700"
     >
       <Wrapper
         siteInfo={siteInfo}

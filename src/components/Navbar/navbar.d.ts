@@ -1,5 +1,3 @@
-import { ImageField } from '@prismicio/client'
-
 import type {
   NavbarDocumentDataMenuItensItem,
   Simplify,
@@ -7,5 +5,4 @@ import type {
 
 export type NavbarProps = {
   menuItens: Array<Simplify<NavbarDocumentDataMenuItensItem>>
-  logo: ImageField
 }

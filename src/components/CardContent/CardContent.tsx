@@ -16,11 +16,8 @@ export const CardContent = ({ children, ...props }: CardContentProps) => {
         md: 6,
         lg: '24px 26px 24px 40px',
       }}
-      borderBottom="1rem solid transparent"
-      _hover={{
-        borderBottom: '1rem solid',
-        borderColor: '#FFD0A0',
-      }}
+      borderBottom="1rem solid"
+      borderColor="cinder.500"
       {...props}
     >
       {children}

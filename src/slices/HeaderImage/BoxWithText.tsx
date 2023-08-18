@@ -15,6 +15,7 @@ const titleComponent: JSXMapSerializer = {
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={700}
       color="white"
+      textShadow="3px 3px 0 #000"
     >
       {children}
     </Heading>
@@ -27,7 +28,8 @@ const labelComponent: JSXMapSerializer = {
       fontFamily={roboto?.style?.fontFamily}
       fontWeight={400}
       fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-      color="flesh.200"
+      color="white"
+      textShadow="2px 2px 0 #000"
     >
       {children}
     </Text>

@@ -18,10 +18,10 @@ export const Card = ({ card, children, ...props }: CardProps) => {
       py={12}
       maxWidth="18.75rem"
       minHeight="22.9375rem"
-      bg="serenade.50"
+      bg="cinder.100"
       boxShadow="base"
       borderBottom="1rem solid"
-      borderBottomColor="#ffd0a0"
+      borderBottomColor="cinder.500"
       {...props}
     >
       <Type type={card.type} />

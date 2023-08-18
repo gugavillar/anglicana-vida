@@ -7,14 +7,13 @@ import { Navbar } from '../Navbar'
 export const Container = ({
   children,
   menuItens,
-  logo,
   siteInfo,
   socialMedia,
   recommendation,
 }: ContainerProps) => {
   return (
     <Flex direction="column" w="full" minH="100vh">
-      <Navbar menuItens={menuItens} logo={logo} />
+      <Navbar menuItens={menuItens} />
       <Flex direction="column" flex={1} as="main">
         {children}
       </Flex>

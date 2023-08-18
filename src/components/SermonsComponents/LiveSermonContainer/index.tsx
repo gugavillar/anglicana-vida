@@ -21,7 +21,8 @@ export const LiveSermonContainer = ({ data }: LiveSermonContainerProps) => {
           md: 6,
           lg: 6,
         }}
-        borderBottom="1rem solid #FFD0A0"
+        borderBottom="1rem solid"
+        borderColor="cinder.500"
         mb={12}
       >
         <Box minWidth={{ base: 'full', md: '50%', lg: '60%' }}>

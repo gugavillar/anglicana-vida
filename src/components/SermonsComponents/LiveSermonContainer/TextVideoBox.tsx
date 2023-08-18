@@ -26,7 +26,7 @@ const quoteComponent: JSXMapSerializer = {
   paragraph: ({ children }) => (
     <Text
       borderLeft="3px solid"
-      borderColor="flesh.200"
+      borderColor="cinder.500"
       pl={5}
       py={3}
       fontFamily={roboto?.style?.fontFamily}
