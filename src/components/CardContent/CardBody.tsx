@@ -38,7 +38,7 @@ const descriptionComponent: JSXMapSerializer = {
     <Text
       color="cinder.950"
       fontWeight={400}
-      lineHeight={{ base: '16px', md: '24px', lg: '24px' }}
+      lineHeight="24px"
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
       fontFamily={roboto?.style?.fontFamily}
     >
@@ -52,7 +52,7 @@ const locationComponent: JSXMapSerializer = {
     <Text
       color="cinder.950"
       fontWeight={400}
-      lineHeight={{ base: '16px', md: '24px', lg: '24px' }}
+      lineHeight="24px"
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
       fontFamily={roboto?.style?.fontFamily}
     >
@@ -70,7 +70,7 @@ const TimeComponent = ({ weekNameAndDate }: TimeComponentProps) => (
     <Text
       color="cinder.950"
       fontWeight={400}
-      lineHeight={{ base: '16px', md: '24px', lg: '24px' }}
+      lineHeight="24px"
       fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
       fontFamily={roboto?.style?.fontFamily}
       textTransform="capitalize"
@@ -115,10 +115,7 @@ export const CardBody = ({
         />
       </VStack>
       <VStack align="flex-start" spacing={4}>
-        <Grid
-          templateColumns={{ base: '16px 1fr', md: '25px 1fr', lg: '25px 1fr' }}
-          columnGap={{ base: 2, md: 4, lg: 4 }}
-        >
+        <Grid templateColumns="25px 1fr" columnGap={4}>
           <GridItem>
             <Calendar color="#161722" size={24} />
           </GridItem>
@@ -127,10 +124,7 @@ export const CardBody = ({
             <TimeComponent weekNameAndDate={formatFinalDate} />
           </GridItem>
         </Grid>
-        <Grid
-          templateColumns={{ base: '16px 1fr', md: '25px 1fr', lg: '25px 1fr' }}
-          columnGap={{ base: 2, md: 4, lg: 4 }}
-        >
+        <Grid templateColumns="25px 1fr" columnGap={4}>
           <GridItem>
             <MapPinLine color="#161722" size={24} />
           </GridItem>

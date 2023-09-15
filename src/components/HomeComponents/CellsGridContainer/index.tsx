@@ -1,4 +1,7 @@
-import { SimpleCardsGrid } from '@/components/SimpleCardsGrid'
+import { useBreakpointValue } from '@chakra-ui/react'
+import { SwiperSlide } from 'swiper/react'
+
+import { SwiperContainer } from '@/components/SwiperContainer'
 
 import { Card } from '../common/Card'
 import { Information } from '../common/Card/Information'
@@ -9,18 +12,25 @@ type CellsGridContainerProps = {
 }
 
 export const CellsGridContainer = ({ items }: CellsGridContainerProps) => {
+  const slidesPerView = useBreakpointValue({
+    base: 1.2,
+    md: 2.5,
+    lg: 4,
+  })
   return (
-    <SimpleCardsGrid columns={{ base: 1, md: 3, lg: 4 }}>
+    <SwiperContainer slidesPerView={slidesPerView} spaceBetween={25}>
       {items.map((card, index) => (
-        <Card key={index} card={card}>
-          <Information
-            initialTime={card?.initial_time}
-            location={card?.location}
-            leader={card?.leader}
-            weekDay={card?.week_day}
-          />
-        </Card>
+        <SwiperSlide key={index}>
+          <Card key={index} card={card} minHeight="30rem">
+            <Information
+              initialTime={card?.initial_time}
+              location={card?.location}
+              leader={card?.leader}
+              weekDay={card?.week_day}
+            />
+          </Card>
+        </SwiperSlide>
       ))}
-    </SimpleCardsGrid>
+    </SwiperContainer>
   )
 }

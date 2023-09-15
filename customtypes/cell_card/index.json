@@ -13,7 +13,7 @@
           "label": "type",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "single": "paragraph"
         }
       },
       "name": {
@@ -25,22 +25,13 @@
           "single": "heading5"
         }
       },
-      "description": {
-        "type": "StructuredText",
-        "config": {
-          "label": "description",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph"
-        }
-      },
       "week_day": {
         "type": "StructuredText",
         "config": {
           "label": "week_day",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph"
+          "multi": "paragraph"
         }
       },
       "initial_time": {
@@ -58,7 +49,7 @@
           "label": "location",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "single": "paragraph"
         }
       },
       "leader": {

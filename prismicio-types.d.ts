@@ -167,17 +167,6 @@ interface CellCardDocumentData {
   name: prismic.TitleField;
 
   /**
-   * description field in *CellCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
    * week_day field in *CellCard*
    *
    * - **Field Type**: Rich Text

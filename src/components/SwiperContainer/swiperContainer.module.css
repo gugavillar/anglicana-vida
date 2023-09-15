@@ -1,0 +1,3 @@
+.sampleSlider [class^="swiper-button-"]::after{
+  display: none;
+}

@@ -6,6 +6,7 @@ import { Swiper } from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
+import style from './swiperContainer.module.css'
 
 type SwiperContainerProps = FlexProps & {
   children: ReactNode
@@ -22,6 +23,7 @@ export const SwiperContainer = ({
   return (
     <Flex width="calc(100vw - 13vw)" {...props}>
       <Swiper
+        className={style.sampleSlider}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
         modules={[Navigation]}

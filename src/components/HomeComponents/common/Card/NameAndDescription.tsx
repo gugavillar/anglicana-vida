@@ -2,6 +2,8 @@ import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { Heading, VStack, Text } from '@chakra-ui/react'
 
+import { IfComponent } from '@/components/IfComponent'
+
 import { roboto } from '@/fonts/roboto'
 
 import { CommonCardType } from '../../home'
@@ -37,23 +39,25 @@ const descriptionComponent: JSXMapSerializer = {
 
 type NameAndDescriptionType = {
   name: CommonCardType['name']
-  location: CommonCardType['description']
+  description: CommonCardType['description']
 }
 
 export const NameAndDescription = ({
-  location,
+  description,
   name,
 }: NameAndDescriptionType) => {
   return (
-    <VStack
-      align="flex-start"
-      spacing={4}
-      mb={6}
-      maxHeight="16.875rem"
-      height="16.875rem"
-    >
+    <VStack align="flex-start" spacing={4} mb={6}>
       <PrismicRichText components={nameComponent} field={name} />
-      <PrismicRichText components={descriptionComponent} field={location} />
+      <IfComponent
+        condition={!!description}
+        component={
+          <PrismicRichText
+            components={descriptionComponent}
+            field={description}
+          />
+        }
+      />
     </VStack>
   )
 }

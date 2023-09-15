@@ -3,7 +3,7 @@ import { RichTextField, TitleField } from '@prismicio/client'
 export type CommonCardType = {
   type: RichTextField
   name: TitleField
-  description: RichTextField
+  description?: RichTextField
   initial_time: RichTextField
   location: RichTextField
 }

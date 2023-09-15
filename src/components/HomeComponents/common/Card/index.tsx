@@ -25,7 +25,7 @@ export const Card = ({ card, children, ...props }: CardProps) => {
       {...props}
     >
       <Type type={card.type} />
-      <NameAndDescription name={card.name} location={card.description} />
+      <NameAndDescription name={card.name} description={card.description} />
       {children}
     </Box>
   )
