@@ -93,24 +93,24 @@ interface CardEventDocumentData {
   /**
    * initial_date field in *CardEvent*
    *
-   * - **Field Type**: Timestamp
+   * - **Field Type**: Date
    * - **Placeholder**: *None*
    * - **API ID Path**: card_event.initial_date
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   * - **Documentation**: https://prismic.io/docs/field#date
    */
-  initial_date: prismic.TimestampField;
+  initial_date: prismic.DateField;
 
   /**
    * final_date field in *CardEvent*
    *
-   * - **Field Type**: Timestamp
+   * - **Field Type**: Date
    * - **Placeholder**: *None*
    * - **API ID Path**: card_event.final_date
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   * - **Documentation**: https://prismic.io/docs/field#date
    */
-  final_date: prismic.TimestampField;
+  final_date: prismic.DateField;
 
   /**
    * location field in *CardEvent*
@@ -834,24 +834,24 @@ interface RegisterCardEventDocumentData {
   /**
    * initial_date field in *RegisterCardEvent*
    *
-   * - **Field Type**: Timestamp
+   * - **Field Type**: Date
    * - **Placeholder**: *None*
    * - **API ID Path**: register_card_event.initial_date
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   * - **Documentation**: https://prismic.io/docs/field#date
    */
-  initial_date: prismic.TimestampField;
+  initial_date: prismic.DateField;
 
   /**
    * final_date field in *RegisterCardEvent*
    *
-   * - **Field Type**: Timestamp
+   * - **Field Type**: Date
    * - **Placeholder**: *None*
    * - **API ID Path**: register_card_event.final_date
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   * - **Documentation**: https://prismic.io/docs/field#date
    */
-  final_date: prismic.TimestampField;
+  final_date: prismic.DateField;
 
   /**
    * location field in *RegisterCardEvent*
@@ -928,28 +928,6 @@ interface SermonCardDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
-
-  /**
-   * initial_date field in *SermonCard*
-   *
-   * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sermon_card.initial_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
-   */
-  initial_date: prismic.TimestampField;
-
-  /**
-   * final_date field in *SermonCard*
-   *
-   * - **Field Type**: Timestamp
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sermon_card.final_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#timestamp
-   */
-  final_date: prismic.TimestampField;
 
   /**
    * location field in *SermonCard*

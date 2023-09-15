@@ -30,15 +30,15 @@
           "label": "description",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph"
+          "multi": "paragraph"
         }
       },
       "initial_date": {
-        "type": "Timestamp",
+        "type": "Date",
         "config": { "label": "initial_date", "placeholder": "" }
       },
       "final_date": {
-        "type": "Timestamp",
+        "type": "Date",
         "config": { "label": "final_date", "placeholder": "" }
       },
       "location": {

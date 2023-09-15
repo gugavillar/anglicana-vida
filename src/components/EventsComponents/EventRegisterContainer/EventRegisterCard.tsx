@@ -30,7 +30,7 @@ export const EventRegisterCard = ({ item }: RegistrationCardProps) => {
         inscriptionLink={item.inscription_link}
         textButton="Inscrever"
         mt={8}
-        maxW={{ base: 'full', md: 48, lg: 48 }}
+        minW={{ base: 'full', md: 48, lg: 48 }}
       />
     </Card>
   )

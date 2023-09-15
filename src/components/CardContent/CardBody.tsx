@@ -8,17 +8,13 @@ import {
   Grid,
   GridItem,
 } from '@chakra-ui/react'
-import { Clock, MapPinLine } from 'phosphor-react'
+import { Calendar, MapPinLine } from 'phosphor-react'
 
 import { GradientText } from '@/components/GradientText'
 import { IfComponent } from '@/components/IfComponent'
 
 import { roboto } from '@/fonts/roboto'
-import {
-  dayOfWeekNameAndDayMonthYear,
-  hourAndMinutes,
-  dayOfWeekReplace,
-} from '@/formatters'
+import { dayOfWeekNameAndDayMonthYear, dayOfWeekReplace } from '@/formatters'
 
 import { CardType } from './card'
 
@@ -67,13 +63,9 @@ const locationComponent: JSXMapSerializer = {
 
 type TimeComponentProps = {
   weekNameAndDate: string
-  hourAndMinutes: string
 }
 
-const TimeComponent = ({
-  hourAndMinutes,
-  weekNameAndDate,
-}: TimeComponentProps) => (
+const TimeComponent = ({ weekNameAndDate }: TimeComponentProps) => (
   <VStack spacing={0} align="flex-start">
     <Text
       color="cinder.950"
@@ -84,16 +76,6 @@ const TimeComponent = ({
       textTransform="capitalize"
     >
       {weekNameAndDate}
-    </Text>
-    <Text
-      color="cinder.950"
-      fontWeight={400}
-      lineHeight={{ base: '16px', md: '24px', lg: '24px' }}
-      fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
-      fontFamily={roboto?.style?.fontFamily}
-      textTransform="capitalize"
-    >
-      {hourAndMinutes}
     </Text>
   </VStack>
 )
@@ -119,8 +101,6 @@ export const CardBody = ({
   const formatFinalDate = dayOfWeekReplace(
     dayOfWeekNameAndDayMonthYear(finalDate as string),
   )
-  const formatInitialHourAndMinutes = hourAndMinutes(initialDate as string)
-  const formatFinalHourAndMinutes = hourAndMinutes(finalDate as string)
   return (
     <ChakraCardBody p={0} maxWidth="32rem">
       <VStack align="flex-start" spacing={4} mb={8}>
@@ -140,17 +120,11 @@ export const CardBody = ({
           columnGap={{ base: 2, md: 4, lg: 4 }}
         >
           <GridItem>
-            <Clock color="#161722" size={20} />
+            <Calendar color="#161722" size={24} />
           </GridItem>
           <GridItem>
-            <TimeComponent
-              weekNameAndDate={formatInitialDate}
-              hourAndMinutes={formatInitialHourAndMinutes}
-            />
-            <TimeComponent
-              weekNameAndDate={formatFinalDate}
-              hourAndMinutes={formatFinalHourAndMinutes}
-            />
+            <TimeComponent weekNameAndDate={formatInitialDate} />
+            <TimeComponent weekNameAndDate={formatFinalDate} />
           </GridItem>
         </Grid>
         <Grid
@@ -158,7 +132,7 @@ export const CardBody = ({
           columnGap={{ base: 2, md: 4, lg: 4 }}
         >
           <GridItem>
-            <MapPinLine color="#161722" size={20} />
+            <MapPinLine color="#161722" size={24} />
           </GridItem>
           <GridItem>
             <PrismicRichText components={locationComponent} field={location} />

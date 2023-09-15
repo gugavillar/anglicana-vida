@@ -45,7 +45,13 @@ export const NameAndDescription = ({
   name,
 }: NameAndDescriptionType) => {
   return (
-    <VStack align="flex-start" spacing={4} mb={6}>
+    <VStack
+      align="flex-start"
+      spacing={4}
+      mb={6}
+      maxHeight="16.875rem"
+      height="16.875rem"
+    >
       <PrismicRichText components={nameComponent} field={name} />
       <PrismicRichText components={descriptionComponent} field={location} />
     </VStack>

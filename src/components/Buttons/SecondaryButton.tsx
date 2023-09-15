@@ -1,7 +1,8 @@
 import { PrismicNextLink } from '@prismicio/next'
 
 import { Button } from '@chakra-ui/react'
-import { isPast, parseISO } from 'date-fns'
+
+import { isPassedDate } from '@/formatters'
 
 import { SecondaryButtonProps } from './buttons'
 import { IfComponent } from '../IfComponent'
@@ -12,8 +13,7 @@ export const SecondaryButton = ({
   initialInscriptionDate,
   ...props
 }: SecondaryButtonProps) => {
-  const initialDate = parseISO(initialInscriptionDate)
-  const isInscriptionOpen = isPast(initialDate)
+  const isInscriptionOpen = isPassedDate(initialInscriptionDate)
   return (
     <IfComponent
       condition={!isInscriptionOpen}
@@ -25,11 +25,11 @@ export const SecondaryButton = ({
             py={6}
             borderRadius={12}
             fontSize="md"
-            color="flesh.200"
+            color="white"
             textTransform="uppercase"
-            bg="cinder.950"
+            bg="cinder.700"
             _hover={{
-              bg: 'cinder.950',
+              bg: 'cinder.700',
               opacity: 0.9,
             }}
             {...props}
