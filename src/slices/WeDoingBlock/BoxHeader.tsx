@@ -23,27 +23,9 @@ const headingComponent: JSXMapSerializer = {
   ),
 }
 
-const subHeadingComponent: JSXMapSerializer = {
-  heading6: ({ children }) => (
-    <Heading
-      as="h6"
-      fontFamily={roboto?.style?.fontFamily}
-      fontWeight={400}
-      fontSize={{ base: 'sm', md: 'md', lg: 'md' }}
-      color="cinder.950"
-    >
-      {children}
-    </Heading>
-  ),
-}
-
 export const BoxHeader = ({ data }: BoxHeaderProps) => {
   return (
     <VStack maxWidth="48rem" as="header" spacing={4}>
-      <PrismicRichText
-        components={subHeadingComponent}
-        field={data.sub_heading}
-      />
       <PrismicRichText components={headingComponent} field={data.heading} />
     </VStack>
   )

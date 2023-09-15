@@ -3,17 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"sub_heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading6",
-						"content": {
-							"text": "Contain"
-						}
-					}
-				]
-			},
 			"heading": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [

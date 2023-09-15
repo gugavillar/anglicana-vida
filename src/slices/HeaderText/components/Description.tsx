@@ -24,6 +24,8 @@ const descriptionComponent: JSXMapSerializer = {
   ),
 }
 
+const variationsHasDescriptions = ['withDescription', 'withCellCards']
+
 type DescriptionProps = {
   variation: Content.HeaderTextSlice['variation']
   primary: PrimaryDescription
@@ -33,7 +35,7 @@ export const Description = ({
   primary: { description },
   variation,
 }: DescriptionProps) => {
-  if (variation !== 'withDescription') return null
+  if (variationsHasDescriptions.includes(variation)) return null
 
   return (
     <PrismicRichText components={descriptionComponent} field={description} />

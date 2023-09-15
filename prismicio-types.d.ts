@@ -1458,16 +1458,6 @@ export type HeaderTextSliceWithPeopleCard = prismic.SharedSliceVariation<
  */
 export interface HeaderTextSliceWithCellCardPrimary {
   /**
-   * sub_heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.sub_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  sub_heading: prismic.TitleField;
-
-  /**
    * heading field in *HeaderText → Primary*
    *
    * - **Field Type**: Title
@@ -1476,6 +1466,16 @@ export interface HeaderTextSliceWithCellCardPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   heading: prismic.TitleField;
+
+  /**
+   * description field in *HeaderText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header_text.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
 }
 
 /**
@@ -1670,16 +1670,6 @@ export type SummaryAboutUsSlice = prismic.SharedSlice<
  * Primary content in *WeDoingBlock → Primary*
  */
 export interface WeDoingBlockSliceDefaultPrimary {
-  /**
-   * sub_heading field in *WeDoingBlock → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: we_doing_block.primary.sub_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  sub_heading: prismic.TitleField;
-
   /**
    * heading field in *WeDoingBlock → Primary*
    *

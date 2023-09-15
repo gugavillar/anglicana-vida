@@ -197,15 +197,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "sub_heading": {
-          "type": "StructuredText",
-          "config": {
-            "label": "sub_heading",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "heading6"
-          }
-        },
         "heading": {
           "type": "StructuredText",
           "config": {
@@ -213,6 +204,15 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "single": "heading3"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
           }
         }
       },

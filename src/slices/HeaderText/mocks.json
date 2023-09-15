@@ -214,17 +214,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "withCellCard",
 		"primary": {
-			"sub_heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading6",
-						"content": {
-							"text": "Voyage"
-						}
-					}
-				]
-			},
 			"heading": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -232,6 +221,17 @@
 						"type": "heading3",
 						"content": {
 							"text": "Whose"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla Lorem id amet incididunt aute ea nisi amet aliquip eiusmod."
 						}
 					}
 				]

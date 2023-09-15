@@ -19,7 +19,6 @@ export const SliceContainer = ({
   isBoxContainer,
   isColorSlice,
 }: SliceContainerProps) => {
-  console.log()
   return (
     <Flex
       as="section"
