@@ -63,6 +63,7 @@ export const SubscriptionCard = ({ data }: EventCardProps) => {
           bg="flesh.200"
           borderTopRightRadius="md"
           textTransform="none"
+          fontWeight={400}
         >
           {badgeText}
         </Badge>
