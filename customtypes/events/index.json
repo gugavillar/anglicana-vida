@@ -11,6 +11,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "subscription_section": {
+              "type": "SharedSlice"
+            },
+            "events_section": {
+              "type": "SharedSlice"
+            },
+            "header_text": {
+              "type": "SharedSlice"
+            },
             "header_image": {
               "type": "SharedSlice"
             }

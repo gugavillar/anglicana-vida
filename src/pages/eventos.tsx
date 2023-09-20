@@ -4,10 +4,10 @@ import Head from 'next/head'
 import { isFilled } from '@prismicio/client'
 import { SliceZone } from '@prismicio/react'
 
-import { getHome } from '@/helpers'
+import { getEvents } from '@/helpers'
 import { components } from '@/slices'
 
-export default function HomePage({
+export default function Page({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -24,7 +24,7 @@ export default function HomePage({
 }
 
 export async function getStaticProps() {
-  const page = await getHome()
+  const page = await getEvents()
 
   return {
     props: { page },

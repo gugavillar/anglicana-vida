@@ -1,9 +1,7 @@
-import { GetStaticPropsContext } from 'next'
-
 import { createClient } from '@/prismicio'
 
-export const getEvents = async ({ previewData }: GetStaticPropsContext) => {
-  const client = createClient({ previewData })
+export const getEvents = async () => {
+  const client = createClient()
 
   try {
     const events = await client.getSingle('events')

@@ -176,7 +176,11 @@ interface EventDocumentData {
 export type EventDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<EventDocumentData>, "event", Lang>;
 
-type EventsDocumentDataSlicesSlice = HeaderImageSlice;
+type EventsDocumentDataSlicesSlice =
+  | SubscriptionSectionSlice
+  | EventsSectionSlice
+  | HeaderTextSlice
+  | HeaderImageSlice;
 
 /**
  * Content for Events documents
@@ -503,11 +507,11 @@ export type AllDocumentTypes =
   | NavbarDocument;
 
 /**
- * Primary content in *DiscipleshipGroups → Primary*
+ * Primary content in *DiscipleshipGroupsSection → Primary*
  */
 export interface DiscipleshipGroupsSliceDefaultPrimary {
   /**
-   * title field in *DiscipleshipGroups → Primary*
+   * title field in *DiscipleshipGroupsSection → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -517,7 +521,7 @@ export interface DiscipleshipGroupsSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * description field in *DiscipleshipGroups → Primary*
+   * description field in *DiscipleshipGroupsSection → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -527,7 +531,7 @@ export interface DiscipleshipGroupsSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * image field in *DiscipleshipGroups → Primary*
+   * image field in *DiscipleshipGroupsSection → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -538,11 +542,11 @@ export interface DiscipleshipGroupsSliceDefaultPrimary {
 }
 
 /**
- * Primary content in *DiscipleshipGroups → Items*
+ * Primary content in *DiscipleshipGroupsSection → Items*
  */
 export interface DiscipleshipGroupsSliceDefaultItem {
   /**
-   * Discipleships field in *DiscipleshipGroups → Items*
+   * Discipleships field in *DiscipleshipGroupsSection → Items*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
@@ -553,7 +557,7 @@ export interface DiscipleshipGroupsSliceDefaultItem {
 }
 
 /**
- * Default variation for DiscipleshipGroups Slice
+ * Default variation for DiscipleshipGroupsSection Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -566,12 +570,12 @@ export type DiscipleshipGroupsSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *DiscipleshipGroups*
+ * Slice variation for *DiscipleshipGroupsSection*
  */
 type DiscipleshipGroupsSliceVariation = DiscipleshipGroupsSliceDefault;
 
 /**
- * DiscipleshipGroups Shared Slice
+ * DiscipleshipGroupsSection Shared Slice
  *
  * - **API ID**: `discipleship_groups`
  * - **Description**: DiscipleshipGroups
@@ -708,11 +712,11 @@ export type HeaderImageSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *HeaderText → Primary*
+ * Primary content in *HeaderTextImage → Primary*
  */
 export interface HeaderTextSliceDefaultPrimary {
   /**
-   * title field in *HeaderText → Primary*
+   * title field in *HeaderTextImage → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -722,7 +726,7 @@ export interface HeaderTextSliceDefaultPrimary {
   title: prismic.KeyTextField;
 
   /**
-   * description field in *HeaderText → Primary*
+   * description field in *HeaderTextImage → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -732,7 +736,7 @@ export interface HeaderTextSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * image field in *HeaderText → Primary*
+   * image field in *HeaderTextImage → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -743,7 +747,7 @@ export interface HeaderTextSliceDefaultPrimary {
 }
 
 /**
- * Default variation for HeaderText Slice
+ * Default variation for HeaderTextImage Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -756,12 +760,12 @@ export type HeaderTextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *HeaderText*
+ * Slice variation for *HeaderTextImage*
  */
 type HeaderTextSliceVariation = HeaderTextSliceDefault;
 
 /**
- * HeaderText Shared Slice
+ * HeaderTextImage Shared Slice
  *
  * - **API ID**: `header_text`
  * - **Description**: HeaderText
@@ -770,6 +774,51 @@ type HeaderTextSliceVariation = HeaderTextSliceDefault;
 export type HeaderTextSlice = prismic.SharedSlice<
   "header_text",
   HeaderTextSliceVariation
+>;
+
+/**
+ * Primary content in *SubscriptionsSection → Primary*
+ */
+export interface SubscriptionSectionSliceDefaultPrimary {
+  /**
+   * title field in *SubscriptionsSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for SubscriptionsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SubscriptionSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SubscriptionSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SubscriptionsSection*
+ */
+type SubscriptionSectionSliceVariation = SubscriptionSectionSliceDefault;
+
+/**
+ * SubscriptionsSection Shared Slice
+ *
+ * - **API ID**: `subscription_section`
+ * - **Description**: SubscriptionSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SubscriptionSectionSlice = prismic.SharedSlice<
+  "subscription_section",
+  SubscriptionSectionSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -819,6 +868,10 @@ declare module "@prismicio/client" {
       HeaderTextSliceDefaultPrimary,
       HeaderTextSliceVariation,
       HeaderTextSliceDefault,
+      SubscriptionSectionSlice,
+      SubscriptionSectionSliceDefaultPrimary,
+      SubscriptionSectionSliceVariation,
+      SubscriptionSectionSliceDefault,
     };
   }
 }

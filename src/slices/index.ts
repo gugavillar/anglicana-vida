@@ -3,8 +3,9 @@
 import dynamic from 'next/dynamic'
 
 export const components = {
-  discipleship_groups: dynamic(() => import('./DiscipleshipGroups')),
+  discipleship_groups: dynamic(() => import('./DiscipleshipGroupsSection')),
   events_section: dynamic(() => import('./EventsSection')),
   header_image: dynamic(() => import('./HeaderImage')),
-  header_text: dynamic(() => import('./HeaderText')),
+  header_text: dynamic(() => import('./HeaderTextImage')),
+  subscription_section: dynamic(() => import('./SubscriptionsSection')),
 }

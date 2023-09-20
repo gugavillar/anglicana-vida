@@ -28,8 +28,8 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
     const loadData = async () => {
       try {
         const data = await Promise.all(
-          slice.items.map(async (item) => {
-            if (!isFilled.contentRelationship(item.events)) return
+          slice?.items?.map(async (item) => {
+            if (!isFilled.contentRelationship(item?.events)) return
             return await client.getByUID('event', item?.events?.uid as string)
           }),
         )
@@ -47,7 +47,7 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
 
   return (
     <ContentContainer bg="pampas.50">
-      <H3>{slice.primary.title}</H3>
+      <H3>{slice?.primary?.title}</H3>
       <Skeleton
         isLoaded={!!events?.length}
         height={500}
@@ -60,9 +60,9 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
           isAutoplay
           height={500}
         >
-          {events.map((item) => (
-            <SwiperSlide key={item.id}>
-              <EventCard data={item.data} />
+          {events?.map((item) => (
+            <SwiperSlide key={item?.id}>
+              <EventCard data={item?.data} />
             </SwiperSlide>
           ))}
         </SwiperContainer>

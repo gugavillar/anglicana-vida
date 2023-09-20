@@ -47,13 +47,13 @@ const HeaderText = ({ slice }: HeaderTextProps): JSX.Element => {
           />
         </VStack>
         <IfComponent
-          condition={!!slice.primary.image.url as boolean}
+          condition={!!slice?.primary?.image?.url as boolean}
           component={
             <Image
               borderRadius={8}
-              maxHeight={256}
-              src={slice.primary.image.url as string}
-              alt={slice.primary.image.alt as string}
+              maxHeight={300}
+              src={slice?.primary?.image?.url as string}
+              alt={slice?.primary?.image?.alt as string}
             />
           }
         />

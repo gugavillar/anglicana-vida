@@ -66,8 +66,8 @@ const DiscipleshipGroups = ({
     const loadData = async () => {
       try {
         const data = await Promise.all(
-          slice.items.map(async (item) => {
-            if (!isFilled.contentRelationship(item.discipleships)) return
+          slice?.items?.map(async (item) => {
+            if (!isFilled.contentRelationship(item?.discipleships)) return
             return await client.getByUID(
               'discipleship',
               item?.discipleships?.uid as string,
@@ -107,8 +107,8 @@ const DiscipleshipGroups = ({
         <Image
           maxHeight={414}
           borderRadius={8}
-          src={slice.primary.image.url as string}
-          alt={slice.primary.image.alt as string}
+          src={slice?.primary?.image?.url as string}
+          alt={slice?.primary?.image?.alt as string}
         />
       </HStack>
       <Skeleton
@@ -125,9 +125,9 @@ const DiscipleshipGroups = ({
           height={300}
           py={4}
         >
-          {discipleship.map((item) => (
-            <SwiperSlide key={item.id}>
-              <DiscipleshipCard data={item.data} />
+          {discipleship?.map((item) => (
+            <SwiperSlide key={item?.id}>
+              <DiscipleshipCard data={item?.data} />
             </SwiperSlide>
           ))}
         </SwiperContainer>
