@@ -1,0 +1,77 @@
+{
+  "id": "subscription",
+  "label": "Subscription",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "title",
+          "placeholder": ""
+        }
+      },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "subscription_open_date": {
+        "type": "Date",
+        "config": {
+          "label": "subscription_open_date",
+          "placeholder": "Data de abertura das inscrições"
+        }
+      },
+      "subscription_close_date": {
+        "type": "Date",
+        "config": {
+          "label": "subscription_close_date",
+          "placeholder": "Data de encerramento das inscrições"
+        }
+      },
+      "subscription_link": {
+        "type": "Link",
+        "config": {
+          "label": "subscription_link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "initial_date": {
+        "type": "Date",
+        "config": {
+          "label": "initial_date",
+          "placeholder": ""
+        }
+      },
+      "final_date": {
+        "type": "Date",
+        "config": {
+          "label": "final_date",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      }
+    }
+  }
+}

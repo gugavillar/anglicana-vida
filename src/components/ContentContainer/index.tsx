@@ -9,7 +9,7 @@ export const ContentContainer = ({
   ...props
 }: ContentContainerProps) => {
   return (
-    <Box {...props}>
+    <Box as="section" {...props}>
       <Flex
         maxW="75rem"
         align="flex-start"

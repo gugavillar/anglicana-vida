@@ -20,7 +20,18 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "subscriptions": {
+          "type": "Link",
+          "config": {
+            "label": "subscriptions",
+            "select": "document",
+            "customtypes": [
+              "subscription"
+            ]
+          }
+        }
+      }
     }
   ]
 }

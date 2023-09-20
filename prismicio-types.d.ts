@@ -498,13 +498,123 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Subscription documents
+ */
+interface SubscriptionDocumentData {
+  /**
+   * title field in *Subscription*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * image field in *Subscription*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * subscription_open_date field in *Subscription*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data de abertura das inscrições
+   * - **API ID Path**: subscription.subscription_open_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  subscription_open_date: prismic.DateField;
+
+  /**
+   * subscription_close_date field in *Subscription*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data de encerramento das inscrições
+   * - **API ID Path**: subscription.subscription_close_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  subscription_close_date: prismic.DateField;
+
+  /**
+   * subscription_link field in *Subscription*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription.subscription_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  subscription_link: prismic.LinkField;
+
+  /**
+   * initial_date field in *Subscription*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription.initial_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  initial_date: prismic.DateField;
+
+  /**
+   * final_date field in *Subscription*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription.final_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  final_date: prismic.DateField;
+
+  /**
+   * description field in *Subscription*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Subscription document from Prismic
+ *
+ * - **API ID**: `subscription`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SubscriptionDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SubscriptionDocumentData>,
+    "subscription",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | DiscipleshipDocument
   | EventDocument
   | EventsDocument
   | FooterDocument
   | HomeDocument
-  | NavbarDocument;
+  | NavbarDocument
+  | SubscriptionDocument;
 
 /**
  * Primary content in *DiscipleshipGroupsSection → Primary*
@@ -792,6 +902,21 @@ export interface SubscriptionSectionSliceDefaultPrimary {
 }
 
 /**
+ * Primary content in *SubscriptionsSection → Items*
+ */
+export interface SubscriptionSectionSliceDefaultItem {
+  /**
+   * subscriptions field in *SubscriptionsSection → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription_section.items[].subscriptions
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  subscriptions: prismic.ContentRelationshipField<"subscription">;
+}
+
+/**
  * Default variation for SubscriptionsSection Slice
  *
  * - **API ID**: `default`
@@ -801,7 +926,7 @@ export interface SubscriptionSectionSliceDefaultPrimary {
 export type SubscriptionSectionSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<SubscriptionSectionSliceDefaultPrimary>,
-  never
+  Simplify<SubscriptionSectionSliceDefaultItem>
 >;
 
 /**
@@ -849,6 +974,8 @@ declare module "@prismicio/client" {
       NavbarDocument,
       NavbarDocumentData,
       NavbarDocumentDataMenuItensItem,
+      SubscriptionDocument,
+      SubscriptionDocumentData,
       AllDocumentTypes,
       DiscipleshipGroupsSlice,
       DiscipleshipGroupsSliceDefaultPrimary,
@@ -870,6 +997,7 @@ declare module "@prismicio/client" {
       HeaderTextSliceDefault,
       SubscriptionSectionSlice,
       SubscriptionSectionSliceDefaultPrimary,
+      SubscriptionSectionSliceDefaultItem,
       SubscriptionSectionSliceVariation,
       SubscriptionSectionSliceDefault,
     };

@@ -9,11 +9,17 @@ type ContentProps = {
 }
 
 export const Content = ({ menuItens }: ContentProps) => {
-  const isMobile = useBreakpointValue({
-    base: true,
-    md: false,
-    lg: false,
-  })
+  const isMobile = useBreakpointValue(
+    {
+      base: true,
+      md: false,
+      lg: false,
+    },
+    {
+      fallback: '',
+    },
+  )
+
   return isMobile ? (
     <Mobile menuItens={menuItens} />
   ) : (
