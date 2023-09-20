@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next'
 import { AppProps } from 'next/app'
 
 import { repositoryName } from '@/prismicio'
@@ -9,7 +8,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 
 import { RootLayout } from '@/components'
 
-import { getFooter, getNavbar } from '@/helpers'
+import { getSettings } from '@/helpers'
 import { theme } from '@/theme'
 
 import type {
@@ -31,26 +30,16 @@ interface InitialProps extends AppProps {
   }
 }
 
-App.getInitialProps = async ({ previewData }: GetStaticPropsContext) => {
-  const [
-    {
-      data: { menu_itens: menuItens },
-    },
-    {
-      data: { site_info: siteInfo, social_media: socialMedia, recommendation },
-    },
-  ] = await Promise.all([
-    getNavbar({ previewData }),
-    getFooter({ previewData }),
-  ])
+App.getInitialProps = async () => {
+  const { footer, navbar } = await getSettings()
   return {
     navbar: {
-      menuItens,
+      menuItens: navbar.data.menu_itens,
     },
     footer: {
-      siteInfo,
-      socialMedia,
-      recommendation,
+      siteInfo: footer.data.site_info,
+      socialMedia: footer.data.social_media,
+      recommendation: footer.data.recommendation,
     },
   }
 }

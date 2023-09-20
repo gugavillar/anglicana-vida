@@ -4,61 +4,6 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutUsDocumentDataSlicesSlice = HeaderImageSlice;
-
-/**
- * Content for About Us documents
- */
-interface AboutUsDocumentData {
-  /**
-   * Slice Zone field in *About Us*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about_us.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<AboutUsDocumentDataSlicesSlice>
-  /**
-   * Meta Description field in *About Us*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: about_us.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Title field in *About Us*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: about_us.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * About Us document from Prismic
- *
- * - **API ID**: `about_us`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type AboutUsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<AboutUsDocumentData>,
-    "about_us",
-    Lang
-  >;
-
 /**
  * Content for Discipleship documents
  */
@@ -549,70 +494,13 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
-type SermonsDocumentDataSlicesSlice = HeaderImageSlice;
-
-/**
- * Content for Sermons documents
- */
-interface SermonsDocumentData {
-  /**
-   * Slice Zone field in *Sermons*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sermons.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<SermonsDocumentDataSlicesSlice>
-  /**
-   * Meta Description field in *Sermons*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: sermons.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Title field in *Sermons*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: sermons.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
-}
-
-/**
- * Sermons document from Prismic
- *
- * - **API ID**: `sermons`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type SermonsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<SermonsDocumentData>,
-    "sermons",
-    Lang
-  >;
-
 export type AllDocumentTypes =
-  | AboutUsDocument
   | DiscipleshipDocument
   | EventDocument
   | EventsDocument
   | FooterDocument
   | HomeDocument
-  | NavbarDocument
-  | SermonsDocument;
+  | NavbarDocument;
 
 /**
  * Primary content in *DiscipleshipGroups → Primary*
@@ -894,9 +782,6 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      AboutUsDocument,
-      AboutUsDocumentData,
-      AboutUsDocumentDataSlicesSlice,
       DiscipleshipDocument,
       DiscipleshipDocumentData,
       EventDocument,
@@ -915,9 +800,6 @@ declare module "@prismicio/client" {
       NavbarDocument,
       NavbarDocumentData,
       NavbarDocumentDataMenuItensItem,
-      SermonsDocument,
-      SermonsDocumentData,
-      SermonsDocumentDataSlicesSlice,
       AllDocumentTypes,
       DiscipleshipGroupsSlice,
       DiscipleshipGroupsSliceDefaultPrimary,

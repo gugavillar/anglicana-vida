@@ -1,6 +1,3 @@
-export { getFooter } from './getFooter'
-export { getNavbar } from './getNavbar'
 export { getEvents } from './getEvents'
-export { getAboutUs } from './getAboutUs'
-export { getSermons } from './getSermons'
 export { getHome } from './getHome'
+export { getSettings } from './getSettings'
