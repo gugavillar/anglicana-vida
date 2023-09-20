@@ -11,11 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "header_image": { "type": "SharedSlice" },
-            "summary_about_us": { "type": "SharedSlice" },
-            "info_content": { "type": "SharedSlice" },
-            "header_text": { "type": "SharedSlice" },
-            "content_with_image": { "type": "SharedSlice" }
+            "header_image": {
+              "type": "SharedSlice"
+            }
           }
         }
       }

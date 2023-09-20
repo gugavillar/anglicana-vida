@@ -1,0 +1,67 @@
+{
+  "id": "event",
+  "label": "Event",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "name",
+          "placeholder": "Nome do evento"
+        }
+      },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "image",
+          "constraint": {
+            "width": 640,
+            "height": 480
+          },
+          "thumbnails": []
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "description",
+          "placeholder": "Descrição do evento",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "week_day": {
+        "type": "Text",
+        "config": {
+          "label": "week_day",
+          "placeholder": "Dia da semana"
+        }
+      },
+      "schedule": {
+        "type": "Text",
+        "config": {
+          "label": "schedule",
+          "placeholder": "Horário"
+        }
+      },
+      "biweekly": {
+        "type": "Boolean",
+        "config": {
+          "label": "biweekly",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      }
+    }
+  }
+}

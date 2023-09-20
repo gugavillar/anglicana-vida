@@ -22,7 +22,11 @@
             },
             "link": {
               "type": "Link",
-              "config": { "label": "link", "placeholder": "", "select": null }
+              "config": {
+                "label": "link",
+                "placeholder": "",
+                "select": null
+              }
             }
           }
         }

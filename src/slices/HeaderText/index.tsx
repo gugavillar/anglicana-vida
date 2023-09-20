@@ -5,103 +5,60 @@ import {
   SliceComponentProps,
 } from '@prismicio/react'
 
-import { Box, Heading, VStack } from '@chakra-ui/react'
+import { HStack, Image, Text, VStack } from '@chakra-ui/react'
 
-import { SliceContainer } from '@/components/SliceContainer'
+import { ContentContainer, H3, IfComponent } from '@/components'
 
 import { roboto } from '@/fonts/roboto'
 
-import { CardCell } from './components/CardCell'
-import { CardEvent } from './components/CardEvent'
-import { CardPeople } from './components/CardPeople'
-import { CardSermon } from './components/CardSermon'
-import { Description, PrimaryDescription } from './components/Description'
-import { LiveSermon } from './components/LiveSermon'
-import { RecurrentEvent } from './components/RecurrentEvent'
-import { RegisterCardEvent } from './components/RegisterCardEvent'
-import { PrimarySubHeading, SubHeading } from './components/SubHeading'
+type HeaderTextProps = SliceComponentProps<Content.HeaderTextSlice>
 
-import type {
-  CardEventDocument,
-  CellCardDocument,
-  LiveSermonDocument,
-  PeopleCardDocument,
-  RecurrentEventCardDocument,
-  RegisterCardEventDocument,
-  SermonCardDocument,
-} from '../../../prismicio-types'
-
-export type HeaderTextProps = SliceComponentProps<
-  Content.HeaderTextSlice,
-  {
-    cardEvents: CardEventDocument<string>[]
-    registerCardEvents: RegisterCardEventDocument<string>[]
-    peopleCards: PeopleCardDocument<string>[]
-    sermonCards: SermonCardDocument<string>[]
-    liveSermon: LiveSermonDocument<string>[]
-    cellCards: CellCardDocument<string>[]
-    recurrentCards: RecurrentEventCardDocument<any>[]
-  }
->
-
-const headingComponent: JSXMapSerializer = {
-  heading3: ({ children }) => (
-    <Heading
-      as="h3"
-      fontSize={{ base: 'xl', md: '3xl', lg: '4xl' }}
-      fontFamily={roboto?.style?.fontFamily}
-      fontWeight={700}
-      color="cinder.950"
+const descriptionComponent: JSXMapSerializer = {
+  paragraph: ({ children }) => (
+    <Text
+      lineHeight="30px"
+      fontFamily={roboto.style.fontFamily}
+      fontSize="lg"
+      textAlign="justify"
+      textIndent="3rem"
     >
       {children}
-    </Heading>
+    </Text>
   ),
 }
 
-const HeaderText = ({ slice, context }: HeaderTextProps): JSX.Element => {
-  const isColor =
-    slice?.variation === 'withRecurrentEvent' ? slice?.primary?.is_color : false
+const HeaderText = ({ slice }: HeaderTextProps): JSX.Element => {
   return (
-    <SliceContainer isColorSlice={isColor}>
-      <LiveSermon liveSermon={context?.liveSermon} />
-      <Box as="header" maxW="48rem" mx="auto" px={6}>
-        <VStack spacing={4} textAlign="center">
-          <SubHeading
-            primary={slice.primary as PrimarySubHeading}
-            variation={slice?.variation}
-          />
+    <ContentContainer>
+      <HStack
+        spacing={8}
+        mx="auto"
+        flexDirection={{
+          base: 'column',
+          md: 'column',
+          lg: 'row-reverse',
+        }}
+      >
+        <VStack maxWidth={{ base: 'full', md: '28.75rem', lg: 'full' }}>
+          <H3>{slice?.primary?.title}</H3>
           <PrismicRichText
-            components={headingComponent}
-            field={slice?.primary?.heading}
+            components={descriptionComponent}
+            field={slice?.primary?.description}
           />
         </VStack>
-        <Description
-          variation={slice?.variation}
-          primary={slice?.primary as PrimaryDescription}
+        <IfComponent
+          condition={!!slice.primary.image.url as boolean}
+          component={
+            <Image
+              borderRadius={8}
+              maxHeight={256}
+              src={slice.primary.image.url as string}
+              alt={slice.primary.image.alt as string}
+            />
+          }
         />
-      </Box>
-      <CardEvent
-        cardEvents={context?.cardEvents}
-        variation={slice?.variation}
-      />
-      <RegisterCardEvent
-        registerCardEvents={context?.registerCardEvents}
-        variation={slice?.variation}
-      />
-      <CardPeople
-        peopleCard={context?.peopleCards}
-        variation={slice?.variation}
-      />
-      <CardSermon
-        sermonCard={context?.sermonCards}
-        variation={slice?.variation}
-      />
-      <RecurrentEvent
-        recurrentCard={context?.recurrentCards}
-        variation={slice?.variation}
-      />
-      <CardCell cellCard={context?.cellCards} variation={slice?.variation} />
-    </SliceContainer>
+      </HStack>
+    </ContentContainer>
   )
 }
 

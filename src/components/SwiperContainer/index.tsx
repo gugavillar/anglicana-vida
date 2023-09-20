@@ -1,37 +1,39 @@
 import { ReactNode } from 'react'
 
-import { Flex, FlexProps } from '@chakra-ui/react'
-import { Navigation } from 'swiper/modules'
+import { Box, FlexProps } from '@chakra-ui/react'
+import { Pagination, Autoplay } from 'swiper/modules'
 import { Swiper } from 'swiper/react'
 
 import 'swiper/css'
-import 'swiper/css/navigation'
-import style from './swiperContainer.module.css'
+import 'swiper/css/pagination'
 
 type SwiperContainerProps = FlexProps & {
   children: ReactNode
   slidesPerView: number | undefined
   spaceBetween: number
+  isAutoplay?: boolean
 }
 
 export const SwiperContainer = ({
   children,
   slidesPerView,
   spaceBetween,
+  isAutoplay,
   ...props
 }: SwiperContainerProps) => {
   return (
-    <Flex width="calc(100vw - 13vw)" {...props}>
+    <Box width="calc(90vw - 13vw)" {...props}>
       <Swiper
-        className={style.sampleSlider}
+        style={{ height: 'inherit' }}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
-        modules={[Navigation]}
-        navigation
+        modules={[Pagination, Autoplay]}
+        pagination={true}
+        {...(isAutoplay && { autoplay: { delay: 2500 } })}
         loop
       >
         {children}
       </Swiper>
-    </Flex>
+    </Box>
   )
 }

@@ -1,8 +1,8 @@
 {
-  "id": "header_text",
+  "id": "discipleship_groups",
   "type": "SharedSlice",
-  "name": "HeaderText",
-  "description": "HeaderText",
+  "name": "DiscipleshipGroups",
+  "description": "DiscipleshipGroups",
   "variations": [
     {
       "id": "default",
@@ -37,7 +37,15 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "discipleships": {
+          "type": "Link",
+          "config": {
+            "label": "Discipleships",
+            "select": "document"
+          }
+        }
+      }
     }
   ]
 }

@@ -1,0 +1,63 @@
+{
+  "id": "discipleship",
+  "label": "Discipleship",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "title",
+          "placeholder": ""
+        }
+      },
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "week_day": {
+        "type": "Text",
+        "config": {
+          "label": "week_day",
+          "placeholder": ""
+        }
+      },
+      "schedule": {
+        "type": "Text",
+        "config": {
+          "label": "schedule",
+          "placeholder": ""
+        }
+      },
+      "biweekly": {
+        "type": "Boolean",
+        "config": {
+          "label": "biweekly",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "address",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "leader": {
+        "type": "Text",
+        "config": {
+          "label": "leader",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

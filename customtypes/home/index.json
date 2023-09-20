@@ -11,9 +11,18 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "header_image": { "type": "SharedSlice" },
-            "header_text": { "type": "SharedSlice" },
-            "we_doing_block": { "type": "SharedSlice" }
+            "discipleship_groups": {
+              "type": "SharedSlice"
+            },
+            "events_section": {
+              "type": "SharedSlice"
+            },
+            "header_text": {
+              "type": "SharedSlice"
+            },
+            "header_image": {
+              "type": "SharedSlice"
+            }
           }
         }
       }

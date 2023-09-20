@@ -16,7 +16,10 @@
           "type": "Image",
           "config": {
             "thumbnails": [],
-            "constraint": { "height": 500, "width": 1500 },
+            "constraint": {
+              "height": 500,
+              "width": 1500
+            },
             "label": "background_image"
           }
         },
@@ -26,7 +29,7 @@
             "label": "label",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph"
+            "single": "heading6"
           }
         },
         "title": {
@@ -35,7 +38,7 @@
             "label": "title",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "heading2"
+            "single": "heading1"
           }
         }
       },

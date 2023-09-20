@@ -4,12 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutUsDocumentDataSlicesSlice =
-  | HeaderImageSlice
-  | SummaryAboutUsSlice
-  | InfoContentSlice
-  | HeaderTextSlice
-  | ContentWithImageSlice;
+type AboutUsDocumentDataSlicesSlice = HeaderImageSlice;
 
 /**
  * Content for About Us documents
@@ -65,169 +60,178 @@ export type AboutUsDocument<Lang extends string = string> =
   >;
 
 /**
- * Content for CardEvent documents
+ * Content for Discipleship documents
  */
-interface CardEventDocumentData {
+interface DiscipleshipDocumentData {
   /**
-   * title field in *CardEvent*
+   * title field in *Discipleship*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_event.title
+   * - **API ID Path**: discipleship.title
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  title: prismic.TitleField;
+  title: prismic.KeyTextField;
 
   /**
-   * description field in *CardEvent*
+   * week_day field in *Discipleship*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discipleship.week_day
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  week_day: prismic.KeyTextField;
+
+  /**
+   * schedule field in *Discipleship*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discipleship.schedule
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  schedule: prismic.KeyTextField;
+
+  /**
+   * biweekly field in *Discipleship*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: discipleship.biweekly
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  biweekly: prismic.BooleanField;
+
+  /**
+   * address field in *Discipleship*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_event.description
+   * - **API ID Path**: discipleship.address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  address: prismic.RichTextField;
+
+  /**
+   * leader field in *Discipleship*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discipleship.leader
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  leader: prismic.KeyTextField;
+}
+
+/**
+ * Discipleship document from Prismic
+ *
+ * - **API ID**: `discipleship`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DiscipleshipDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<DiscipleshipDocumentData>,
+    "discipleship",
+    Lang
+  >;
+
+/**
+ * Content for Event documents
+ */
+interface EventDocumentData {
+  /**
+   * name field in *Event*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Nome do evento
+   * - **API ID Path**: event.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * image field in *Event*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * description field in *Event*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Descrição do evento
+   * - **API ID Path**: event.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
 
   /**
-   * initial_date field in *CardEvent*
+   * week_day field in *Event*
    *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_event.initial_date
+   * - **Field Type**: Text
+   * - **Placeholder**: Dia da semana
+   * - **API ID Path**: event.week_day
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  initial_date: prismic.DateField;
+  week_day: prismic.KeyTextField;
 
   /**
-   * final_date field in *CardEvent*
+   * schedule field in *Event*
    *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: card_event.final_date
+   * - **Field Type**: Text
+   * - **Placeholder**: Horário
+   * - **API ID Path**: event.schedule
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  final_date: prismic.DateField;
+  schedule: prismic.KeyTextField;
 
   /**
-   * location field in *CardEvent*
+   * biweekly field in *Event*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Boolean
    * - **Placeholder**: *None*
-   * - **API ID Path**: card_event.location
+   * - **Default Value**: false
+   * - **API ID Path**: event.biweekly
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#boolean
    */
-  location: prismic.RichTextField;
+  biweekly: prismic.BooleanField;
 }
 
 /**
- * CardEvent document from Prismic
+ * Event document from Prismic
  *
- * - **API ID**: `card_event`
+ * - **API ID**: `event`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type CardEventDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<CardEventDocumentData>,
-    "card_event",
-    Lang
-  >;
+export type EventDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<EventDocumentData>, "event", Lang>;
 
-/**
- * Content for CellCard documents
- */
-interface CellCardDocumentData {
-  /**
-   * type field in *CellCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.type
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  type: prismic.RichTextField;
-
-  /**
-   * name field in *CellCard*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  name: prismic.TitleField;
-
-  /**
-   * week_day field in *CellCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.week_day
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  week_day: prismic.RichTextField;
-
-  /**
-   * initial_time field in *CellCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.initial_time
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  initial_time: prismic.RichTextField;
-
-  /**
-   * location field in *CellCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.location
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  location: prismic.RichTextField;
-
-  /**
-   * leader field in *CellCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cell_card.leader
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  leader: prismic.RichTextField;
-}
-
-/**
- * CellCard document from Prismic
- *
- * - **API ID**: `cell_card`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type CellCardDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<CellCardDocumentData>,
-    "cell_card",
-    Lang
-  >;
-
-type EventsDocumentDataSlicesSlice = HeaderImageSlice | HeaderTextSlice;
+type EventsDocumentDataSlicesSlice = HeaderImageSlice;
 
 /**
  * Content for Events documents
@@ -434,9 +438,10 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
-  | HeaderImageSlice
+  | DiscipleshipGroupsSlice
+  | EventsSectionSlice
   | HeaderTextSlice
-  | WeDoingBlockSlice;
+  | HeaderImageSlice;
 
 /**
  * Content for Home documents
@@ -486,60 +491,6 @@ interface HomeDocumentData {
  */
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
-
-/**
- * Content for LiveSermon documents
- */
-interface LiveSermonDocumentData {
-  /**
-   * live_youtube field in *LiveSermon*
-   *
-   * - **Field Type**: Embed
-   * - **Placeholder**: *None*
-   * - **API ID Path**: live_sermon.live_youtube
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#embed
-   */
-  live_youtube: prismic.EmbedField;
-
-  /**
-   * heading field in *LiveSermon*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: live_sermon.heading
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * quote field in *LiveSermon*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: live_sermon.quote
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  quote: prismic.RichTextField;
-}
-
-/**
- * LiveSermon document from Prismic
- *
- * - **API ID**: `live_sermon`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type LiveSermonDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<LiveSermonDocumentData>,
-    "live_sermon",
-    Lang
-  >;
 
 /**
  * Item in *Navbar → menu_itens*
@@ -598,355 +549,7 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Content for PeopleCard documents
- */
-interface PeopleCardDocumentData {
-  /**
-   * image field in *PeopleCard*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: people_card.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * role field in *PeopleCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: people_card.role
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  role: prismic.RichTextField;
-
-  /**
-   * heading field in *PeopleCard*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: people_card.heading
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * department field in *PeopleCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: people_card.department
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  department: prismic.RichTextField;
-
-  /**
-   * church field in *PeopleCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: people_card.church
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  church: prismic.RichTextField;
-
-  /**
-   * facebook field in *PeopleCard*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: people_card.facebook
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  facebook: prismic.LinkField;
-
-  /**
-   * instagram field in *PeopleCard*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: people_card.instagram
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  instagram: prismic.LinkField;
-}
-
-/**
- * PeopleCard document from Prismic
- *
- * - **API ID**: `people_card`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type PeopleCardDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<PeopleCardDocumentData>,
-    "people_card",
-    Lang
-  >;
-
-/**
- * Content for RecurrentEventCard documents
- */
-interface RecurrentEventCardDocumentData {
-  /**
-   * type field in *RecurrentEventCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recurrent_event_card.type
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  type: prismic.RichTextField;
-
-  /**
-   * name field in *RecurrentEventCard*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recurrent_event_card.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  name: prismic.TitleField;
-
-  /**
-   * description field in *RecurrentEventCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recurrent_event_card.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * recurrent_day field in *RecurrentEventCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recurrent_event_card.recurrent_day
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  recurrent_day: prismic.RichTextField;
-
-  /**
-   * initial_time field in *RecurrentEventCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recurrent_event_card.initial_time
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  initial_time: prismic.RichTextField;
-
-  /**
-   * location field in *RecurrentEventCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recurrent_event_card.location
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  location: prismic.RichTextField;
-}
-
-/**
- * RecurrentEventCard document from Prismic
- *
- * - **API ID**: `recurrent_event_card`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type RecurrentEventCardDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<RecurrentEventCardDocumentData>,
-    "recurrent_event_card",
-    Lang
-  >;
-
-/**
- * Content for RegisterCardEvent documents
- */
-interface RegisterCardEventDocumentData {
-  /**
-   * image field in *RegisterCardEvent*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: register_card_event.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * title field in *RegisterCardEvent*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: register_card_event.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * description field in *RegisterCardEvent*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: register_card_event.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * initial_date field in *RegisterCardEvent*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: register_card_event.initial_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  initial_date: prismic.DateField;
-
-  /**
-   * final_date field in *RegisterCardEvent*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: register_card_event.final_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  final_date: prismic.DateField;
-
-  /**
-   * location field in *RegisterCardEvent*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: register_card_event.location
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  location: prismic.RichTextField;
-
-  /**
-   * inscription_link field in *RegisterCardEvent*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: register_card_event.inscription_link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  inscription_link: prismic.LinkField;
-}
-
-/**
- * RegisterCardEvent document from Prismic
- *
- * - **API ID**: `register_card_event`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type RegisterCardEventDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<RegisterCardEventDocumentData>,
-    "register_card_event",
-    Lang
-  >;
-
-/**
- * Content for SermonCard documents
- */
-interface SermonCardDocumentData {
-  /**
-   * series field in *SermonCard*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sermon_card.series
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  series: prismic.KeyTextField;
-
-  /**
-   * title field in *SermonCard*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sermon_card.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * description field in *SermonCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sermon_card.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * location field in *SermonCard*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sermon_card.location
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  location: prismic.RichTextField;
-}
-
-/**
- * SermonCard document from Prismic
- *
- * - **API ID**: `sermon_card`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type SermonCardDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<SermonCardDocumentData>,
-    "sermon_card",
-    Lang
-  >;
-
-type SermonsDocumentDataSlicesSlice = HeaderTextSlice | HeaderImageSlice;
+type SermonsDocumentDataSlicesSlice = HeaderImageSlice;
 
 /**
  * Content for Sermons documents
@@ -1003,132 +606,152 @@ export type SermonsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutUsDocument
-  | CardEventDocument
-  | CellCardDocument
+  | DiscipleshipDocument
+  | EventDocument
   | EventsDocument
   | FooterDocument
   | HomeDocument
-  | LiveSermonDocument
   | NavbarDocument
-  | PeopleCardDocument
-  | RecurrentEventCardDocument
-  | RegisterCardEventDocument
-  | SermonCardDocument
   | SermonsDocument;
 
 /**
- * Primary content in *ContentWithImage → Items*
+ * Primary content in *DiscipleshipGroups → Primary*
  */
-export interface ContentWithImageSliceDefaultItem {
+export interface DiscipleshipGroupsSliceDefaultPrimary {
   /**
-   * image field in *ContentWithImage → Items*
+   * title field in *DiscipleshipGroups → Primary*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_with_image.items[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **API ID Path**: discipleship_groups.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  image: prismic.ImageField<never>;
+  title: prismic.KeyTextField;
 
   /**
-   * heading field in *ContentWithImage → Items*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_with_image.items[].heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * content field in *ContentWithImage → Items*
+   * description field in *DiscipleshipGroups → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_with_image.items[].content
+   * - **API ID Path**: discipleship_groups.primary.description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  content: prismic.RichTextField;
+  description: prismic.RichTextField;
+
+  /**
+   * image field in *DiscipleshipGroups → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discipleship_groups.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
- * Default variation for ContentWithImage Slice
+ * Primary content in *DiscipleshipGroups → Items*
+ */
+export interface DiscipleshipGroupsSliceDefaultItem {
+  /**
+   * Discipleships field in *DiscipleshipGroups → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discipleship_groups.items[].discipleships
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  discipleships: prismic.ContentRelationshipField;
+}
+
+/**
+ * Default variation for DiscipleshipGroups Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ContentWithImageSliceDefault = prismic.SharedSliceVariation<
+export type DiscipleshipGroupsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
-  Simplify<ContentWithImageSliceDefaultItem>
+  Simplify<DiscipleshipGroupsSliceDefaultPrimary>,
+  Simplify<DiscipleshipGroupsSliceDefaultItem>
 >;
 
 /**
- * Primary content in *ContentWithImage → Items*
+ * Slice variation for *DiscipleshipGroups*
  */
-export interface ContentWithImageSliceLeftImageItem {
-  /**
-   * image field in *ContentWithImage → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_with_image.items[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
+type DiscipleshipGroupsSliceVariation = DiscipleshipGroupsSliceDefault;
 
-  /**
-   * heading field in *ContentWithImage → Items*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_with_image.items[].heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
+/**
+ * DiscipleshipGroups Shared Slice
+ *
+ * - **API ID**: `discipleship_groups`
+ * - **Description**: DiscipleshipGroups
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DiscipleshipGroupsSlice = prismic.SharedSlice<
+  "discipleship_groups",
+  DiscipleshipGroupsSliceVariation
+>;
 
+/**
+ * Primary content in *EventsSection → Primary*
+ */
+export interface EventsSectionSliceDefaultPrimary {
   /**
-   * content field in *ContentWithImage → Items*
+   * title field in *EventsSection → Primary*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: content_with_image.items[].content
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Field Type**: Text
+   * - **Placeholder**: Título da seção de eventos
+   * - **API ID Path**: events_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  content: prismic.RichTextField;
+  title: prismic.KeyTextField;
 }
 
 /**
- * LeftImage variation for ContentWithImage Slice
+ * Primary content in *EventsSection → Items*
+ */
+export interface EventsSectionSliceDefaultItem {
+  /**
+   * events field in *EventsSection → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: events_section.items[].events
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  events: prismic.ContentRelationshipField<"event">;
+}
+
+/**
+ * Default variation for EventsSection Slice
  *
- * - **API ID**: `leftImage`
+ * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ContentWithImageSliceLeftImage = prismic.SharedSliceVariation<
-  "leftImage",
-  Record<string, never>,
-  Simplify<ContentWithImageSliceLeftImageItem>
+export type EventsSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EventsSectionSliceDefaultPrimary>,
+  Simplify<EventsSectionSliceDefaultItem>
 >;
 
 /**
- * Slice variation for *ContentWithImage*
+ * Slice variation for *EventsSection*
  */
-type ContentWithImageSliceVariation =
-  | ContentWithImageSliceDefault
-  | ContentWithImageSliceLeftImage;
+type EventsSectionSliceVariation = EventsSectionSliceDefault;
 
 /**
- * ContentWithImage Shared Slice
+ * EventsSection Shared Slice
  *
- * - **API ID**: `content_with_image`
- * - **Description**: ContentWithImage
+ * - **API ID**: `events_section`
+ * - **Description**: EventsSection
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type ContentWithImageSlice = prismic.SharedSlice<
-  "content_with_image",
-  ContentWithImageSliceVariation
+export type EventsSectionSlice = prismic.SharedSlice<
+  "events_section",
+  EventsSectionSliceVariation
 >;
 
 /**
@@ -1148,12 +771,12 @@ export interface HeaderImageSliceDefaultPrimary {
   /**
    * label field in *HeaderImage → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Title
    * - **Placeholder**: *None*
    * - **API ID Path**: header_image.primary.label
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  label: prismic.RichTextField;
+  label: prismic.TitleField;
 
   /**
    * title field in *HeaderImage → Primary*
@@ -1201,24 +824,34 @@ export type HeaderImageSlice = prismic.SharedSlice<
  */
 export interface HeaderTextSliceDefaultPrimary {
   /**
-   * sub_heading field in *HeaderText → Primary*
+   * title field in *HeaderText → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.sub_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **API ID Path**: header_text.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  sub_heading: prismic.TitleField;
+  title: prismic.KeyTextField;
 
   /**
-   * heading field in *HeaderText → Primary*
+   * description field in *HeaderText → Primary*
    *
-   * - **Field Type**: Title
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
+   * - **API ID Path**: header_text.primary.description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  heading: prismic.TitleField;
+  description: prismic.RichTextField;
+
+  /**
+   * image field in *HeaderText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: header_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -1235,303 +868,9 @@ export type HeaderTextSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *HeaderText → Primary*
- */
-export interface HeaderTextSliceWithoutSubHeadingPrimary {
-  /**
-   * heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-}
-
-/**
- * WithoutSubHeading variation for HeaderText Slice
- *
- * - **API ID**: `withoutSubHeading`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderTextSliceWithoutSubHeading = prismic.SharedSliceVariation<
-  "withoutSubHeading",
-  Simplify<HeaderTextSliceWithoutSubHeadingPrimary>,
-  never
->;
-
-/**
- * Primary content in *HeaderText → Primary*
- */
-export interface HeaderTextSliceWithDescriptionPrimary {
-  /**
-   * sub_heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.sub_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  sub_heading: prismic.TitleField;
-
-  /**
-   * heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * description field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-}
-
-/**
- * WithDescription variation for HeaderText Slice
- *
- * - **API ID**: `withDescription`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderTextSliceWithDescription = prismic.SharedSliceVariation<
-  "withDescription",
-  Simplify<HeaderTextSliceWithDescriptionPrimary>,
-  never
->;
-
-/**
- * Primary content in *HeaderText → Primary*
- */
-export interface HeaderTextSliceWithCardEventPrimary {
-  /**
-   * heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-}
-
-/**
- * WithCardEvent variation for HeaderText Slice
- *
- * - **API ID**: `withCardEvent`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderTextSliceWithCardEvent = prismic.SharedSliceVariation<
-  "withCardEvent",
-  Simplify<HeaderTextSliceWithCardEventPrimary>,
-  never
->;
-
-/**
- * Primary content in *HeaderText → Primary*
- */
-export interface HeaderTextSliceWithSermonCardPrimary {
-  /**
-   * heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-}
-
-/**
- * WithSermonCard variation for HeaderText Slice
- *
- * - **API ID**: `withSermonCard`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderTextSliceWithSermonCard = prismic.SharedSliceVariation<
-  "withSermonCard",
-  Simplify<HeaderTextSliceWithSermonCardPrimary>,
-  never
->;
-
-/**
- * Primary content in *HeaderText → Primary*
- */
-export interface HeaderTextSliceWithRegisterCardEventPrimary {
-  /**
-   * sub_heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.sub_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  sub_heading: prismic.TitleField;
-
-  /**
-   * heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-}
-
-/**
- * WithRegisterCardEvent variation for HeaderText Slice
- *
- * - **API ID**: `withRegisterCardEvent`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderTextSliceWithRegisterCardEvent = prismic.SharedSliceVariation<
-  "withRegisterCardEvent",
-  Simplify<HeaderTextSliceWithRegisterCardEventPrimary>,
-  never
->;
-
-/**
- * Primary content in *HeaderText → Primary*
- */
-export interface HeaderTextSliceWithPeopleCardPrimary {
-  /**
-   * sub_heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.sub_heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  sub_heading: prismic.TitleField;
-
-  /**
-   * heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-}
-
-/**
- * WithPeopleCard variation for HeaderText Slice
- *
- * - **API ID**: `withPeopleCard`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderTextSliceWithPeopleCard = prismic.SharedSliceVariation<
-  "withPeopleCard",
-  Simplify<HeaderTextSliceWithPeopleCardPrimary>,
-  never
->;
-
-/**
- * Primary content in *HeaderText → Primary*
- */
-export interface HeaderTextSliceWithCellCardPrimary {
-  /**
-   * heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * description field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-}
-
-/**
- * WithCellCard variation for HeaderText Slice
- *
- * - **API ID**: `withCellCard`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderTextSliceWithCellCard = prismic.SharedSliceVariation<
-  "withCellCard",
-  Simplify<HeaderTextSliceWithCellCardPrimary>,
-  never
->;
-
-/**
- * Primary content in *HeaderText → Primary*
- */
-export interface HeaderTextSliceWithRecurrentEventPrimary {
-  /**
-   * heading field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: header_text.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * is_color field in *HeaderText → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: header_text.primary.is_color
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  is_color: prismic.BooleanField;
-}
-
-/**
- * WithRecurrentEvent variation for HeaderText Slice
- *
- * - **API ID**: `withRecurrentEvent`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeaderTextSliceWithRecurrentEvent = prismic.SharedSliceVariation<
-  "withRecurrentEvent",
-  Simplify<HeaderTextSliceWithRecurrentEventPrimary>,
-  never
->;
-
-/**
  * Slice variation for *HeaderText*
  */
-type HeaderTextSliceVariation =
-  | HeaderTextSliceDefault
-  | HeaderTextSliceWithoutSubHeading
-  | HeaderTextSliceWithDescription
-  | HeaderTextSliceWithCardEvent
-  | HeaderTextSliceWithSermonCard
-  | HeaderTextSliceWithRegisterCardEvent
-  | HeaderTextSliceWithPeopleCard
-  | HeaderTextSliceWithCellCard
-  | HeaderTextSliceWithRecurrentEvent;
+type HeaderTextSliceVariation = HeaderTextSliceDefault;
 
 /**
  * HeaderText Shared Slice
@@ -1543,196 +882,6 @@ type HeaderTextSliceVariation =
 export type HeaderTextSlice = prismic.SharedSlice<
   "header_text",
   HeaderTextSliceVariation
->;
-
-/**
- * Primary content in *InfoContent → Items*
- */
-export interface InfoContentSliceDefaultItem {
-  /**
-   * label field in *InfoContent → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: info_content.items[].label
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label: prismic.RichTextField;
-
-  /**
-   * heading field in *InfoContent → Items*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: info_content.items[].heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * description field in *InfoContent → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: info_content.items[].description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-}
-
-/**
- * Default variation for InfoContent Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type InfoContentSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  Simplify<InfoContentSliceDefaultItem>
->;
-
-/**
- * Slice variation for *InfoContent*
- */
-type InfoContentSliceVariation = InfoContentSliceDefault;
-
-/**
- * InfoContent Shared Slice
- *
- * - **API ID**: `info_content`
- * - **Description**: InfoContent
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type InfoContentSlice = prismic.SharedSlice<
-  "info_content",
-  InfoContentSliceVariation
->;
-
-/**
- * Primary content in *SummaryAboutUs → Items*
- */
-export interface SummaryAboutUsSliceDefaultItem {
-  /**
-   * image field in *SummaryAboutUs → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: summary_about_us.items[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for SummaryAboutUs Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SummaryAboutUsSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  Simplify<SummaryAboutUsSliceDefaultItem>
->;
-
-/**
- * Slice variation for *SummaryAboutUs*
- */
-type SummaryAboutUsSliceVariation = SummaryAboutUsSliceDefault;
-
-/**
- * SummaryAboutUs Shared Slice
- *
- * - **API ID**: `summary_about_us`
- * - **Description**: SummaryAboutUs
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type SummaryAboutUsSlice = prismic.SharedSlice<
-  "summary_about_us",
-  SummaryAboutUsSliceVariation
->;
-
-/**
- * Primary content in *WeDoingBlock → Primary*
- */
-export interface WeDoingBlockSliceDefaultPrimary {
-  /**
-   * heading field in *WeDoingBlock → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: we_doing_block.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-}
-
-/**
- * Primary content in *WeDoingBlock → Items*
- */
-export interface WeDoingBlockSliceDefaultItem {
-  /**
-   * type field in *WeDoingBlock → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: hand-heart/broadcast/hands-cross
-   * - **API ID Path**: we_doing_block.items[].type
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  type: prismic.RichTextField;
-
-  /**
-   * heading field in *WeDoingBlock → Items*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: we_doing_block.items[].heading
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * paragraph field in *WeDoingBlock → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Máximo de 123 caracteres
-   * - **API ID Path**: we_doing_block.items[].paragraph
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  paragraph: prismic.RichTextField;
-}
-
-/**
- * Default variation for WeDoingBlock Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WeDoingBlockSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<WeDoingBlockSliceDefaultPrimary>,
-  Simplify<WeDoingBlockSliceDefaultItem>
->;
-
-/**
- * Slice variation for *WeDoingBlock*
- */
-type WeDoingBlockSliceVariation = WeDoingBlockSliceDefault;
-
-/**
- * WeDoingBlock Shared Slice
- *
- * - **API ID**: `we_doing_block`
- * - **Description**: WeDoingBlock
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type WeDoingBlockSlice = prismic.SharedSlice<
-  "we_doing_block",
-  WeDoingBlockSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -1748,61 +897,46 @@ declare module "@prismicio/client" {
       AboutUsDocument,
       AboutUsDocumentData,
       AboutUsDocumentDataSlicesSlice,
-      CardEventDocument,
-      CardEventDocumentData,
-      CellCardDocument,
-      CellCardDocumentData,
+      DiscipleshipDocument,
+      DiscipleshipDocumentData,
+      EventDocument,
+      EventDocumentData,
       EventsDocument,
       EventsDocumentData,
       EventsDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
+      FooterDocumentDataSiteInfoItem,
+      FooterDocumentDataSocialMediaItem,
+      FooterDocumentDataRecommendationItem,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
-      LiveSermonDocument,
-      LiveSermonDocumentData,
       NavbarDocument,
       NavbarDocumentData,
-      PeopleCardDocument,
-      PeopleCardDocumentData,
-      RecurrentEventCardDocument,
-      RecurrentEventCardDocumentData,
-      RegisterCardEventDocument,
-      RegisterCardEventDocumentData,
-      SermonCardDocument,
-      SermonCardDocumentData,
+      NavbarDocumentDataMenuItensItem,
       SermonsDocument,
       SermonsDocumentData,
       SermonsDocumentDataSlicesSlice,
       AllDocumentTypes,
-      ContentWithImageSlice,
-      ContentWithImageSliceVariation,
-      ContentWithImageSliceDefault,
-      ContentWithImageSliceLeftImage,
+      DiscipleshipGroupsSlice,
+      DiscipleshipGroupsSliceDefaultPrimary,
+      DiscipleshipGroupsSliceDefaultItem,
+      DiscipleshipGroupsSliceVariation,
+      DiscipleshipGroupsSliceDefault,
+      EventsSectionSlice,
+      EventsSectionSliceDefaultPrimary,
+      EventsSectionSliceDefaultItem,
+      EventsSectionSliceVariation,
+      EventsSectionSliceDefault,
       HeaderImageSlice,
+      HeaderImageSliceDefaultPrimary,
       HeaderImageSliceVariation,
       HeaderImageSliceDefault,
       HeaderTextSlice,
+      HeaderTextSliceDefaultPrimary,
       HeaderTextSliceVariation,
       HeaderTextSliceDefault,
-      HeaderTextSliceWithoutSubHeading,
-      HeaderTextSliceWithDescription,
-      HeaderTextSliceWithCardEvent,
-      HeaderTextSliceWithSermonCard,
-      HeaderTextSliceWithRegisterCardEvent,
-      HeaderTextSliceWithPeopleCard,
-      HeaderTextSliceWithCellCard,
-      HeaderTextSliceWithRecurrentEvent,
-      InfoContentSlice,
-      InfoContentSliceVariation,
-      InfoContentSliceDefault,
-      SummaryAboutUsSlice,
-      SummaryAboutUsSliceVariation,
-      SummaryAboutUsSliceDefault,
-      WeDoingBlockSlice,
-      WeDoingBlockSliceVariation,
-      WeDoingBlockSliceDefault,
     };
   }
 }

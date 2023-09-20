@@ -1,0 +1,37 @@
+{
+  "id": "events_section",
+  "type": "SharedSlice",
+  "name": "EventsSection",
+  "description": "EventsSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "title",
+            "placeholder": "Título da seção de eventos"
+          }
+        }
+      },
+      "items": {
+        "events": {
+          "type": "Link",
+          "config": {
+            "label": "events",
+            "select": "document",
+            "customtypes": [
+              "event"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

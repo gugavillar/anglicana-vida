@@ -4,7 +4,6 @@
 		"variation": "default",
 		"primary": {
 			"background_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
@@ -22,18 +21,19 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"label": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "paragraph",
+						"type": "heading6",
 						"content": {
-							"text": "Lançamentos",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Loose"
+						}
 					}
 				]
 			},
@@ -41,12 +41,10 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading2",
+						"type": "heading1",
 						"content": {
-							"text": "Conheça o novo notebook",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Stronger"
+						}
 					}
 				]
 			}

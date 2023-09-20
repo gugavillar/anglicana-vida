@@ -1,3 +1,14 @@
-.sampleSlider [class^="swiper-button-"]::after{
-  display: none;
+.sampleSlider [class^="swiper-pagination-bullet"] {
+    background-color: black;
+    width: 1rem;
+    height: 1rem;
+    border-radius: .5rem;
+    opacity: 1;
 }
+
+/* .swiper-pagination-bullet-active {
+  background-color: blue;
+  width: 5rem;
+  height: 1rem;
+  border-radius: .5rem;
+} */

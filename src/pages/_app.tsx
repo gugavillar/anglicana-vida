@@ -7,7 +7,7 @@ import { PrismicPreview } from '@prismicio/next'
 
 import { ChakraProvider } from '@chakra-ui/react'
 
-import { Container } from '@/components/Container'
+import { RootLayout } from '@/components'
 
 import { getFooter, getNavbar } from '@/helpers'
 import { theme } from '@/theme'
@@ -63,14 +63,14 @@ export default function App({
 }: InitialProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Container
+      <RootLayout
         menuItens={navbar?.menuItens}
         siteInfo={footer?.siteInfo}
         socialMedia={footer?.socialMedia}
         recommendation={footer?.recommendation}
       >
         <Component {...pageProps} />
-      </Container>
+      </RootLayout>
       <PrismicPreview repositoryName={repositoryName} />
     </ChakraProvider>
   )

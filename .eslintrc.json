@@ -24,7 +24,7 @@
             "position": "before"
           },
           {
-            "pattern": "{@/components/**,@/components/*}",
+            "pattern": "{@/components,@/components/**,@/components/*}",
             "group": "internal",
             "position": "before"
           },
