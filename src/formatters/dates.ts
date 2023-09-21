@@ -1,4 +1,4 @@
-import { isFuture, isPast, parse, format } from 'date-fns'
+import { isFuture, isPast, parse, format, parseISO } from 'date-fns'
 import * as locale from 'date-fns/locale'
 
 const ptBR = locale.ptBR
@@ -9,6 +9,22 @@ const getNumberDate = (date: string, formatString = 'yyyy-MM-dd') => {
   return parse(date, formatString, new Date(), {
     locale: ptBR,
   }).getTime()
+}
+
+const getNumberISODate = (date: string) => {
+  if (!date) return NaN
+
+  return parseISO(date).getTime()
+}
+
+export const formatISODate = (date: string) => {
+  if (!date) return ''
+
+  const dateFormatted = getNumberISODate(date)
+
+  if (isNaN(dateFormatted)) return ''
+
+  return format(new Date(dateFormatted), 'dd/MM/yyyy')
 }
 
 export const formatDate = (date: string) => {

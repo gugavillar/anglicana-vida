@@ -387,6 +387,7 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type HomeDocumentDataSlicesSlice =
+  | SermonsSectionsSlice
   | DiscipleshipGroupsSlice
   | EventsSectionSlice
   | HeaderTextSlice
@@ -495,6 +496,72 @@ export type NavbarDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
     Simplify<NavbarDocumentData>,
     "navbar",
+    Lang
+  >;
+
+type SermonsDocumentDataSlicesSlice = HeaderImageSlice;
+
+/**
+ * Content for Sermons documents
+ */
+interface SermonsDocumentData {
+  /**
+   * Slice Zone field in *Sermons*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sermons.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SermonsDocumentDataSlicesSlice>
+  /**
+   * Meta Description field in *Sermons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: sermons.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Sermons*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sermons.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Sermons*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: sermons.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Sermons document from Prismic
+ *
+ * - **API ID**: `sermons`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SermonsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SermonsDocumentData>,
+    "sermons",
     Lang
   >;
 
@@ -614,6 +681,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | HomeDocument
   | NavbarDocument
+  | SermonsDocument
   | SubscriptionDocument;
 
 /**
@@ -887,6 +955,51 @@ export type HeaderTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SermonsSection → Primary*
+ */
+export interface SermonsSectionsSliceDefaultPrimary {
+  /**
+   * title field in *SermonsSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sermons_sections.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for SermonsSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SermonsSectionsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SermonsSectionsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SermonsSection*
+ */
+type SermonsSectionsSliceVariation = SermonsSectionsSliceDefault;
+
+/**
+ * SermonsSection Shared Slice
+ *
+ * - **API ID**: `sermons_sections`
+ * - **Description**: SermonsSections
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SermonsSectionsSlice = prismic.SharedSlice<
+  "sermons_sections",
+  SermonsSectionsSliceVariation
+>;
+
+/**
  * Primary content in *SubscriptionsSection → Primary*
  */
 export interface SubscriptionSectionSliceDefaultPrimary {
@@ -974,6 +1087,9 @@ declare module "@prismicio/client" {
       NavbarDocument,
       NavbarDocumentData,
       NavbarDocumentDataMenuItensItem,
+      SermonsDocument,
+      SermonsDocumentData,
+      SermonsDocumentDataSlicesSlice,
       SubscriptionDocument,
       SubscriptionDocumentData,
       AllDocumentTypes,
@@ -995,6 +1111,10 @@ declare module "@prismicio/client" {
       HeaderTextSliceDefaultPrimary,
       HeaderTextSliceVariation,
       HeaderTextSliceDefault,
+      SermonsSectionsSlice,
+      SermonsSectionsSliceDefaultPrimary,
+      SermonsSectionsSliceVariation,
+      SermonsSectionsSliceDefault,
       SubscriptionSectionSlice,
       SubscriptionSectionSliceDefaultPrimary,
       SubscriptionSectionSliceDefaultItem,

@@ -1,6 +1,6 @@
 {
-  "id": "home",
-  "label": "Home",
+  "id": "sermons",
+  "label": "Sermons",
   "format": "page",
   "repeatable": false,
   "status": true,
@@ -11,18 +11,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "sermons_sections": {
-              "type": "SharedSlice"
-            },
-            "discipleship_groups": {
-              "type": "SharedSlice"
-            },
-            "events_section": {
-              "type": "SharedSlice"
-            },
-            "header_text": {
-              "type": "SharedSlice"
-            },
             "header_image": {
               "type": "SharedSlice"
             }
@@ -37,6 +25,17 @@
           "placeholder": "A brief summary of the page"
         },
         "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
       },
       "meta_title": {
         "config": {

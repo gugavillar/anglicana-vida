@@ -18,7 +18,7 @@ import { isFutureDate, isPassedDate, formatDate } from '@/formatters'
 import { SubscriptionDocument } from '../../../prismicio-types'
 import { IfComponent } from '../IfComponent'
 
-type EventCardProps = {
+type SubscriptionCardProps = {
   data: SubscriptionDocument<string>['data']
 }
 
@@ -41,7 +41,7 @@ const getBadgeText = (openDate: string, closeDate: string) => {
   return 'Inscrições encerradas'
 }
 
-export const SubscriptionCard = ({ data }: EventCardProps) => {
+export const SubscriptionCard = ({ data }: SubscriptionCardProps) => {
   const badgeText = getBadgeText(
     data.subscription_open_date as string,
     data.subscription_close_date as string,
