@@ -24,11 +24,13 @@ type EventCardProps = {
 
 const descriptionComponent: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <Text fontFamily={roboto?.style?.fontFamily}>{children}</Text>
+    <Text fontFamily={roboto?.style?.fontFamily} textAlign="justify">
+      {children}
+    </Text>
   ),
 }
 
-const height = 540
+const height = { base: 520, md: 520, lg: 530 }
 
 const getBadgeText = (openDate: string, closeDate: string) => {
   if (isFutureDate(openDate)) return 'Em breve'
@@ -88,8 +90,11 @@ export const SubscriptionCard = ({ data }: EventCardProps) => {
           <IfComponent
             condition={isOpenSubscription}
             component={
-              <PrismicNextLink field={data.subscription_link}>
-                <Link as="span" alignSelf="end" cursor="pointer">
+              <PrismicNextLink
+                field={data.subscription_link}
+                style={{ alignSelf: 'end' }}
+              >
+                <Link as="span" cursor="pointer">
                   Inscrever
                 </Link>
               </PrismicNextLink>

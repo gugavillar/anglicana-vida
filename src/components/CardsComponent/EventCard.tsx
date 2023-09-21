@@ -12,7 +12,9 @@ type EventCardProps = {
 
 const descriptionComponent: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <Text fontFamily={roboto?.style?.fontFamily}>{children}</Text>
+    <Text fontFamily={roboto?.style?.fontFamily} textAlign="justify">
+      {children}
+    </Text>
   ),
 }
 
