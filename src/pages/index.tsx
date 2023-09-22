@@ -33,8 +33,8 @@ export async function getServerSideProps() {
   const [page, videos] = await Promise.all([
     getHome(),
     getAllVideosFromChannel(
-      process.env.YOUTUBE_API_KEY as string,
-      process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID as string,
+      process.env.YOUTUBE_API_KEY,
+      process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID,
       12,
     ),
   ])
