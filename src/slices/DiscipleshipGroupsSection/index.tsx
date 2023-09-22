@@ -117,6 +117,7 @@ const DiscipleshipGroups = ({
         maxWidth="inherit"
         alignSelf="center"
         mt={8}
+        minWidth="full"
       >
         <SwiperContainer
           slidesPerView={slidesPerView}

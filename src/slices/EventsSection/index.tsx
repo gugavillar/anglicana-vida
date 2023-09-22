@@ -53,6 +53,7 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
         height={500}
         maxWidth="inherit"
         alignSelf="center"
+        minWidth="full"
       >
         <SwiperContainer
           slidesPerView={slidesPerView}

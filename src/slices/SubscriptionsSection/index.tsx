@@ -66,6 +66,7 @@ const SubscriptionSection = ({
         height={570}
         maxWidth="inherit"
         alignSelf="center"
+        minWidth="full"
       >
         <SwiperContainer
           slidesPerView={slidesPerView}

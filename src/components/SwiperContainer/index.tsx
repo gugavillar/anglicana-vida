@@ -22,14 +22,20 @@ export const SwiperContainer = ({
   ...props
 }: SwiperContainerProps) => {
   return (
-    <Box width="calc(90vw - 13vw)" {...props}>
+    <Box minWidth="full" maxWidth="calc(90vw - 13vw)" {...props}>
       <Swiper
         style={{ height: 'inherit' }}
         slidesPerView={slidesPerView}
         spaceBetween={spaceBetween}
         modules={[Pagination, Autoplay]}
         pagination={true}
-        {...(isAutoplay && { autoplay: { delay: 2500 } })}
+        {...(isAutoplay && {
+          autoplay: {
+            delay: 2500,
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false,
+          },
+        })}
         loop
       >
         {children}

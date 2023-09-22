@@ -17,6 +17,7 @@ const HeaderImage = ({ slice }: HeaderImageProps): JSX.Element => {
       justify="flex-start"
       maxHeight={height}
       overflowY="hidden"
+      mx="auto"
     >
       <BoxWithText primary={slice?.primary} />
       <Image

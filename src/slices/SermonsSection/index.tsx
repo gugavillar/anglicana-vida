@@ -36,6 +36,7 @@ const SermonsSections = ({
         height={{ base: 360, md: 480, lg: 480 }}
         maxWidth="inherit"
         mx="auto"
+        minWidth="full"
       >
         <SwiperContainer
           slidesPerView={slidesPerView}
