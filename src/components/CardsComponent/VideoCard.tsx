@@ -34,7 +34,7 @@ export const VideoCard = ({ data }: VideoCardProps) => {
   )
 
   if (!aspectRationHeight) return null
-  console.log(data.thumbnails.high.url)
+
   return (
     <Card
       maxW="lg"
