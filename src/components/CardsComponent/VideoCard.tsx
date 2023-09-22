@@ -14,23 +14,25 @@ import { roboto } from '@/fonts/roboto'
 import { formatISODate } from '@/formatters'
 import { GetAllVideosFromChannelResponse } from '@/services'
 
-const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
 type VideoCardProps = {
   data: GetAllVideosFromChannelResponse['items'][number]['snippet']
 }
 
 export const VideoCard = ({ data }: VideoCardProps) => {
-  const height = useBreakpointValue({
-    base: '100%',
-    md: '100%',
-    lg: '100%',
-  })
-  const aspectRationHeight = useBreakpointValue({
-    base: 170,
-    md: 280,
-    lg: 280,
-  })
+  const aspectRationHeight = useBreakpointValue(
+    {
+      base: 170,
+      md: 280,
+      lg: 280,
+    },
+    {
+      fallback: '',
+    },
+  )
+
+  if (!aspectRationHeight) return null
 
   return (
     <Card
@@ -44,8 +46,8 @@ export const VideoCard = ({ data }: VideoCardProps) => {
         <AspectRatio ratio={4 / 3} height={aspectRationHeight}>
           <ReactPlayer
             width="100%"
-            height={height}
-            url={`http://www.youtube.com/watch?v=${data.resourceId.videoId}`}
+            height="100%"
+            url={`http://www.youtube.com/embed/${data.resourceId.videoId}`}
           />
         </AspectRatio>
         <Stack spacing={4} p={5}>

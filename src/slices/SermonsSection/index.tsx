@@ -17,17 +17,22 @@ const SermonsSections = ({
   slice,
   context,
 }: SermonsSectionsProps): JSX.Element => {
-  const slidesPerView = useBreakpointValue({
-    base: 1,
-    md: 1,
-    lg: 2,
-  })
+  const slidesPerView = useBreakpointValue(
+    {
+      base: 1,
+      md: 1,
+      lg: 2,
+    },
+    {
+      fallback: '',
+    },
+  )
 
   return (
     <ContentContainer>
       <H3>{slice.primary.title}</H3>
       <Skeleton
-        isLoaded={!!context.items.length}
+        isLoaded={!!slidesPerView}
         height={{ base: 360, md: 480, lg: 480 }}
         maxWidth="inherit"
         mx="auto"
