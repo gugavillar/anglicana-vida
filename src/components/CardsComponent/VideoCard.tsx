@@ -8,6 +8,7 @@ import {
   Text,
   AspectRatio,
   useBreakpointValue,
+  Image,
 } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
@@ -33,7 +34,7 @@ export const VideoCard = ({ data }: VideoCardProps) => {
   )
 
   if (!aspectRationHeight) return null
-
+  console.log(data.thumbnails.high.url)
   return (
     <Card
       maxW="lg"
@@ -45,8 +46,12 @@ export const VideoCard = ({ data }: VideoCardProps) => {
       <CardBody p={2}>
         <AspectRatio ratio={4 / 3} height={aspectRationHeight}>
           <ReactPlayer
+            light={<Image src={data.thumbnails.high.url} alt={data.title} />}
             width="100%"
             height="100%"
+            config={{
+              youtube: { playerVars: { origin: window.location.origin } },
+            }}
             url={`http://www.youtube.com/embed/${data.resourceId.videoId}`}
           />
         </AspectRatio>
