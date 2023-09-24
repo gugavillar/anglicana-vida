@@ -35,7 +35,7 @@ export async function getServerSideProps() {
     getAllVideosFromChannel(
       process.env.YOUTUBE_API_KEY,
       process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID,
-      12,
+      8,
     ),
   ])
   return {

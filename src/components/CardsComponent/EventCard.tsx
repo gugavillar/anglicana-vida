@@ -18,11 +18,9 @@ const descriptionComponent: JSXMapSerializer = {
   ),
 }
 
-const height = { base: 450, md: 450, lg: 480 }
-
 export const EventCard = ({ data }: EventCardProps) => {
   return (
-    <Card maxW={{ md: 'inherit', lg: 'sm' }} minHeight={height}>
+    <Card maxW={{ md: 'inherit', lg: 'sm' }} minHeight={450}>
       <CardBody p={0}>
         <Image
           src={data?.image?.url as string}

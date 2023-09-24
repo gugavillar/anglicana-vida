@@ -20,7 +20,7 @@ const SermonsSections = ({
   const slidesPerView = useBreakpointValue(
     {
       base: 1,
-      md: 1,
+      md: 2,
       lg: 2,
     },
     {
@@ -29,11 +29,11 @@ const SermonsSections = ({
   )
 
   return (
-    <ContentContainer>
+    <ContentContainer id="sermons">
       <H3>{slice.primary.title}</H3>
       <Skeleton
         isLoaded={!!slidesPerView}
-        height={{ base: 360, md: 480, lg: 480 }}
+        height={{ base: 380, md: 500, lg: 480 }}
         maxWidth="inherit"
         mx="auto"
         minWidth="full"
@@ -41,8 +41,7 @@ const SermonsSections = ({
         <SwiperContainer
           slidesPerView={slidesPerView}
           spaceBetween={25}
-          isAutoplay
-          height={{ base: 360, md: 480, lg: 480 }}
+          height={{ base: 380, md: 500, lg: 480 }}
         >
           {context.items?.map((item) => (
             <SwiperSlide key={item.id}>

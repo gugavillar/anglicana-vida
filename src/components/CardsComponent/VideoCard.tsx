@@ -38,7 +38,7 @@ export const VideoCard = ({ data }: VideoCardProps) => {
   return (
     <Card
       maxW="lg"
-      minHeight={{ base: 320, md: 420, lg: 420 }}
+      minHeight={{ base: 320, md: 425, lg: 420 }}
       bg="pampas.50"
       boxShadow="md"
       mx="auto"

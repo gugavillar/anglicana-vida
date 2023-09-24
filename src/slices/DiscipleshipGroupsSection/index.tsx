@@ -87,7 +87,7 @@ const DiscipleshipGroups = ({
   }, [])
 
   return (
-    <ContentContainer bg="pampas.50">
+    <ContentContainer id="discipleship" bg="pampas.50">
       <HStack
         spacing={8}
         mx="auto"

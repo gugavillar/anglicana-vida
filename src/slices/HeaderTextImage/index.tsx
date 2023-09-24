@@ -29,7 +29,7 @@ const descriptionComponent: JSXMapSerializer = {
 
 const HeaderText = ({ slice }: HeaderTextProps): JSX.Element => {
   return (
-    <ContentContainer>
+    <ContentContainer id="headerImage">
       <HStack
         spacing={8}
         mx="auto"

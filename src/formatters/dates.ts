@@ -34,7 +34,7 @@ export const formatDate = (date: string) => {
 
   if (isNaN(dateFormatted)) return ''
 
-  return format(new Date(dateFormatted), 'dd/MM')
+  return format(new Date(dateFormatted), 'dd/MM/yyyy')
 }
 
 export const isPassedDate = (date: string) => {

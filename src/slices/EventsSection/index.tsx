@@ -46,7 +46,7 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
   }, [])
 
   return (
-    <ContentContainer bg="pampas.50">
+    <ContentContainer id="events" bg="pampas.50">
       <H3>{slice?.primary?.title}</H3>
       <Skeleton
         isLoaded={!!events?.length}

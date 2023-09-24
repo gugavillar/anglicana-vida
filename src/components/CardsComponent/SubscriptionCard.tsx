@@ -30,8 +30,6 @@ const descriptionComponent: JSXMapSerializer = {
   ),
 }
 
-const height = { base: 520, md: 520, lg: 530 }
-
 const getBadgeText = (openDate: string, closeDate: string) => {
   if (isFutureDate(openDate)) return 'Em breve'
 
@@ -52,7 +50,7 @@ export const SubscriptionCard = ({ data }: SubscriptionCardProps) => {
   return (
     <Card
       maxW={{ md: 'inherit', lg: 'sm' }}
-      minHeight={height}
+      minHeight={535}
       bg="pampas.50"
       boxShadow="md"
     >

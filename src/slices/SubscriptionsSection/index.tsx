@@ -59,7 +59,7 @@ const SubscriptionSection = ({
   }, [])
 
   return (
-    <ContentContainer>
+    <ContentContainer id="subscriptions">
       <H3>{slice?.primary?.title}</H3>
       <Skeleton
         isLoaded={!!subscriptions?.length}
