@@ -33,7 +33,7 @@ export const DiscipleshipCard = ({ data }: DiscipleshipCardProps) => {
       borderStyle="inset"
       borderBottom="8px solid"
       borderBottomColor="gray.700"
-      minHeight={260}
+      minHeight="2xs"
     >
       <Stack>
         <CardBody>

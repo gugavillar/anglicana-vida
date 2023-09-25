@@ -50,7 +50,7 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
       <H3>{slice?.primary?.title}</H3>
       <Skeleton
         isLoaded={!!events?.length}
-        height={500}
+        height="lg"
         maxWidth="inherit"
         alignSelf="center"
         minWidth="full"
@@ -59,7 +59,6 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
           slidesPerView={slidesPerView}
           spaceBetween={25}
           isAutoplay
-          height={500}
         >
           {events?.map((item) => (
             <SwiperSlide key={item?.id}>

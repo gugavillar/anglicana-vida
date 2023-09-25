@@ -22,7 +22,12 @@ export const SwiperContainer = ({
   ...props
 }: SwiperContainerProps) => {
   return (
-    <Box minWidth="full" maxWidth="calc(90vw - 13vw)" {...props}>
+    <Box
+      height="inherit"
+      minWidth="full"
+      maxWidth="calc(90vw - 13vw)"
+      {...props}
+    >
       <Swiper
         style={{ height: 'inherit' }}
         slidesPerView={slidesPerView}

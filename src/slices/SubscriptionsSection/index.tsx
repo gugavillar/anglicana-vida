@@ -63,16 +63,15 @@ const SubscriptionSection = ({
       <H3>{slice?.primary?.title}</H3>
       <Skeleton
         isLoaded={!!subscriptions?.length}
-        height={570}
         maxWidth="inherit"
-        alignSelf="center"
         minWidth="full"
+        alignSelf="center"
+        height="xl"
       >
         <SwiperContainer
           slidesPerView={slidesPerView}
           spaceBetween={25}
           isAutoplay
-          height={570}
         >
           {subscriptions?.map((item) => (
             <SwiperSlide key={item?.id}>

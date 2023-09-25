@@ -33,16 +33,12 @@ const SermonsSections = ({
       <H3>{slice.primary.title}</H3>
       <Skeleton
         isLoaded={!!slidesPerView}
-        height={{ base: 380, md: 500, lg: 480 }}
-        maxWidth="inherit"
+        height={{ base: 'sm', md: 'lg', lg: 'md' }}
         mx="auto"
+        maxWidth="inherit"
         minWidth="full"
       >
-        <SwiperContainer
-          slidesPerView={slidesPerView}
-          spaceBetween={25}
-          height={{ base: 380, md: 500, lg: 480 }}
-        >
+        <SwiperContainer slidesPerView={slidesPerView} spaceBetween={25}>
           {context.items?.map((item) => (
             <SwiperSlide key={item.id}>
               <VideoCard data={item.snippet} />

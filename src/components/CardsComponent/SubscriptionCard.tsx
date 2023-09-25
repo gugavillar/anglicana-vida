@@ -10,6 +10,7 @@ import {
   Image,
   Badge,
   Link,
+  HStack,
 } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
@@ -49,8 +50,8 @@ export const SubscriptionCard = ({ data }: SubscriptionCardProps) => {
 
   return (
     <Card
-      maxW={{ md: 'inherit', lg: 'sm' }}
-      minHeight={535}
+      maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }}
+      minHeight="lg"
       bg="pampas.50"
       boxShadow="md"
     >
@@ -74,29 +75,28 @@ export const SubscriptionCard = ({ data }: SubscriptionCardProps) => {
           borderTopRightRadius="lg"
         />
         <Stack spacing={1} p={5}>
-          <Text fontFamily={roboto?.style?.fontFamily} opacity={0.65}>
-            {formatDate(data.initial_date as string)} -{' '}
-            {formatDate(data.final_date as string)}
-          </Text>
+          <HStack justify="space-between">
+            <Text fontFamily={roboto?.style?.fontFamily} opacity={0.65}>
+              {formatDate(data.initial_date as string)} -{' '}
+              {formatDate(data.final_date as string)}
+            </Text>
+            <IfComponent
+              condition={isOpenSubscription}
+              component={
+                <PrismicNextLink field={data.subscription_link}>
+                  <Link as="span" cursor="pointer">
+                    Inscrever
+                  </Link>
+                </PrismicNextLink>
+              }
+            />
+          </HStack>
           <Heading as="h4" size="md" fontFamily={roboto?.style?.fontFamily}>
             {data.title}
           </Heading>
           <PrismicRichText
             components={descriptionComponent}
             field={data.description}
-          />
-          <IfComponent
-            condition={isOpenSubscription}
-            component={
-              <PrismicNextLink
-                field={data.subscription_link}
-                style={{ alignSelf: 'end' }}
-              >
-                <Link as="span" cursor="pointer">
-                  Inscrever
-                </Link>
-              </PrismicNextLink>
-            }
           />
         </Stack>
       </CardBody>

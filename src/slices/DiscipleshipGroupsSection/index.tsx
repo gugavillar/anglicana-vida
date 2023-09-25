@@ -113,18 +113,16 @@ const DiscipleshipGroups = ({
       </HStack>
       <Skeleton
         isLoaded={!!discipleship?.length}
-        height={300}
         maxWidth="inherit"
         alignSelf="center"
         mt={8}
         minWidth="full"
+        height="xs"
       >
         <SwiperContainer
           slidesPerView={slidesPerView}
           spaceBetween={25}
           isAutoplay
-          height={300}
-          py={4}
         >
           {discipleship?.map((item) => (
             <SwiperSlide key={item?.id}>
