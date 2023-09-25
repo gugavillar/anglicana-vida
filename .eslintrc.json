@@ -3,7 +3,7 @@
     "JSX": true
   },
   "ignorePatterns": ["prismicio-types.d.ts"],
-  "extends": ["@rocketseat/eslint-config/react", "plugin:import/recommended", "plugin:import/errors", "plugin:import/warnings", "next"],
+  "extends": ["@rocketseat/eslint-config/next", "plugin:import/recommended", "plugin:import/errors", "plugin:import/warnings", "next"],
   "rules": {
     "@typescript-eslint/no-explicit-any": "off",
     "import/order": [
