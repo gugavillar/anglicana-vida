@@ -1,10 +1,13 @@
+import { useRouter } from 'next/router'
+
 import type { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
-import { Skeleton, useBreakpointValue } from '@chakra-ui/react'
-import { SwiperSlide } from 'swiper/react'
-
-import { ContentContainer, H3, SwiperContainer, VideoCard } from '@/components'
+import { ContentContainer, H3, IfComponent } from '@/components'
+import {
+  HomeContentSermons,
+  SermonsContents,
+} from '@/components/ContentSermons'
 
 import { GetAllVideosFromChannelResponse } from '@/services'
 
@@ -17,35 +20,20 @@ const SermonsSections = ({
   slice,
   context,
 }: SermonsSectionsProps): JSX.Element => {
-  const slidesPerView = useBreakpointValue(
-    {
-      base: 1,
-      md: 2,
-      lg: 2,
-    },
-    {
-      fallback: '',
-    },
-  )
+  const { asPath } = useRouter()
+  const isHomePage = /^\/$/.test(asPath)
 
   return (
     <ContentContainer id="sermons">
       <H3>{slice.primary.title}</H3>
-      <Skeleton
-        isLoaded={!!slidesPerView}
-        height={{ base: 'sm', md: 'lg', lg: 'md' }}
-        mx="auto"
-        maxWidth="inherit"
-        minWidth="full"
-      >
-        <SwiperContainer slidesPerView={slidesPerView} spaceBetween={25}>
-          {context.items?.map((item) => (
-            <SwiperSlide key={item.id}>
-              <VideoCard data={item.snippet} />
-            </SwiperSlide>
-          ))}
-        </SwiperContainer>
-      </Skeleton>
+      <IfComponent
+        condition={isHomePage}
+        component={<HomeContentSermons context={context} />}
+      />
+      <IfComponent
+        condition={!isHomePage}
+        component={<SermonsContents context={context} />}
+      />
     </ContentContainer>
   )
 }

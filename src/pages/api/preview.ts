@@ -4,8 +4,7 @@ import { setPreviewData, redirectToPreviewURL } from '@prismicio/next'
 
 import { createClient } from '../../prismicio'
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export async function handler(req: NextApiRequest, res: NextApiResponse) {
   const client = createClient({ req })
 
   setPreviewData({ req, res })

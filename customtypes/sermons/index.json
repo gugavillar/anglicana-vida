@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "sermons_sections": {
+              "type": "SharedSlice"
+            },
             "header_image": {
               "type": "SharedSlice"
             }
@@ -25,17 +28,6 @@
           "placeholder": "A brief summary of the page"
         },
         "type": "Text"
-      },
-      "meta_image": {
-        "config": {
-          "constraint": {
-            "height": 1260,
-            "width": 2400
-          },
-          "label": "Meta Image",
-          "thumbnails": []
-        },
-        "type": "Image"
       },
       "meta_title": {
         "config": {

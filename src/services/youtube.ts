@@ -58,9 +58,11 @@ type Snippet = {
 }
 
 export type GetAllVideosFromChannelResponse = {
+  playlistId: string
   kind: string
   etag: string
   nextPageToken: string
+  prevPageToken?: string
   items: Array<{
     kind: string
     etag: string
@@ -100,5 +102,16 @@ export const getAllVideosFromChannel = async (
     },
   })
 
-  return videos.data
+  return { ...videos.data, playlistId }
+}
+
+export const getVideosFromPage = async (
+  playlistId: string,
+  pageToken: string,
+): Promise<GetAllVideosFromChannelResponse> => {
+  const response = await axios.post('/api/videos', {
+    data: { playlistId, pageToken },
+  })
+
+  return { ...response.data, playlistId }
 }

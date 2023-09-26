@@ -499,7 +499,7 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
-type SermonsDocumentDataSlicesSlice = HeaderImageSlice;
+type SermonsDocumentDataSlicesSlice = SermonsSectionsSlice | HeaderImageSlice;
 
 /**
  * Content for Sermons documents
@@ -525,17 +525,6 @@ interface SermonsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Sermons*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: sermons.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
 
   /**
    * Meta Title field in *Sermons*

@@ -28,6 +28,10 @@ const routes: prismic.ClientConfig['routes'] = [
     path: '/eventos',
   },
   {
+    type: 'sermons',
+    path: '/sermoes',
+  },
+  {
     type: 'home',
     path: '/',
   },

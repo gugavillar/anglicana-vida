@@ -9,6 +9,7 @@ import {
   AspectRatio,
   useBreakpointValue,
   Image,
+  CardProps,
 } from '@chakra-ui/react'
 
 import { roboto } from '@/fonts/roboto'
@@ -17,11 +18,11 @@ import { GetAllVideosFromChannelResponse } from '@/services'
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
-type VideoCardProps = {
+type VideoCardProps = CardProps & {
   data: GetAllVideosFromChannelResponse['items'][number]['snippet']
 }
 
-export const VideoCard = ({ data }: VideoCardProps) => {
+export const VideoCard = ({ data, ...props }: VideoCardProps) => {
   const aspectRationHeight = useBreakpointValue(
     {
       base: 170,
@@ -38,10 +39,11 @@ export const VideoCard = ({ data }: VideoCardProps) => {
   return (
     <Card
       maxW="lg"
-      minHeight={{ base: 'xs', md: 'md', lg: 'sm' }}
+      minHeight={{ base: 'xs', md: 'md', lg: 'md' }}
       bg="pampas.50"
       boxShadow="md"
       mx="auto"
+      {...props}
     >
       <CardBody p={2}>
         <AspectRatio ratio={4 / 3} height={aspectRationHeight}>
