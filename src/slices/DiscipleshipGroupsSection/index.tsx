@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react'
-
-import { createClient } from '@/prismicio'
-import { isFilled, type Content } from '@prismicio/client'
+import { type Content } from '@prismicio/client'
 import {
   JSXMapSerializer,
   PrismicRichText,
@@ -15,7 +12,6 @@ import {
   HStack,
   Image,
   useBreakpointValue,
-  useToast,
 } from '@chakra-ui/react'
 import { SwiperSlide } from 'swiper/react'
 
@@ -28,7 +24,7 @@ import {
 
 import { roboto } from '@/fonts/roboto'
 
-import { DiscipleshipDocument } from '../../../prismicio-types'
+import { useDiscipleship } from './useDiscipleship'
 
 type DiscipleshipGroupsProps =
   SliceComponentProps<Content.DiscipleshipGroupsSlice>
@@ -50,41 +46,12 @@ const descriptionComponent: JSXMapSerializer = {
 const DiscipleshipGroups = ({
   slice,
 }: DiscipleshipGroupsProps): JSX.Element => {
-  const [discipleship, setDiscipleship] = useState<
-    Array<DiscipleshipDocument<string>>
-  >([])
-
   const slidesPerView = useBreakpointValue({
     base: 1,
     md: 2,
     lg: 3,
   })
-  const client = createClient()
-  const toast = useToast()
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await Promise.all(
-          slice?.items?.map(async (item) => {
-            if (!isFilled.contentRelationship(item?.discipleships)) return
-            return await client.getByUID(
-              'discipleship',
-              item?.discipleships?.uid as string,
-            )
-          }),
-        )
-        setDiscipleship(data as Array<DiscipleshipDocument<string>>)
-      } catch {
-        toast({
-          status: 'error',
-          description: 'Falha ao carregar os grupos de discipulados.',
-        })
-      }
-    }
-    loadData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  const { discipleship } = useDiscipleship(slice)
 
   return (
     <ContentContainer id="discipleship" bg="pampas.50">

@@ -1,17 +1,12 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 
-import {
-  Button,
-  Flex,
-  SimpleGrid,
-  Skeleton,
-  useBoolean,
-  useToast,
-} from '@chakra-ui/react'
+import { Button, Flex, SimpleGrid, Skeleton } from '@chakra-ui/react'
 
 import { VideoCard } from '@/components'
 
-import { GetAllVideosFromChannelResponse, getVideosFromPage } from '@/services'
+import { GetAllVideosFromChannelResponse } from '@/services'
+
+import { useSermonsContent } from './useSermonsContent'
 
 type SermonsContentsProps = {
   context: GetAllVideosFromChannelResponse
@@ -32,48 +27,8 @@ const buttonCommonProps = {
 }
 
 export const SermonsContents = ({ context }: SermonsContentsProps) => {
-  const [sermons, setSermons] = useState(context)
-  const [isLoading, setIsLoading] = useBoolean()
-
-  const toast = useToast()
-
-  const handleLoadNextSermons = async () => {
-    if (!sermons?.nextPageToken) return
-    try {
-      setIsLoading.on()
-      const response = await getVideosFromPage(
-        sermons.playlistId,
-        sermons.nextPageToken,
-      )
-      setSermons(response)
-    } catch {
-      toast({
-        status: 'error',
-        description: 'Falha ao carregar os vídeos, tente novamente.',
-      })
-    } finally {
-      setIsLoading.off()
-    }
-  }
-
-  const handleLoadPrevSermons = async () => {
-    if (!sermons?.prevPageToken) return
-    try {
-      setIsLoading.on()
-      const response = await getVideosFromPage(
-        sermons.playlistId,
-        sermons?.prevPageToken as string,
-      )
-      setSermons(response)
-    } catch {
-      toast({
-        status: 'error',
-        description: 'Falha ao carregar os vídeos, tente novamente.',
-      })
-    } finally {
-      setIsLoading.off()
-    }
-  }
+  const { handleLoadNextSermons, handleLoadPrevSermons, isLoading, sermons } =
+    useSermonsContent(context)
 
   return (
     <Fragment>
@@ -81,6 +36,7 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
         minChildWidth={{ base: 'full', md: '20rem', lg: '32rem' }}
         spacing={12}
         width="full"
+        height={{ base: '135rem', md: '90rem', lg: '90rem' }}
       >
         {sermons.items.map((item) => (
           <Skeleton

@@ -13,10 +13,10 @@ export default async function handler(
 ) {
   const { data }: BodyType = req.body
 
+  const youtubeURL = `${process.env.NEXT_PUBLIC_YOUTUBE_URL}/playlistItems?key=${process.env.YOUTUBE_API_KEY}&part=snippet&part=contentDetails&playlistId=${data.playlistId}&maxResults=6&pageToken=${data.pageToken}`
+
   try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_YOUTUBE_URL}/playlistItems?key=${process.env.YOUTUBE_API_KEY}&part=snippet&part=contentDetails&playlistId=${data.playlistId}&maxResults=6&pageToken=${data.pageToken}`,
-    )
+    const response = await fetch(youtubeURL)
 
     const json = await response.json()
 
