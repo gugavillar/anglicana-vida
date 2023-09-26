@@ -23,6 +23,7 @@ const buttonCommonProps = {
   _disabled: {
     bg: 'gray.700',
     opacity: 0.8,
+    cursor: 'not-allowed',
   },
 }
 
@@ -33,21 +34,20 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
   return (
     <Fragment>
       <SimpleGrid
-        minChildWidth={{ base: 'full', md: '20rem', lg: '32rem' }}
-        spacing={12}
+        minChildWidth={{ base: 'full', md: '20rem', lg: 'xs' }}
+        height={{ base: '135rem', md: '90rem', lg: '58rem' }}
         width="full"
-        height={{ base: '135rem', md: '90rem', lg: '90rem' }}
+        spacing={8}
       >
         {sermons.items.map((item) => (
           <Skeleton
             key={item.id}
             isLoaded={!isLoading}
-            width={{ base: 'full', md: 'xs', lg: 'md' }}
+            width={{ base: 'full', md: 'xs', lg: 'sm' }}
             borderRadius={8}
             mx="auto"
           >
             <VideoCard
-              width={{ base: 'full', md: 'xs', lg: 'md' }}
               minHeight={{ base: 'xs', md: 'md', lg: 'md' }}
               data={item.snippet}
             />
@@ -57,7 +57,6 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
       <Flex
         align="center"
         justify="space-between"
-        maxWidth="65rem"
         width="full"
         mt={6}
         mx="auto"
