@@ -61,7 +61,13 @@ export const VideoCard = ({ data, ...props }: VideoCardProps) => {
           <Text fontFamily={roboto?.style?.fontFamily} opacity={0.65}>
             {formatISODate(data.publishedAt)}
           </Text>
-          <Heading as="h4" size="md" fontFamily={roboto?.style?.fontFamily}>
+          <Heading
+            as="h4"
+            size="md"
+            textTransform="lowercase"
+            fontFamily={roboto?.style?.fontFamily}
+            _firstLetter={{ textTransform: 'uppercase' }}
+          >
             {data.title}
           </Heading>
         </Stack>
