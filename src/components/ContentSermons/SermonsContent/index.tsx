@@ -43,7 +43,8 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
           <Skeleton
             key={item.id}
             isLoaded={!isLoading}
-            width={{ base: 'full', md: 'xs', lg: 'sm' }}
+            minWidth={{ base: 'full', md: '20rem', lg: 'xs' }}
+            width={{ base: 'full', md: '20rem', lg: 'xs' }}
             borderRadius={8}
             mx="auto"
           >
