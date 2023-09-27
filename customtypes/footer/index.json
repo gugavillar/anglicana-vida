@@ -29,6 +29,14 @@
                 "single": "paragraph"
               }
             },
+            "link_driving": {
+              "type": "Link",
+              "config": {
+                "label": "link_driving",
+                "placeholder": "",
+                "select": null
+              }
+            },
             "mail": {
               "type": "StructuredText",
               "config": {
@@ -86,6 +94,13 @@
         "config": {
           "label": "recommendation",
           "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "label",
+                "placeholder": ""
+              }
+            },
             "external_link": {
               "type": "Link",
               "config": {

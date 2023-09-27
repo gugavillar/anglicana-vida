@@ -7,7 +7,7 @@ import { roboto } from '@/fonts/roboto'
 import { EventDocument } from '../../../prismicio-types'
 
 type EventCardProps = {
-  data: EventDocument<string>['data'] | undefined
+  eventObjectProperty: EventDocument<string>['data'] | undefined
 }
 
 const descriptionComponent: JSXMapSerializer = {
@@ -18,15 +18,19 @@ const descriptionComponent: JSXMapSerializer = {
   ),
 }
 
-export const EventCard = ({ data }: EventCardProps) => {
-  if (!data) return null
+export const EventCard = ({ eventObjectProperty }: EventCardProps) => {
+  if (!eventObjectProperty) return null
+
+  const biweeklyEvent = eventObjectProperty.biweekly
+    ? ' - Quinzenalmente'
+    : null
 
   return (
     <Card maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }} minHeight="md">
       <CardBody p={0}>
         <Image
-          src={data?.image?.url as string}
-          alt={data?.image?.alt as string}
+          src={eventObjectProperty?.image?.url as string}
+          alt={eventObjectProperty?.image?.alt as string}
           borderTopLeftRadius="lg"
           borderTopRightRadius="lg"
         />
@@ -36,15 +40,15 @@ export const EventCard = ({ data }: EventCardProps) => {
             fontFamily={roboto?.style?.fontFamily}
             opacity={0.65}
           >
-            {data.week_day} - {data.schedule}
-            {data.biweekly ? ' - Quinzenalmente' : ''}
+            {eventObjectProperty.week_day} - {eventObjectProperty.schedule}
+            {biweeklyEvent}
           </Text>
           <Heading as="h4" size="md" fontFamily={roboto?.style?.fontFamily}>
-            {data.name}
+            {eventObjectProperty.name}
           </Heading>
           <PrismicRichText
             components={descriptionComponent}
-            field={data.description}
+            field={eventObjectProperty.description}
           />
         </Stack>
       </CardBody>

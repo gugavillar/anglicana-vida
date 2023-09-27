@@ -50,7 +50,7 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
           >
             <VideoCard
               minHeight={{ base: 'xs', md: 'md', lg: 'md' }}
-              data={item.snippet}
+              videoObjectProperty={item.snippet}
             />
           </Skeleton>
         ))}

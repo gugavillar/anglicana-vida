@@ -32,7 +32,7 @@ export const HomeContentSermons = ({ context }: HomeContentSermonsProps) => {
       <SwiperContainer slidesPerView={slidesPerView} spaceBetween={25}>
         {context.items?.map((item) => (
           <SwiperSlide key={item.id}>
-            <VideoCard data={item.snippet} />
+            <VideoCard videoObjectProperty={item.snippet} />
           </SwiperSlide>
         ))}
       </SwiperContainer>

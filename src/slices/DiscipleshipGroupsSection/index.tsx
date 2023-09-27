@@ -93,7 +93,7 @@ const DiscipleshipGroups = ({
         >
           {discipleship?.map((item) => (
             <SwiperSlide key={item?.id}>
-              <DiscipleshipCard data={item?.data} />
+              <DiscipleshipCard discipleshipObjectProperty={item?.data} />
             </SwiperSlide>
           ))}
         </SwiperContainer>

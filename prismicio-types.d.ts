@@ -260,6 +260,16 @@ export interface FooterDocumentDataSiteInfoItem {
   address: prismic.RichTextField;
 
   /**
+   * link_driving field in *Footer → site_info*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.site_info[].link_driving
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_driving: prismic.LinkField;
+
+  /**
    * mail field in *Footer → site_info*
    *
    * - **Field Type**: Rich Text
@@ -319,6 +329,16 @@ export interface FooterDocumentDataSocialMediaItem {
  * Item in *Footer → recommendation*
  */
 export interface FooterDocumentDataRecommendationItem {
+  /**
+   * label field in *Footer → recommendation*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.recommendation[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
   /**
    * external_link field in *Footer → recommendation*
    *

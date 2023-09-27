@@ -16,7 +16,7 @@ import { roboto } from '@/fonts/roboto'
 import { DiscipleshipDocument } from '../../../prismicio-types'
 
 type DiscipleshipCardProps = {
-  data: DiscipleshipDocument['data'] | undefined
+  discipleshipObjectProperty: DiscipleshipDocument['data'] | undefined
 }
 
 const addressComponent: JSXMapSerializer = {
@@ -25,8 +25,14 @@ const addressComponent: JSXMapSerializer = {
   ),
 }
 
-export const DiscipleshipCard = ({ data }: DiscipleshipCardProps) => {
-  if (!data) return null
+export const DiscipleshipCard = ({
+  discipleshipObjectProperty,
+}: DiscipleshipCardProps) => {
+  if (!discipleshipObjectProperty) return null
+
+  const biweeklyDiscipleship = discipleshipObjectProperty.biweekly
+    ? ' - Quinzenalmente'
+    : null
 
   return (
     <Card
@@ -40,14 +46,14 @@ export const DiscipleshipCard = ({ data }: DiscipleshipCardProps) => {
       <Stack>
         <CardBody>
           <Heading as="h4" size="md" fontFamily={roboto?.style?.fontFamily}>
-            {data.title}
+            {discipleshipObjectProperty.title}
           </Heading>
           <VStack align="flex-start" mt={6} spacing={2}>
             <Flex align="center" gap={2}>
               <Calendar size={24} />
               <Text fontFamily={roboto?.style?.fontFamily}>
-                {data.week_day} às {data.schedule}{' '}
-                {data.biweekly ? ' - Quinzenalmente' : null}
+                {discipleshipObjectProperty.week_day} às{' '}
+                {discipleshipObjectProperty.schedule} {biweeklyDiscipleship}
               </Text>
             </Flex>
             <Flex align="center" gap={2}>
@@ -55,13 +61,15 @@ export const DiscipleshipCard = ({ data }: DiscipleshipCardProps) => {
               <VStack align="flex-start" spacing={0}>
                 <PrismicRichText
                   components={addressComponent}
-                  field={data.address}
+                  field={discipleshipObjectProperty.address}
                 />
               </VStack>
             </Flex>
             <Flex align="center" gap={2}>
               <UsersThree size={24} />
-              <Text fontFamily={roboto?.style?.fontFamily}>{data.leader}</Text>
+              <Text fontFamily={roboto?.style?.fontFamily}>
+                {discipleshipObjectProperty.leader}
+              </Text>
             </Flex>
           </VStack>
         </CardBody>

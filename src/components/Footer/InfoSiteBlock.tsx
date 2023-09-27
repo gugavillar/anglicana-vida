@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 
+import { PrismicNextLink } from '@prismicio/next'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { Image, VStack, Link, Flex, Icon } from '@chakra-ui/react'
@@ -21,13 +22,7 @@ const componentLinkMap: JSXMapSerializer = {
       _hover={{ color: 'flesh.200', transition: 'color 0.3s' }}
     >
       <Icon as={MapPin} size={4} />
-      <Link
-        _hover={{ textDecoration: 'none' }}
-        target="_blank"
-        href="https://www.google.com/maps/dir/?api=1&destination=igreja+anglicana+vida&travelmode=driving"
-      >
-        {children}
-      </Link>
+      {children}
     </Flex>
   ),
 }
@@ -66,10 +61,12 @@ export const InfoSiteBlock = ({ siteInfo }: InfoSiteBlockProps) => {
         <Fragment key={index}>
           <PrismicRichText field={info.schedules} />
           <VStack align="flex-start" spacing={4}>
-            <PrismicRichText
-              components={componentLinkMap}
-              field={info.address}
-            />
+            <PrismicNextLink field={info.link_driving}>
+              <PrismicRichText
+                components={componentLinkMap}
+                field={info.address}
+              />
+            </PrismicNextLink>
             <PrismicRichText components={componentLinkMail} field={info.mail} />
           </VStack>
           <Image

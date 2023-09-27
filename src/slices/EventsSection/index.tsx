@@ -35,7 +35,7 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
         >
           {events?.map((item) => (
             <SwiperSlide key={item?.id}>
-              <EventCard data={item?.data} />
+              <EventCard eventObjectProperty={item?.data} />
             </SwiperSlide>
           ))}
         </SwiperContainer>

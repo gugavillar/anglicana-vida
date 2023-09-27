@@ -1,4 +1,5 @@
 import { PrismicNextLink } from '@prismicio/next'
+import { KeyTextField } from '@prismicio/types'
 
 import { VStack, Button } from '@chakra-ui/react'
 import { ArrowSquareOut } from 'phosphor-react'
@@ -14,16 +15,8 @@ type LinksSiteBlockProps = {
   recommendation: Array<Simplify<FooterDocumentDataRecommendationItem>>
 }
 
-const labels = [
-  'Gafcon',
-  'Província Anglicana no Brasil',
-  'Diocese de Vitória',
-  'Diocese de Recife',
-  'Diocese de João Pessoa',
-]
-
 type LabelLinkProps = {
-  label: string
+  label: KeyTextField
 }
 
 const LabelLink = ({ label }: LabelLinkProps) => {
@@ -49,16 +42,18 @@ const LabelLink = ({ label }: LabelLinkProps) => {
 }
 
 export const LinksSiteBlock = ({ recommendation }: LinksSiteBlockProps) => {
+  if (!recommendation?.length) return null
+
   return (
     <VStack align="flex-start" spacing={4}>
-      {recommendation.map(({ external_link: externalLink }, index) => (
+      {recommendation.map(({ external_link: externalLink, label }, index) => (
         <PrismicNextLink
           key={index}
           field={externalLink}
           target="_blank"
           passHref
         >
-          <LabelLink label={labels[index]} />
+          <LabelLink label={label} />
         </PrismicNextLink>
       ))}
     </VStack>

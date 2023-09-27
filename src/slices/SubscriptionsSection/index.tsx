@@ -44,7 +44,7 @@ const SubscriptionSection = ({
         >
           {subscriptions?.map((item) => (
             <SwiperSlide key={item?.id}>
-              <SubscriptionCard data={item?.data} />
+              <SubscriptionCard subscriptionObjectProperty={item?.data} />
             </SwiperSlide>
           ))}
         </SwiperContainer>

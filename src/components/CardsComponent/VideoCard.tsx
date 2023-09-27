@@ -19,10 +19,13 @@ import { GetAllVideosFromChannelResponse } from '@/services'
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
 type VideoCardProps = CardProps & {
-  data: GetAllVideosFromChannelResponse['items'][number]['snippet']
+  videoObjectProperty: GetAllVideosFromChannelResponse['items'][number]['snippet']
 }
 
-export const VideoCard = ({ data, ...props }: VideoCardProps) => {
+export const VideoCard = ({
+  videoObjectProperty,
+  ...props
+}: VideoCardProps) => {
   const aspectRationHeight = useBreakpointValue(
     {
       base: 170,
@@ -48,18 +51,23 @@ export const VideoCard = ({ data, ...props }: VideoCardProps) => {
       <CardBody p={2}>
         <AspectRatio ratio={4 / 3} height={aspectRationHeight}>
           <ReactPlayer
-            light={<Image src={data.thumbnails.high.url} alt={data.title} />}
+            light={
+              <Image
+                src={videoObjectProperty.thumbnails.high.url}
+                alt={videoObjectProperty.title}
+              />
+            }
             width="100%"
             height="100%"
             config={{
               youtube: { playerVars: { origin: window.location.origin } },
             }}
-            url={`http://www.youtube.com/embed/${data.resourceId.videoId}`}
+            url={`http://www.youtube.com/embed/${videoObjectProperty.resourceId.videoId}`}
           />
         </AspectRatio>
         <Stack spacing={4} p={5}>
           <Text fontFamily={roboto?.style?.fontFamily} opacity={0.65}>
-            {formatISODate(data.publishedAt)}
+            {formatISODate(videoObjectProperty.publishedAt)}
           </Text>
           <Heading
             as="h4"
@@ -68,7 +76,7 @@ export const VideoCard = ({ data, ...props }: VideoCardProps) => {
             fontFamily={roboto?.style?.fontFamily}
             _firstLetter={{ textTransform: 'uppercase' }}
           >
-            {data.title}
+            {videoObjectProperty.title}
           </Heading>
         </Stack>
       </CardBody>
