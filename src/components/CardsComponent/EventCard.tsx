@@ -7,7 +7,7 @@ import { roboto } from '@/fonts/roboto'
 import { EventDocument } from '../../../prismicio-types'
 
 type EventCardProps = {
-  data: EventDocument<string>['data']
+  data: EventDocument<string>['data'] | undefined
 }
 
 const descriptionComponent: JSXMapSerializer = {
@@ -19,6 +19,8 @@ const descriptionComponent: JSXMapSerializer = {
 }
 
 export const EventCard = ({ data }: EventCardProps) => {
+  if (!data) return null
+
   return (
     <Card maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }} minHeight="md">
       <CardBody p={0}>

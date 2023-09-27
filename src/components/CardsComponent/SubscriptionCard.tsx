@@ -20,7 +20,7 @@ import { SubscriptionDocument } from '../../../prismicio-types'
 import { IfComponent } from '../IfComponent'
 
 type SubscriptionCardProps = {
-  data: SubscriptionDocument<string>['data']
+  data: SubscriptionDocument<string>['data'] | undefined
 }
 
 const descriptionComponent: JSXMapSerializer = {
@@ -41,6 +41,8 @@ const getBadgeText = (openDate: string, closeDate: string) => {
 }
 
 export const SubscriptionCard = ({ data }: SubscriptionCardProps) => {
+  if (!data) return null
+
   const badgeText = getBadgeText(
     data.subscription_open_date as string,
     data.subscription_close_date as string,

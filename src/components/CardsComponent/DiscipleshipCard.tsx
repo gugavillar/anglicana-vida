@@ -16,7 +16,7 @@ import { roboto } from '@/fonts/roboto'
 import { DiscipleshipDocument } from '../../../prismicio-types'
 
 type DiscipleshipCardProps = {
-  data: DiscipleshipDocument['data']
+  data: DiscipleshipDocument['data'] | undefined
 }
 
 const addressComponent: JSXMapSerializer = {
@@ -26,6 +26,8 @@ const addressComponent: JSXMapSerializer = {
 }
 
 export const DiscipleshipCard = ({ data }: DiscipleshipCardProps) => {
+  if (!data) return null
+
   return (
     <Card
       direction="row"

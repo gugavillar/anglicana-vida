@@ -1,4 +1,6 @@
-export { getEvents } from './getEvents'
+export { getEvents, getEventsByUID } from './getEvents'
 export { getHome } from './getHome'
 export { getSettings } from './getSettings'
 export { getSermons } from './getSermons'
+export { getDiscipleshipByUID } from './getDiscipleship'
+export { getSubscriptionsByUID } from './getSubscriptions'

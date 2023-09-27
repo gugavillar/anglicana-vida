@@ -12,6 +12,7 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
 
   const handleLoadNextSermons = async () => {
     if (!sermons?.nextPageToken) return
+
     try {
       setIsLoading.on()
       const response = await getVideosFromPage(
@@ -31,11 +32,12 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
 
   const handleLoadPrevSermons = async () => {
     if (!sermons?.prevPageToken) return
+
     try {
       setIsLoading.on()
       const response = await getVideosFromPage(
         sermons.playlistId,
-        sermons?.prevPageToken as string,
+        sermons.prevPageToken,
       )
       setSermons(response)
     } catch {
