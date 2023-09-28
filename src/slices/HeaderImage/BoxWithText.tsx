@@ -3,16 +3,13 @@ import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { VStack, Heading } from '@chakra-ui/react'
 
-import { roboto } from '@/fonts/roboto'
-
 import type { Simplify } from '../../../prismicio-types'
 
 const titleComponent: JSXMapSerializer = {
   heading1: ({ children }) => (
     <Heading
       as="h1"
-      fontSize={{ base: '2xl', md: '4xl', lg: '5xl' }}
-      fontFamily={roboto?.style?.fontFamily}
+      variant="title"
       fontWeight={700}
       color="white"
       textShadow="3px 3px 0 #000"
@@ -26,9 +23,8 @@ const labelComponent: JSXMapSerializer = {
   heading6: ({ children }) => (
     <Heading
       as="h6"
-      fontFamily={roboto?.style?.fontFamily}
+      variant="subTitle"
       fontWeight={400}
-      fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
       color="white"
       textShadow="2px 2px 0 #000"
     >

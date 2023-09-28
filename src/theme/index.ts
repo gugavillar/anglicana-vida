@@ -1,17 +1,18 @@
 import { extendTheme } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
 
 import { colors } from './colors'
-
-import type { StyleFunctionProps } from '@chakra-ui/styled-system'
+import { components } from './components'
+import { fonts } from './fonts'
 
 export const theme = extendTheme({
   colors,
+  components,
+  fonts,
   styles: {
-    global: (props: StyleFunctionProps) => ({
+    global: {
       body: {
-        bg: mode('white', 'pampas.100')(props),
+        bg: 'white',
       },
-    }),
+    },
   },
 })

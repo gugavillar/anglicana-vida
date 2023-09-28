@@ -4,8 +4,6 @@ import { KeyTextField } from '@prismicio/types'
 import { VStack, Button } from '@chakra-ui/react'
 import { ArrowSquareOut } from 'phosphor-react'
 
-import { roboto } from '@/fonts/roboto'
-
 import type {
   FooterDocumentDataRecommendationItem,
   Simplify,
@@ -24,7 +22,6 @@ const LabelLink = ({ label }: LabelLinkProps) => {
     <Button
       variant="ghost"
       rightIcon={<ArrowSquareOut />}
-      fontFamily={roboto?.style?.fontFamily}
       fontSize="md"
       color="white"
       fontWeight={400}

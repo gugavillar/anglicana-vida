@@ -1,8 +1,6 @@
 import { Flex, Text, Icon } from '@chakra-ui/react'
 import { Copyright } from 'phosphor-react'
 
-import { roboto } from '@/fonts/roboto'
-
 import { FooterProps } from './footer'
 import { InfoSiteBlock } from './InfoSiteBlock'
 import { InfoSiteSocialMedia } from './InfoSiteSocialMedia'
@@ -40,11 +38,7 @@ export const Wrapper = ({
       </Flex>
       <Flex align="center" gap={2} mt={6} color="white">
         <Icon as={Copyright} size={4} />
-        <Text
-          fontFamily={roboto.style.fontFamily}
-          fontSize="xs"
-          verticalAlign="center"
-        >
+        <Text fontSize="xs" verticalAlign="center">
           Copyright {year}
         </Text>
       </Flex>

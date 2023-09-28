@@ -1,8 +1,8 @@
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Card, CardBody, Heading, Stack, Text, Image } from '@chakra-ui/react'
+import { Card, CardBody, Stack, Text, Image } from '@chakra-ui/react'
 
-import { roboto } from '@/fonts/roboto'
+import { H4 } from '@/components'
 
 import { EventDocument } from '../../../prismicio-types'
 
@@ -11,11 +11,7 @@ type EventCardProps = {
 }
 
 const descriptionComponent: JSXMapSerializer = {
-  paragraph: ({ children }) => (
-    <Text fontFamily={roboto?.style?.fontFamily} textAlign="justify">
-      {children}
-    </Text>
-  ),
+  paragraph: ({ children }) => <Text textAlign="justify">{children}</Text>,
 }
 
 export const EventCard = ({ eventObjectProperty }: EventCardProps) => {
@@ -35,17 +31,11 @@ export const EventCard = ({ eventObjectProperty }: EventCardProps) => {
           borderTopRightRadius="lg"
         />
         <Stack spacing={1} p={5}>
-          <Text
-            fontSize="sm"
-            fontFamily={roboto?.style?.fontFamily}
-            opacity={0.65}
-          >
+          <Text fontSize="sm" opacity={0.65}>
             {eventObjectProperty.week_day} - {eventObjectProperty.schedule}
             {biweeklyEvent}
           </Text>
-          <Heading as="h4" size="md" fontFamily={roboto?.style?.fontFamily}>
-            {eventObjectProperty.name}
-          </Heading>
+          <H4>{eventObjectProperty.name}</H4>
           <PrismicRichText
             components={descriptionComponent}
             field={eventObjectProperty.description}

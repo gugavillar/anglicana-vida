@@ -5,8 +5,6 @@ import { PrismicNextLink } from '@prismicio/next'
 import { Flex, Box, Text, Icon } from '@chakra-ui/react'
 import { FacebookLogo, InstagramLogo, YoutubeLogo } from 'phosphor-react'
 
-import { roboto } from '@/fonts/roboto'
-
 import { FooterProps } from './footer'
 
 type InfoSiteSocialMediaProps = {
@@ -24,12 +22,7 @@ export const InfoSiteSocialMedia = ({
   }
   return (
     <Box>
-      <Text
-        fontSize="md"
-        color="white"
-        fontFamily={roboto?.style?.fontFamily}
-        mb={5}
-      >
+      <Text fontSize="md" color="white" mb={5}>
         Siga-nos
       </Text>
       <Flex gap={5}>

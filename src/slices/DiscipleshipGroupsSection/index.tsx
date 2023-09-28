@@ -22,8 +22,6 @@ import {
   DiscipleshipCard,
 } from '@/components'
 
-import { roboto } from '@/fonts/roboto'
-
 import { useDiscipleship } from './useDiscipleship'
 
 type DiscipleshipGroupsProps =
@@ -31,13 +29,7 @@ type DiscipleshipGroupsProps =
 
 const descriptionComponent: JSXMapSerializer = {
   paragraph: ({ children }) => (
-    <Text
-      lineHeight="30px"
-      fontFamily={roboto.style.fontFamily}
-      fontSize="lg"
-      textAlign="justify"
-      textIndent="3rem"
-    >
+    <Text lineHeight="30px" fontSize="lg" textAlign="justify" textIndent="3rem">
       {children}
     </Text>
   ),

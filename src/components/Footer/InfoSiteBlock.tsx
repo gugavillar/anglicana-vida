@@ -6,8 +6,6 @@ import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 import { Image, VStack, Link, Flex, Icon } from '@chakra-ui/react'
 import { Envelope, MapPin } from 'phosphor-react'
 
-import { roboto } from '@/fonts/roboto'
-
 import { FooterProps } from './footer'
 
 type InfoSiteBlockProps = {
@@ -53,7 +51,6 @@ export const InfoSiteBlock = ({ siteInfo }: InfoSiteBlockProps) => {
       align="left"
       fontSize="md"
       color="white"
-      fontFamily={roboto?.style?.fontFamily}
       width="15rem"
       flexDirection="column"
     >

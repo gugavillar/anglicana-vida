@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import {
   Card,
   CardBody,
-  Heading,
   Stack,
   Text,
   AspectRatio,
@@ -12,7 +11,8 @@ import {
   CardProps,
 } from '@chakra-ui/react'
 
-import { roboto } from '@/fonts/roboto'
+import { H4 } from '@/components'
+
 import { formatISODate } from '@/formatters'
 import { GetAllVideosFromChannelResponse } from '@/services'
 
@@ -66,18 +66,17 @@ export const VideoCard = ({
           />
         </AspectRatio>
         <Stack spacing={4} p={5}>
-          <Text fontFamily={roboto?.style?.fontFamily} opacity={0.65}>
+          <Text opacity={0.65}>
             {formatISODate(videoObjectProperty.publishedAt)}
           </Text>
-          <Heading
+          <H4
             as="h4"
             size="md"
             textTransform="lowercase"
-            fontFamily={roboto?.style?.fontFamily}
             _firstLetter={{ textTransform: 'uppercase' }}
           >
             {videoObjectProperty.title}
-          </Heading>
+          </H4>
         </Stack>
       </CardBody>
     </Card>

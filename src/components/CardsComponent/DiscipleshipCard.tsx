@@ -1,17 +1,9 @@
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import {
-  Card,
-  CardBody,
-  Heading,
-  Stack,
-  Text,
-  VStack,
-  Flex,
-} from '@chakra-ui/react'
+import { Card, CardBody, Stack, Text, VStack, Flex } from '@chakra-ui/react'
 import { Calendar, MapPin, UsersThree } from 'phosphor-react'
 
-import { roboto } from '@/fonts/roboto'
+import { H4 } from '@/components'
 
 import { DiscipleshipDocument } from '../../../prismicio-types'
 
@@ -20,9 +12,7 @@ type DiscipleshipCardProps = {
 }
 
 const addressComponent: JSXMapSerializer = {
-  paragraph: ({ children }) => (
-    <Text fontFamily={roboto?.style?.fontFamily}>{children}</Text>
-  ),
+  paragraph: ({ children }) => <Text>{children}</Text>,
 }
 
 export const DiscipleshipCard = ({
@@ -45,13 +35,11 @@ export const DiscipleshipCard = ({
     >
       <Stack>
         <CardBody>
-          <Heading as="h4" size="md" fontFamily={roboto?.style?.fontFamily}>
-            {discipleshipObjectProperty.title}
-          </Heading>
+          <H4>{discipleshipObjectProperty.title}</H4>
           <VStack align="flex-start" mt={6} spacing={2}>
             <Flex align="center" gap={2}>
               <Calendar size={24} />
-              <Text fontFamily={roboto?.style?.fontFamily}>
+              <Text>
                 {discipleshipObjectProperty.week_day} às{' '}
                 {discipleshipObjectProperty.schedule} {biweeklyDiscipleship}
               </Text>
@@ -67,9 +55,7 @@ export const DiscipleshipCard = ({
             </Flex>
             <Flex align="center" gap={2}>
               <UsersThree size={24} />
-              <Text fontFamily={roboto?.style?.fontFamily}>
-                {discipleshipObjectProperty.leader}
-              </Text>
+              <Text>{discipleshipObjectProperty.leader}</Text>
             </Flex>
           </VStack>
         </CardBody>

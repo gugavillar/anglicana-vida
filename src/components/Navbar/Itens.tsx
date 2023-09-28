@@ -5,8 +5,6 @@ import { PrismicRichText } from '@prismicio/react'
 
 import { Stack, StackProps, Text } from '@chakra-ui/react'
 
-import { roboto } from '@/fonts/roboto'
-
 import { NavbarProps } from './navbar'
 
 type ItensProps = StackProps & {
@@ -24,7 +22,6 @@ export const Itens = ({ menuItens, onClose, ...props }: ItensProps) => {
               components={{
                 paragraph: ({ children }) => (
                   <Text
-                    className={roboto?.style?.fontFamily}
                     color="white"
                     cursor="pointer"
                     {...(!!onClose && { onClick: onClose })}
