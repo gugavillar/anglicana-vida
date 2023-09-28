@@ -12,21 +12,6 @@ type SermonsContentsProps = {
   context: GetAllVideosFromChannelResponse
 }
 
-const buttonCommonProps = {
-  bg: 'gray.700',
-  color: 'white',
-  height: 12,
-  width: 32,
-  _hover: {
-    opacity: 0.8,
-  },
-  _disabled: {
-    bg: 'gray.700',
-    opacity: 0.8,
-    cursor: 'not-allowed',
-  },
-}
-
 export const SermonsContents = ({ context }: SermonsContentsProps) => {
   const { handleLoadNextSermons, handleLoadPrevSermons, isLoading, sermons } =
     useSermonsContent(context)
@@ -65,14 +50,12 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
         <Button
           isDisabled={!sermons?.prevPageToken}
           onClick={handleLoadPrevSermons}
-          {...buttonCommonProps}
         >
           Anterior
         </Button>
         <Button
           isDisabled={!sermons?.nextPageToken}
           onClick={handleLoadNextSermons}
-          {...buttonCommonProps}
         >
           Próximo
         </Button>

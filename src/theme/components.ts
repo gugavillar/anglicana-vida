@@ -10,9 +10,18 @@ export const components = {
       },
       solid: {
         backgroundColor: '#3b4d69',
+        height: 12,
+        width: 32,
         color: 'white',
         _hover: { opacity: 0.8, backgroundColor: '#3b4d69' },
-        _disabled: { cursor: 'not-allowed', opacity: 0.3 },
+        _disabled: {
+          cursor: 'not-allowed',
+          opacity: 0.2,
+          backgroundColor: '#3b4d69 !important',
+          _hover: {
+            opacity: 0.2,
+          },
+        },
       },
     },
   },
