@@ -49,7 +49,7 @@ export const SubscriptionCard = ({
   return (
     <Card
       maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }}
-      minHeight="lg"
+      minHeight="32.5rem"
       bg="pampas.50"
       boxShadow="md"
     >

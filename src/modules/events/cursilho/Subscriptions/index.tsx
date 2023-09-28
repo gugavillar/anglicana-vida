@@ -31,7 +31,6 @@ const MOCK_CARD_2 = {
       width={384}
       height={256}
       alignSelf="center"
-      color="#ce4197"
       bgColor="white"
       borderTopLeftRadius="lg"
       borderTopRightRadius="lg"
@@ -47,6 +46,7 @@ export const SubscriptionPage = () => {
     <ContentContainer>
       <Heading
         as="h3"
+        variant="subTitle"
         alignSelf="center"
         textAlign="center"
         mb={8}

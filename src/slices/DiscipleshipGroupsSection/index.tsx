@@ -57,7 +57,7 @@ const DiscipleshipGroups = ({
         }}
       >
         <VStack maxWidth={{ base: 'full', md: '40rem', lg: 'full' }}>
-          <H3>{slice?.primary?.title}</H3>
+          <H3 mb={0}>{slice?.primary?.title}</H3>
           <PrismicRichText
             components={descriptionComponent}
             field={slice?.primary?.description}
