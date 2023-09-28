@@ -25,10 +25,7 @@ const LabelLink = ({ label }: LabelLinkProps) => {
       fontSize="md"
       color="white"
       fontWeight={400}
-      height={0}
-      p={0}
       _hover={{
-        bg: 'transparent',
         color: 'flesh.200',
         transition: 'color 0.3s',
       }}
