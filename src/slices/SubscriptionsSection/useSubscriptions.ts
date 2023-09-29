@@ -5,6 +5,7 @@ import { SliceComponentProps } from '@prismicio/react'
 
 import { useToast } from '@chakra-ui/react'
 
+import { isFutureDate } from '@/formatters'
 import { getSubscriptionsByUID } from '@/helpers'
 
 export const useSubscriptions = (
@@ -20,7 +21,12 @@ export const useSubscriptions = (
     const loadData = async () => {
       try {
         const data = await getSubscriptionsByUID(slice)
-        setSubscriptions(data)
+        const futureSubscriptions = data.filter(
+          (subscription) =>
+            isFutureDate(subscription?.data.final_date as string) &&
+            subscription,
+        )
+        setSubscriptions(futureSubscriptions)
       } catch {
         toast({
           status: 'error',
