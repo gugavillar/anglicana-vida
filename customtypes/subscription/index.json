@@ -27,6 +27,13 @@
           "thumbnails": []
         }
       },
+      "edition": {
+        "type": "Number",
+        "config": {
+          "label": "edition",
+          "placeholder": ""
+        }
+      },
       "subscription_open_date": {
         "type": "Date",
         "config": {
@@ -39,14 +46,6 @@
         "config": {
           "label": "subscription_close_date",
           "placeholder": "Data de encerramento das inscrições"
-        }
-      },
-      "subscription_link": {
-        "type": "Link",
-        "config": {
-          "label": "subscription_link",
-          "placeholder": "",
-          "select": null
         }
       },
       "initial_date": {

@@ -56,3 +56,13 @@ export const isFutureDate = (date: string) => {
 
   return isFuture(new Date(dateFormatted))
 }
+
+export const getYearFromDate = (date: string) => {
+  if (!date) return ''
+
+  const dateFormatted = getNumberDate(date)
+
+  if (isNaN(dateFormatted)) return ''
+
+  return format(new Date(dateFormatted), 'yyyy')
+}

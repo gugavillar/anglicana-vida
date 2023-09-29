@@ -14,7 +14,7 @@ import {
 
 import { H4, IfComponent } from '@/components'
 
-import { isFutureDate, isPassedDate, formatDate } from '@/formatters'
+import { useSubscriptionCard } from './useSubscriptionCard'
 
 type SubscriptionCardProps = {
   subscriptionObjectProperty: SubscriptionDocument<string>['data'] | undefined
@@ -24,26 +24,12 @@ const descriptionComponent: JSXMapSerializer = {
   paragraph: ({ children }) => <Text textAlign="justify">{children}</Text>,
 }
 
-const getBadgeText = (openDate: string, closeDate: string) => {
-  if (isFutureDate(openDate)) return 'Em breve'
-
-  if (isPassedDate(openDate) && isFutureDate(closeDate))
-    return 'Inscrições abertas'
-
-  return 'Inscrições encerradas'
-}
-
 export const SubscriptionCard = ({
   subscriptionObjectProperty,
 }: SubscriptionCardProps) => {
-  if (!subscriptionObjectProperty) return null
+  const subscription = useSubscriptionCard(subscriptionObjectProperty)
 
-  const badgeText = getBadgeText(
-    subscriptionObjectProperty.subscription_open_date as string,
-    subscriptionObjectProperty.subscription_close_date as string,
-  )
-
-  const isOpenSubscription = badgeText === 'Inscrições abertas'
+  if (!subscription) return null
 
   return (
     <Card
@@ -63,7 +49,7 @@ export const SubscriptionCard = ({
           textTransform="none"
           fontWeight={400}
         >
-          {badgeText}
+          {subscription?.badgeText}
         </Badge>
         <Image
           src={subscriptionObjectProperty?.image?.url as string}
@@ -74,18 +60,25 @@ export const SubscriptionCard = ({
         <Stack spacing={2} p={5}>
           <HStack justify="space-between">
             <Text opacity={0.65}>
-              {formatDate(subscriptionObjectProperty.initial_date as string)} -{' '}
-              {formatDate(subscriptionObjectProperty.final_date as string)}
+              {subscription?.formattedInitialDate} -{' '}
+              {subscription?.formattedFinalDate}
             </Text>
             <IfComponent
-              condition={isOpenSubscription}
-              component={<Button variant="ghost">Ir para inscrição</Button>}
+              condition={subscription.isOpenSubscription}
+              component={
+                <Button
+                  variant="ghost"
+                  onClick={subscription.handleNavigateToSubscription}
+                >
+                  Ir para inscrição
+                </Button>
+              }
             />
           </HStack>
-          <H4>{subscriptionObjectProperty.title}</H4>
+          <H4>{subscriptionObjectProperty?.title}</H4>
           <PrismicRichText
             components={descriptionComponent}
-            field={subscriptionObjectProperty.description}
+            field={subscriptionObjectProperty?.description}
           />
         </Stack>
       </CardBody>

@@ -601,6 +601,17 @@ interface SubscriptionDocumentData {
   image: prismic.ImageField<never>;
 
   /**
+   * edition field in *Subscription*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription.edition
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  edition: prismic.NumberField;
+
+  /**
    * subscription_open_date field in *Subscription*
    *
    * - **Field Type**: Date
@@ -621,17 +632,6 @@ interface SubscriptionDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   subscription_close_date: prismic.DateField;
-
-  /**
-   * subscription_link field in *Subscription*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: subscription.subscription_link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  subscription_link: prismic.LinkField;
 
   /**
    * initial_date field in *Subscription*

@@ -1,5 +1,3 @@
-import { useRouter } from 'next/router'
-
 import { Flex, Heading, Image } from '@chakra-ui/react'
 
 import { ContentContainer } from '@/components'
@@ -38,10 +36,11 @@ const MOCK_CARD_2 = {
   ),
 }
 
-export const SubscriptionPage = () => {
-  const { query } = useRouter()
-  const year = new Date().getFullYear().toString()
+type SubscriptionPageProps = {
+  titleOfPage: string
+}
 
+export const SubscriptionPage = ({ titleOfPage }: SubscriptionPageProps) => {
   return (
     <ContentContainer>
       <Heading
@@ -52,7 +51,7 @@ export const SubscriptionPage = () => {
         mb={8}
         textTransform="capitalize"
       >
-        {query.name} {query.gender} {year}.{query.edition}
+        {titleOfPage}
       </Heading>
       <Flex align="center" wrap="wrap" gap={12} width="full" justify="center">
         <CardSubscription cardProps={MOCK_CARD_2} />
