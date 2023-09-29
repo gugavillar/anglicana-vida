@@ -1,0 +1,7 @@
+export * from './Anima'
+export * from './CursilhoFeminino'
+export * from './HandHeart'
+export * from './HandsCross'
+export * from './Insights'
+export * from './Logo'
+export * from './Tent'

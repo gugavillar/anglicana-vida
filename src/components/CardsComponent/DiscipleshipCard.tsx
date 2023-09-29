@@ -1,11 +1,11 @@
+import { DiscipleshipDocument } from '@/prismic-types'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { Card, CardBody, Stack, Text, VStack, Flex } from '@chakra-ui/react'
+
 import { Calendar, MapPin, UsersThree } from 'phosphor-react'
 
 import { H4 } from '@/components'
-
-import { DiscipleshipDocument } from '../../../prismicio-types'
 
 type DiscipleshipCardProps = {
   discipleshipObjectProperty: DiscipleshipDocument['data'] | undefined

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Flex, Heading, Image } from '@chakra-ui/react'
 
 import { ContentContainer } from '@/components'
-import { CursilhoFeminino } from '@/components/Icons/CursilhoFeminino'
+import { CursilhoFeminino } from '@/components/Icons'
 
 import { CardSubscription } from './Card'
 

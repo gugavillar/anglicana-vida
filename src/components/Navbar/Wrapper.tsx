@@ -1,8 +1,9 @@
 import { Flex } from '@chakra-ui/react'
 
+import { Logo } from '@/components/Icons'
+
 import { Content } from './Content'
 import { NavbarProps } from './navbar'
-import { Logo } from '../Icons/Logo'
 
 type WrapperProps = NavbarProps
 

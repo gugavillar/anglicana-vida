@@ -4,6 +4,7 @@ import { PrismicNextLink } from '@prismicio/next'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { Image, VStack, Link, Flex, Icon } from '@chakra-ui/react'
+
 import { Envelope, MapPin } from 'phosphor-react'
 
 import { FooterProps } from './footer'

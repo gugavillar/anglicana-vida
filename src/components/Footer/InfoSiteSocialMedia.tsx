@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { PrismicNextLink } from '@prismicio/next'
 
 import { Flex, Box, Text, Icon } from '@chakra-ui/react'
+
 import { FacebookLogo, InstagramLogo, YoutubeLogo } from 'phosphor-react'
 
 import { FooterProps } from './footer'

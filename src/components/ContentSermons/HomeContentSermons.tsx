@@ -1,4 +1,5 @@
 import { Skeleton, useBreakpointValue } from '@chakra-ui/react'
+
 import { SwiperSlide } from 'swiper/react'
 
 import { SwiperContainer, VideoCard } from '@/components'

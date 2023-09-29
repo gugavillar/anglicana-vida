@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 import { Box, FlexProps } from '@chakra-ui/react'
+
 import { Pagination, Autoplay } from 'swiper/modules'
 import { Swiper } from 'swiper/react'
 

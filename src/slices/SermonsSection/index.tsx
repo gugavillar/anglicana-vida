@@ -3,11 +3,13 @@ import { useRouter } from 'next/router'
 import type { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
-import { ContentContainer, H3, IfComponent } from '@/components'
 import {
+  ContentContainer,
+  H3,
+  IfComponent,
   HomeContentSermons,
   SermonsContents,
-} from '@/components/ContentSermons'
+} from '@/components'
 
 import { GetAllVideosFromChannelResponse } from '@/services'
 

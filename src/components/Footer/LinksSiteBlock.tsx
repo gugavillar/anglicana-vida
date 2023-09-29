@@ -1,13 +1,13 @@
+import type {
+  FooterDocumentDataRecommendationItem,
+  Simplify,
+} from '@/prismic-types'
 import { PrismicNextLink } from '@prismicio/next'
 import { KeyTextField } from '@prismicio/types'
 
 import { VStack, Button } from '@chakra-ui/react'
-import { ArrowSquareOut } from 'phosphor-react'
 
-import type {
-  FooterDocumentDataRecommendationItem,
-  Simplify,
-} from '../../../prismicio-types'
+import { ArrowSquareOut } from 'phosphor-react'
 
 type LinksSiteBlockProps = {
   recommendation: Array<Simplify<FooterDocumentDataRecommendationItem>>

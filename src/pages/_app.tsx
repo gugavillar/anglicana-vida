@@ -1,5 +1,12 @@
 import { AppProps } from 'next/app'
 
+import type {
+  FooterDocumentDataRecommendationItem,
+  FooterDocumentDataSiteInfoItem,
+  FooterDocumentDataSocialMediaItem,
+  NavbarDocumentDataMenuItensItem,
+  Simplify,
+} from '@/prismic-types'
 import { repositoryName } from '@/prismicio'
 import { GroupField } from '@prismicio/client'
 import { PrismicPreview } from '@prismicio/next'
@@ -10,14 +17,6 @@ import { RootLayout } from '@/components'
 
 import { getSettings } from '@/helpers'
 import { theme } from '@/theme'
-
-import type {
-  FooterDocumentDataRecommendationItem,
-  FooterDocumentDataSiteInfoItem,
-  FooterDocumentDataSocialMediaItem,
-  NavbarDocumentDataMenuItensItem,
-  Simplify,
-} from '../../prismicio-types'
 
 interface InitialProps extends AppProps {
   navbar: {

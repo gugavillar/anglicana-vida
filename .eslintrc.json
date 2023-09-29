@@ -24,17 +24,17 @@
             "position": "before"
           },
           {
-            "pattern": "{@/components,@/components/**,@/components/*}",
+            "pattern": "{@/components,@/components/Icons}",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "{@prismicio/**,@prismicio/*,@/prismicio}",
+            "pattern": "{@prismicio/**,@prismicio/*,@/prismicio,@/prismic-types}",
             "group": "external",
             "position": "before"
           },
           {
-            "pattern": "{@chakraui/**,@chakraui/*}",
+            "pattern": "{@chakra-ui/**,@chakra-ui/*}",
             "group": "external",
             "position": "before"
           }

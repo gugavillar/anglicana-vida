@@ -1,10 +1,9 @@
+import { EventDocument } from '@/prismic-types'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { Card, CardBody, Stack, Text, Image } from '@chakra-ui/react'
 
 import { H4 } from '@/components'
-
-import { EventDocument } from '../../../prismicio-types'
 
 type EventCardProps = {
   eventObjectProperty: EventDocument<string>['data'] | undefined

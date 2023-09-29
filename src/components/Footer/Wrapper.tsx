@@ -1,4 +1,5 @@
 import { Flex, Text, Icon } from '@chakra-ui/react'
+
 import { Copyright } from 'phosphor-react'
 
 import { FooterProps } from './footer'

@@ -6,7 +6,7 @@ import type {
   NavbarDocumentDataMenuItensItem,
   FooterDocumentDataRecommendationItem,
   Simplify,
-} from '../../../prismicio-types'
+} from '@/prismic-types'
 
 export type RootLayoutProps = {
   children: ReactNode

@@ -1,3 +1,4 @@
+import { SubscriptionDocument } from '@/prismic-types'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import {
@@ -14,8 +15,6 @@ import {
 import { H4, IfComponent } from '@/components'
 
 import { isFutureDate, isPassedDate, formatDate } from '@/formatters'
-
-import { SubscriptionDocument } from '../../../prismicio-types'
 
 type SubscriptionCardProps = {
   subscriptionObjectProperty: SubscriptionDocument<string>['data'] | undefined

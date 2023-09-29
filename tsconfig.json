@@ -15,7 +15,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/prismic-types": ["./prismicio-types.d.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "*.d.ts", "**/*.tsx"],

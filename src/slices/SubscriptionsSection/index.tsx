@@ -2,6 +2,7 @@ import { type Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
 import { Skeleton, useBreakpointValue } from '@chakra-ui/react'
+
 import { SwiperSlide } from 'swiper/react'
 
 import {

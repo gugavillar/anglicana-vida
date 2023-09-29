@@ -1,9 +1,8 @@
+import type { Simplify } from '@/prismic-types'
 import type { Content } from '@prismicio/client'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { VStack, Heading } from '@chakra-ui/react'
-
-import type { Simplify } from '../../../prismicio-types'
 
 const titleComponent: JSXMapSerializer = {
   heading1: ({ children }) => (

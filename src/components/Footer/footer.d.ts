@@ -3,7 +3,7 @@ import type {
   FooterDocumentDataSocialMediaItem,
   FooterDocumentDataRecommendationItem,
   Simplify,
-} from '../../../prismicio-types'
+} from '@/prismic-types'
 
 export type FooterProps = {
   siteInfo: Array<Simplify<FooterDocumentDataSiteInfoItem>>

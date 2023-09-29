@@ -1,7 +1,4 @@
-import type {
-  NavbarDocumentDataMenuItensItem,
-  Simplify,
-} from '../../../prismicio-types'
+import type { NavbarDocumentDataMenuItensItem, Simplify } from '@/prismic-types'
 
 export type NavbarProps = {
   menuItens: Array<Simplify<NavbarDocumentDataMenuItensItem>>
