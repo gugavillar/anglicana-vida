@@ -32,6 +32,10 @@ const routes: prismic.ClientConfig['routes'] = [
     path: '/sermoes',
   },
   {
+    type: 'about',
+    path: '/sobre',
+  },
+  {
     type: 'home',
     path: '/',
   },
