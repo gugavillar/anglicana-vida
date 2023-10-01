@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 
-import { useDisclosure, Button } from '@chakra-ui/react'
+import { useDisclosure, IconButton } from '@chakra-ui/react'
 
 import { List } from 'phosphor-react'
 
@@ -15,12 +15,13 @@ export const Mobile = ({ menuItens }: MobileProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Fragment>
-      <Button
+      <IconButton
+        aria-label="Menu principal"
         onClick={onOpen}
-        leftIcon={<List width={40} height={40} weight="bold" />}
+        icon={<List width={40} height={40} weight="bold" />}
         bg="transparent"
         color="whiteAlpha.700"
-        p={0}
+        width="max-content"
       />
       <MobileDrawer isOpen={isOpen} onClose={onClose} menuItens={menuItens} />
     </Fragment>
