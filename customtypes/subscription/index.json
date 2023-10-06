@@ -10,7 +10,7 @@
         "type": "Text",
         "config": {
           "label": "title",
-          "placeholder": ""
+          "placeholder": "Nome do evento"
         }
       },
       "uid": {
@@ -31,42 +31,56 @@
         "type": "Number",
         "config": {
           "label": "edition",
-          "placeholder": ""
+          "placeholder": "Edição do evento (apenas o número)"
         }
       },
-      "subscription_open_date": {
+      "participant_subscription_open_date": {
         "type": "Date",
         "config": {
-          "label": "subscription_open_date",
-          "placeholder": "Data de abertura das inscrições"
+          "label": "participant_subscription_open_date",
+          "placeholder": "Data de abertura das inscrições dos participantes"
         }
       },
-      "subscription_close_date": {
+      "participant_subscription_close_date": {
         "type": "Date",
         "config": {
-          "label": "subscription_close_date",
-          "placeholder": "Data de encerramento das inscrições"
+          "label": "participant_subscription_close_date",
+          "placeholder": "Data de encerramento das inscrições dos participantes"
+        }
+      },
+      "volunteer_subscription_open_date": {
+        "type": "Date",
+        "config": {
+          "label": "volunteer_subscription_open_date",
+          "placeholder": "Data de abertura das inscrições dos voluntários"
+        }
+      },
+      "volunteer_subscription_close_date": {
+        "type": "Date",
+        "config": {
+          "label": "volunteer_subscription_close_date",
+          "placeholder": "Data de encerramento das inscrições dos voluntários"
         }
       },
       "initial_date": {
         "type": "Date",
         "config": {
           "label": "initial_date",
-          "placeholder": ""
+          "placeholder": "Data que inicia o evento"
         }
       },
       "final_date": {
         "type": "Date",
         "config": {
           "label": "final_date",
-          "placeholder": ""
+          "placeholder": "Data final do evento"
         }
       },
       "description": {
         "type": "StructuredText",
         "config": {
           "label": "description",
-          "placeholder": "",
+          "placeholder": "Descrição do evento",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em"
         }

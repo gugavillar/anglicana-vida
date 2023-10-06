@@ -7,6 +7,7 @@ import { CardSubscription } from './Card'
 
 const MOCK_CARD = {
   title: 'Voluntários',
+  urlPath: 'voluntario',
   description:
     'É uma oportunidade enriquecedora para fazer a diferença na vida de mulheres. Junte-se a nós e seja um agente de transformação, capacitando mulheres a alcançarem seu potencial pleno enquanto compartilha amor, compaixão e solidariedade.',
   image: (
@@ -21,6 +22,7 @@ const MOCK_CARD = {
 
 const MOCK_CARD_2 = {
   title: 'Participantes',
+  urlPath: 'participante',
   description:
     'É uma oportunidade de crescer espiritualmente, fortalecer sua fé e construir relacionamentos significativos. Junte-se a nós nessa emocionante conexão espiritual. Venha fazer parte do Cursilho e descubra um novo caminho de fé e comunhão.',
   image: (
@@ -38,9 +40,15 @@ const MOCK_CARD_2 = {
 
 type SubscriptionPageProps = {
   titleOfPage: string
+  badgeTextParticipants: string
+  badgeTextVolunteers: string
 }
 
-export const SubscriptionPage = ({ titleOfPage }: SubscriptionPageProps) => {
+export const SubscriptionPage = ({
+  titleOfPage,
+  badgeTextParticipants,
+  badgeTextVolunteers,
+}: SubscriptionPageProps) => {
   return (
     <ContentContainer>
       <Heading
@@ -54,8 +62,12 @@ export const SubscriptionPage = ({ titleOfPage }: SubscriptionPageProps) => {
         {titleOfPage}
       </Heading>
       <Flex align="center" wrap="wrap" gap={12} width="full" justify="center">
-        <CardSubscription cardProps={MOCK_CARD_2} />
-        <CardSubscription cardProps={MOCK_CARD} />
+        <CardSubscription
+          cardProps={{ ...MOCK_CARD_2, badgeText: badgeTextParticipants }}
+        />
+        <CardSubscription
+          cardProps={{ ...MOCK_CARD, badgeText: badgeTextVolunteers }}
+        />
       </Flex>
     </ContentContainer>
   )

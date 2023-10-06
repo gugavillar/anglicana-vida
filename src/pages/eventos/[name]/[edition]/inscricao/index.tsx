@@ -14,12 +14,22 @@ const redirectPageObject = {
 const querySchema = yup.object({
   isOpenSubscription: yup.boolean().required(),
   titleOfPage: yup.string().required(),
+  badgeTextParticipants: yup.string().required(),
+  badgeTextVolunteers: yup.string().required(),
 })
 
 export default function Page({
   titleOfPage,
+  badgeTextParticipants,
+  badgeTextVolunteers,
 }: InferGetStaticPropsType<typeof getServerSideProps>) {
-  return <SubscriptionPage titleOfPage={titleOfPage} />
+  return (
+    <SubscriptionPage
+      titleOfPage={titleOfPage}
+      badgeTextParticipants={badgeTextParticipants}
+      badgeTextVolunteers={badgeTextVolunteers}
+    />
+  )
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
@@ -33,6 +43,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     return {
       props: {
         titleOfPage: parsedQuery.titleOfPage,
+        badgeTextParticipants: parsedQuery.badgeTextParticipants,
+        badgeTextVolunteers: parsedQuery.badgeTextVolunteers,
       },
     }
   } catch {

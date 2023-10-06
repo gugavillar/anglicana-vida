@@ -1,1 +1,1 @@
-export * from './events/cursilho/Subscriptions'
+export * from './events/Subscriptions'

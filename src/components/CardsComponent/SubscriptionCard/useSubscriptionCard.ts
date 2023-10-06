@@ -49,12 +49,19 @@ export const useSubscriptionCard = (
 
   if (!subscriptionObjectProperty) return null
 
-  const badgeText = getBadgeText(
-    subscriptionObjectProperty.subscription_open_date as string,
-    subscriptionObjectProperty.subscription_close_date as string,
+  const badgeTextParticipants = getBadgeText(
+    subscriptionObjectProperty.participant_subscription_open_date as string,
+    subscriptionObjectProperty.participant_subscription_close_date as string,
   )
 
-  const isOpenSubscription = badgeText === 'Inscrições abertas'
+  const badgeTextVolunteers = getBadgeText(
+    subscriptionObjectProperty.volunteer_subscription_open_date as string,
+    subscriptionObjectProperty.volunteer_subscription_close_date as string,
+  )
+
+  const isOpenSubscription =
+    badgeTextParticipants === 'Inscrições abertas' ||
+    badgeTextVolunteers === 'Inscrições abertas'
 
   const formattedEventDates = formatDatesFromEvent(
     subscriptionObjectProperty.initial_date as string,
@@ -78,6 +85,8 @@ export const useSubscriptionCard = (
         pathname: urlToSubscriptionPage,
         query: {
           isOpenSubscription,
+          badgeTextParticipants,
+          badgeTextVolunteers,
           titleOfPage,
         },
       },
@@ -85,7 +94,6 @@ export const useSubscriptionCard = (
     )
 
   return {
-    badgeText,
     isOpenSubscription,
     ...formattedEventDates,
     handleNavigateToSubscription,

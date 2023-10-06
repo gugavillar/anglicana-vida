@@ -633,7 +633,7 @@ interface SubscriptionDocumentData {
    * title field in *Subscription*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Nome do evento
    * - **API ID Path**: subscription.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -655,7 +655,7 @@ interface SubscriptionDocumentData {
    * edition field in *Subscription*
    *
    * - **Field Type**: Number
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Edição do evento (apenas o número)
    * - **API ID Path**: subscription.edition
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#number
@@ -663,32 +663,54 @@ interface SubscriptionDocumentData {
   edition: prismic.NumberField;
 
   /**
-   * subscription_open_date field in *Subscription*
+   * participant_subscription_open_date field in *Subscription*
    *
    * - **Field Type**: Date
-   * - **Placeholder**: Data de abertura das inscrições
-   * - **API ID Path**: subscription.subscription_open_date
+   * - **Placeholder**: Data de abertura das inscrições dos participantes
+   * - **API ID Path**: subscription.participant_subscription_open_date
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#date
    */
-  subscription_open_date: prismic.DateField;
+  participant_subscription_open_date: prismic.DateField;
 
   /**
-   * subscription_close_date field in *Subscription*
+   * participant_subscription_close_date field in *Subscription*
    *
    * - **Field Type**: Date
-   * - **Placeholder**: Data de encerramento das inscrições
-   * - **API ID Path**: subscription.subscription_close_date
+   * - **Placeholder**: Data de encerramento das inscrições dos participantes
+   * - **API ID Path**: subscription.participant_subscription_close_date
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#date
    */
-  subscription_close_date: prismic.DateField;
+  participant_subscription_close_date: prismic.DateField;
+
+  /**
+   * volunteer_subscription_open_date field in *Subscription*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data de abertura das inscrições dos voluntários
+   * - **API ID Path**: subscription.volunteer_subscription_open_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  volunteer_subscription_open_date: prismic.DateField;
+
+  /**
+   * volunteer_subscription_close_date field in *Subscription*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data de encerramento das inscrições dos voluntários
+   * - **API ID Path**: subscription.volunteer_subscription_close_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  volunteer_subscription_close_date: prismic.DateField;
 
   /**
    * initial_date field in *Subscription*
    *
    * - **Field Type**: Date
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Data que inicia o evento
    * - **API ID Path**: subscription.initial_date
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#date
@@ -699,7 +721,7 @@ interface SubscriptionDocumentData {
    * final_date field in *Subscription*
    *
    * - **Field Type**: Date
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Data final do evento
    * - **API ID Path**: subscription.final_date
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#date
@@ -710,7 +732,7 @@ interface SubscriptionDocumentData {
    * description field in *Subscription*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Descrição do evento
    * - **API ID Path**: subscription.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title

@@ -7,7 +7,6 @@ import {
   Stack,
   Text,
   Image,
-  Badge,
   HStack,
   Button,
 } from '@chakra-ui/react'
@@ -39,18 +38,6 @@ export const SubscriptionCard = ({
       boxShadow="md"
     >
       <CardBody p={0}>
-        <Badge
-          position="absolute"
-          top={0}
-          right={0}
-          fontSize="xl"
-          bg="flesh.200"
-          borderTopRightRadius="md"
-          textTransform="none"
-          fontWeight={400}
-        >
-          {subscription?.badgeText}
-        </Badge>
         <Image
           src={subscriptionObjectProperty?.image?.url as string}
           alt={subscriptionObjectProperty?.image?.alt as string}
