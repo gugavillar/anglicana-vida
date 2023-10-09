@@ -1,19 +1,6 @@
-import { Image } from '@chakra-ui/react'
+import { ReactNode } from 'react'
 
 import { SubscriptionCard } from '@/components'
-
-const MOCK_CARD = {
-  description:
-    'É uma oportunidade enriquecedora para fazer a diferença na vida de mulheres. Junte-se a nós e seja um agente de transformação, capacitando mulheres a alcançarem seu potencial pleno enquanto compartilha amor, compaixão e solidariedade.',
-  image: (
-    <Image
-      src="/assets/female_volunteers.jpg"
-      alt="Voluntários orando"
-      borderTopLeftRadius="lg"
-      borderTopRightRadius="lg"
-    />
-  ),
-}
 
 type VolunteerCardProps = {
   data: {
@@ -21,15 +8,21 @@ type VolunteerCardProps = {
     year: string
     eventText: string
   }
+  cardProps: {
+    description: string
+    image: ReactNode
+  }
 }
 
-export const VolunteerCard = ({ data }: VolunteerCardProps) => {
+export const VolunteerCard = ({ data, cardProps }: VolunteerCardProps) => {
   return (
     <SubscriptionCard
-      {...data}
+      badgeText={data.badgeText}
+      eventText={data.eventText}
+      year={data.year}
       title="Voluntários"
       urlPath="voluntario"
-      cardProps={{ ...MOCK_CARD }}
+      cardProps={cardProps}
     />
   )
 }

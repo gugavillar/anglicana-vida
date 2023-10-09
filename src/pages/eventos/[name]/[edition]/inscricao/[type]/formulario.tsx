@@ -1,6 +1,6 @@
-import { GetServerSidePropsContext } from 'next'
+import { GetServerSidePropsContext, InferGetStaticPropsType } from 'next'
 
-import { Heading, Text } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 
 import * as yup from 'yup'
 
@@ -22,12 +22,18 @@ const querySchema = yup.object({
   eventText: yup.string().required(),
 })
 
-export default function Page() {
+export default function Page({
+  eventText,
+  year,
+}: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
     <ContainerForm>
       <Step
         steps={[
-          { children: <Information />, isComplete: false },
+          {
+            children: <Information eventText={eventText} year={year} />,
+            isComplete: false,
+          },
           { children: <Text>step 2</Text>, isComplete: false },
           { children: <Text>step 3</Text>, isComplete: false },
         ]}
@@ -46,7 +52,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     if (!parsedQuery.isOpenSubscription) return redirectPageObject
 
     return {
-      props: {},
+      props: {
+        eventText: parsedQuery.eventText,
+        year: parsedQuery.year,
+      },
     }
   } catch {
     return redirectPageObject

@@ -1,21 +1,6 @@
-import { SubscriptionCard } from '@/components'
-import { CursilhoFeminino } from '@/components/Icons'
+import { ReactNode } from 'react'
 
-const MOCK_CARD_2 = {
-  description:
-    'É uma oportunidade de crescer espiritualmente, fortalecer sua fé e construir relacionamentos significativos. Junte-se a nós nessa emocionante conexão espiritual. Venha fazer parte do Cursilho e descubra um novo caminho de fé e comunhão.',
-  image: (
-    <CursilhoFeminino
-      p={1}
-      width={384}
-      height={256}
-      alignSelf="center"
-      bgColor="white"
-      borderTopLeftRadius="lg"
-      borderTopRightRadius="lg"
-    />
-  ),
-}
+import { SubscriptionCard } from '@/components'
 
 type ParticipantCardProps = {
   data: {
@@ -23,17 +8,21 @@ type ParticipantCardProps = {
     year: string
     eventText: string
   }
+  cardProps: {
+    description: string
+    image: ReactNode
+  }
 }
 
-export const ParticipantCard = ({ data }: ParticipantCardProps) => {
+export const ParticipantCard = ({ data, cardProps }: ParticipantCardProps) => {
   return (
     <SubscriptionCard
-      {...data}
+      badgeText={data.badgeText}
+      eventText={data.eventText}
+      year={data.year}
       title="Participantes"
       urlPath="participante"
-      cardProps={{
-        ...MOCK_CARD_2,
-      }}
+      cardProps={cardProps}
     />
   )
 }
