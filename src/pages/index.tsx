@@ -11,7 +11,7 @@ import { components } from '@/slices'
 export default function HomePage({
   page,
   videos,
-}: InferGetStaticPropsType<typeof getServerSideProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -29,7 +29,7 @@ export default function HomePage({
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const [page, videos] = await Promise.all([
     getHome(),
     getAllVideosFromChannel(
@@ -40,5 +40,6 @@ export async function getServerSideProps() {
   ])
   return {
     props: { page, videos },
+    revalidate: 60,
   }
 }
