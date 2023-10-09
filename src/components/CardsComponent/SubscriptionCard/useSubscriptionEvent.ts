@@ -3,11 +3,15 @@ import { useRouter } from 'next/router'
 type UseSubscriptionEventParams = {
   urlPath: string
   badgeText: string
+  year: string
+  eventText: string
 }
 
-export const useSubscriptionEvent = ({
+export const useSubscriptionCard = ({
   urlPath,
   badgeText,
+  year,
+  eventText,
 }: UseSubscriptionEventParams) => {
   const { asPath, push } = useRouter()
   const urlToForm = `${asPath}/${urlPath}/formulario`
@@ -20,6 +24,8 @@ export const useSubscriptionEvent = ({
         pathname: urlToForm,
         query: {
           isOpenSubscription,
+          year,
+          eventText,
         },
       },
       urlToForm,

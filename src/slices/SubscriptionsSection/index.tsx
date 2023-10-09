@@ -5,8 +5,8 @@ import { SwiperSlide } from 'swiper/react'
 
 import {
   ContentContainer,
+  EventCardWithSubscription,
   H3,
-  SubscriptionCard,
   SwiperContainerCards,
 } from '@/components'
 
@@ -36,7 +36,9 @@ const SubscriptionSection = ({
       >
         {subscriptions?.map((item) => (
           <SwiperSlide key={item?.id}>
-            <SubscriptionCard subscriptionObjectProperty={item?.data} />
+            <EventCardWithSubscription
+              subscriptionObjectProperty={item?.data}
+            />
           </SwiperSlide>
         ))}
       </SwiperContainerCards>

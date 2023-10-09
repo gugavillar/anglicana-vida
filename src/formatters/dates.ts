@@ -24,17 +24,17 @@ export const formatISODate = (date: string) => {
 
   if (isNaN(dateFormatted)) return ''
 
-  return format(new Date(dateFormatted), 'dd/MM/yyyy')
+  return format(new Date(dateFormatted), 'dd/MM/yyyy', { locale: ptBR })
 }
 
-export const formatDate = (date: string) => {
+export const formatDate = (date: string, formatString = 'dd/MM/yyyy') => {
   if (!date) return ''
 
   const dateFormatted = getNumberDate(date)
 
   if (isNaN(dateFormatted)) return ''
 
-  return format(new Date(dateFormatted), 'dd/MM/yyyy')
+  return format(new Date(dateFormatted), formatString, { locale: ptBR })
 }
 
 export const isPassedDate = (date: string) => {
@@ -55,14 +55,4 @@ export const isFutureDate = (date: string) => {
   if (isNaN(dateFormatted)) return false
 
   return isFuture(new Date(dateFormatted))
-}
-
-export const getYearFromDate = (date: string) => {
-  if (!date) return ''
-
-  const dateFormatted = getNumberDate(date)
-
-  if (isNaN(dateFormatted)) return ''
-
-  return format(new Date(dateFormatted), 'yyyy')
 }

@@ -1,74 +1,73 @@
-import { SubscriptionDocument } from '@/prismic-types'
-import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
+import { ReactNode } from 'react'
 
 import {
   Card,
   CardBody,
+  Heading,
   Stack,
   Text,
-  Image,
-  HStack,
+  CardFooter,
   Button,
+  Badge,
 } from '@chakra-ui/react'
 
-import { H4, IfComponent } from '@/components'
+import { useSubscriptionCard } from './useSubscriptionEvent'
 
-import { useSubscriptionCard } from './useSubscriptionCard'
-
-type SubscriptionCardProps = {
-  subscriptionObjectProperty: SubscriptionDocument<string>['data'] | undefined
-}
-
-const descriptionComponent: JSXMapSerializer = {
-  paragraph: ({ children }) => <Text textAlign="justify">{children}</Text>,
+type CardSubscriptionProps = {
+  title: string
+  urlPath: string
+  badgeText: string
+  year: string
+  eventText: string
+  cardProps: {
+    image: ReactNode
+    description: string
+  }
 }
 
 export const SubscriptionCard = ({
-  subscriptionObjectProperty,
-}: SubscriptionCardProps) => {
-  const subscription = useSubscriptionCard(subscriptionObjectProperty)
-
-  if (!subscription) return null
+  cardProps,
+  urlPath,
+  badgeText,
+  title,
+  eventText,
+  year,
+}: CardSubscriptionProps) => {
+  const { handleGoToForm, isOpenSubscription } = useSubscriptionCard({
+    urlPath,
+    badgeText,
+    eventText,
+    year,
+  })
 
   return (
-    <Card
-      maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }}
-      minHeight="32.5rem"
-      bg="pampas.50"
-      boxShadow="md"
-    >
+    <Card maxWidth="sm" minHeight="lg" bg="pampas.50" boxShadow="dark-lg">
       <CardBody p={0}>
-        <Image
-          src={subscriptionObjectProperty?.image?.url as string}
-          alt={subscriptionObjectProperty?.image?.alt as string}
-          borderTopLeftRadius="lg"
-          borderTopRightRadius="lg"
-        />
+        <Badge
+          position="absolute"
+          top={0}
+          right={0}
+          fontSize="xl"
+          bg="flesh.200"
+          borderTopRightRadius="md"
+          textTransform="none"
+          fontWeight={400}
+        >
+          {badgeText}
+        </Badge>
+        {cardProps.image}
         <Stack spacing={2} p={5}>
-          <HStack justify="space-between">
-            <Text opacity={0.65}>
-              {subscription?.formattedInitialDate} -{' '}
-              {subscription?.formattedFinalDate}
-            </Text>
-            <IfComponent
-              condition={subscription.isOpenSubscription}
-              component={
-                <Button
-                  variant="ghost"
-                  onClick={subscription.handleNavigateToSubscription}
-                >
-                  Ir para inscrição
-                </Button>
-              }
-            />
-          </HStack>
-          <H4>{subscriptionObjectProperty?.title}</H4>
-          <PrismicRichText
-            components={descriptionComponent}
-            field={subscriptionObjectProperty?.description}
-          />
+          <Heading as="h4" size="md">
+            {title}
+          </Heading>
+          <Text textAlign="justify">{cardProps.description}</Text>
         </Stack>
       </CardBody>
+      <CardFooter alignSelf="end" p={0} px={5} pb={5}>
+        <Button isDisabled={!isOpenSubscription} onClick={handleGoToForm}>
+          Inscrever
+        </Button>
+      </CardFooter>
     </Card>
   )
 }

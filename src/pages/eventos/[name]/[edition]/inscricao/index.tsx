@@ -2,7 +2,8 @@ import { GetServerSidePropsContext, InferGetStaticPropsType } from 'next'
 
 import * as yup from 'yup'
 
-import { SubscriptionPage } from '@/modules'
+import { SubscriptionPageContainer } from '@/modules'
+import { HappeningCards } from '@/modules/events/Happening'
 
 const redirectPageObject = {
   redirect: {
@@ -16,19 +17,28 @@ const querySchema = yup.object({
   titleOfPage: yup.string().required(),
   badgeTextParticipants: yup.string().required(),
   badgeTextVolunteers: yup.string().required(),
+  eventText: yup.string().required(),
+  formattedYear: yup.string().required(),
 })
 
 export default function Page({
   titleOfPage,
   badgeTextParticipants,
   badgeTextVolunteers,
+  eventText,
+  year,
 }: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
-    <SubscriptionPage
-      titleOfPage={titleOfPage}
-      badgeTextParticipants={badgeTextParticipants}
-      badgeTextVolunteers={badgeTextVolunteers}
-    />
+    <SubscriptionPageContainer titleOfPage={titleOfPage}>
+      <HappeningCards
+        data={{
+          badgeTextParticipants,
+          badgeTextVolunteers,
+          year,
+          eventText,
+        }}
+      />
+    </SubscriptionPageContainer>
   )
 }
 
@@ -45,6 +55,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         titleOfPage: parsedQuery.titleOfPage,
         badgeTextParticipants: parsedQuery.badgeTextParticipants,
         badgeTextVolunteers: parsedQuery.badgeTextVolunteers,
+        eventText: parsedQuery.eventText,
+        year: parsedQuery.formattedYear,
       },
     }
   } catch {

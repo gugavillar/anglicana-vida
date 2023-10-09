@@ -2,12 +2,7 @@ import { useRouter } from 'next/router'
 
 import { SubscriptionDocument } from '@/prismic-types'
 
-import {
-  formatDate,
-  getYearFromDate,
-  isFutureDate,
-  isPassedDate,
-} from '@/formatters'
+import { formatDate, isFutureDate, isPassedDate } from '@/formatters'
 
 const getBadgeText = (openDate: string, closeDate: string) => {
   if (isFutureDate(openDate)) return 'Em breve'
@@ -33,16 +28,35 @@ const formatDatesFromEvent = (initialDate: string, finalDate: string) => {
   }
 }
 
+const formatEventTextAndYear = (initialDate: string, finalDate: string) => {
+  const formattedInitialDay = formatDate(initialDate, 'dd')
+  const formattedInitialMonth = formatDate(initialDate, 'MMMM')
+  const formattedFinalDay = formatDate(finalDate, 'dd')
+  const formattedFinalMonth = formatDate(finalDate, 'MMMM')
+  const formattedYear = formatDate(initialDate, 'yyyy')
+
+  const isSameMonth = formattedInitialMonth === formattedFinalMonth
+
+  const eventText = isSameMonth
+    ? `${formattedInitialDay} a ${formattedFinalDay} de ${formattedInitialMonth}`
+    : `${formattedInitialDay} de ${formattedInitialMonth} a ${formattedFinalDay} de ${formattedFinalMonth}`
+
+  return {
+    eventText,
+    formattedYear,
+  }
+}
+
 const generateEventTitle = (
   eventName: string,
   initialDate: string,
   eventEdition: number,
 ) => {
-  const year = getYearFromDate(initialDate)
+  const year = formatDate(initialDate, 'yyyy')
   return `${eventName} ${year}.${eventEdition}`
 }
 
-export const useSubscriptionCard = (
+export const useEventCardWithSubscription = (
   subscriptionObjectProperty: SubscriptionDocument<string>['data'] | undefined,
 ) => {
   const { push } = useRouter()
@@ -68,6 +82,11 @@ export const useSubscriptionCard = (
     subscriptionObjectProperty.final_date as string,
   )
 
+  const formattedEventTextAndYear = formatEventTextAndYear(
+    subscriptionObjectProperty.initial_date as string,
+    subscriptionObjectProperty.final_date as string,
+  )
+
   const titleOfPage = generateEventTitle(
     subscriptionObjectProperty.title as string,
     subscriptionObjectProperty.initial_date as string,
@@ -88,6 +107,7 @@ export const useSubscriptionCard = (
           badgeTextParticipants,
           badgeTextVolunteers,
           titleOfPage,
+          ...formattedEventTextAndYear,
         },
       },
       urlToSubscriptionPage,
