@@ -19,7 +19,7 @@ const MOCK_CARD_2 = {
   image: (
     <CursilhoFeminino
       p={1}
-      width={384}
+      width="full"
       height={256}
       alignSelf="center"
       bgColor="white"
