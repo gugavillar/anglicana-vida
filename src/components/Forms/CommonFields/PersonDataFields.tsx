@@ -6,6 +6,7 @@ import { SelectOption } from '@/types/common'
 import { AddressData } from './AddressData'
 import { ChurchAndReligion } from './ChurchAndReligion'
 import { DateOfBirthAndPhoneAndEducation } from './DateOfBirthAndPhoneAndEducation'
+import { HealthAndFoodRestriction } from './HealthAndFoodRestriction'
 import { NameAndBeCalled } from './NameAndBeCalled'
 
 export type PersonDataFieldsForm = {
@@ -23,6 +24,10 @@ export type PersonDataFieldsForm = {
     neighborhood: string
     state: string
   }
+  healthProblem: string
+  healthProblemDescription?: string
+  foodRestriction: string
+  foodRestrictionDescription?: string
 }
 
 export const defaultPersonDataFieldsValue = {
@@ -40,6 +45,10 @@ export const defaultPersonDataFieldsValue = {
     neighborhood: '',
     state: '',
   },
+  healthProblem: '',
+  healthProblemDescription: '',
+  foodRestriction: '',
+  foodRestrictionDescription: '',
 }
 
 type PersonDataFieldsProps = {
@@ -53,6 +62,7 @@ export const PersonDataFields = ({ states }: PersonDataFieldsProps) => {
       <DateOfBirthAndPhoneAndEducation />
       <ChurchAndReligion />
       <AddressData states={states} />
+      <HealthAndFoodRestriction />
     </VStack>
   )
 }

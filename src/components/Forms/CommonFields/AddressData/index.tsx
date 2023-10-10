@@ -54,7 +54,7 @@ export const AddressData = ({ states }: AddressDataProps) => {
           isInvalid={!!errors?.address?.number?.message}
           errorText={errors?.address?.number?.message}
           label="N˚"
-          maxWidth={{ base: 'full', md: '12rem', lg: '12rem' }}
+          maxWidth={{ base: 'full', md: '6rem', lg: '6rem' }}
         >
           <InputField
             type="text"
@@ -85,10 +85,11 @@ export const AddressData = ({ states }: AddressDataProps) => {
           label="Estado"
           isInvalid={!!errors?.address?.state?.message}
           errorText={errors?.address?.state?.message}
-          maxWidth="14rem"
+          maxWidth={{ base: 'full', md: '14rem', lg: '14rem' }}
         >
           <SelectField
-            placeholder="Estado"
+            defaultValue=""
+            placeholder="UF"
             {...register('address.state')}
             options={states}
           />
@@ -99,6 +100,7 @@ export const AddressData = ({ states }: AddressDataProps) => {
           errorText={errors?.address?.city?.message}
         >
           <SelectField
+            defaultValue=""
             placeholder="Cidade"
             options={cities}
             {...register('address.city')}

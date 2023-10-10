@@ -12,3 +12,8 @@ export const LEVEL_OF_EDUCATION = [
   { label: 'Doutorado incompleto', value: 'Doutorado incompleto' },
   { label: 'Doutorado completo', value: 'Doutorado completo' },
 ]
+
+export const TRUE_OR_FALSE = [
+  { label: 'Sim', value: 'true' },
+  { label: 'Não', value: 'false' },
+]
