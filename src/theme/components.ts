@@ -49,4 +49,14 @@ export const components = {
       },
     },
   },
+  Select: {
+    variants: {
+      outline: {
+        field: {
+          height: '3rem',
+          fontSize: '1.125rem',
+        },
+      },
+    },
+  },
 }

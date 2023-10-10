@@ -5,7 +5,7 @@ type InformationProps = {
   eventText: string
 }
 
-export const Information = ({ eventText, year }: InformationProps) => {
+export const VolunteerInformation = ({ eventText, year }: InformationProps) => {
   return (
     <Flex
       direction="column"
@@ -18,7 +18,7 @@ export const Information = ({ eventText, year }: InformationProps) => {
       <VStack spacing={4}>
         <Heading fontSize="2xl">Antes de prosseguir leia com atenção!</Heading>
         <Box>
-          <Text fontWeight={600} fontSize="lg">
+          <Text as="q" fontWeight={600} fontSize="lg">
             Não será assim entre vós. Ao contrário, quem desejar ser importante
             entre vós será esse o que deva servir aos demais.
           </Text>
@@ -31,10 +31,10 @@ export const Information = ({ eventText, year }: InformationProps) => {
         <Text maxWidth="40rem">
           O evento acontecerá de {eventText}, sua presença é importante para
           DEUS e para nós. <br />
-          Na sexta-feira você pode se dirigir ao Rancho a partir das 13h
+          Na sexta-feira você pode se dirigir ao rancho a partir das 13h
         </Text>
         <Text maxWidth="40rem">
-          Favor preencha suas informações, ao final você encontrará o QRCODE
+          Favor preencha suas informações, ao final você encontrará o QrCode
           para pagamento. <br />
           Desde já estamos orando pela sua vida e pelo seu servir no Reino de
           Deus.

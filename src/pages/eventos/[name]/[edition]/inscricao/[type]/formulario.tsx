@@ -1,13 +1,12 @@
 import { GetServerSidePropsContext, InferGetStaticPropsType } from 'next'
 
-import { Text } from '@chakra-ui/react'
+import { useBoolean } from '@chakra-ui/react'
 
 import * as yup from 'yup'
 
-import { Step } from '@/components'
-
 import { ContainerForm } from '@/modules/events/Forms/ContainerForm'
-import { Information } from '@/modules/events/Happening'
+import { HappeningForm } from '@/modules/events/Happening/Form'
+import { getBrazilianStatesToSelectField } from '@/services'
 
 const redirectPageObject = {
   redirect: {
@@ -20,25 +19,32 @@ const querySchema = yup.object({
   isOpenSubscription: yup.boolean().required(),
   year: yup.string().required(),
   eventText: yup.string().required(),
+  name: yup.string().oneOf(['happening']).required(),
 })
 
 export default function Page({
   eventText,
   year,
+  name,
+  states,
 }: InferGetStaticPropsType<typeof getServerSideProps>) {
-  return (
-    <ContainerForm>
-      <Step
-        steps={[
-          {
-            children: <Information eventText={eventText} year={year} />,
-            isComplete: false,
-          },
-          { children: <Text>step 2</Text>, isComplete: false },
-          { children: <Text>step 3</Text>, isComplete: false },
-        ]}
-        activeStep={0}
+  const [isFormStarted, setIsFormStarted] = useBoolean()
+
+  const EventFormToMount = {
+    happening: (
+      <HappeningForm
+        eventText={eventText}
+        isFormStarted={isFormStarted}
+        setIsFormStarted={setIsFormStarted}
+        year={year}
+        states={states}
       />
+    ),
+  }
+
+  return (
+    <ContainerForm hasTitle={isFormStarted}>
+      {EventFormToMount?.[name]}
     </ContainerForm>
   )
 }
@@ -51,10 +57,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     if (!parsedQuery.isOpenSubscription) return redirectPageObject
 
+    const states = await getBrazilianStatesToSelectField()
+
     return {
       props: {
         eventText: parsedQuery.eventText,
         year: parsedQuery.year,
+        name: parsedQuery.name,
+        states,
       },
     }
   } catch {

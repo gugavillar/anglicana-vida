@@ -23,21 +23,11 @@ const querySchema = yup.object({
 
 export default function Page({
   titleOfPage,
-  badgeTextParticipants,
-  badgeTextVolunteers,
-  eventText,
-  year,
+  ...rest
 }: InferGetStaticPropsType<typeof getServerSideProps>) {
   return (
     <SubscriptionPageContainer titleOfPage={titleOfPage}>
-      <HappeningCards
-        data={{
-          badgeTextParticipants,
-          badgeTextVolunteers,
-          year,
-          eventText,
-        }}
-      />
+      <HappeningCards data={{ ...rest }} />
     </SubscriptionPageContainer>
   )
 }

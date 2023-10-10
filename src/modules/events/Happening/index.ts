@@ -1,2 +1,2 @@
 export * from './Cards'
-export * from './Steps/Information'
+export * from './Steps/VolunteerInformation'

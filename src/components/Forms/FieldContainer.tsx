@@ -26,7 +26,7 @@ export const FieldContainer = ({
 }: FieldContainerProps) => {
   return (
     <FormControl {...props}>
-      <FormLabel>{label}</FormLabel>
+      <FormLabel m={0}>{label}</FormLabel>
       {children}
       <IfComponent
         condition={!!helperText}
