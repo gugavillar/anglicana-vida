@@ -5,11 +5,10 @@ import { useToast } from '@chakra-ui/react'
 import axios from 'axios'
 
 import { getCitiesByStateToSelectField } from '@/services'
+import { SelectOption } from '@/types/common'
 
 export const useAddressData = (state: string) => {
-  const [cities, setCities] = useState<Array<{ label: string; value: string }>>(
-    [],
-  )
+  const [cities, setCities] = useState<SelectOption>([])
 
   const toast = useToast()
 

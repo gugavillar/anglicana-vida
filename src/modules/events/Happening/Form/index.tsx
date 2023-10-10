@@ -1,5 +1,7 @@
 import { IfComponent } from '@/components'
 
+import { SelectOption } from '@/types/common'
+
 import { Introduction } from './Introduction'
 import { SubscriptionForm } from './SubscriptionForm'
 
@@ -10,7 +12,7 @@ type HappeningFormProps = {
   }
   eventText: string
   year: string
-  states: Array<{ label: string; value: string }>
+  states: SelectOption
 }
 
 export const HappeningForm = ({

@@ -2,8 +2,10 @@ import { FormProvider, useForm } from 'react-hook-form'
 
 import { PersonDataFields } from '@/components'
 
+import { SelectOption } from '@/types/common'
+
 type SubscriptionFormProps = {
-  states: Array<{ label: string; value: string }>
+  states: SelectOption
 }
 
 export const SubscriptionForm = ({ states }: SubscriptionFormProps) => {

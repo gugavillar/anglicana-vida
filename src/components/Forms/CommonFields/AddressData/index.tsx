@@ -9,12 +9,14 @@ import {
   SelectField,
 } from '@/components'
 
+import { SelectOption } from '@/types/common'
+
 import { useAddressData } from './useAddressData'
 
 type AddressDataFormType = Pick<PersonDataFieldsForm, 'address'>
 
 type AddressDataProps = {
-  states: Array<{ label: string; value: string }>
+  states: SelectOption
 }
 
 export const AddressData = ({ states }: AddressDataProps) => {

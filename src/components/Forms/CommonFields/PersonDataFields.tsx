@@ -1,6 +1,7 @@
 import { VStack } from '@chakra-ui/react'
 
 import { LEVEL_OF_EDUCATION } from '@/constants'
+import { SelectOption } from '@/types/common'
 
 import { AddressData } from './AddressData'
 import { ChurchAndReligion } from './ChurchAndReligion'
@@ -42,7 +43,7 @@ export const defaultPersonDataFieldsValue = {
 }
 
 type PersonDataFieldsProps = {
-  states: Array<{ label: string; value: string }>
+  states: SelectOption
 }
 
 export const PersonDataFields = ({ states }: PersonDataFieldsProps) => {
