@@ -29,7 +29,7 @@ export const SubscriptionForm = ({ states }: SubscriptionFormProps) => {
 
   const { activeStep, goToNext, goToPrevious } = useSteps({
     index: 0,
-    count: steps.length,
+    count: steps.length - 1,
   })
 
   return (

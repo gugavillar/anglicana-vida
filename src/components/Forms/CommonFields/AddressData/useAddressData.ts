@@ -9,6 +9,7 @@ import { SelectOption } from '@/types/common'
 
 export const useAddressData = (state: string) => {
   const [cities, setCities] = useState<SelectOption>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const toast = useToast()
 
@@ -17,9 +18,11 @@ export const useAddressData = (state: string) => {
     const signal = controller.signal
 
     const getCities = async (state: string) => {
+      setIsLoading(true)
       try {
         const response = await getCitiesByStateToSelectField(state, { signal })
         setCities(response)
+        setIsLoading(false)
       } catch (error: any) {
         if (!axios.isAxiosError(error)) {
           toast({
@@ -27,6 +30,7 @@ export const useAddressData = (state: string) => {
             description:
               'Falha ao carregar as cidades, selecione o estado novamente.',
           })
+          setIsLoading(false)
         }
       }
     }
@@ -36,5 +40,5 @@ export const useAddressData = (state: string) => {
     return () => controller.abort()
   }, [state, toast])
 
-  return { cities }
+  return { cities, isLoading }
 }

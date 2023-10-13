@@ -28,7 +28,7 @@ export const AddressData = ({ states }: AddressDataProps) => {
 
   const state = watch('address.state')
 
-  const { cities } = useAddressData(state)
+  const { cities, isLoading } = useAddressData(state)
 
   return (
     <>
@@ -101,8 +101,9 @@ export const AddressData = ({ states }: AddressDataProps) => {
         >
           <SelectField
             defaultValue=""
-            placeholder="Cidade"
+            placeholder={isLoading ? 'Carregando...' : 'Cidade'}
             options={cities}
+            isDisabled={isLoading}
             {...register('address.city')}
           />
         </FieldContainer>

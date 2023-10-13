@@ -57,7 +57,7 @@ export const HealthAndFoodRestriction = () => {
         <IfComponent
           condition={healthProblem === 'true'}
           component={
-            <FieldContainer label="Descreva para que possamos ajustar a cuidar da sua saúde durante o evento">
+            <FieldContainer label="Descreva para que possamos cuidar da sua saúde durante o evento">
               <TextareaField
                 resize="none"
                 {...register('healthProblemDescription')}
@@ -89,7 +89,7 @@ export const HealthAndFoodRestriction = () => {
         <IfComponent
           condition={foodRestriction === 'true'}
           component={
-            <FieldContainer label="Descreva para que possamos ajustar sua alimentação durante o evento">
+            <FieldContainer label="Descreva para que possamos ajustar a sua alimentação durante o evento">
               <TextareaField
                 resize="none"
                 {...register('foodRestrictionDescription')}
