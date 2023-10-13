@@ -1,6 +1,6 @@
 import { Image } from '@chakra-ui/react'
 
-import { CursilhoFeminino } from '@/components/Icons'
+import { Happening } from '@/components/Icons'
 
 import { ParticipantCard, VolunteerCard } from '@/modules'
 
@@ -17,7 +17,7 @@ const MOCK_CARD_2 = {
   description:
     'É uma oportunidade de crescer espiritualmente, fortalecer sua fé e construir relacionamentos significativos. Junte-se a nós nessa emocionante conexão espiritual. Venha fazer parte do Cursilho e descubra um novo caminho de fé e comunhão.',
   image: (
-    <CursilhoFeminino
+    <Happening
       p={1}
       width="full"
       height={256}
