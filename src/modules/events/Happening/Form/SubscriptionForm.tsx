@@ -1,10 +1,16 @@
 import { useMemo } from 'react'
 
-import { useSteps } from '@chakra-ui/react'
+import { Button, useSteps } from '@chakra-ui/react'
 
 import { FormProvider, useForm } from 'react-hook-form'
 
-import { GuestDataFields, PersonDataFields, StepComponent } from '@/components'
+import {
+  GuestDataFields,
+  PersonDataFields,
+  StepActions,
+  StepComponent,
+  StepContent,
+} from '@/components'
 
 import { SelectOption } from '@/types/common'
 
@@ -34,12 +40,21 @@ export const SubscriptionForm = ({ states }: SubscriptionFormProps) => {
 
   return (
     <FormProvider {...methods}>
-      <StepComponent
-        activeStep={activeStep}
-        steps={steps}
-        nextStep={goToNext}
-        prevStep={goToPrevious}
-      />
+      <StepComponent activeStep={activeStep} steps={steps}>
+        <StepContent>{steps?.[activeStep]?.children}</StepContent>
+        <StepActions>
+          <Button
+            isDisabled={activeStep === 0}
+            onClick={goToPrevious}
+            width="16rem"
+          >
+            Voltar
+          </Button>
+          <Button onClick={goToNext} width="16rem">
+            Avançar
+          </Button>
+        </StepActions>
+      </StepComponent>
     </FormProvider>
   )
 }

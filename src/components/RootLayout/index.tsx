@@ -1,6 +1,8 @@
 import { Flex } from '@chakra-ui/react'
 
-import { Footer, Navbar } from '@/components'
+import { Footer, Navbar, PageLoader } from '@/components'
+
+import { useNavigationLoad } from '@/hooks'
 
 import { RootLayoutProps } from './container'
 
@@ -11,6 +13,10 @@ export const RootLayout = ({
   socialMedia,
   recommendation,
 }: RootLayoutProps) => {
+  const { isNavigation } = useNavigationLoad()
+
+  if (isNavigation) return <PageLoader />
+
   return (
     <Flex direction="column" w="full" minH="100vh">
       <Navbar menuItens={menuItens} />

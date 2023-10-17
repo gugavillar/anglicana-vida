@@ -10,7 +10,6 @@ import {
   StepNumber,
   StepSeparator,
   ButtonGroup,
-  Button,
 } from '@chakra-ui/react'
 
 type StepProps = {
@@ -18,16 +17,34 @@ type StepProps = {
     children: ReactNode
   }>
   activeStep: number
-  nextStep: () => void
-  prevStep: () => void
+  children: ReactNode
 }
 
-export const StepComponent = ({
-  activeStep,
-  steps,
-  nextStep,
-  prevStep,
-}: StepProps) => {
+type StepContentProps = {
+  children: ReactNode
+}
+
+export const StepContent = ({ children }: StepContentProps) => {
+  return (
+    <Box width="full" mt={6}>
+      {children}
+    </Box>
+  )
+}
+
+type StepActionsProps = {
+  children: ReactNode
+}
+
+export const StepActions = ({ children }: StepActionsProps) => {
+  return (
+    <ButtonGroup mt={6} gap={8} justifyContent="end" width="full">
+      {children}
+    </ButtonGroup>
+  )
+}
+
+export const StepComponent = ({ activeStep, steps, children }: StepProps) => {
   return (
     <Box width="full">
       <Stepper index={activeStep} width="full" colorScheme="gray">
@@ -45,17 +62,7 @@ export const StepComponent = ({
           </Step>
         ))}
       </Stepper>
-      <Box width="full" mt={6}>
-        {steps?.[activeStep]?.children}
-      </Box>
-      <ButtonGroup mt={6} gap={8} justifyContent="end" width="full">
-        <Button isDisabled={activeStep === 0} onClick={prevStep} width="16rem">
-          Voltar
-        </Button>
-        <Button onClick={nextStep} width="16rem">
-          Avançar
-        </Button>
-      </ButtonGroup>
+      {children}
     </Box>
   )
 }

@@ -1,5 +1,7 @@
 import { VStack } from '@chakra-ui/react'
 
+import { H4 } from '@/components'
+
 import { LEVEL_OF_EDUCATION } from '@/constants'
 import { SelectOption } from '@/types/common'
 
@@ -58,6 +60,7 @@ type PersonDataFieldsProps = {
 export const PersonDataFields = ({ states }: PersonDataFieldsProps) => {
   return (
     <VStack spacing={4} width="full">
+      <H4>Dados pessoais</H4>
       <NameAndBeCalled />
       <DateOfBirthAndPhoneAndEducation />
       <ChurchAndReligion />
