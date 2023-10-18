@@ -31,7 +31,7 @@ export const HealthAndFoodRestriction = () => {
     'foodRestriction',
     'healthProblem',
   ])
-  console.log(foodRestriction, healthProblem)
+
   return (
     <>
       <Flex

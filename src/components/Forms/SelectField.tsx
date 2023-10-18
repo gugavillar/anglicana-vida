@@ -16,11 +16,7 @@ export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
     <Select {...props} ref={ref}>
       <IfComponent
         condition={!!placeholder}
-        component={
-          <option value="" selected>
-            {placeholder}
-          </option>
-        }
+        component={<option value="">{placeholder}</option>}
       />
       {options?.map((option) => (
         <option key={option?.value} value={option?.value}>

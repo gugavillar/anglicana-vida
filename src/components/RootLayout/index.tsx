@@ -15,19 +15,23 @@ export const RootLayout = ({
 }: RootLayoutProps) => {
   const { isNavigation } = useNavigationLoad()
 
-  if (isNavigation) return <PageLoader />
-
   return (
     <Flex direction="column" w="full" minH="100vh">
       <Navbar menuItens={menuItens} />
-      <Flex direction="column" flex={1} as="main">
-        {children}
-      </Flex>
-      <Footer
-        siteInfo={siteInfo}
-        socialMedia={socialMedia}
-        recommendation={recommendation}
-      />
+      {isNavigation ? (
+        <PageLoader />
+      ) : (
+        <>
+          <Flex direction="column" flex={1} as="main">
+            {children}
+          </Flex>
+          <Footer
+            siteInfo={siteInfo}
+            socialMedia={socialMedia}
+            recommendation={recommendation}
+          />
+        </>
+      )}
     </Flex>
   )
 }

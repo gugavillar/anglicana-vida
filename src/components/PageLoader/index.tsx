@@ -6,7 +6,7 @@ export const PageLoader = () => {
   return (
     <Flex
       direction="column"
-      minHeight="100vh"
+      minHeight="calc(100vh - 5rem)"
       width="full"
       align="center"
       justify="center"
