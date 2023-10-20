@@ -22,7 +22,7 @@ export const Introduction = ({
         onClick={setIsFormStarted.on}
         alignSelf="center"
         mt={6}
-        width="26rem"
+        width={{ base: 'full', md: '26rem', lg: '26rem' }}
       >
         Iniciar
       </Button>

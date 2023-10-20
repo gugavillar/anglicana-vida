@@ -6,7 +6,10 @@ export const useNavigationLoad = () => {
 
   const router = useRouter()
 
-  const handleStart = () => setIsNavigation(true)
+  const handleStart = () => {
+    window.scrollTo(0, 0)
+    setIsNavigation(true)
+  }
 
   const handleComplete = () => setIsNavigation(false)
 
