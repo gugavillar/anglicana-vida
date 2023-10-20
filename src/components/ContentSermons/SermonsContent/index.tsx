@@ -24,7 +24,7 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
         width="full"
         spacing={8}
       >
-        {sermons.items.map((item) => (
+        {sermons?.items.map((item) => (
           <Skeleton
             key={item.id}
             isLoaded={!isLoading}

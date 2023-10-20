@@ -1,54 +1,48 @@
 import { useState } from 'react'
 
-import { useBoolean, useToast } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
+
+import { useQuery } from 'react-query'
 
 import { GetAllVideosFromChannelResponse, getVideosFromPage } from '@/services'
 
 export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
-  const [sermons, setSermons] = useState(context)
-  const [isLoading, setIsLoading] = useBoolean()
+  const [pageToken, setPageToken] = useState('')
 
   const toast = useToast()
+  const {
+    data: sermons,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['sermons', pageToken],
+    queryFn: () => getVideosFromPage(context?.playlistId, pageToken),
+    keepPreviousData: true,
+    staleTime: 60 * 5 * 60 * 1000,
+    cacheTime: 60 * 5 * 60 * 1000,
+  })
+
+  if (isError) {
+    toast({
+      status: 'error',
+      description: 'Falha ao carregar os vídeos, tente novamente.',
+    })
+  }
 
   const handleLoadNextSermons = async () => {
     if (!sermons?.nextPageToken) return
-
-    try {
-      setIsLoading.on()
-      const response = await getVideosFromPage(
-        sermons.playlistId,
-        sermons.nextPageToken,
-      )
-      setSermons(response)
-    } catch {
-      toast({
-        status: 'error',
-        description: 'Falha ao carregar os vídeos, tente novamente.',
-      })
-    } finally {
-      setIsLoading.off()
-    }
+    setPageToken(sermons?.nextPageToken)
   }
 
   const handleLoadPrevSermons = async () => {
     if (!sermons?.prevPageToken) return
-
-    try {
-      setIsLoading.on()
-      const response = await getVideosFromPage(
-        sermons.playlistId,
-        sermons.prevPageToken,
-      )
-      setSermons(response)
-    } catch {
-      toast({
-        status: 'error',
-        description: 'Falha ao carregar os vídeos, tente novamente.',
-      })
-    } finally {
-      setIsLoading.off()
-    }
+    setPageToken(sermons?.prevPageToken)
   }
 
-  return { handleLoadNextSermons, handleLoadPrevSermons, isLoading, sermons }
+  return {
+    handleLoadNextSermons,
+    handleLoadPrevSermons,
+    isLoading,
+    sermons,
+  }
 }
