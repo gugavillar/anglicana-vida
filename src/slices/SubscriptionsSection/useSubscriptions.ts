@@ -1,42 +1,30 @@
-import { useEffect, useState } from 'react'
-
 import { type Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
 import { useToast } from '@chakra-ui/react'
 
-import { isFutureDate } from '@/formatters'
+import { useQuery } from 'react-query'
+
 import { getSubscriptionsByUID } from '@/helpers'
 
 export const useSubscriptions = (
   slice: SliceComponentProps<Content.SubscriptionSectionSlice>['slice'],
 ) => {
-  const [subscriptions, setSubscriptions] = useState<
-    (Content.SubscriptionDocument<string> | undefined)[]
-  >([])
-
   const toast = useToast()
+  const { data: subscriptions, isError } = useQuery(
+    'subscriptions',
+    () => getSubscriptionsByUID(slice),
+    {
+      staleTime: 60 * 5 * 60 * 1000,
+    },
+  )
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await getSubscriptionsByUID(slice)
-        const futureSubscriptions = data.filter(
-          (subscription) =>
-            isFutureDate(subscription?.data.final_date as string) &&
-            subscription,
-        )
-        setSubscriptions(futureSubscriptions)
-      } catch {
-        toast({
-          status: 'error',
-          description: 'Falha ao carregar os eventos.',
-        })
-      }
-    }
-    loadData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [toast, slice?.items])
+  if (isError) {
+    toast({
+      status: 'error',
+      description: 'Falha ao carregar os eventos.',
+    })
+  }
 
   return { subscriptions }
 }

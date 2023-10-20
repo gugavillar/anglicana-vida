@@ -2,6 +2,8 @@ import { createClient } from '@/prismicio'
 import { type Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
+import { isFutureDate } from '@/formatters'
+
 export const getSubscriptionsByUID = async (
   slice: SliceComponentProps<Content.SubscriptionSectionSlice>['slice'],
 ) => {
@@ -16,5 +18,11 @@ export const getSubscriptionsByUID = async (
       )
     }),
   )
-  return data
+
+  const formattedData = data?.filter(
+    (subscription) =>
+      isFutureDate(subscription?.data.final_date as string) && subscription,
+  )
+
+  return formattedData
 }

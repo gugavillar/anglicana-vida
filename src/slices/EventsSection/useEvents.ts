@@ -1,36 +1,30 @@
-import { useEffect, useState } from 'react'
-
 import { type Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
 import { useToast } from '@chakra-ui/react'
+
+import { useQuery } from 'react-query'
 
 import { getEventsByUID } from '@/helpers'
 
 export const useEvents = (
   slice: SliceComponentProps<Content.EventsSectionSlice>['slice'],
 ) => {
-  const [events, setEvents] = useState<
-    (Content.EventDocument<string> | undefined)[]
-  >([])
-
   const toast = useToast()
+  const { data: events, isError } = useQuery(
+    'events',
+    () => getEventsByUID(slice),
+    {
+      staleTime: 60 * 5 * 60 * 1000,
+    },
+  )
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await getEventsByUID(slice)
-        setEvents(data)
-      } catch {
-        toast({
-          status: 'error',
-          description: 'Falha ao carregar os eventos.',
-        })
-      }
-    }
-    loadData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [toast, slice?.items])
+  if (isError) {
+    toast({
+      status: 'error',
+      description: 'Falha ao carregar os eventos.',
+    })
+  }
 
   return { events }
 }

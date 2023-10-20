@@ -1,37 +1,30 @@
-import { useEffect, useState } from 'react'
-
 import { type Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
 import { useToast } from '@chakra-ui/react'
+
+import { useQuery } from 'react-query'
 
 import { getDiscipleshipByUID } from '@/helpers'
 
 export const useDiscipleship = (
   slice: SliceComponentProps<Content.DiscipleshipGroupsSlice>['slice'],
 ) => {
-  const [discipleship, setDiscipleship] = useState<
-    (Content.DiscipleshipDocument<string> | undefined)[]
-  >([])
-
   const toast = useToast()
+  const { data: discipleship, isError } = useQuery(
+    'discipleship',
+    () => getDiscipleshipByUID(slice),
+    {
+      staleTime: 60 * 5 * 60 * 1000,
+    },
+  )
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await getDiscipleshipByUID(slice)
-        setDiscipleship(data)
-      } catch {
-        toast({
-          status: 'error',
-          description: 'Falha ao carregar os grupos de discipulados.',
-        })
-      }
-    }
-
-    loadData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [toast, slice?.items])
+  if (isError) {
+    toast({
+      status: 'error',
+      description: 'Falha ao carregar os grupos de discipulados.',
+    })
+  }
 
   return { discipleship }
 }

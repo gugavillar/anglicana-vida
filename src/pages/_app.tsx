@@ -13,6 +13,8 @@ import { PrismicPreview } from '@prismicio/next'
 
 import { ChakraProvider } from '@chakra-ui/react'
 
+import { QueryClient, QueryClientProvider } from 'react-query'
+
 import { RootLayout } from '@/components'
 
 import { getSettings } from '@/helpers'
@@ -43,6 +45,8 @@ App.getInitialProps = async () => {
   }
 }
 
+const queryClient = new QueryClient()
+
 export default function App({
   Component,
   pageProps,
@@ -57,7 +61,9 @@ export default function App({
         socialMedia={footer?.socialMedia}
         recommendation={footer?.recommendation}
       >
-        <Component {...pageProps} />
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
       </RootLayout>
       <PrismicPreview repositoryName={repositoryName} />
     </ChakraProvider>
