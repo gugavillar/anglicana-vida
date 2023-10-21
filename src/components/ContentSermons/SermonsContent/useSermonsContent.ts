@@ -13,7 +13,8 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
   const {
     data: sermons,
     isError,
-    isFetching: isLoading,
+    isFetching,
+    isLoading,
   } = useQuery({
     queryKey: ['sermons', pageToken],
     queryFn: () => getVideosFromPage(context?.playlistId, pageToken),
@@ -43,6 +44,6 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
     handleLoadNextSermons,
     handleLoadPrevSermons,
     sermons,
-    isLoading,
+    isLoading: isFetching || isLoading,
   }
 }

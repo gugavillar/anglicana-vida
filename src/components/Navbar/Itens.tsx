@@ -15,7 +15,7 @@ type ItensProps = StackProps & {
 export const Itens = ({ menuItens, onClose, ...props }: ItensProps) => {
   return (
     <Stack {...props}>
-      {menuItens.map((item, index) => (
+      {menuItens?.map((item, index) => (
         <Fragment key={index}>
           <PrismicNextLink field={item.link}>
             <PrismicRichText

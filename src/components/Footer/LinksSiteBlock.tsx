@@ -10,7 +10,9 @@ import { VStack, Button } from '@chakra-ui/react'
 import { ArrowSquareOut } from 'phosphor-react'
 
 type LinksSiteBlockProps = {
-  recommendation: Array<Simplify<FooterDocumentDataRecommendationItem>>
+  recommendation:
+    | Array<Simplify<FooterDocumentDataRecommendationItem>>
+    | undefined
 }
 
 type LabelLinkProps = {
@@ -40,7 +42,7 @@ export const LinksSiteBlock = ({ recommendation }: LinksSiteBlockProps) => {
 
   return (
     <VStack align="flex-start" spacing={4}>
-      {recommendation.map(({ external_link: externalLink, label }, index) => (
+      {recommendation?.map(({ external_link: externalLink, label }, index) => (
         <PrismicNextLink
           key={index}
           field={externalLink}

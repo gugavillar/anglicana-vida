@@ -6,7 +6,9 @@ import type {
 } from '@/prismic-types'
 
 export type FooterProps = {
-  siteInfo: Array<Simplify<FooterDocumentDataSiteInfoItem>>
-  socialMedia: Array<Simplify<FooterDocumentDataSocialMediaItem>>
-  recommendation: Array<Simplify<FooterDocumentDataRecommendationItem>>
+  siteInfo: Array<Simplify<FooterDocumentDataSiteInfoItem>> | undefined
+  socialMedia: Array<Simplify<FooterDocumentDataSocialMediaItem>> | undefined
+  recommendation:
+    | Array<Simplify<FooterDocumentDataRecommendationItem>>
+    | undefined
 }
