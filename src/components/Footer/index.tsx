@@ -10,14 +10,7 @@ import { Wrapper } from './Wrapper'
 export const Footer = memo(
   ({ siteInfo, socialMedia, recommendation }: FooterProps) => {
     return (
-      <Box
-        as="footer"
-        mt={12}
-        width="full"
-        minH="fit-content"
-        p={6}
-        bg="gray.700"
-      >
+      <Box as="footer" width="full" minH="fit-content" p={6} bg="gray.700">
         <Wrapper
           siteInfo={siteInfo}
           socialMedia={socialMedia}

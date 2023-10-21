@@ -32,7 +32,7 @@ const SubscriptionSection = ({
       <SwiperContainerCards
         isLoaded={!!subscriptions?.length}
         breakPointObject={breakPointObject}
-        height="xl"
+        flex={1}
       >
         {subscriptions?.map((item) => (
           <SwiperSlide key={item?.id}>

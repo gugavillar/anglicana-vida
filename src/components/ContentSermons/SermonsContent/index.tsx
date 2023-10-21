@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 
 import { Button, Flex, SimpleGrid, Skeleton } from '@chakra-ui/react'
 
-import { VideoCard } from '@/components'
+import { PageLoader, VideoCard } from '@/components'
 
 import { GetAllVideosFromChannelResponse } from '@/services'
 
@@ -15,6 +15,8 @@ type SermonsContentsProps = {
 export const SermonsContents = ({ context }: SermonsContentsProps) => {
   const { handleLoadNextSermons, handleLoadPrevSermons, isLoading, sermons } =
     useSermonsContent(context)
+
+  if (isLoading) return <PageLoader />
 
   return (
     <Fragment>
