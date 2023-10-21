@@ -1,14 +1,12 @@
 import { ReactNode } from 'react'
 
-import { Box, FlexProps } from '@chakra-ui/react'
-
 import { Pagination, Autoplay } from 'swiper/modules'
 import { Swiper } from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-type SwiperContainerProps = FlexProps & {
+type SwiperContainerProps = {
   children: ReactNode
   slidesPerView: number | undefined
   spaceBetween: number
@@ -20,32 +18,28 @@ export const SwiperContainer = ({
   slidesPerView,
   spaceBetween,
   isAutoplay,
-  ...props
 }: SwiperContainerProps) => {
   return (
-    <Box
-      height="inherit"
-      minWidth="full"
-      maxWidth="calc(90vw - 13vw)"
-      {...props}
+    <Swiper
+      style={{
+        padding: '0px 0px 60px 0px',
+        maxWidth: 'calc(90vw - 13vw)',
+        minWidth: '100%',
+      }}
+      slidesPerView={slidesPerView}
+      spaceBetween={spaceBetween}
+      modules={[Pagination, Autoplay]}
+      pagination={true}
+      {...(isAutoplay && {
+        autoplay: {
+          delay: 2500,
+          pauseOnMouseEnter: true,
+          disableOnInteraction: false,
+        },
+      })}
+      loop
     >
-      <Swiper
-        style={{ height: 'inherit' }}
-        slidesPerView={slidesPerView}
-        spaceBetween={spaceBetween}
-        modules={[Pagination, Autoplay]}
-        pagination={true}
-        {...(isAutoplay && {
-          autoplay: {
-            delay: 2500,
-            pauseOnMouseEnter: true,
-            disableOnInteraction: false,
-          },
-        })}
-        loop
-      >
-        {children}
-      </Swiper>
-    </Box>
+      {children}
+    </Swiper>
   )
 }

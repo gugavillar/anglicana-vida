@@ -19,6 +19,7 @@ const HeaderImage = ({ slice }: HeaderImageProps): JSX.Element => {
       maxHeight={height}
       overflowY="hidden"
       mx="auto"
+      position="relative"
     >
       <BoxWithText primary={slice?.primary} />
       <figure>

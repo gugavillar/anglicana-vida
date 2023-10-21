@@ -26,7 +26,7 @@ export const DiscipleshipContentCards = ({
     <SwiperContainerCards
       isLoaded={!!discipleship?.length}
       mt={8}
-      height="xs"
+      flex={1}
       breakPointObject={breakPointObject}
     >
       {discipleship?.map((item) => (

@@ -25,10 +25,10 @@ export const HomeContentSermons = ({ context }: HomeContentSermonsProps) => {
   return (
     <Skeleton
       isLoaded={!!slidesPerView}
-      height={{ base: 'sm', md: 'lg', lg: 'lg' }}
+      flex={1}
       mx="auto"
       maxWidth="inherit"
-      minWidth="full"
+      width="full"
     >
       <SwiperContainer slidesPerView={slidesPerView} spaceBetween={25}>
         {context.items?.map((item) => (

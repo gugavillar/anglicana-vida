@@ -33,7 +33,7 @@ export const EventCardWithSubscription = ({
   return (
     <Card
       maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }}
-      minHeight="32.5rem"
+      flex={1}
       bg="pampas.50"
       boxShadow="md"
     >
