@@ -39,6 +39,7 @@ export const VideoCard = ({
           src={videoObjectProperty.thumbnails.high.url}
           alt={videoObjectProperty.title}
           minHeight="16.25rem"
+          mx="auto"
         />
         <Stack spacing={4} p="8px 5px 0 5px">
           <Text opacity={0.65}>

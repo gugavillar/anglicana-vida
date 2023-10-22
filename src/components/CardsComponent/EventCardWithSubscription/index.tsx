@@ -43,6 +43,7 @@ export const EventCardWithSubscription = ({
           alt={subscriptionObjectProperty?.image?.alt as string}
           borderTopLeftRadius="lg"
           borderTopRightRadius="lg"
+          mx="auto"
         />
         <Stack spacing={2} p={5}>
           <HStack justify="space-between">

@@ -30,6 +30,7 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
         breakPointObject={breakPointObject}
         isLoaded={!!events?.length}
         flex={1}
+        maxWidth="inherit"
       >
         {events?.map((item) => (
           <SwiperSlide key={item?.id}>

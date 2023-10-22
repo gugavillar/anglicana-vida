@@ -28,6 +28,7 @@ export const EventCard = ({ eventObjectProperty }: EventCardProps) => {
           alt={eventObjectProperty?.image?.alt as string}
           borderTopLeftRadius="lg"
           borderTopRightRadius="lg"
+          mx="auto"
         />
         <Stack spacing={1} p={5}>
           <Text fontSize="sm" opacity={0.65}>

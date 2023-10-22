@@ -27,6 +27,7 @@ export const DiscipleshipContentCards = ({
       isLoaded={!!discipleship?.length}
       mt={8}
       flex={1}
+      maxWidth="inherit"
       breakPointObject={breakPointObject}
     >
       {discipleship?.map((item) => (
