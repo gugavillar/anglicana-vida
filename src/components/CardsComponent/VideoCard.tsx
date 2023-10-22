@@ -28,8 +28,8 @@ export const VideoCard = ({
     <Card
       maxW="lg"
       flex={1}
-      bg="pampas.50"
-      boxShadow="md"
+      bg="transparent"
+      boxShadow="none"
       mx="auto"
       width="full"
       {...props}
@@ -61,9 +61,18 @@ export const VideoCard = ({
           href={`https://www.youtube.com/watch?v=${videoObjectProperty.resourceId.videoId}`}
           target="_blank"
           display="flex"
+          alignItems="center"
+          justifyContent="center"
+          bg="#3b4d69"
+          color="white"
+          fontWeight={600}
+          width="40%"
+          py={2}
+          borderRadius={8}
+          gap={2}
         >
-          <Text>Play</Text>
-          <Play size={25} />
+          <Play size={20} />
+          <Text>Assistir</Text>
         </Link>
       </CardFooter>
     </Card>

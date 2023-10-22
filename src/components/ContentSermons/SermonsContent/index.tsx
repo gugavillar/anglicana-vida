@@ -1,11 +1,12 @@
 import { Fragment } from 'react'
 
-import { Button, Flex, SimpleGrid, Skeleton } from '@chakra-ui/react'
+import { SimpleGrid, Skeleton } from '@chakra-ui/react'
 
 import { PageLoader, VideoCard } from '@/components'
 
 import { GetAllVideosFromChannelResponse } from '@/services'
 
+import { ActionButtons } from './ActionButtons'
 import { useSermonsContent } from './useSermonsContent'
 
 type SermonsContentsProps = {
@@ -39,30 +40,12 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
           </Skeleton>
         ))}
       </SimpleGrid>
-      <Flex
-        align="center"
-        justify="space-between"
-        width="full"
-        mt={6}
-        mx="auto"
-        gap={6}
-        flexDir={{ base: 'column', md: 'row', lg: 'row' }}
-      >
-        <Button
-          width={{ base: 'full', md: 32, lg: 32 }}
-          isDisabled={!sermons?.prevPageToken}
-          onClick={handleLoadPrevSermons}
-        >
-          Anterior
-        </Button>
-        <Button
-          width={{ base: 'full', md: 32, lg: 32 }}
-          isDisabled={!sermons?.nextPageToken}
-          onClick={handleLoadNextSermons}
-        >
-          Próximo
-        </Button>
-      </Flex>
+      <ActionButtons
+        handleLoadNextSermons={handleLoadNextSermons}
+        handleLoadPrevSermons={handleLoadPrevSermons}
+        nextPageToken={sermons?.nextPageToken}
+        prevPageToken={sermons?.prevPageToken}
+      />
     </Fragment>
   )
 }
