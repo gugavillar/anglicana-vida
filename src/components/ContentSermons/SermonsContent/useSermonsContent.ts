@@ -32,13 +32,13 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
 
   const handleLoadNextSermons = async () => {
     if (!sermons?.nextPageToken) return
-    window.scroll(0, 0)
+    window.scroll(0, 80)
     setPageToken(sermons?.nextPageToken)
   }
 
   const handleLoadPrevSermons = async () => {
     if (!sermons?.prevPageToken) return
-    window.scroll(0, 0)
+    window.scroll(0, 80)
     setPageToken(sermons?.prevPageToken)
   }
 

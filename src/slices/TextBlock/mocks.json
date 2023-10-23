@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "mile",
+				"type": "Text"
+			},
+			"paragraph": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Tempor excepteur qui nisi duis sunt aute duis non. Velit incididunt deserunt aliqua nostrud sit deserunt adipisicing magna ipsum pariatur laborum anim cillum ullamco. Ullamco proident laborum duis excepteur do cillum tempor deserunt quis aliqua sunt dolor nulla dolor nisi."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
