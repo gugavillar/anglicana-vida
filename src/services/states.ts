@@ -32,6 +32,8 @@ export const getCitiesByStateToSelectField = async (
   state: string,
   config: AxiosRequestConfig,
 ) => {
+  if (!state) return []
+
   const response = await ibgeAPI.get<Array<CitiesReturnAPI>>(
     `/estados/${state}/municipios?orderBy=nome`,
     {
