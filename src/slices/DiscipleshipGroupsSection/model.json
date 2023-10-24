@@ -42,7 +42,10 @@
           "type": "Link",
           "config": {
             "label": "Discipleships",
-            "select": "document"
+            "select": "document",
+            "customtypes": [
+              "discipleship"
+            ]
           }
         }
       }

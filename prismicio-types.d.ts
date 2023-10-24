@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AboutDocumentDataSlicesSlice = TextBlockSlice | HeaderImageSlice;
+type AboutDocumentDataSlicesSlice =
+  | PastoralTeamSlice
+  | TextBlockSlice
+  | HeaderImageSlice;
 
 /**
  * Content for About documents
@@ -570,6 +573,103 @@ export type NavbarDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *People → social_media*
+ */
+export interface PeopleDocumentDataSocialMediaItem {
+  /**
+   * instagram_profile field in *People → social_media*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people.social_media[].instagram_profile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  instagram_profile: prismic.LinkField;
+
+  /**
+   * facebook_profile field in *People → social_media*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people.social_media[].facebook_profile
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  facebook_profile: prismic.LinkField;
+}
+
+/**
+ * Content for People documents
+ */
+interface PeopleDocumentData {
+  /**
+   * name field in *People*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * image field in *People*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * role field in *People*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people.role
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * description field in *People*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * social_media field in *People*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: people.social_media[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_media: prismic.GroupField<Simplify<PeopleDocumentDataSocialMediaItem>>;
+}
+
+/**
+ * People document from Prismic
+ *
+ * - **API ID**: `people`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PeopleDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PeopleDocumentData>, "people", Lang>;
+
 type SermonsDocumentDataSlicesSlice = SermonsSectionsSlice | HeaderImageSlice;
 
 /**
@@ -764,6 +864,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | HomeDocument
   | NavbarDocument
+  | PeopleDocument
   | SermonsDocument
   | SubscriptionDocument;
 
@@ -814,7 +915,7 @@ export interface DiscipleshipGroupsSliceDefaultItem {
    * - **API ID Path**: discipleship_groups.items[].discipleships
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  discipleships: prismic.ContentRelationshipField;
+  discipleships: prismic.ContentRelationshipField<"discipleship">;
 }
 
 /**
@@ -1038,6 +1139,66 @@ export type HeaderTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PastoralTeam → Primary*
+ */
+export interface PastoralTeamSliceDefaultPrimary {
+  /**
+   * heading field in *PastoralTeam → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pastoral_team.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *PastoralTeam → Items*
+ */
+export interface PastoralTeamSliceDefaultItem {
+  /**
+   * team field in *PastoralTeam → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pastoral_team.items[].team
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  team: prismic.ContentRelationshipField<"people">;
+}
+
+/**
+ * Default variation for PastoralTeam Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PastoralTeamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PastoralTeamSliceDefaultPrimary>,
+  Simplify<PastoralTeamSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *PastoralTeam*
+ */
+type PastoralTeamSliceVariation = PastoralTeamSliceDefault;
+
+/**
+ * PastoralTeam Shared Slice
+ *
+ * - **API ID**: `pastoral_team`
+ * - **Description**: PastoralTeam
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PastoralTeamSlice = prismic.SharedSlice<
+  "pastoral_team",
+  PastoralTeamSliceVariation
+>;
+
+/**
  * Primary content in *SermonsSection → Primary*
  */
 export interface SermonsSectionsSliceDefaultPrimary {
@@ -1228,6 +1389,9 @@ declare module "@prismicio/client" {
       NavbarDocument,
       NavbarDocumentData,
       NavbarDocumentDataMenuItensItem,
+      PeopleDocument,
+      PeopleDocumentData,
+      PeopleDocumentDataSocialMediaItem,
       SermonsDocument,
       SermonsDocumentData,
       SermonsDocumentDataSlicesSlice,
@@ -1252,6 +1416,11 @@ declare module "@prismicio/client" {
       HeaderTextSliceDefaultPrimary,
       HeaderTextSliceVariation,
       HeaderTextSliceDefault,
+      PastoralTeamSlice,
+      PastoralTeamSliceDefaultPrimary,
+      PastoralTeamSliceDefaultItem,
+      PastoralTeamSliceVariation,
+      PastoralTeamSliceDefault,
       SermonsSectionsSlice,
       SermonsSectionsSliceDefaultPrimary,
       SermonsSectionsSliceVariation,

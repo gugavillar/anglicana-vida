@@ -1,0 +1,37 @@
+{
+  "id": "pastoral_team",
+  "type": "SharedSlice",
+  "name": "PastoralTeam",
+  "description": "PastoralTeam",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "heading",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "team": {
+          "type": "Link",
+          "config": {
+            "label": "team",
+            "select": "document",
+            "customtypes": [
+              "people"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

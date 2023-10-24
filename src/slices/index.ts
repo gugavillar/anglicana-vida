@@ -7,6 +7,7 @@ export const components = {
   events_section: dynamic(() => import('./EventsSection')),
   header_image: dynamic(() => import('./HeaderImage')),
   header_text: dynamic(() => import('./HeaderTextImage')),
+  pastoral_team: dynamic(() => import('./PastoralTeam')),
   sermons_sections: dynamic(() => import('./SermonsSection')),
   subscription_section: dynamic(() => import('./SubscriptionsSection')),
   text_block: dynamic(() => import('./TextBlock')),
