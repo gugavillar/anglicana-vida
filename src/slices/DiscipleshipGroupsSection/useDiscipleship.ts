@@ -5,6 +5,7 @@ import { useToast } from '@chakra-ui/react'
 
 import { useQuery } from 'react-query'
 
+import { QUERY_TIME } from '@/constants'
 import { getDiscipleshipByUID } from '@/helpers'
 
 export const useDiscipleship = (
@@ -15,7 +16,7 @@ export const useDiscipleship = (
     'discipleship',
     () => getDiscipleshipByUID(slice),
     {
-      staleTime: 60 * 5 * 60 * 1000,
+      staleTime: QUERY_TIME,
     },
   )
 

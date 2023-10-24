@@ -5,6 +5,7 @@ import { useToast } from '@chakra-ui/react'
 
 import { useQuery } from 'react-query'
 
+import { QUERY_TIME } from '@/constants'
 import { getPeopleByUID } from '@/helpers'
 
 export const usePastoralTeam = (
@@ -15,9 +16,10 @@ export const usePastoralTeam = (
     'people',
     () => getPeopleByUID(slice),
     {
-      staleTime: 60 * 5 * 60 * 1000,
+      staleTime: QUERY_TIME,
     },
   )
+
   if (isError) {
     toast({
       status: 'error',

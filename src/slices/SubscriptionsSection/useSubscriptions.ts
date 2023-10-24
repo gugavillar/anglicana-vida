@@ -5,6 +5,7 @@ import { useToast } from '@chakra-ui/react'
 
 import { useQuery } from 'react-query'
 
+import { QUERY_TIME } from '@/constants'
 import { getSubscriptionsByUID } from '@/helpers'
 
 export const useSubscriptions = (
@@ -15,7 +16,7 @@ export const useSubscriptions = (
     'subscriptions',
     () => getSubscriptionsByUID(slice),
     {
-      staleTime: 60 * 5 * 60 * 1000,
+      staleTime: QUERY_TIME,
     },
   )
 

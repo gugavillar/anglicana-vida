@@ -1,44 +1,32 @@
-import { useEffect, useState } from 'react'
-
 import { useToast } from '@chakra-ui/react'
 
-import axios from 'axios'
+import { useQuery } from 'react-query'
 
+import { QUERY_TIME_TWO_HOURS } from '@/constants'
 import { getCitiesByStateToSelectField } from '@/services'
-import { SelectOption } from '@/types/common'
 
 export const useAddressData = (state: string) => {
-  const [cities, setCities] = useState<SelectOption>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const {
+    data: cities,
+    isError,
+    isLoading,
+  } = useQuery(
+    ['cities', state],
+    ({ signal }) => getCitiesByStateToSelectField(state, { signal }),
+    {
+      staleTime: QUERY_TIME_TWO_HOURS,
+    },
+  )
 
   const toast = useToast()
 
-  useEffect(() => {
-    const controller = new AbortController()
-    const signal = controller.signal
-
-    const getCities = async (state: string) => {
-      setIsLoading(true)
-      try {
-        const response = await getCitiesByStateToSelectField(state, { signal })
-        setCities(response)
-        setIsLoading(false)
-      } catch (error: any) {
-        if (!axios.isAxiosError(error)) {
-          toast({
-            status: 'error',
-            description:
-              'Falha ao carregar as cidades, selecione o estado novamente.',
-          })
-          setIsLoading(false)
-        }
-      }
-    }
-
-    state && getCities(state)
-
-    return () => controller.abort()
-  }, [state, toast])
+  if (isError) {
+    toast({
+      status: 'error',
+      description:
+        'Falha ao carregar as cidades, selecione o estado novamente.',
+    })
+  }
 
   return { cities, isLoading }
 }

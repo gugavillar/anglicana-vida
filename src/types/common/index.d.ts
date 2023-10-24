@@ -1,4 +1,6 @@
-export declare type SelectOption = Array<{
-  label: string
-  value: string | number
-}>
+export declare type SelectOption =
+  | Array<{
+      label: string
+      value: string | number
+    }>
+  | undefined

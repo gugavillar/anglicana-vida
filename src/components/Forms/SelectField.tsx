@@ -2,13 +2,12 @@ import { forwardRef } from 'react'
 
 import { SelectProps, Select } from '@chakra-ui/react'
 
+import { SelectOption } from '@/types/common'
+
 import { IfComponent } from '../IfComponent'
 
 type SelectFieldProps = SelectProps & {
-  options: Array<{
-    label: string
-    value: string | number
-  }>
+  options: SelectOption
 }
 
 export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(

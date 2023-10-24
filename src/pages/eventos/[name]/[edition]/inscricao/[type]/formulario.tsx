@@ -2,6 +2,7 @@ import { GetServerSidePropsContext, InferGetStaticPropsType } from 'next'
 
 import { useBoolean } from '@chakra-ui/react'
 
+import { useQuery } from 'react-query'
 import * as yup from 'yup'
 
 import { ContainerForm } from '@/modules/events/Forms/ContainerForm'
@@ -26,9 +27,14 @@ export default function Page({
   eventText,
   year,
   name,
-  states,
+  statesProps,
 }: InferGetStaticPropsType<typeof getServerSideProps>) {
   const [isFormStarted, setIsFormStarted] = useBoolean()
+  const { data: states } = useQuery('states', getBrazilianStatesToSelectField, {
+    initialData: statesProps,
+    staleTime: Infinity,
+    cacheTime: Infinity,
+  })
 
   const EventFormToMount = {
     happening: (
@@ -57,14 +63,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     if (!parsedQuery.isOpenSubscription) return redirectPageObject
 
-    const states = await getBrazilianStatesToSelectField()
+    const statesProps = await getBrazilianStatesToSelectField()
 
     return {
       props: {
         eventText: parsedQuery.eventText,
         year: parsedQuery.year,
         name: parsedQuery.name,
-        states,
+        statesProps,
       },
     }
   } catch {
