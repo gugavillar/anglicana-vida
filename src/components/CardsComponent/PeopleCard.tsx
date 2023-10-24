@@ -11,10 +11,11 @@ import {
   HStack,
   Text,
   Image,
-  Icon,
 } from '@chakra-ui/react'
 
 import { FacebookLogo, InstagramLogo } from 'phosphor-react'
+
+import { IfComponent } from '../IfComponent'
 
 type PeopleCardProps = {
   data: PeopleDocument['data'] | undefined
@@ -76,12 +77,28 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
         <HStack spacing={6}>
           {data?.social_media?.map((media) => (
             <>
-              <PrismicNextLink field={media.instagram_profile} target="_blank">
-                <Icon as={InstagramLogo} size={40} />
-              </PrismicNextLink>
-              <PrismicNextLink field={media.facebook_profile} target="_blank">
-                <Icon as={FacebookLogo} size={40} />
-              </PrismicNextLink>
+              <IfComponent
+                condition={media.instagram_profile.link_type === 'Web'}
+                component={
+                  <PrismicNextLink
+                    field={media.instagram_profile}
+                    target="_blank"
+                  >
+                    <InstagramLogo size={40} />
+                  </PrismicNextLink>
+                }
+              />
+              <IfComponent
+                condition={media.facebook_profile.link_type === 'Web'}
+                component={
+                  <PrismicNextLink
+                    field={media.facebook_profile}
+                    target="_blank"
+                  >
+                    <FacebookLogo size={40} />
+                  </PrismicNextLink>
+                }
+              />
             </>
           ))}
         </HStack>
