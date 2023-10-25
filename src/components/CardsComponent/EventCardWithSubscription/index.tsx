@@ -4,7 +4,7 @@ import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 import {
   Card,
   CardBody,
-  Stack,
+  VStack,
   Text,
   Image,
   HStack,
@@ -45,8 +45,8 @@ export const EventCardWithSubscription = ({
           borderTopRightRadius="lg"
           mx="auto"
         />
-        <Stack spacing={2} p={5}>
-          <HStack justify="space-between">
+        <VStack align="flex-start" spacing={4} p={5}>
+          <HStack justify="space-between" width="full">
             <Text opacity={0.65}>
               {subscription?.formattedInitialDate} -{' '}
               {subscription?.formattedFinalDate}
@@ -68,7 +68,7 @@ export const EventCardWithSubscription = ({
             components={descriptionComponent}
             field={subscriptionObjectProperty?.description}
           />
-        </Stack>
+        </VStack>
       </CardBody>
     </Card>
   )

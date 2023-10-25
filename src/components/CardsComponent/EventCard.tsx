@@ -1,7 +1,7 @@
 import { EventDocument } from '@/prismic-types'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Card, CardBody, Stack, Text, Image } from '@chakra-ui/react'
+import { Card, CardBody, VStack, Text, Image } from '@chakra-ui/react'
 
 import { H4 } from '@/components'
 
@@ -30,7 +30,7 @@ export const EventCard = ({ eventObjectProperty }: EventCardProps) => {
           borderTopRightRadius="lg"
           mx="auto"
         />
-        <Stack spacing={1} p={5}>
+        <VStack align="flex-start" p={5}>
           <Text fontSize="sm" opacity={0.65}>
             {eventObjectProperty.week_day} - {eventObjectProperty.schedule}
             {biweeklyEvent}
@@ -40,7 +40,7 @@ export const EventCard = ({ eventObjectProperty }: EventCardProps) => {
             components={descriptionComponent}
             field={eventObjectProperty.description}
           />
-        </Stack>
+        </VStack>
       </CardBody>
     </Card>
   )

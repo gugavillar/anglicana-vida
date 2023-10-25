@@ -3,7 +3,7 @@ import { memo } from 'react'
 import { DiscipleshipDocument } from '@/prismic-types'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Card, CardBody, Stack, Text, VStack, Flex } from '@chakra-ui/react'
+import { Card, CardBody, Text, VStack, Flex } from '@chakra-ui/react'
 
 import deepEqual from 'deep-equal'
 import { Calendar, MapPin, UsersThree } from 'phosphor-react'
@@ -33,36 +33,33 @@ export const DiscipleshipCard = memo(
         borderStyle="inset"
         borderBottom="8px solid"
         borderBottomColor="gray.700"
-        // minHeight="16.25rem"
         flexGrow={1}
       >
-        <Stack>
-          <CardBody>
+        <CardBody>
+          <VStack align="flex-start" spacing={4}>
             <H4>{discipleshipObjectProperty.title}</H4>
-            <VStack align="flex-start" mt={6} spacing={2}>
-              <Flex align="center" gap={2}>
-                <Calendar size={24} />
-                <Text>
-                  {discipleshipObjectProperty.week_day} às{' '}
-                  {discipleshipObjectProperty.schedule} {biweeklyDiscipleship}
-                </Text>
-              </Flex>
-              <Flex align="center" gap={2}>
-                <MapPin size={24} />
-                <VStack align="flex-start" spacing={0}>
-                  <PrismicRichText
-                    components={addressComponent}
-                    field={discipleshipObjectProperty.address}
-                  />
-                </VStack>
-              </Flex>
-              <Flex align="center" gap={2}>
-                <UsersThree size={24} />
-                <Text>{discipleshipObjectProperty.leader}</Text>
-              </Flex>
-            </VStack>
-          </CardBody>
-        </Stack>
+            <Flex align="center" gap={2}>
+              <Calendar size={24} />
+              <Text>
+                {discipleshipObjectProperty.week_day} às{' '}
+                {discipleshipObjectProperty.schedule} {biweeklyDiscipleship}
+              </Text>
+            </Flex>
+            <Flex align="center" gap={2}>
+              <MapPin size={24} />
+              <VStack align="flex-start" spacing={0}>
+                <PrismicRichText
+                  components={addressComponent}
+                  field={discipleshipObjectProperty.address}
+                />
+              </VStack>
+            </Flex>
+            <Flex align="center" gap={2}>
+              <UsersThree size={24} />
+              <Text>{discipleshipObjectProperty.leader}</Text>
+            </Flex>
+          </VStack>
+        </CardBody>
       </Card>
     )
   },

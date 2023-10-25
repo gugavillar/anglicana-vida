@@ -1,7 +1,15 @@
 import { PeopleDocument } from '@/prismic-types'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Card, CardBody, CardHeader, Flex, Text, Image } from '@chakra-ui/react'
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Flex,
+  Text,
+  Image,
+  VStack,
+} from '@chakra-ui/react'
 
 import { SocialMedia } from './SocialMedia'
 
@@ -48,12 +56,7 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
         </Flex>
       </CardHeader>
       <CardBody px={5} py={4}>
-        <Flex
-          align="center"
-          flexDirection="column"
-          gap="1rem"
-          justify="space-between"
-        >
+        <VStack align="center" spacing={4}>
           <Text fontWeight="bold" fontSize="xl">
             {data?.role}
           </Text>
@@ -62,7 +65,7 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
             field={data?.description}
           />
           <SocialMedia socialMedia={data?.social_media} />
-        </Flex>
+        </VStack>
       </CardBody>
     </Card>
   )

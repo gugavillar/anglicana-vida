@@ -1,7 +1,7 @@
 import {
   Card,
   CardBody,
-  Stack,
+  VStack,
   Text,
   CardProps,
   Image,
@@ -41,7 +41,7 @@ export const VideoCard = ({
           minHeight="16.25rem"
           mx="auto"
         />
-        <Stack spacing={4} p="8px 5px 0 5px">
+        <VStack spacing={4} p="16px 5px 0 5px">
           <Text opacity={0.65}>
             {formatISODate(videoObjectProperty.publishedAt)}
           </Text>
@@ -51,11 +51,12 @@ export const VideoCard = ({
             textTransform="lowercase"
             maxHeight="4rem"
             minHeight="4rem"
+            textAlign="center"
             _firstLetter={{ textTransform: 'uppercase' }}
           >
             {videoObjectProperty.title}
           </H4>
-        </Stack>
+        </VStack>
       </CardBody>
       <CardFooter p="0 5px 10px 5px" justifyContent="center">
         <Link
