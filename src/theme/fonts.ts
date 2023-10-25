@@ -1,6 +1,6 @@
-import { roboto, nunito } from '@/fonts'
+import { paragraphFont, headerFont } from '@/fonts'
 
 export const fonts = {
-  heading: nunito.style.fontFamily,
-  body: roboto.style.fontFamily,
+  heading: headerFont.style.fontFamily,
+  body: paragraphFont.style.fontFamily,
 }

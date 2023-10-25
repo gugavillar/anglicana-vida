@@ -31,7 +31,7 @@ const HeaderText = ({ slice }: HeaderTextProps): JSX.Element => {
           lg: 'row-reverse',
         }}
       >
-        <VStack maxWidth={{ base: 'full', md: '28.75rem', lg: 'full' }}>
+        <VStack maxWidth={{ base: 'full', md: '40rem', lg: 'full' }}>
           <H3 mb={0}>{slice?.primary?.title}</H3>
           <PrismicRichText
             components={descriptionComponent}

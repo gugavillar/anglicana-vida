@@ -1,11 +1,11 @@
-import { Roboto_Condensed as RobotoCondensed, Nunito } from 'next/font/google'
+import { Inter, Montserrat } from 'next/font/google'
 
-export const roboto = RobotoCondensed({
+export const paragraphFont = Inter({
   weight: ['300', '400', '700'],
   subsets: ['latin'],
 })
 
-export const nunito = Nunito({
+export const headerFont = Montserrat({
   weight: ['400'],
   subsets: ['latin'],
 })
