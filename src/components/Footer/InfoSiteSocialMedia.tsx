@@ -22,7 +22,7 @@ export const InfoSiteSocialMedia = ({
     _hover: { color: 'flesh.200', transition: 'color 0.3s' },
   }
   return (
-    <Box>
+    <Box width={{ base: 'full', md: '18rem', lg: '18rem' }}>
       <Text fontSize="md" color="white" mb={5}>
         Siga-nos
       </Text>

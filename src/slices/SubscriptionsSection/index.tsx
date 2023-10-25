@@ -32,10 +32,9 @@ const SubscriptionSection = ({
       <SwiperContainerCards
         isLoaded={!!subscriptions?.length}
         breakPointObject={breakPointObject}
-        flex={1}
       >
         {subscriptions?.map((item) => (
-          <SwiperSlide key={item?.id}>
+          <SwiperSlide key={item?.id} style={{ display: 'flex', flexGrow: 1 }}>
             <EventCardWithSubscription
               subscriptionObjectProperty={item?.data}
             />

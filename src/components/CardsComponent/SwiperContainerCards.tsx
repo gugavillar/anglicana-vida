@@ -17,7 +17,15 @@ export const SwiperContainerCards = ({
 }: ContainerCardsProps) => {
   const slidesPerView = useBreakpointValue(breakPointObject)
   return (
-    <Skeleton isLoaded={isLoaded} alignSelf="center" minWidth="full" {...props}>
+    <Skeleton
+      isLoaded={isLoaded}
+      alignSelf="center"
+      minWidth="full"
+      maxWidth="inherit"
+      display="flex"
+      flexGrow={1}
+      {...props}
+    >
       <SwiperContainer
         slidesPerView={slidesPerView}
         spaceBetween={25}

@@ -16,13 +16,12 @@ const descriptionComponent: JSXMapSerializer = {
 export const PeopleCard = ({ data }: PeopleCardProps) => {
   return (
     <Card
-      maxW="lg"
+      width="full"
+      maxW="md"
       flex={1}
       boxShadow="lg"
       mx="auto"
-      width="full"
       bg="white"
-      height="30rem"
       borderRadius={40}
     >
       <CardHeader pt={2} pb={0}>

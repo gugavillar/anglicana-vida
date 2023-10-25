@@ -33,7 +33,8 @@ export const DiscipleshipCard = memo(
         borderStyle="inset"
         borderBottom="8px solid"
         borderBottomColor="gray.700"
-        minHeight="16.25rem"
+        // minHeight="16.25rem"
+        flexGrow={1}
       >
         <Stack>
           <CardBody>

@@ -25,6 +25,8 @@ export const SwiperContainer = ({
         padding: '0px 0px 60px 0px',
         maxWidth: 'calc(90vw - 13vw)',
         minWidth: '100%',
+        display: 'flex',
+        flexGrow: 1,
       }}
       slidesPerView={slidesPerView}
       spaceBetween={spaceBetween}

@@ -29,11 +29,9 @@ const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
       <SwiperContainerCards
         breakPointObject={breakPointObject}
         isLoaded={!!events?.length}
-        flex={1}
-        maxWidth="inherit"
       >
         {events?.map((item) => (
-          <SwiperSlide key={item?.id}>
+          <SwiperSlide key={item?.id} style={{ display: 'flex', flexGrow: 1 }}>
             <EventCard eventObjectProperty={item?.data} />
           </SwiperSlide>
         ))}

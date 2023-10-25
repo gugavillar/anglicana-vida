@@ -21,7 +21,7 @@ export const EventCard = ({ eventObjectProperty }: EventCardProps) => {
     : null
 
   return (
-    <Card maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }} minHeight="md">
+    <Card maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }} flex={1}>
       <CardBody p={0}>
         <Image
           src={eventObjectProperty?.image?.url as string}

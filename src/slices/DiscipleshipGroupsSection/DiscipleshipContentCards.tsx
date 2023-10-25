@@ -24,14 +24,12 @@ export const DiscipleshipContentCards = ({
 
   return (
     <SwiperContainerCards
-      isLoaded={!!discipleship?.length}
       mt={8}
-      flex={1}
-      maxWidth="inherit"
+      isLoaded={!!discipleship?.length}
       breakPointObject={breakPointObject}
     >
       {discipleship?.map((item) => (
-        <SwiperSlide key={item?.id}>
+        <SwiperSlide key={item?.id} style={{ display: 'flex', flexGrow: 1 }}>
           <DiscipleshipCard discipleshipObjectProperty={item?.data} />
         </SwiperSlide>
       ))}

@@ -23,16 +23,10 @@ export const HomeContentSermons = ({ context }: HomeContentSermonsProps) => {
   )
 
   return (
-    <Skeleton
-      isLoaded={!!slidesPerView}
-      flex={1}
-      mx="auto"
-      maxWidth="inherit"
-      width="full"
-    >
+    <Skeleton isLoaded={!!slidesPerView} flex={1} mx="auto" width="full">
       <SwiperContainer slidesPerView={slidesPerView} spaceBetween={25}>
         {context.items?.map((item) => (
-          <SwiperSlide key={item.id}>
+          <SwiperSlide key={item.id} style={{ display: 'flex', flexGrow: 1 }}>
             <VideoCard videoObjectProperty={item.snippet} />
           </SwiperSlide>
         ))}

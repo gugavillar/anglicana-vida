@@ -41,7 +41,7 @@ export const SubscriptionCard = ({
   })
 
   return (
-    <Card maxWidth="sm" minHeight="lg" bg="pampas.50" boxShadow="dark-lg">
+    <Card maxWidth="sm" flexGrow={1} bg="pampas.50" boxShadow="dark-lg">
       <CardBody p={0}>
         <Badge
           position="absolute"

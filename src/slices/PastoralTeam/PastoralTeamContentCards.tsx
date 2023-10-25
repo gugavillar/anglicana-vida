@@ -28,7 +28,7 @@ export const PastoralTeamContentCards = ({
       isLoaded={!!people?.length}
     >
       {people?.map((person) => (
-        <SwiperSlide key={person?.id}>
+        <SwiperSlide key={person?.id} style={{ display: 'flex', flexGrow: 1 }}>
           <PeopleCard data={person?.data} />
         </SwiperSlide>
       ))}

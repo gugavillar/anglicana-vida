@@ -41,7 +41,11 @@ export const LinksSiteBlock = ({ recommendation }: LinksSiteBlockProps) => {
   if (!recommendation?.length) return null
 
   return (
-    <VStack align="flex-start" spacing={4}>
+    <VStack
+      align="flex-start"
+      spacing={4}
+      width={{ base: 'full', md: '18rem', lg: '18rem' }}
+    >
       {recommendation?.map(({ external_link: externalLink, label }, index) => (
         <PrismicNextLink
           key={index}

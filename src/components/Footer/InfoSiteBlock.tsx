@@ -52,7 +52,7 @@ export const InfoSiteBlock = ({ siteInfo }: InfoSiteBlockProps) => {
       align="left"
       fontSize="md"
       color="white"
-      width="15rem"
+      width={{ base: 'full', md: '18rem', lg: '18rem' }}
       flexDirection="column"
     >
       {siteInfo?.map((info, index) => (

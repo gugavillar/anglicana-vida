@@ -28,7 +28,7 @@ export const Wrapper = ({
     >
       <Flex
         flexWrap="wrap"
-        maxW="50rem"
+        maxW="75rem"
         width="full"
         align="flex-start"
         gap={8}
