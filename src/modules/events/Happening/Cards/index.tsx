@@ -1,4 +1,4 @@
-import { Image } from '@chakra-ui/react'
+import { Img } from '@chakra-ui/react'
 
 import { Happening } from '@/components/Icons'
 
@@ -33,7 +33,7 @@ const VOLUNTEERS = {
   description:
     'É uma oportunidade enriquecedora para fazer a diferença na vida de jovens. Junte-se a nós e seja um agente de transformação, capacitando jovens a alcançarem seu potencial pleno enquanto compartilha amor, compaixão e solidariedade.',
   image: (
-    <Image
+    <Img
       src="/assets/volunteers_happening.jpg"
       alt="Voluntários de mãos unidas"
       borderTopLeftRadius="lg"

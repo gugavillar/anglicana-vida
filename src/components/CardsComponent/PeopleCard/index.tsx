@@ -7,7 +7,7 @@ import {
   CardHeader,
   Flex,
   Text,
-  Image,
+  Img,
   VStack,
 } from '@chakra-ui/react'
 
@@ -46,7 +46,7 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
           <Text fontWeight="bold" fontSize="xl">
             {data?.name}
           </Text>
-          <Image
+          <Img
             src={data?.image?.url as string}
             alt={data?.image?.alt as string}
             height="9rem"

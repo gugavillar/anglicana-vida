@@ -1,7 +1,7 @@
 import { EventDocument } from '@/prismic-types'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Card, CardBody, VStack, Text, Image } from '@chakra-ui/react'
+import { Card, CardBody, VStack, Text, Img } from '@chakra-ui/react'
 
 import { H4 } from '@/components'
 
@@ -23,7 +23,7 @@ export const EventCard = ({ eventObjectProperty }: EventCardProps) => {
   return (
     <Card maxW={{ base: 'inherit', md: 'inherit', lg: 'sm' }} flex={1}>
       <CardBody p={0}>
-        <Image
+        <Img
           src={eventObjectProperty?.image?.url as string}
           alt={eventObjectProperty?.image?.alt as string}
           borderTopLeftRadius="lg"

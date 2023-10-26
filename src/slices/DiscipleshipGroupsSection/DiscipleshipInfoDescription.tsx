@@ -5,7 +5,7 @@ import {
   SliceComponentProps,
 } from '@prismicio/react'
 
-import { HStack, VStack, Image, Text } from '@chakra-ui/react'
+import { HStack, VStack, Img, Text } from '@chakra-ui/react'
 
 import { H3 } from '@/components'
 
@@ -45,7 +45,7 @@ export const DiscipleshipInfoDescription = ({
           field={description}
         />
       </VStack>
-      <Image
+      <Img
         maxHeight={414}
         borderRadius={8}
         src={image?.url as string}

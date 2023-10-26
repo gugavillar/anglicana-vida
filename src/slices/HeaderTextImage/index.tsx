@@ -5,7 +5,7 @@ import {
   SliceComponentProps,
 } from '@prismicio/react'
 
-import { HStack, Image, Text, VStack } from '@chakra-ui/react'
+import { HStack, Img, Text, VStack } from '@chakra-ui/react'
 
 import { ContentContainer, H3, IfComponent } from '@/components'
 
@@ -41,7 +41,7 @@ const HeaderText = ({ slice }: HeaderTextProps): JSX.Element => {
         <IfComponent
           condition={!!slice?.primary?.image?.url as boolean}
           component={
-            <Image
+            <Img
               borderRadius={8}
               maxHeight={300}
               src={slice?.primary?.image?.url as string}

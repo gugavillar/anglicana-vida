@@ -1,7 +1,7 @@
 import type { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 
-import { Flex, Image } from '@chakra-ui/react'
+import { Flex, Img } from '@chakra-ui/react'
 
 import { BoxWithText } from './BoxWithText'
 
@@ -23,7 +23,7 @@ const HeaderImage = ({ slice }: HeaderImageProps): JSX.Element => {
     >
       <BoxWithText primary={slice?.primary} />
       <figure>
-        <Image
+        <Img
           minHeight={height}
           objectFit="cover"
           src={slice?.primary?.background_image?.url as string}

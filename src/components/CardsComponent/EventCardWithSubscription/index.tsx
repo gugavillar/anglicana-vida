@@ -6,7 +6,7 @@ import {
   CardBody,
   VStack,
   Text,
-  Image,
+  Img,
   HStack,
   Button,
 } from '@chakra-ui/react'
@@ -38,7 +38,7 @@ export const EventCardWithSubscription = ({
       boxShadow="md"
     >
       <CardBody p={0}>
-        <Image
+        <Img
           src={subscriptionObjectProperty?.image?.url as string}
           alt={subscriptionObjectProperty?.image?.alt as string}
           borderTopLeftRadius="lg"

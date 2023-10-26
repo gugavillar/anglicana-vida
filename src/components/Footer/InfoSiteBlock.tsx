@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import { PrismicNextLink } from '@prismicio/next'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Image, VStack, Link, Flex, Icon } from '@chakra-ui/react'
+import { Img, VStack, Link, Flex, Icon } from '@chakra-ui/react'
 
 import { Envelope, MapPin } from 'phosphor-react'
 
@@ -67,7 +67,7 @@ export const InfoSiteBlock = ({ siteInfo }: InfoSiteBlockProps) => {
             </PrismicNextLink>
             <PrismicRichText components={componentLinkMail} field={info.mail} />
           </VStack>
-          <Image
+          <Img
             maxWidth="80%"
             src={info?.logo_anglicana?.url as string}
             alt={info?.logo_anglicana?.alt as string}

@@ -4,7 +4,7 @@ import {
   VStack,
   Text,
   CardProps,
-  Image,
+  Img,
   Link,
   CardFooter,
 } from '@chakra-ui/react'
@@ -35,7 +35,7 @@ export const VideoCard = ({
       {...props}
     >
       <CardBody p={2}>
-        <Image
+        <Img
           src={videoObjectProperty.thumbnails.high.url}
           alt={videoObjectProperty.title}
           minHeight="16.25rem"
