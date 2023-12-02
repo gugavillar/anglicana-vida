@@ -2,8 +2,6 @@ import { memo } from 'react'
 
 import { Box } from '@chakra-ui/react'
 
-import deepEqual from 'deep-equal'
-
 import { FooterProps } from './footer'
 import { Wrapper } from './Wrapper'
 
@@ -19,10 +17,6 @@ export const Footer = memo(
       </Box>
     )
   },
-  (prevProps, nextProps) =>
-    deepEqual(prevProps.recommendation, nextProps.recommendation, {
-      strict: true,
-    }),
 )
 
 Footer.displayName = 'Footer'

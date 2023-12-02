@@ -5,7 +5,6 @@ import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { Card, CardBody, Text, VStack, Flex } from '@chakra-ui/react'
 
-import deepEqual from 'deep-equal'
 import { Calendar, MapPin, UsersThree } from 'phosphor-react'
 
 import { H4 } from '@/components'
@@ -36,7 +35,7 @@ export const DiscipleshipCard = memo(
         flexGrow={1}
       >
         <CardBody>
-          <VStack align="flex-start" spacing={4}>
+          <VStack align="flex-start" justify="space-between" height="100%">
             <H4>{discipleshipObjectProperty.title}</H4>
             <Flex align="center" gap={2}>
               <Calendar size={24} />
@@ -63,11 +62,6 @@ export const DiscipleshipCard = memo(
       </Card>
     )
   },
-  (prevProps, nextProps) =>
-    deepEqual(
-      prevProps.discipleshipObjectProperty,
-      nextProps.discipleshipObjectProperty,
-    ),
 )
 
 DiscipleshipCard.displayName = 'DiscipleshipCard'
