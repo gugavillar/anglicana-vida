@@ -2,14 +2,14 @@ import { Alert, AlertIcon, Flex, Link } from '@chakra-ui/react'
 
 import { useQuery } from 'react-query'
 
-import { QUERY_TIME_THIRTY_MINUTES } from '@/constants'
+import { QUERY_TIME_FIVE_MINUTES } from '@/constants'
 import { getLiveStream } from '@/services'
 
 export const AlertLive = () => {
   const { data } = useQuery({
     queryKey: ['liveVideo'],
     queryFn: getLiveStream,
-    staleTime: QUERY_TIME_THIRTY_MINUTES,
+    staleTime: QUERY_TIME_FIVE_MINUTES,
   })
 
   if (!data?.items.length) return null
