@@ -15,7 +15,15 @@ export const AlertLive = () => {
   if (!data?.items.length) return null
 
   return (
-    <Alert px={6} status="info" bg="gray.700" textColor="white">
+    <Alert
+      px={6}
+      status="info"
+      bg="gray.700"
+      textColor="white"
+      position="sticky"
+      zIndex={10}
+      top={20}
+    >
       <Flex maxW="75rem" mx="auto" wrap="wrap" align="center" justify="center">
         <AlertIcon color="white" />
         Assista ao vivo!&nbsp;
