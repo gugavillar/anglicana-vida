@@ -14,7 +14,12 @@ type GetLiveStreamReturn = {
     totalResults: number
     resultsPerPage: number
   }
-  items: Array<any>
+  items: Array<{
+    id: {
+      kind: string
+      videoId: string
+    }
+  }>
 }
 
 export const getLiveStream = async (): Promise<GetLiveStreamReturn> =>
