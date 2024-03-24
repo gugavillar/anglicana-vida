@@ -4,7 +4,7 @@ import { useToast } from '@chakra-ui/react'
 
 import { useQuery } from 'react-query'
 
-import { QUERY_TIME } from '@/constants'
+import { QUERY_TIME_FIVE_HOURS } from '@/constants'
 import { GetAllVideosFromChannelResponse, getVideosFromPage } from '@/services'
 
 export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
@@ -16,15 +16,13 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
     isError,
     isFetching,
     isLoading,
-  } = useQuery(
-    ['sermons', pageToken],
-    () => getVideosFromPage(context?.playlistId, pageToken),
-    {
-      keepPreviousData: true,
-      staleTime: QUERY_TIME,
-      cacheTime: QUERY_TIME,
-    },
-  )
+  } = useQuery({
+    queryKey: ['sermons', pageToken],
+    queryFn: () => getVideosFromPage(context?.playlistId, pageToken),
+    keepPreviousData: true,
+    staleTime: QUERY_TIME_FIVE_HOURS,
+    cacheTime: QUERY_TIME_FIVE_HOURS,
+  })
 
   if (isError) {
     toast({

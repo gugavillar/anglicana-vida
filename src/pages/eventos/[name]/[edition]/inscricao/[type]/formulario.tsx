@@ -30,7 +30,9 @@ export default function Page({
   statesProps,
 }: InferGetStaticPropsType<typeof getServerSideProps>) {
   const [isFormStarted, setIsFormStarted] = useBoolean()
-  const { data: states } = useQuery('states', getBrazilianStatesToSelectField, {
+  const { data: states } = useQuery({
+    queryKey: ['states'],
+    queryFn: getBrazilianStatesToSelectField,
     initialData: statesProps,
     staleTime: Infinity,
     cacheTime: Infinity,

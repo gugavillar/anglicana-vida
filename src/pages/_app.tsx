@@ -16,11 +16,11 @@ const queryClient = new QueryClient()
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <RootLayout>
-        <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <RootLayout>
           <Component {...pageProps} />
-        </QueryClientProvider>
-      </RootLayout>
+        </RootLayout>
+      </QueryClientProvider>
       <PrismicPreview repositoryName={repositoryName} />
     </ChakraProvider>
   )

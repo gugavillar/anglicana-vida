@@ -5,20 +5,18 @@ import { useToast } from '@chakra-ui/react'
 
 import { useQuery } from 'react-query'
 
-import { QUERY_TIME } from '@/constants'
+import { QUERY_TIME_FIVE_HOURS } from '@/constants'
 import { getEventsByUID } from '@/helpers'
 
 export const useEvents = (
   slice: SliceComponentProps<Content.EventsSectionSlice>['slice'],
 ) => {
   const toast = useToast()
-  const { data: events, isError } = useQuery(
-    'events',
-    () => getEventsByUID(slice),
-    {
-      staleTime: QUERY_TIME,
-    },
-  )
+  const { data: events, isError } = useQuery({
+    queryKey: ['events'],
+    queryFn: () => getEventsByUID(slice),
+    staleTime: QUERY_TIME_FIVE_HOURS,
+  })
 
   if (isError) {
     toast({

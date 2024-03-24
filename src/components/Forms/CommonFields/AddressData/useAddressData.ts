@@ -10,13 +10,11 @@ export const useAddressData = (state: string) => {
     data: cities,
     isError,
     isLoading,
-  } = useQuery(
-    ['cities', state],
-    ({ signal }) => getCitiesByStateToSelectField(state, { signal }),
-    {
-      staleTime: QUERY_TIME_TWO_HOURS,
-    },
-  )
+  } = useQuery({
+    queryKey: ['cities', state],
+    queryFn: ({ signal }) => getCitiesByStateToSelectField(state, { signal }),
+    staleTime: QUERY_TIME_TWO_HOURS,
+  })
 
   const toast = useToast()
 
