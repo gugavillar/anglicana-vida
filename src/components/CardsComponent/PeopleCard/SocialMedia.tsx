@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+
 import { PeopleDocument } from '@/prismic-types'
 import { PrismicNextLink } from '@prismicio/next'
 
@@ -12,8 +14,8 @@ type SocialMediaProps = {
 export const SocialMedia = ({ socialMedia }: SocialMediaProps) => {
   if (!socialMedia) return null
 
-  return socialMedia?.map((media) => (
-    <>
+  return socialMedia?.map((media, index) => (
+    <Fragment key={index}>
       <IfComponent
         condition={media.instagram_profile.link_type === 'Web'}
         component={
@@ -30,6 +32,6 @@ export const SocialMedia = ({ socialMedia }: SocialMediaProps) => {
           </PrismicNextLink>
         }
       />
-    </>
+    </Fragment>
   ))
 }
