@@ -1,3 +1,5 @@
+import { useToast } from '@chakra-ui/react'
+
 import { SwiperSlide } from 'swiper/react'
 
 import { SwiperContainerCards, VideoCard } from '@/components'
@@ -15,12 +17,21 @@ const slidesPerView = {
 }
 
 export const HomeContentSermons = ({ context }: HomeContentSermonsProps) => {
+  const toast = useToast()
+
+  if (!context) {
+    toast({
+      status: 'error',
+      description: 'Falha ao carregar os vídeos, tente novamente.',
+    })
+  }
+
   return (
     <SwiperContainerCards
       breakPointObject={slidesPerView}
       isLoaded={!!slidesPerView}
     >
-      {context.items?.map((item) => (
+      {context?.items?.map((item) => (
         <SwiperSlide key={item.id} style={{ display: 'flex', flexGrow: 1 }}>
           <VideoCard videoObjectProperty={item.snippet} />
         </SwiperSlide>

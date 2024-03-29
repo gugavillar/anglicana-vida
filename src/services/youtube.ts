@@ -73,45 +73,59 @@ export type GetAllVideosFromChannelResponse = {
     totalResults: number
     resultsPerPage: number
   }
+  error?: {
+    code: number
+    message: string
+  }
 }
 
 export const getAllVideosFromChannel = async (
   APIKey: string,
   channelId: string,
   maxResults = 5,
-): Promise<GetAllVideosFromChannelResponse> => {
-  const channelData = await youtubeAPI.get<YoutubeAPIChannelsType>(
-    '/channels',
-    {
+): Promise<GetAllVideosFromChannelResponse | null> => {
+  try {
+    const channelData = await youtubeAPI.get<YoutubeAPIChannelsType>(
+      '/channels',
+      {
+        params: {
+          key: APIKey,
+          id: channelId,
+          part: 'snippet,contentDetails',
+        },
+      },
+    )
+    const playlistId =
+      channelData.data.items[0].contentDetails.relatedPlaylists.uploads
+
+    const videos = await youtubeAPI.get('/playlistItems', {
       params: {
         key: APIKey,
-        id: channelId,
-        part: 'snippet,contentDetails',
+        playlistId,
+        part: 'snippet',
+        maxResults,
       },
-    },
-  )
-  const playlistId =
-    channelData.data.items[0].contentDetails.relatedPlaylists.uploads
+    })
 
-  const videos = await youtubeAPI.get('/playlistItems', {
-    params: {
-      key: APIKey,
-      playlistId,
-      part: 'snippet',
-      maxResults,
-    },
-  })
-
-  return { ...videos.data, playlistId }
+    return { ...videos.data, playlistId }
+  } catch (error) {
+    console.error(error)
+    return null
+  }
 }
 
 export const getVideosFromPage = async (
   playlistId: string,
   pageToken: string,
-): Promise<GetAllVideosFromChannelResponse> => {
-  const response = await axios.post('/api/videos', {
-    data: { playlistId, pageToken },
-  })
+): Promise<GetAllVideosFromChannelResponse | null> => {
+  try {
+    const response = await axios.post('/api/videos', {
+      data: { playlistId, pageToken },
+    })
 
-  return { ...response.data, playlistId }
+    return { ...response.data, playlistId }
+  } catch (error) {
+    console.error(error)
+    return null
+  }
 }

@@ -33,9 +33,10 @@ export const useSermonsContent = (
     queryFn: () => getVideosFromPage(context?.playlistId, pageToken),
     keepPreviousData: true,
     staleTime: QUERY_TIME_FIVE_HOURS,
+    onError: () => console.log('error'),
   })
 
-  if (isError) {
+  if (isError || sermons?.error) {
     toast({
       status: 'error',
       description: 'Falha ao carregar os vídeos, tente novamente.',
@@ -49,6 +50,8 @@ export const useSermonsContent = (
       const [entry] = entries
       const boundingRect = entry.boundingClientRect
       const intersectionRect = entry.intersectionRect
+
+      if (sermons?.error) return
 
       if (
         !isLoadingData &&
@@ -65,7 +68,13 @@ export const useSermonsContent = (
         setSermonsData(newSermonsData)
       }
     },
-    [isLoadingData, sermons?.items, sermons?.nextPageToken, sermonsData],
+    [
+      isLoadingData,
+      sermons?.error,
+      sermons?.items,
+      sermons?.nextPageToken,
+      sermonsData,
+    ],
   )
 
   useEffect(() => {
