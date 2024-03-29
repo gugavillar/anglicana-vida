@@ -1,12 +1,11 @@
-import { Fragment } from 'react'
+import { Fragment, useRef } from 'react'
 
 import { SimpleGrid, Skeleton } from '@chakra-ui/react'
 
-import { PageLoader, VideoCard } from '@/components'
+import { VideoCard } from '@/components'
 
 import { GetAllVideosFromChannelResponse } from '@/services'
 
-import { ActionButtons } from './ActionButtons'
 import { useSermonsContent } from './useSermonsContent'
 
 type SermonsContentsProps = {
@@ -14,10 +13,11 @@ type SermonsContentsProps = {
 }
 
 export const SermonsContents = ({ context }: SermonsContentsProps) => {
-  const { handleLoadNextSermons, handleLoadPrevSermons, isLoading, sermons } =
-    useSermonsContent(context)
-
-  if (isLoading) return <PageLoader />
+  const divRef = useRef(null)
+  const { sermonsData, isLoading, isIntersecting } = useSermonsContent(
+    context,
+    divRef,
+  )
 
   return (
     <Fragment>
@@ -27,7 +27,7 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
         spacing={8}
         width="full"
       >
-        {sermons?.items.map((item) => (
+        {sermonsData?.map((item) => (
           <Skeleton
             key={item.id}
             isLoaded={!isLoading}
@@ -36,16 +36,11 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
             width="full"
             flex={1}
           >
-            <VideoCard videoObjectProperty={item.snippet} />
+            <VideoCard videoObjectProperty={item.snippet} height="full" />
           </Skeleton>
         ))}
       </SimpleGrid>
-      <ActionButtons
-        handleLoadNextSermons={handleLoadNextSermons}
-        handleLoadPrevSermons={handleLoadPrevSermons}
-        nextPageToken={sermons?.nextPageToken}
-        prevPageToken={sermons?.prevPageToken}
-      />
+      {isIntersecting && !isLoading && <div ref={divRef}></div>}
     </Fragment>
   )
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, RefObject, useEffect, useCallback } from 'react'
 
 import { useToast } from '@chakra-ui/react'
 
@@ -7,8 +7,20 @@ import { useQuery } from 'react-query'
 import { QUERY_TIME_FIVE_HOURS } from '@/constants'
 import { GetAllVideosFromChannelResponse, getVideosFromPage } from '@/services'
 
-export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
-  const [pageToken, setPageToken] = useState('')
+const options = {
+  threshold: 0.5,
+  root: null,
+  rootMargin: '0%',
+}
+
+export const useSermonsContent = (
+  context: GetAllVideosFromChannelResponse,
+  ref: RefObject<Element>,
+) => {
+  const [pageToken, setPageToken] = useState<string>('')
+  const [sermonsData, setSermonsData] =
+    useState<GetAllVideosFromChannelResponse['items']>()
+  const [isIntersecting, setIntersecting] = useState(true)
 
   const toast = useToast()
   const {
@@ -31,22 +43,52 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
     })
   }
 
-  const handleLoadNextSermons = async () => {
-    if (!sermons?.nextPageToken) return
-    window.scroll(0, 80)
-    setPageToken(sermons?.nextPageToken)
-  }
+  const isLoadingData = isFetching || isLoading
 
-  const handleLoadPrevSermons = async () => {
-    if (!sermons?.prevPageToken) return
-    window.scroll(0, 80)
-    setPageToken(sermons?.prevPageToken)
-  }
+  const handleIntersection = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries
+      const boundingRect = entry.boundingClientRect
+      const intersectionRect = entry.intersectionRect
+
+      if (
+        !isLoadingData &&
+        entry.isIntersecting &&
+        intersectionRect.bottom - boundingRect.bottom <= options.threshold
+      ) {
+        const newSermonsData = !sermonsData
+          ? sermons?.items
+          : !sermons?.items
+            ? sermonsData
+            : [...sermonsData, ...sermons?.items]
+        setIntersecting(entry.isIntersecting)
+        setPageToken(sermons?.nextPageToken as string)
+        setSermonsData(newSermonsData)
+      }
+    },
+    [isLoadingData, sermons?.items, sermons?.nextPageToken, sermonsData],
+  )
+
+  useEffect(() => {
+    const initObserver = () => {
+      const observer = new IntersectionObserver(handleIntersection, options)
+
+      if (ref.current) {
+        observer.observe(ref.current)
+      }
+      return observer
+    }
+
+    const observeRef = initObserver()
+
+    return () => {
+      observeRef.disconnect()
+    }
+  }, [handleIntersection, ref])
 
   return {
-    handleLoadNextSermons,
-    handleLoadPrevSermons,
-    sermons,
-    isLoading: isFetching || isLoading,
+    sermonsData,
+    isIntersecting,
+    isLoading,
   }
 }

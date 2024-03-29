@@ -49,7 +49,6 @@ export const VideoCard = memo(
               as="h4"
               size="md"
               textTransform="lowercase"
-              maxHeight="4rem"
               minHeight="4rem"
               textAlign="center"
               _firstLetter={{ textTransform: 'uppercase' }}
