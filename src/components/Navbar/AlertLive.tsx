@@ -13,7 +13,7 @@ export const AlertLive = () => {
       !data?.items?.length ? QUERY_TIME_FIVE_MINUTES : false,
   })
 
-  if (!data?.items?.length) return null
+  if (!data?.items?.length || data?.error) return null
 
   return (
     <Alert

@@ -18,9 +18,11 @@ const slidesPerView = {
 
 export const HomeContentSermons = ({ context }: HomeContentSermonsProps) => {
   const toast = useToast()
+  const toastId = 'home-sermons-error'
 
-  if (!context) {
+  if (!context && !toast.isActive(toastId)) {
     toast({
+      id: toastId,
       status: 'error',
       description: 'Falha ao carregar os vídeos, tente novamente.',
     })

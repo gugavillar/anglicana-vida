@@ -21,7 +21,7 @@ export const useSermonsContent = (
   const [sermonsData, setSermonsData] =
     useState<GetAllVideosFromChannelResponse['items']>()
   const [isIntersecting, setIntersecting] = useState(true)
-
+  const toastId = 'sermons-error'
   const toast = useToast()
   const {
     data: sermons,
@@ -33,14 +33,16 @@ export const useSermonsContent = (
     queryFn: () => getVideosFromPage(context?.playlistId, pageToken),
     keepPreviousData: true,
     staleTime: QUERY_TIME_FIVE_HOURS,
-    onError: () => console.log('error'),
   })
 
   if (isError || sermons?.error) {
-    toast({
-      status: 'error',
-      description: 'Falha ao carregar os vídeos, tente novamente.',
-    })
+    if (!toast.isActive(toastId)) {
+      toast({
+        id: toastId,
+        status: 'error',
+        description: 'Falha ao carregar os vídeos, tente novamente.',
+      })
+    }
   }
 
   const isLoadingData = isFetching || isLoading

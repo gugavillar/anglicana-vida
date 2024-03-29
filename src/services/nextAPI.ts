@@ -20,6 +20,10 @@ type GetLiveStreamReturn = {
       videoId: string
     }
   }>
+  error?: {
+    code: number
+    message: string
+  }
 }
 
 export const getLiveStream = async (): Promise<GetLiveStreamReturn> =>
