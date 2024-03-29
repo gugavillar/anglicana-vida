@@ -33,7 +33,6 @@ export const useSermonsContent = (
     queryFn: () => getVideosFromPage(context?.playlistId, pageToken),
     keepPreviousData: true,
     staleTime: QUERY_TIME_FIVE_HOURS,
-    cacheTime: QUERY_TIME_FIVE_HOURS,
   })
 
   if (isError) {

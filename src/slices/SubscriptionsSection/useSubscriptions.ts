@@ -5,7 +5,7 @@ import { useToast } from '@chakra-ui/react'
 
 import { useQuery } from 'react-query'
 
-import { QUERY_TIME_FIVE_HOURS } from '@/constants'
+import { QUERY_TIME_TWO_HOURS } from '@/constants'
 import { getSubscriptionsByUID } from '@/helpers'
 
 export const useSubscriptions = (
@@ -15,7 +15,7 @@ export const useSubscriptions = (
   const { data: subscriptions, isError } = useQuery({
     queryKey: ['subscriptions'],
     queryFn: () => getSubscriptionsByUID(slice),
-    staleTime: QUERY_TIME_FIVE_HOURS,
+    staleTime: QUERY_TIME_TWO_HOURS,
   })
 
   if (isError) {

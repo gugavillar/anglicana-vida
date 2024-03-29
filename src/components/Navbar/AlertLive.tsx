@@ -9,10 +9,11 @@ export const AlertLive = () => {
   const { data } = useQuery({
     queryKey: ['liveVideo'],
     queryFn: getLiveStream,
-    staleTime: QUERY_TIME_FIVE_MINUTES,
+    refetchInterval: (data) =>
+      !data?.items?.length ? QUERY_TIME_FIVE_MINUTES : false,
   })
 
-  if (!data?.items.length) return null
+  if (!data?.items?.length) return null
 
   return (
     <Alert
