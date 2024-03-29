@@ -5,7 +5,7 @@ import {
   SliceComponentProps,
 } from '@prismicio/react'
 
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Text, UnorderedList } from '@chakra-ui/react'
 
 import { ContentContainer, H3 } from '@/components'
 
@@ -16,6 +16,11 @@ const descriptionComponent: JSXMapSerializer = {
     <Text lineHeight="30px" fontSize="lg" textAlign="justify" textIndent="3rem">
       {children}
     </Text>
+  ),
+  list: ({ children }) => (
+    <UnorderedList spacing={2} fontSize="lg" textAlign="justify">
+      {children}
+    </UnorderedList>
   ),
 }
 

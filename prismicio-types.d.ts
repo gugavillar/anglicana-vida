@@ -22,8 +22,7 @@ interface AboutDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice> /**
    * Meta Description field in *About*
    *
    * - **Field Type**: Text
@@ -249,8 +248,7 @@ interface EventsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<EventsDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<EventsDocumentDataSlicesSlice> /**
    * Meta Description field in *Events*
    *
    * - **Field Type**: Text
@@ -480,8 +478,7 @@ interface HomeDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice> /**
    * Meta Description field in *Home*
    *
    * - **Field Type**: Text
@@ -685,8 +682,7 @@ interface SermonsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<SermonsDocumentDataSlicesSlice>
-  /**
+  slices: prismic.SliceZone<SermonsDocumentDataSlicesSlice> /**
    * Meta Description field in *Sermons*
    *
    * - **Field Type**: Text
@@ -1362,7 +1358,7 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
   }
 
