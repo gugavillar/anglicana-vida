@@ -56,8 +56,8 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
         </Flex>
       </CardHeader>
       <CardBody px={5} py={4}>
-        <VStack align="center" spacing={4}>
-          <Text fontWeight="bold" fontSize="xl">
+        <VStack align="center" spacing={4} mt="auto" height="full">
+          <Text fontWeight="bold" fontSize="lg" textAlign="center">
             {data?.role}
           </Text>
           <PrismicRichText
