@@ -1,4 +1,4 @@
-import { Fragment, useRef } from 'react'
+import { Fragment } from 'react'
 
 import { SimpleGrid, Skeleton } from '@chakra-ui/react'
 
@@ -13,11 +13,7 @@ type SermonsContentsProps = {
 }
 
 export const SermonsContents = ({ context }: SermonsContentsProps) => {
-  const divRef = useRef(null)
-  const { sermonsData, isLoading, isIntersecting } = useSermonsContent(
-    context,
-    divRef,
-  )
+  const { sermons, ref, hasNextPage, isLoading } = useSermonsContent(context)
 
   return (
     <Fragment>
@@ -27,19 +23,31 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
         spacing={8}
         width="full"
       >
-        {sermonsData?.map((item) => (
-          <Skeleton
-            key={item.id}
-            isLoaded={!isLoading}
-            borderRadius={8}
-            mx="auto"
-            width="full"
-            flex={1}
-          >
-            <VideoCard videoObjectProperty={item.snippet} height="full" />
-          </Skeleton>
+        {sermons?.pages?.map((page, index) => (
+          <Fragment key={index}>
+            {page?.items?.map((item) => (
+              <Skeleton
+                key={item.id}
+                isLoaded={true}
+                borderRadius={8}
+                mx="auto"
+                width="full"
+                flex={1}
+              >
+                <VideoCard videoObjectProperty={item.snippet} height="full" />
+              </Skeleton>
+            ))}
+          </Fragment>
         ))}
-        {isIntersecting && !isLoading && <div ref={divRef} />}
+        {hasNextPage && (
+          <Skeleton
+            ref={ref}
+            {...(isLoading
+              ? { isLoaded: !isLoading, minH: 'sm' }
+              : { isLoaded: isLoading, minH: 0 })}
+            borderRadius={8}
+          />
+        )}
       </SimpleGrid>
     </Fragment>
   )

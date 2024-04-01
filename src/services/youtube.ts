@@ -114,16 +114,23 @@ export const getAllVideosFromChannel = async (
   }
 }
 
-export const getVideosFromPage = async (
-  playlistId: string,
-  pageToken: string,
-): Promise<GetAllVideosFromChannelResponse | null> => {
+type GetVideosFromPageParams = {
+  queryKey: Array<string>
+  pageParam?: string
+}
+
+export const getVideosFromPage = async ({
+  pageParam,
+  queryKey,
+}: GetVideosFromPageParams): Promise<GetAllVideosFromChannelResponse | null> => {
   try {
+    const [_, playlistId] = queryKey
+
     const response = await axios.post('/api/videos', {
-      data: { playlistId, pageToken },
+      data: { playlistId, nextPageToken: pageParam },
     })
 
-    return { ...response.data, playlistId }
+    return response.data
   } catch (error) {
     console.error(error)
     return null
