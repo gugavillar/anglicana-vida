@@ -26,16 +26,11 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
         {sermons?.pages?.map((page, index) => (
           <Fragment key={index}>
             {page?.items?.map((item) => (
-              <Skeleton
+              <VideoCard
                 key={item.id}
-                isLoaded={true}
-                borderRadius={8}
-                mx="auto"
-                width="full"
-                flex={1}
-              >
-                <VideoCard videoObjectProperty={item.snippet} height="full" />
-              </Skeleton>
+                videoObjectProperty={item.snippet}
+                height="full"
+              />
             ))}
           </Fragment>
         ))}
