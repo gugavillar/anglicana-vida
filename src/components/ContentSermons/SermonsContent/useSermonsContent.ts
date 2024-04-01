@@ -10,10 +10,9 @@ import { GetAllVideosFromChannelResponse, getVideosFromPage } from '@/services'
 
 export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
   const { ref, inView } = useInView()
-  const { nextPageToken, playlistId } = context
-
   const toastId = 'sermons-error'
   const toast = useToast()
+
   const {
     data: sermons,
     isError,
@@ -22,14 +21,17 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
     isFetching,
     isFetchingNextPage,
   } = useInfiniteQuery({
-    queryKey: ['sermons', playlistId, nextPageToken],
+    queryKey: ['sermons', context?.playlistId, context?.nextPageToken],
     queryFn: getVideosFromPage,
     staleTime: QUERY_TIME_FIVE_HOURS,
-    initialData: () => ({ pages: [context], pageParams: [] }),
+    initialData: () => ({ pages: context ? [context] : [], pageParams: [] }),
     getNextPageParam: (lastPage) => lastPage?.nextPageToken || false,
   })
 
-  if (isError) {
+  const sermonsFetchError =
+    !context || sermons?.pages?.some((page) => page?.error)
+
+  if (isError || sermonsFetchError) {
     if (!toast.isActive(toastId)) {
       toast({
         id: toastId,
