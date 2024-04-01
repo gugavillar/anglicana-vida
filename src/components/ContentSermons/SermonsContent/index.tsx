@@ -39,8 +39,8 @@ export const SermonsContents = ({ context }: SermonsContentsProps) => {
             <VideoCard videoObjectProperty={item.snippet} height="full" />
           </Skeleton>
         ))}
+        {isIntersecting && !isLoading && <div ref={divRef} />}
       </SimpleGrid>
-      {isIntersecting && !isLoading && <div ref={divRef}></div>}
     </Fragment>
   )
 }
