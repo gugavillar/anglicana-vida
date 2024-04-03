@@ -9,6 +9,7 @@ import {
   Text,
   Img,
   VStack,
+  Heading,
 } from '@chakra-ui/react'
 
 import { SocialMedia } from './SocialMedia'
@@ -32,7 +33,7 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
       bg="white"
       borderRadius={40}
     >
-      <CardHeader pt={2} pb={0}>
+      <CardHeader>
         <Flex
           textAlign="center"
           flexDirection="column"
@@ -43,13 +44,14 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
           clipPath="polygon(0 0, 100% 0%, 100% 60%, 50% 100%, 0 60%)"
           py={6}
         >
-          <Text fontWeight="bold" fontSize="xl">
+          <Heading as="h4" fontWeight="bold" fontSize="2xl">
             {data?.name}
-          </Text>
+          </Heading>
           <Img
             src={data?.image?.url as string}
             alt={data?.image?.alt as string}
             height="9rem"
+            mt="5%"
             borderRadius={80}
             mx="auto"
           />
@@ -57,7 +59,7 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
       </CardHeader>
       <CardBody px={5} py={4}>
         <VStack align="center" spacing={4} mt="auto" height="full">
-          <Text fontWeight="bold" fontSize="lg" textAlign="center">
+          <Text as="strong" fontWeight="bold" fontSize="xl" textAlign="center">
             {data?.role}
           </Text>
           <PrismicRichText

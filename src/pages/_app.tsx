@@ -15,14 +15,12 @@ import { theme } from '@/theme'
 const queryClient = new QueryClient()
 
 export default function App({ Component, pageProps }: AppProps) {
+  const isDevelopment = process.env.NODE_ENV === 'development'
   return (
     <ChakraProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <RootLayout>
-          <GoogleAnalytics
-            trackPageViews
-            gaMeasurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
-          />
+          {!isDevelopment && <GoogleAnalytics trackPageViews />}
           <Component {...pageProps} />
         </RootLayout>
       </QueryClientProvider>
