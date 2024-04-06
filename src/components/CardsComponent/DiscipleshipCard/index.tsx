@@ -45,6 +45,10 @@ export const DiscipleshipCard = memo(
               </Text>
             </Flex>
             <Flex align="center" gap={2}>
+              <UsersThree size={24} />
+              <Text>{discipleshipObjectProperty.leader}</Text>
+            </Flex>
+            <Flex align="center" gap={2}>
               <MapPin size={24} />
               <VStack align="flex-start" spacing={0}>
                 <PrismicRichText
@@ -52,10 +56,6 @@ export const DiscipleshipCard = memo(
                   field={discipleshipObjectProperty.address}
                 />
               </VStack>
-            </Flex>
-            <Flex align="center" gap={2}>
-              <UsersThree size={24} />
-              <Text>{discipleshipObjectProperty.leader}</Text>
             </Flex>
           </VStack>
         </CardBody>
