@@ -10,10 +10,13 @@ import {
   VStack,
   Img,
   Text,
-  UnorderedList,
+  List,
   ListItem,
   Link,
+  ListIcon,
 } from '@chakra-ui/react'
+
+import { PhoneCall } from 'phosphor-react'
 
 import { H3 } from '@/components'
 
@@ -27,16 +30,24 @@ const descriptionComponent: JSXMapSerializer = {
 
 const listComponent: JSXMapSerializer = {
   list: ({ children }) => (
-    <UnorderedList spacing={2} fontSize="lg" textAlign="justify">
+    <List spacing={2} fontSize="lg" textAlign="justify">
       {children}
-    </UnorderedList>
+    </List>
   ),
   listItem: ({ children, node }) => {
     if (!node.text) return null
     const number = node.text.replace(/\D/g, '')
     return (
-      <ListItem>
-        <Link href={`tel:0${number}`}>{children}</Link>
+      <ListItem
+        _hover={{
+          color: 'flesh.400',
+          transition: 'color 0.3s',
+        }}
+      >
+        <ListIcon as={PhoneCall} />
+        <Link _hover={{ textDecoration: 'none' }} href={`tel:0${number}`}>
+          {children}
+        </Link>
       </ListItem>
     )
   },
