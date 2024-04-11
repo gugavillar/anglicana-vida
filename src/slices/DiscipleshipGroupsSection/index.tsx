@@ -18,6 +18,7 @@ const DiscipleshipGroups = ({
         title={slice.primary.title}
         description={slice.primary.description}
         image={slice.primary.image}
+        phones={slice.primary.phones}
       />
       <DiscipleshipContentCards slice={slice} />
     </ContentContainer>

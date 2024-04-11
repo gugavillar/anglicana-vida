@@ -897,6 +897,16 @@ export interface DiscipleshipGroupsSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   image: prismic.ImageField<never>;
+
+  /**
+   * phones field in *DiscipleshipGroupsSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: discipleship_groups.primary.phones
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  phones: prismic.RichTextField;
 }
 
 /**

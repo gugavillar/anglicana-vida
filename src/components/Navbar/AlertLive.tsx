@@ -11,6 +11,7 @@ export const AlertLive = () => {
     queryFn: getLiveStream,
     refetchInterval: (data) =>
       !data?.items?.length ? QUERY_TIME_FIVE_MINUTES : false,
+    refetchIntervalInBackground: true,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   })

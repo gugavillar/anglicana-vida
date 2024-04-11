@@ -16,6 +16,8 @@ export const useDiscipleship = (
     queryKey: ['discipleship'],
     queryFn: () => getDiscipleshipByUID(slice),
     staleTime: QUERY_TIME_FIVE_HOURS,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   })
 
   if (isError) {

@@ -35,6 +35,15 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "phones": {
+          "type": "StructuredText",
+          "config": {
+            "label": "phones",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "list-item"
+          }
         }
       },
       "items": {

@@ -5,7 +5,6 @@ import { useToast } from '@chakra-ui/react'
 
 import { useQuery } from 'react-query'
 
-import { QUERY_TIME_FIVE_HOURS } from '@/constants'
 import { getPeopleByUID } from '@/helpers'
 
 export const usePastoralTeam = (
@@ -15,7 +14,9 @@ export const usePastoralTeam = (
   const { data: people, isError } = useQuery({
     queryKey: ['people'],
     queryFn: () => getPeopleByUID(slice),
-    staleTime: QUERY_TIME_FIVE_HOURS,
+    staleTime: Infinity,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   })
 
   if (isError) {

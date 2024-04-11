@@ -1,13 +1,14 @@
 import { useQuery } from 'react-query'
 
-import { QUERY_TIME_FIVE_HOURS } from '@/constants'
 import { getSettings } from '@/helpers'
 
 export const useRootProps = () => {
   const { data: navbarAndFooterProps } = useQuery({
     queryKey: ['settings'],
     queryFn: getSettings,
-    staleTime: QUERY_TIME_FIVE_HOURS,
+    staleTime: Infinity,
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
     select: (data) => {
       const { footer, navbar } = data
       return {

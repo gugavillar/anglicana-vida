@@ -41,6 +41,17 @@
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"phones": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation aliquip magna dolor ea adipisicing deserunt dolore excepteur cillum ex eu dolor laboris reprehenderit. Non duis exercitation aute aute eiusmod et fugiat mollit sit. Officia id proident esse aute ex."
+						}
+					}
+				]
 			}
 		},
 		"items": [
