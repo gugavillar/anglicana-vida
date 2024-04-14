@@ -1,9 +1,11 @@
 import { useRouter } from 'next/router'
+import { useCallback } from 'react'
 
 import { useBreakpointValue } from '@chakra-ui/react'
 
 export const useNavbar = () => {
   const { push } = useRouter()
+
   const isMobile = useBreakpointValue(
     {
       base: true,
@@ -15,7 +17,7 @@ export const useNavbar = () => {
     },
   )
 
-  const handleNavigationToHome = () => push('/')
+  const handleNavigationToHome = useCallback(() => push('/'), [push])
 
   return { isMobile, handleNavigationToHome }
 }

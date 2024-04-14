@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 import { useQuery } from 'react-query'
 
 import { getSettings } from '@/helpers'
@@ -24,5 +26,20 @@ export const useRootProps = () => {
     },
   })
 
-  return { navbarAndFooterProps }
+  const { recommendation, siteInfo, socialMedia, menuItens } = useMemo(
+    () => ({
+      socialMedia: navbarAndFooterProps?.footer?.socialMedia,
+      recommendation: navbarAndFooterProps?.footer?.recommendation,
+      siteInfo: navbarAndFooterProps?.footer?.siteInfo,
+      menuItens: navbarAndFooterProps?.navbar?.menuItens,
+    }),
+    [
+      navbarAndFooterProps?.footer?.socialMedia,
+      navbarAndFooterProps?.footer?.recommendation,
+      navbarAndFooterProps?.footer?.siteInfo,
+      navbarAndFooterProps?.navbar?.menuItens,
+    ],
+  )
+
+  return { menuItens, recommendation, siteInfo, socialMedia }
 }

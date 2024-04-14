@@ -1,5 +1,3 @@
-import { Fragment } from 'react'
-
 import { PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText } from '@prismicio/react'
 
@@ -16,27 +14,25 @@ export const Itens = ({ menuItens, onClose, ...props }: ItensProps) => {
   return (
     <Stack {...props}>
       {menuItens?.map((item, index) => (
-        <Fragment key={index}>
-          <PrismicNextLink field={item.link}>
-            <PrismicRichText
-              components={{
-                paragraph: ({ children }) => (
-                  <Text
-                    color="white"
-                    cursor="pointer"
-                    {...(!!onClose && { onClick: onClose })}
-                    _hover={{
-                      color: 'flesh.200',
-                    }}
-                  >
-                    {children}
-                  </Text>
-                ),
-              }}
-              field={item.label}
-            />
-          </PrismicNextLink>
-        </Fragment>
+        <PrismicNextLink field={item.link} key={index}>
+          <PrismicRichText
+            components={{
+              paragraph: ({ children }) => (
+                <Text
+                  color="white"
+                  cursor="pointer"
+                  {...(!!onClose && { onClick: onClose })}
+                  _hover={{
+                    color: 'flesh.200',
+                  }}
+                >
+                  {children}
+                </Text>
+              ),
+            }}
+            field={item.label}
+          />
+        </PrismicNextLink>
       ))}
     </Stack>
   )

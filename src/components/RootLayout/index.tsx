@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 
-import { Footer, Navbar, PageLoader } from '@/components'
+import { Footer, Navbar, PageLoader, WhatsappButton } from '@/components'
 
 import { useNavigationLoad } from '@/hooks'
 
@@ -9,18 +9,19 @@ import { useRootProps } from './useRootProps'
 
 export const RootLayout = ({ children }: RootLayoutProps) => {
   const { isNavigation } = useNavigationLoad()
-  const { navbarAndFooterProps } = useRootProps()
+  const { menuItens, recommendation, siteInfo, socialMedia } = useRootProps()
 
   return (
-    <Flex direction="column" w="full" minH="100vh">
-      <Navbar menuItens={navbarAndFooterProps?.navbar?.menuItens} />
-      <Flex direction="column" flex={1} as="main">
+    <Flex direction="column" w="full" minH="100vh" position="relative">
+      <Navbar menuItens={menuItens} />
+      <Flex direction="column" flex={1} as="main" position="relative">
         {isNavigation ? <PageLoader /> : children}
+        <WhatsappButton />
       </Flex>
       <Footer
-        siteInfo={navbarAndFooterProps?.footer?.siteInfo}
-        socialMedia={navbarAndFooterProps?.footer?.socialMedia}
-        recommendation={navbarAndFooterProps?.footer?.recommendation}
+        siteInfo={siteInfo}
+        socialMedia={socialMedia}
+        recommendation={recommendation}
       />
     </Flex>
   )
