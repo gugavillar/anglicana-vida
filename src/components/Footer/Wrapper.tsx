@@ -39,8 +39,8 @@ export const Wrapper = ({
       </Flex>
       <Flex align="center" gap={2} mt={6} color="white">
         <Icon as={Copyright} size={4} />
-        <Text fontSize="xs" verticalAlign="center">
-          Copyright {year}
+        <Text fontSize="xs" verticalAlign="center" fontWeight="semibold">
+          Ministério Insights {year}
         </Text>
       </Flex>
     </Flex>
