@@ -552,6 +552,28 @@ interface NavbarDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   menu_itens: prismic.GroupField<Simplify<NavbarDocumentDataMenuItensItem>>;
+
+  /**
+   * whatsapp_message field in *Navbar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navbar.whatsapp_message
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  whatsapp_message: prismic.KeyTextField;
+
+  /**
+   * whatsapp_number field in *Navbar*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 81999999999
+   * - **API ID Path**: navbar.whatsapp_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  whatsapp_number: prismic.KeyTextField;
 }
 
 /**

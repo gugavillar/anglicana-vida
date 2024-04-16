@@ -22,24 +22,31 @@ export const useRootProps = () => {
         navbar: {
           menuItens: navbar.data.menu_itens,
         },
+        whatsapp: {
+          number: navbar.data.whatsapp_number,
+          message: navbar.data.whatsapp_message,
+        },
       }
     },
   })
 
-  const { recommendation, siteInfo, socialMedia, menuItens } = useMemo(
-    () => ({
-      socialMedia: navbarAndFooterProps?.footer?.socialMedia,
-      recommendation: navbarAndFooterProps?.footer?.recommendation,
-      siteInfo: navbarAndFooterProps?.footer?.siteInfo,
-      menuItens: navbarAndFooterProps?.navbar?.menuItens,
-    }),
-    [
-      navbarAndFooterProps?.footer?.socialMedia,
-      navbarAndFooterProps?.footer?.recommendation,
-      navbarAndFooterProps?.footer?.siteInfo,
-      navbarAndFooterProps?.navbar?.menuItens,
-    ],
-  )
+  const { recommendation, siteInfo, socialMedia, menuItens, whatsapp } =
+    useMemo(
+      () => ({
+        socialMedia: navbarAndFooterProps?.footer?.socialMedia,
+        recommendation: navbarAndFooterProps?.footer?.recommendation,
+        siteInfo: navbarAndFooterProps?.footer?.siteInfo,
+        menuItens: navbarAndFooterProps?.navbar?.menuItens,
+        whatsapp: navbarAndFooterProps?.whatsapp,
+      }),
+      [
+        navbarAndFooterProps?.footer?.socialMedia,
+        navbarAndFooterProps?.footer?.recommendation,
+        navbarAndFooterProps?.footer?.siteInfo,
+        navbarAndFooterProps?.navbar?.menuItens,
+        navbarAndFooterProps?.whatsapp,
+      ],
+    )
 
-  return { menuItens, recommendation, siteInfo, socialMedia }
+  return { menuItens, recommendation, siteInfo, socialMedia, whatsapp }
 }

@@ -30,6 +30,20 @@
             }
           }
         }
+      },
+      "whatsapp_message": {
+        "type": "Text",
+        "config": {
+          "label": "whatsapp_message",
+          "placeholder": ""
+        }
+      },
+      "whatsapp_number": {
+        "type": "Text",
+        "config": {
+          "label": "whatsapp_number",
+          "placeholder": "81999999999"
+        }
       }
     }
   }
