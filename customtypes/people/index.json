@@ -10,7 +10,7 @@
         "type": "Text",
         "config": {
           "label": "name",
-          "placeholder": ""
+          "placeholder": "Nome do líder"
         }
       },
       "uid": {
@@ -34,28 +34,29 @@
         "type": "Text",
         "config": {
           "label": "role",
-          "placeholder": ""
+          "placeholder": "Cargo ou função"
         }
       },
       "description": {
         "type": "StructuredText",
         "config": {
           "label": "description",
-          "placeholder": "",
+          "placeholder": "Descrição do líder",
           "allowTargetBlank": true,
-          "single": "paragraph"
+          "single": "paragraph,strong,em"
         }
       },
       "social_media": {
         "type": "Group",
         "config": {
           "label": "social_media",
+          "repeat": true,
           "fields": {
             "instagram_profile": {
               "type": "Link",
               "config": {
                 "label": "instagram_profile",
-                "placeholder": "",
+                "placeholder": "Link para o perfil do instagram",
                 "allowTargetBlank": false,
                 "select": null
               }
@@ -64,7 +65,8 @@
               "type": "Link",
               "config": {
                 "label": "facebook_profile",
-                "placeholder": "",
+                "placeholder": "Link para o perfil do facebook",
+                "allowTargetBlank": false,
                 "select": null
               }
             }

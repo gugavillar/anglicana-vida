@@ -10,16 +10,12 @@ import {
   SwiperContainerCards,
 } from '@/components'
 
+import { breakPointObject } from '@/constants'
+
 import { useSubscriptions } from './useSubscriptions'
 
 type SubscriptionSectionProps =
   SliceComponentProps<Content.SubscriptionSectionSlice>
-
-const breakPointObject = {
-  base: 1,
-  md: 2,
-  lg: 3,
-}
 
 const SubscriptionSection = ({
   slice,
@@ -35,9 +31,7 @@ const SubscriptionSection = ({
       >
         {subscriptions?.map((item) => (
           <SwiperSlide key={item?.id} style={{ display: 'flex', flexGrow: 1 }}>
-            <EventCardWithSubscription
-              subscriptionObjectProperty={item?.data}
-            />
+            <EventCardWithSubscription subscriptionObjectProperty={item} />
           </SwiperSlide>
         ))}
       </SwiperContainerCards>

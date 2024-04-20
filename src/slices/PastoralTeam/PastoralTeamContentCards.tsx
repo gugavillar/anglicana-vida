@@ -5,17 +5,14 @@ import { SwiperSlide } from 'swiper/react'
 
 import { PeopleCard, SwiperContainerCards } from '@/components'
 
+import { breakPointObject } from '@/constants'
+
 import { usePastoralTeam } from './usePatoralTeam'
 
-const breakPointObject = {
-  base: 1,
-  md: 2,
-  lg: 3,
-}
-
-type PastoralTeamContentCardsProps = {
-  slice: SliceComponentProps<Content.PastoralTeamSlice>['slice']
-}
+type PastoralTeamContentCardsProps = Pick<
+  SliceComponentProps<Content.PastoralTeamSlice>,
+  'slice'
+>
 
 export const PastoralTeamContentCards = ({
   slice,

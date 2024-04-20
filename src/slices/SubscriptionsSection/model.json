@@ -27,7 +27,8 @@
             "label": "subscriptions",
             "select": "document",
             "customtypes": [
-              "subscription"
+              "subscription",
+              "subscription_volunteers_and_participants"
             ]
           }
         }

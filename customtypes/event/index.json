@@ -50,7 +50,7 @@
         "type": "Text",
         "config": {
           "label": "schedule",
-          "placeholder": "Horário"
+          "placeholder": "Horário que inicia o evento (exemplo 19h)"
         }
       },
       "biweekly": {

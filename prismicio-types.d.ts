@@ -65,7 +65,7 @@ interface DiscipleshipDocumentData {
    * title field in *Discipleship*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Nome do grupo de discipulado
    * - **API ID Path**: discipleship.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -76,7 +76,7 @@ interface DiscipleshipDocumentData {
    * week_day field in *Discipleship*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Dia da semana que o GD acontece
    * - **API ID Path**: discipleship.week_day
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -87,7 +87,7 @@ interface DiscipleshipDocumentData {
    * schedule field in *Discipleship*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Horário que inicia o GD (exemplo 19h)
    * - **API ID Path**: discipleship.schedule
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -110,7 +110,7 @@ interface DiscipleshipDocumentData {
    * address field in *Discipleship*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Endereço do local do GD (apenas bairro e cidade)
    * - **API ID Path**: discipleship.address
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -121,7 +121,7 @@ interface DiscipleshipDocumentData {
    * leader field in *Discipleship*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Nome do líder do GD
    * - **API ID Path**: discipleship.leader
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -197,7 +197,7 @@ interface EventDocumentData {
    * schedule field in *Event*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Horário
+   * - **Placeholder**: Horário que inicia o evento (exemplo 19h)
    * - **API ID Path**: event.schedule
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -600,7 +600,7 @@ export interface PeopleDocumentDataSocialMediaItem {
    * instagram_profile field in *People → social_media*
    *
    * - **Field Type**: Link
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Link para o perfil do instagram
    * - **API ID Path**: people.social_media[].instagram_profile
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
@@ -610,7 +610,7 @@ export interface PeopleDocumentDataSocialMediaItem {
    * facebook_profile field in *People → social_media*
    *
    * - **Field Type**: Link
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Link para o perfil do facebook
    * - **API ID Path**: people.social_media[].facebook_profile
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
@@ -625,7 +625,7 @@ interface PeopleDocumentData {
    * name field in *People*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Nome do líder
    * - **API ID Path**: people.name
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -647,7 +647,7 @@ interface PeopleDocumentData {
    * role field in *People*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Cargo ou função
    * - **API ID Path**: people.role
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -658,7 +658,7 @@ interface PeopleDocumentData {
    * description field in *People*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Descrição do líder
    * - **API ID Path**: people.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -803,48 +803,26 @@ interface SubscriptionDocumentData {
   participant_subscription_close_date: prismic.DateField;
 
   /**
-   * volunteer_subscription_open_date field in *Subscription*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: Data de abertura das inscrições dos voluntários
-   * - **API ID Path**: subscription.volunteer_subscription_open_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  volunteer_subscription_open_date: prismic.DateField;
-
-  /**
-   * volunteer_subscription_close_date field in *Subscription*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: Data de encerramento das inscrições dos voluntários
-   * - **API ID Path**: subscription.volunteer_subscription_close_date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  volunteer_subscription_close_date: prismic.DateField;
-
-  /**
-   * initial_date field in *Subscription*
+   * event_initial_date field in *Subscription*
    *
    * - **Field Type**: Date
    * - **Placeholder**: Data que inicia o evento
-   * - **API ID Path**: subscription.initial_date
+   * - **API ID Path**: subscription.event_initial_date
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#date
    */
-  initial_date: prismic.DateField;
+  event_initial_date: prismic.DateField;
 
   /**
-   * final_date field in *Subscription*
+   * event_final_date field in *Subscription*
    *
    * - **Field Type**: Date
    * - **Placeholder**: Data final do evento
-   * - **API ID Path**: subscription.final_date
+   * - **API ID Path**: subscription.event_final_date
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#date
    */
-  final_date: prismic.DateField;
+  event_final_date: prismic.DateField;
 
   /**
    * description field in *Subscription*
@@ -874,6 +852,138 @@ export type SubscriptionDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for Subscription Volunteers And Participants documents
+ */
+interface SubscriptionVolunteersAndParticipantsDocumentData {
+  /**
+   * title field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Nome do evento
+   * - **API ID Path**: subscription_volunteers_and_participants.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * image field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: subscription_volunteers_and_participants.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * edition field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Edição do evento (apenas o número)
+   * - **API ID Path**: subscription_volunteers_and_participants.edition
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  edition: prismic.NumberField;
+
+  /**
+   * participant_subscription_open_date field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data de abertura das inscrições dos participantes
+   * - **API ID Path**: subscription_volunteers_and_participants.participant_subscription_open_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  participant_subscription_open_date: prismic.DateField;
+
+  /**
+   * participant_subscription_close_date field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data de encerramento das inscrições dos participantes
+   * - **API ID Path**: subscription_volunteers_and_participants.participant_subscription_close_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  participant_subscription_close_date: prismic.DateField;
+
+  /**
+   * volunteer_subscription_open_date field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data de abertura das inscrições dos voluntários
+   * - **API ID Path**: subscription_volunteers_and_participants.volunteer_subscription_open_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  volunteer_subscription_open_date: prismic.DateField;
+
+  /**
+   * volunteer_subscription_close_date field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data de encerramento das inscrições dos voluntários
+   * - **API ID Path**: subscription_volunteers_and_participants.volunteer_subscription_close_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  volunteer_subscription_close_date: prismic.DateField;
+
+  /**
+   * event_initial_date field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data que inicia o evento
+   * - **API ID Path**: subscription_volunteers_and_participants.event_initial_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  event_initial_date: prismic.DateField;
+
+  /**
+   * event_final_date field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: Data final do evento
+   * - **API ID Path**: subscription_volunteers_and_participants.event_final_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  event_final_date: prismic.DateField;
+
+  /**
+   * description field in *Subscription Volunteers And Participants*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Descrição do evento
+   * - **API ID Path**: subscription_volunteers_and_participants.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Subscription Volunteers And Participants document from Prismic
+ *
+ * - **API ID**: `subscription_volunteers_and_participants`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SubscriptionVolunteersAndParticipantsDocument<
+  Lang extends string = string,
+> = prismic.PrismicDocumentWithUID<
+  Simplify<SubscriptionVolunteersAndParticipantsDocumentData>,
+  "subscription_volunteers_and_participants",
+  Lang
+>;
+
 export type AllDocumentTypes =
   | AboutDocument
   | DiscipleshipDocument
@@ -884,7 +994,8 @@ export type AllDocumentTypes =
   | NavbarDocument
   | PeopleDocument
   | SermonsDocument
-  | SubscriptionDocument;
+  | SubscriptionDocument
+  | SubscriptionVolunteersAndParticipantsDocument;
 
 /**
  * Primary content in *DiscipleshipGroupsSection → Primary*
@@ -1054,7 +1165,7 @@ export interface HeaderImageSliceDefaultPrimary {
    * label field in *HeaderImage → Primary*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Subtítulo da página
    * - **API ID Path**: header_image.primary.label
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -1064,7 +1175,7 @@ export interface HeaderImageSliceDefaultPrimary {
    * title field in *HeaderImage → Primary*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Título da página
    * - **API ID Path**: header_image.primary.title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -1298,7 +1409,9 @@ export interface SubscriptionSectionSliceDefaultItem {
    * - **API ID Path**: subscription_section.items[].subscriptions
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  subscriptions: prismic.ContentRelationshipField<"subscription">;
+  subscriptions: prismic.ContentRelationshipField<
+    "subscription" | "subscription_volunteers_and_participants"
+  >;
 }
 
 /**
@@ -1425,6 +1538,8 @@ declare module "@prismicio/client" {
       SermonsDocumentDataSlicesSlice,
       SubscriptionDocument,
       SubscriptionDocumentData,
+      SubscriptionVolunteersAndParticipantsDocument,
+      SubscriptionVolunteersAndParticipantsDocumentData,
       AllDocumentTypes,
       DiscipleshipGroupsSlice,
       DiscipleshipGroupsSliceDefaultPrimary,

@@ -1,7 +1,7 @@
 {
-  "id": "subscription",
-  "label": "Subscription",
   "format": "custom",
+  "id": "subscription_volunteers_and_participants",
+  "label": "Subscription Volunteers And Participants",
   "repeatable": true,
   "status": true,
   "json": {
@@ -49,6 +49,20 @@
         "config": {
           "label": "participant_subscription_close_date",
           "placeholder": "Data de encerramento das inscrições dos participantes"
+        }
+      },
+      "volunteer_subscription_open_date": {
+        "type": "Date",
+        "config": {
+          "label": "volunteer_subscription_open_date",
+          "placeholder": "Data de abertura das inscrições dos voluntários"
+        }
+      },
+      "volunteer_subscription_close_date": {
+        "type": "Date",
+        "config": {
+          "label": "volunteer_subscription_close_date",
+          "placeholder": "Data de encerramento das inscrições dos voluntários"
         }
       },
       "event_initial_date": {

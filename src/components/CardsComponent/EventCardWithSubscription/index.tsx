@@ -1,4 +1,4 @@
-import { SubscriptionDocument } from '@/prismic-types'
+import type { Content } from '@prismicio/client'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import {
@@ -15,8 +15,11 @@ import { H4, IfComponent } from '@/components'
 
 import { useEventCardWithSubscription } from './useEventCardWithSubscription'
 
-type SubscriptionCardProps = {
-  subscriptionObjectProperty: SubscriptionDocument<string>['data'] | undefined
+export type SubscriptionCardProps = {
+  subscriptionObjectProperty:
+    | Content.SubscriptionVolunteersAndParticipantsDocument<string>
+    | Content.SubscriptionDocument<string>
+    | undefined
 }
 
 const descriptionComponent: JSXMapSerializer = {
@@ -26,9 +29,15 @@ const descriptionComponent: JSXMapSerializer = {
 export const EventCardWithSubscription = ({
   subscriptionObjectProperty,
 }: SubscriptionCardProps) => {
-  const subscription = useEventCardWithSubscription(subscriptionObjectProperty)
+  const subscription = useEventCardWithSubscription({
+    subscriptionObjectProperty,
+  })
 
   if (!subscription) return null
+
+  const eventDate = subscription.isSameDate
+    ? subscription?.formattedInitialDate
+    : `${subscription?.formattedInitialDate} - ${subscription?.formattedFinalDate}`
 
   return (
     <Card
@@ -39,18 +48,15 @@ export const EventCardWithSubscription = ({
     >
       <CardBody p={0}>
         <Img
-          src={subscriptionObjectProperty?.image?.url as string}
-          alt={subscriptionObjectProperty?.image?.alt as string}
+          src={subscriptionObjectProperty?.data?.image?.url as string}
+          alt={subscriptionObjectProperty?.data?.image?.alt as string}
           borderTopLeftRadius="lg"
           borderTopRightRadius="lg"
           mx="auto"
         />
         <VStack align="flex-start" spacing={4} p={5}>
           <HStack justify="space-between" width="full">
-            <Text opacity={0.65}>
-              {subscription?.formattedInitialDate} -{' '}
-              {subscription?.formattedFinalDate}
-            </Text>
+            <Text opacity={0.65}>{eventDate}</Text>
             <IfComponent
               condition={subscription.isOpenSubscription}
               component={
@@ -63,10 +69,10 @@ export const EventCardWithSubscription = ({
               }
             />
           </HStack>
-          <H4>{subscriptionObjectProperty?.title}</H4>
+          <H4>{subscriptionObjectProperty?.data?.title}</H4>
           <PrismicRichText
             components={descriptionComponent}
-            field={subscriptionObjectProperty?.description}
+            field={subscriptionObjectProperty?.data?.description}
           />
         </VStack>
       </CardBody>

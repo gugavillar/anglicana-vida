@@ -21,7 +21,6 @@ export const SubscriptionPageContainer = ({
         alignSelf="center"
         textAlign="center"
         mb={8}
-        textTransform="capitalize"
       >
         {titleOfPage}
       </Heading>

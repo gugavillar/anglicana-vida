@@ -5,17 +5,14 @@ import { SwiperSlide } from 'swiper/react'
 
 import { DiscipleshipCard, SwiperContainerCards } from '@/components'
 
+import { breakPointObject } from '@/constants'
+
 import { useDiscipleship } from './useDiscipleship'
 
-type DiscipleshipContentCardsProps = {
-  slice: SliceComponentProps<Content.DiscipleshipGroupsSlice>['slice']
-}
-
-const breakPointObject = {
-  base: 1,
-  md: 2,
-  lg: 3,
-}
+type DiscipleshipContentCardsProps = Pick<
+  SliceComponentProps<Content.DiscipleshipGroupsSlice>,
+  'slice'
+>
 
 export const DiscipleshipContentCards = ({
   slice,

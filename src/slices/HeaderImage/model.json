@@ -27,7 +27,7 @@
           "type": "StructuredText",
           "config": {
             "label": "label",
-            "placeholder": "",
+            "placeholder": "Subtítulo da página",
             "allowTargetBlank": true,
             "single": "heading6"
           }
@@ -36,7 +36,7 @@
           "type": "StructuredText",
           "config": {
             "label": "title",
-            "placeholder": "",
+            "placeholder": "Título da página",
             "allowTargetBlank": true,
             "single": "heading1"
           }

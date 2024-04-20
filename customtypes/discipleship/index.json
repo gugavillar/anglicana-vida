@@ -10,7 +10,7 @@
         "type": "Text",
         "config": {
           "label": "title",
-          "placeholder": ""
+          "placeholder": "Nome do grupo de discipulado"
         }
       },
       "uid": {
@@ -23,14 +23,14 @@
         "type": "Text",
         "config": {
           "label": "week_day",
-          "placeholder": ""
+          "placeholder": "Dia da semana que o GD acontece"
         }
       },
       "schedule": {
         "type": "Text",
         "config": {
           "label": "schedule",
-          "placeholder": ""
+          "placeholder": "Horário que inicia o GD (exemplo 19h)"
         }
       },
       "biweekly": {
@@ -46,7 +46,7 @@
         "type": "StructuredText",
         "config": {
           "label": "address",
-          "placeholder": "",
+          "placeholder": "Endereço do local do GD (apenas bairro e cidade)",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em"
         }
@@ -55,7 +55,7 @@
         "type": "Text",
         "config": {
           "label": "leader",
-          "placeholder": ""
+          "placeholder": "Nome do líder do GD"
         }
       }
     }

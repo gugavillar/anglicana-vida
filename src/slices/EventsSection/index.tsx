@@ -10,15 +10,11 @@ import {
   SwiperContainerCards,
 } from '@/components'
 
+import { breakPointObject } from '@/constants'
+
 import { useEvents } from './useEvents'
 
 type EventsSectionProps = SliceComponentProps<Content.EventsSectionSlice>
-
-const breakPointObject = {
-  base: 1,
-  md: 2,
-  lg: 3,
-}
 
 const EventsSection = ({ slice }: EventsSectionProps): JSX.Element => {
   const { events } = useEvents(slice)
