@@ -50,7 +50,10 @@
               "type": "Image",
               "config": {
                 "label": "logo_anglicana",
-                "constraint": {},
+                "constraint": {
+                  "width": 300,
+                  "height": 120
+                },
                 "thumbnails": []
               }
             }
