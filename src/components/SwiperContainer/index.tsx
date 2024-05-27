@@ -5,6 +5,7 @@ import { Swiper } from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { TWENTY_SECONDS } from '@/constants'
 
 type SwiperContainerProps = {
   children: ReactNode
@@ -34,9 +35,8 @@ export const SwiperContainer = ({
       pagination={true}
       {...(isAutoplay && {
         autoplay: {
-          delay: 2500,
+          delay: TWENTY_SECONDS,
           pauseOnMouseEnter: true,
-          disableOnInteraction: false,
         },
       })}
       loop
