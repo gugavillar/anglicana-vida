@@ -16,7 +16,6 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@hookform/resolvers": "^3.4.2",
     "@prismicio/client": "^7.5.0",
     "@prismicio/next": "^1.6.0",
     "@prismicio/react": "^2.8.0",
@@ -29,12 +28,9 @@
     "phosphor-react": "^1.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.51.5",
     "react-intersection-observer": "^9.10.2",
-    "react-number-format": "^5.4.0",
     "react-query": "^3.39.3",
-    "swiper": "^11.1.4",
-    "yup": "^1.4.0"
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "@prismicio/types": "^0.2.9",

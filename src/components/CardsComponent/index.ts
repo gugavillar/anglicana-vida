@@ -1,7 +1,5 @@
 export * from './DiscipleshipCard'
 export * from './EventCard'
-export * from './EventCardWithSubscription'
 export * from './VideoCard'
 export * from './SwiperContainerCards'
-export * from './SubscriptionCard'
 export * from './PeopleCard'

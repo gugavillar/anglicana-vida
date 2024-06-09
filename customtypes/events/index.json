@@ -11,9 +11,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "subscription_section": {
-              "type": "SharedSlice"
-            },
             "events_section": {
               "type": "SharedSlice"
             },
