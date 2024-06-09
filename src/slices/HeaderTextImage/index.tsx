@@ -1,11 +1,12 @@
 import type { Content } from '@prismicio/client'
+import { PrismicNextImage } from '@prismicio/next'
 import {
   JSXMapSerializer,
   PrismicRichText,
   SliceComponentProps,
 } from '@prismicio/react'
 
-import { HStack, Img, Text, VStack } from '@chakra-ui/react'
+import { Text, VStack, SimpleGrid, GridItem } from '@chakra-ui/react'
 
 import { ContentContainer, H3, IfComponent } from '@/components'
 
@@ -22,34 +23,28 @@ const descriptionComponent: JSXMapSerializer = {
 const HeaderText = ({ slice }: HeaderTextProps): JSX.Element => {
   return (
     <ContentContainer id="headerImage">
-      <HStack
-        spacing={8}
-        mx="auto"
-        flexDirection={{
-          base: 'column',
-          md: 'column',
-          lg: 'row-reverse',
-        }}
-      >
-        <VStack maxWidth={{ base: 'full', md: '40rem', lg: 'full' }}>
-          <H3 mb={0}>{slice?.primary?.title}</H3>
-          <PrismicRichText
-            components={descriptionComponent}
-            field={slice?.primary?.description}
-          />
-        </VStack>
-        <IfComponent
-          condition={!!slice?.primary?.image?.url as boolean}
-          component={
-            <Img
-              borderRadius={8}
-              maxHeight={300}
-              src={slice?.primary?.image?.url as string}
-              alt={slice?.primary?.image?.alt as string}
+      <SimpleGrid columns={{ base: 1, md: 1, lg: 2 }} spacing={8} mx="auto">
+        <GridItem alignSelf="center" order={{ base: 1, md: 1, lg: 2 }}>
+          <VStack maxWidth={{ base: 'full', md: '40rem', lg: 'full' }}>
+            <H3 mb={0}>{slice?.primary?.title}</H3>
+            <PrismicRichText
+              components={descriptionComponent}
+              field={slice?.primary?.description}
             />
-          }
-        />
-      </HStack>
+          </VStack>
+        </GridItem>
+        <GridItem alignSelf="center" order={{ base: 2, md: 2, lg: 1 }}>
+          <IfComponent
+            condition={!!slice?.primary?.image?.url as boolean}
+            component={
+              <PrismicNextImage
+                field={slice?.primary?.image}
+                style={{ borderRadius: 8, maxWidth: '640px', width: '100%' }}
+              />
+            }
+          />
+        </GridItem>
+      </SimpleGrid>
     </ContentContainer>
   )
 }

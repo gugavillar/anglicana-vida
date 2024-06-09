@@ -1,4 +1,5 @@
 import type { Content } from '@prismicio/client'
+import { PrismicNextImage } from '@prismicio/next'
 import {
   JSXMapSerializer,
   PrismicRichText,
@@ -6,14 +7,14 @@ import {
 } from '@prismicio/react'
 
 import {
-  HStack,
   VStack,
-  Img,
   Text,
   List,
   ListItem,
   Link,
   ListIcon,
+  SimpleGrid,
+  GridItem,
 } from '@chakra-ui/react'
 
 import { PhoneCall } from 'phosphor-react'
@@ -67,29 +68,27 @@ export const DiscipleshipInfoDescription = ({
   phones,
 }: DiscipleshipInfoDescriptionProps) => {
   return (
-    <HStack
-      spacing={8}
-      mx="auto"
-      flexDirection={{
-        base: 'column-reverse',
-        md: 'column-reverse',
-        lg: 'row',
-      }}
-    >
-      <VStack maxWidth={{ base: 'full', md: '40rem', lg: 'full' }}>
-        <H3 mb={0}>{title}</H3>
-        <PrismicRichText
-          components={descriptionComponent}
-          field={description}
+    <SimpleGrid columns={{ base: 1, md: 1, lg: 2 }} mx="auto" spacing={8}>
+      <GridItem order={{ base: 2, md: 2, lg: 1 }} alignSelf="center">
+        <VStack maxWidth={{ base: 'full', md: '40rem', lg: 'full' }}>
+          <H3 mb={0}>{title}</H3>
+          <PrismicRichText
+            components={descriptionComponent}
+            field={description}
+          />
+          <PrismicRichText components={listComponent} field={phones} />
+        </VStack>
+      </GridItem>
+      <GridItem alignSelf="center" order={{ base: 1, md: 1, lg: 2 }}>
+        <PrismicNextImage
+          field={image}
+          style={{
+            borderRadius: 8,
+            width: '100%',
+            maxHeight: '480px',
+          }}
         />
-        <PrismicRichText components={listComponent} field={phones} />
-      </VStack>
-      <Img
-        maxHeight={414}
-        borderRadius={8}
-        src={image?.url as string}
-        alt={image?.alt as string}
-      />
-    </HStack>
+      </GridItem>
+    </SimpleGrid>
   )
 }

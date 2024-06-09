@@ -1,4 +1,5 @@
 import { PeopleDocument } from '@/prismic-types'
+import { PrismicNextImage } from '@prismicio/next'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import {
@@ -7,7 +8,6 @@ import {
   CardHeader,
   Flex,
   Text,
-  Img,
   VStack,
   Heading,
 } from '@chakra-ui/react'
@@ -47,13 +47,13 @@ export const PeopleCard = ({ data }: PeopleCardProps) => {
           <Heading as="h4" fontWeight="bold" fontSize="2xl">
             {data?.name}
           </Heading>
-          <Img
-            src={data?.image?.url as string}
-            alt={data?.image?.alt as string}
-            height="9rem"
-            mt="5%"
-            borderRadius={80}
-            mx="auto"
+          <PrismicNextImage
+            field={data?.image}
+            style={{
+              height: '9rem',
+              borderRadius: 80,
+              margin: '5% auto 0 auto',
+            }}
           />
         </Flex>
       </CardHeader>
