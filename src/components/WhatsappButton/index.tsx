@@ -33,6 +33,7 @@ export const WhatsappButton = memo(
           fontWeight="semibold"
         >
           <Button
+            title="Precisa de ajuda? Fale conosco pelo whatsapp!"
             position="fixed"
             borderRadius="full"
             bottom={6}

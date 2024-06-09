@@ -29,13 +29,25 @@ export const InfoSiteSocialMedia = ({
       <Flex gap={5}>
         {socialMedia?.map((media, index) => (
           <Fragment key={index}>
-            <PrismicNextLink field={media.instagram} target="_blank">
+            <PrismicNextLink
+              field={media.instagram}
+              target="_blank"
+              title="Instagram"
+            >
               <Icon as={InstagramLogo} {...iconProps} />
             </PrismicNextLink>
-            <PrismicNextLink field={media.facebook} target="_blank">
+            <PrismicNextLink
+              field={media.facebook}
+              target="_blank"
+              title="Facebook"
+            >
               <Icon as={FacebookLogo} {...iconProps} />
             </PrismicNextLink>
-            <PrismicNextLink field={media.youtube} target="_blank">
+            <PrismicNextLink
+              field={media.youtube}
+              target="_blank"
+              title="Youtube"
+            >
               <Icon as={YoutubeLogo} {...iconProps} />
             </PrismicNextLink>
           </Fragment>
