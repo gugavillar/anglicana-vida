@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { useToast } from '@chakra-ui/react'
 
 import { SwiperSlide } from 'swiper/react'
@@ -20,13 +22,17 @@ export const HomeContentSermons = ({ context }: HomeContentSermonsProps) => {
   const toast = useToast()
   const toastId = 'home-sermons-error'
 
-  if (!context && !toast.isActive(toastId)) {
-    toast({
-      id: toastId,
-      status: 'error',
-      description: 'Falha ao carregar os vídeos, tente novamente.',
-    })
-  }
+  useEffect(() => {
+    if (!context && !toast.isActive(toastId)) {
+      if (typeof window !== 'undefined') {
+        toast({
+          id: toastId,
+          status: 'error',
+          description: 'Falha ao carregar os vídeos, tente novamente.',
+        })
+      }
+    }
+  }, [context, toast])
 
   return (
     <SwiperContainerCards

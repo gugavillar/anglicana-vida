@@ -31,15 +31,17 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
   const sermonsFetchError =
     !context || sermons?.pages?.some((page) => page?.error)
 
-  if (isError || sermonsFetchError) {
-    if (!toast.isActive(toastId)) {
-      toast({
-        id: toastId,
-        status: 'error',
-        description: 'Falha ao carregar os vídeos, tente novamente.',
-      })
+  useEffect(() => {
+    if (isError || sermonsFetchError) {
+      if (!toast.isActive(toastId) && typeof window !== 'undefined') {
+        toast({
+          id: toastId,
+          status: 'error',
+          description: 'Falha ao carregar os vídeos, tente novamente.',
+        })
+      }
     }
-  }
+  }, [isError, sermonsFetchError, toast])
 
   useEffect(() => {
     if (inView) {
