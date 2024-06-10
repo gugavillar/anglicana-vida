@@ -25,6 +25,7 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
     queryFn: getVideosFromPage,
     staleTime: QUERY_TIME_FIVE_HOURS,
     initialData: () => ({ pages: context ? [context] : [], pageParams: [] }),
+    retry: 0,
     getNextPageParam: (lastPage) => lastPage?.nextPageToken || false,
   })
 
@@ -41,7 +42,8 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
         })
       }
     }
-  }, [isError, sermonsFetchError, toast])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     if (inView) {

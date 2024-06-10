@@ -32,7 +32,8 @@ export const HomeContentSermons = ({ context }: HomeContentSermonsProps) => {
         })
       }
     }
-  }, [context, toast])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <SwiperContainerCards
