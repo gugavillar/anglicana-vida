@@ -1,7 +1,3 @@
-import { useEffect } from 'react'
-
-import { useToast } from '@chakra-ui/react'
-
 import { SwiperSlide } from 'swiper/react'
 
 import { SwiperContainerCards, VideoCard } from '@/components'
@@ -19,21 +15,7 @@ const slidesPerView = {
 }
 
 export const HomeContentSermons = ({ context }: HomeContentSermonsProps) => {
-  const toast = useToast()
-  const toastId = 'home-sermons-error'
-
-  useEffect(() => {
-    if (!context && !toast.isActive(toastId)) {
-      if (typeof window !== 'undefined') {
-        toast({
-          id: toastId,
-          status: 'error',
-          description: 'Falha ao carregar os vídeos, tente novamente.',
-        })
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  if (!context) return null
 
   return (
     <SwiperContainerCards

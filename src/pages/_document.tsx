@@ -1,5 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
+import { repositoryName } from '@/prismicio'
+
 export default function Document() {
   return (
     <Html lang="pt-BR">
@@ -27,6 +29,11 @@ export default function Document() {
           httpEquiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
+        <script
+          async
+          defer
+          src={`https://static.cdn.prismic.io/prismic.js?new=true&amp;repo=${repositoryName}`}
+        ></script>
       </Head>
       <body>
         <Main />

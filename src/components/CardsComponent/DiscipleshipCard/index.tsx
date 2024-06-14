@@ -3,7 +3,7 @@ import { memo } from 'react'
 import { DiscipleshipDocument } from '@/prismic-types'
 import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
-import { Card, CardBody, Text, VStack, Flex } from '@chakra-ui/react'
+import { Card, CardBody, Text, VStack, Flex, Icon } from '@chakra-ui/react'
 
 import { Calendar, MapPin, UsersThree } from 'phosphor-react'
 
@@ -38,18 +38,18 @@ export const DiscipleshipCard = memo(
           <VStack align="flex-start" justify="space-between" height="100%">
             <H4>{discipleshipObjectProperty.title}</H4>
             <Flex align="center" gap={2}>
-              <Calendar size={24} />
+              <Icon as={Calendar} width={6} height={6} />
               <Text>
                 {discipleshipObjectProperty.week_day} às{' '}
                 {discipleshipObjectProperty.schedule} {biweeklyDiscipleship}
               </Text>
             </Flex>
             <Flex align="center" gap={2}>
-              <UsersThree size={24} />
+              <Icon as={UsersThree} width={6} height={6} />
               <Text>{discipleshipObjectProperty.leader}</Text>
             </Flex>
             <Flex align="center" gap={2}>
-              <MapPin size={24} />
+              <Icon as={MapPin} width={6} height={6} />
               <VStack align="flex-start" spacing={0}>
                 <PrismicRichText
                   components={addressComponent}

@@ -20,7 +20,7 @@ const componentLinkMap: JSXMapSerializer = {
       gap={2}
       _hover={{ color: 'flesh.200', transition: 'color 0.3s' }}
     >
-      <Icon as={MapPin} size={4} />
+      <Icon as={MapPin} width={6} height={6} />
       {children}
     </Flex>
   ),
@@ -33,7 +33,7 @@ const componentLinkMail: JSXMapSerializer = {
       gap={2}
       _hover={{ color: 'flesh.200', transition: 'color 0.3s' }}
     >
-      <Icon as={Envelope} size={4} />
+      <Icon as={Envelope} width={6} height={6} />
       <Link
         _hover={{ textDecoration: 'none' }}
         target="_blank"

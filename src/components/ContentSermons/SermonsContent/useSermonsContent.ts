@@ -15,11 +15,11 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
 
   const {
     data: sermons,
-    isError,
     fetchNextPage,
     hasNextPage,
     isFetching,
     isFetchingNextPage,
+    isError,
   } = useInfiniteQuery({
     queryKey: ['sermons', context?.playlistId, context?.nextPageToken],
     queryFn: getVideosFromPage,
@@ -27,29 +27,22 @@ export const useSermonsContent = (context: GetAllVideosFromChannelResponse) => {
     initialData: () => ({ pages: context ? [context] : [], pageParams: [] }),
     retry: 0,
     getNextPageParam: (lastPage) => lastPage?.nextPageToken || false,
-  })
-
-  const sermonsFetchError =
-    !context || sermons?.pages?.some((page) => page?.error)
-
-  useEffect(() => {
-    if (isError || sermonsFetchError) {
-      if (!toast.isActive(toastId) && typeof window !== 'undefined') {
+    onError: () => {
+      if (!toast.isActive(toastId)) {
         toast({
           id: toastId,
           status: 'error',
           description: 'Falha ao carregar os vídeos, tente novamente.',
         })
       }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    },
+  })
 
   useEffect(() => {
-    if (inView) {
+    if (inView && !isError) {
       fetchNextPage()
     }
-  }, [fetchNextPage, inView])
+  }, [fetchNextPage, inView, isError])
 
   return {
     sermons,

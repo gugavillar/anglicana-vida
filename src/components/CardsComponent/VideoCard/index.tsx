@@ -40,6 +40,7 @@ export const VideoCard = memo(
             alt={videoObjectProperty.title}
             minHeight="16.25rem"
             mx="auto"
+            aspectRatio={4 / 3}
           />
           <VStack spacing={4} p="16px 5px 0 5px">
             <Text opacity={0.65}>
