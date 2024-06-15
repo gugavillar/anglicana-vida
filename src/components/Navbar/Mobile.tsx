@@ -18,7 +18,7 @@ export const Mobile = ({ menuItens }: MobileProps) => {
       <IconButton
         aria-label="Menu principal"
         onClick={onOpen}
-        icon={<List width={40} height={40} weight="bold" />}
+        icon={<List width={40} height={40} weight="bold" color="white" />}
         bg="transparent"
         color="whiteAlpha.700"
         width="max-content"

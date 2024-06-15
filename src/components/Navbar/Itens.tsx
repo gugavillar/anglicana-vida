@@ -1,5 +1,8 @@
+import { usePathname } from 'next/navigation'
+
 import { PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText } from '@prismicio/react'
+import { FilledLinkToDocumentField } from '@prismicio/types'
 
 import { Stack, StackProps, Text } from '@chakra-ui/react'
 
@@ -11,29 +14,37 @@ type ItensProps = StackProps & {
 }
 
 export const Itens = ({ menuItens, onClose, ...props }: ItensProps) => {
+  const pathname = usePathname()
+
+  if (!menuItens) return null
+
   return (
     <Stack {...props}>
-      {menuItens?.map((item, index) => (
-        <PrismicNextLink field={item.link} key={index}>
-          <PrismicRichText
-            components={{
-              paragraph: ({ children }) => (
-                <Text
-                  color="white"
-                  cursor="pointer"
-                  {...(!!onClose && { onClick: onClose })}
-                  _hover={{
-                    color: 'flesh.200',
-                  }}
-                >
-                  {children}
-                </Text>
-              ),
-            }}
-            field={item.label}
-          />
-        </PrismicNextLink>
-      ))}
+      {menuItens?.map((item) => {
+        const { id, url } = item.link as FilledLinkToDocumentField
+        return (
+          <PrismicNextLink field={item.link} key={id}>
+            <PrismicRichText
+              components={{
+                paragraph: ({ children }) => (
+                  <Text
+                    color="white"
+                    cursor="pointer"
+                    {...(!!onClose && { onClick: onClose })}
+                    _hover={{
+                      color: 'flesh.200',
+                    }}
+                    {...(url === pathname && { color: 'flesh.200' })}
+                  >
+                    {children}
+                  </Text>
+                ),
+              }}
+              field={item.label}
+            />
+          </PrismicNextLink>
+        )
+      })}
     </Stack>
   )
 }

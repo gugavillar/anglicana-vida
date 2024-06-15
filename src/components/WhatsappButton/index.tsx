@@ -41,6 +41,7 @@ export const WhatsappButton = memo(
             zIndex={9999}
             width="fit-content"
             height="fit-content"
+            color="white"
             p={2}
             iconSpacing={0}
             bg="whatsapp.500"
