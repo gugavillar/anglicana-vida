@@ -33,7 +33,7 @@ export default function Document() {
           async
           defer
           src={`https://static.cdn.prismic.io/prismic.js?new=true&amp;repo=${repositoryName}`}
-        ></script>
+        />
       </Head>
       <body>
         <Main />

@@ -8,21 +8,6 @@ export const components = {
         fontWeight: 400,
         height: 'inherit',
       },
-      solid: {
-        backgroundColor: '#3b4d69',
-        height: 12,
-        width: 32,
-        color: 'white',
-        _hover: { opacity: 0.8, backgroundColor: '#3b4d69' },
-        _disabled: {
-          cursor: 'not-allowed',
-          opacity: 0.2,
-          backgroundColor: '#3b4d69 !important',
-          _hover: {
-            opacity: 0.2,
-          },
-        },
-      },
     },
   },
   Heading: {
@@ -36,26 +21,6 @@ export const components = {
       cardTitle: {
         fontSize: () => ({ base: '1.125rem', md: '1.25rem', lg: '1.375rem' }),
         lineHeight: '1.75rem',
-      },
-    },
-  },
-  Input: {
-    variants: {
-      outline: {
-        field: {
-          height: '3rem',
-          fontSize: '1.125rem',
-        },
-      },
-    },
-  },
-  Select: {
-    variants: {
-      outline: {
-        field: {
-          height: '3rem',
-          fontSize: '1.125rem',
-        },
       },
     },
   },

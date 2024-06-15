@@ -12,20 +12,20 @@ export const useDiscipleship = (
   slice: SliceComponentProps<Content.DiscipleshipGroupsSlice>['slice'],
 ) => {
   const toast = useToast()
-  const { data: discipleship, isError } = useQuery({
+  const { data: discipleship } = useQuery({
     queryKey: ['discipleship'],
     queryFn: () => getDiscipleshipByUID(slice),
     staleTime: QUERY_TIME_FIVE_HOURS,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
+    retry: 0,
+    onError: () => {
+      toast({
+        status: 'error',
+        description: 'Falha ao carregar os grupos de discipulados.',
+      })
+    },
   })
-
-  if (isError) {
-    toast({
-      status: 'error',
-      description: 'Falha ao carregar os grupos de discipulados.',
-    })
-  }
 
   return { discipleship }
 }

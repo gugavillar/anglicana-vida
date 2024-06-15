@@ -12,18 +12,18 @@ export const useEvents = (
   slice: SliceComponentProps<Content.EventsSectionSlice>['slice'],
 ) => {
   const toast = useToast()
-  const { data: events, isError } = useQuery({
+  const { data: events } = useQuery({
     queryKey: ['events'],
     queryFn: () => getEventsByUID(slice),
     staleTime: QUERY_TIME_TWO_HOURS,
+    retry: 0,
+    onError: () => {
+      toast({
+        status: 'error',
+        description: 'Falha ao carregar os eventos.',
+      })
+    },
   })
-
-  if (isError) {
-    toast({
-      status: 'error',
-      description: 'Falha ao carregar os eventos.',
-    })
-  }
 
   return { events }
 }

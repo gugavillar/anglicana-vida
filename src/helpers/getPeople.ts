@@ -7,11 +7,15 @@ export const getPeopleByUID = async (
 ) => {
   const client = createClient()
 
-  const data = await Promise.all(
-    slice?.items?.map(async (item) => {
-      if (!isFilled.contentRelationship(item?.team)) return
-      return await client.getByUID('people', item?.team?.uid as string)
-    }),
-  )
-  return data
+  try {
+    const data = await Promise.all(
+      slice?.items?.map(async (item) => {
+        if (!isFilled.contentRelationship(item?.team)) return
+        return await client.getByUID('people', item?.team?.uid as string)
+      }),
+    )
+    return data
+  } catch (error: any) {
+    throw Error(error)
+  }
 }

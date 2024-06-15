@@ -11,20 +11,20 @@ export const usePastoralTeam = (
   slice: SliceComponentProps<Content.PastoralTeamSlice>['slice'],
 ) => {
   const toast = useToast()
-  const { data: people, isError } = useQuery({
+  const { data: people } = useQuery({
     queryKey: ['people'],
     queryFn: () => getPeopleByUID(slice),
     staleTime: Infinity,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
+    retry: 0,
+    onError: () => {
+      toast({
+        status: 'error',
+        description: 'Falha ao carregar a equipe pastoral.',
+      })
+    },
   })
-
-  if (isError) {
-    toast({
-      status: 'error',
-      description: 'Falha ao carregar a equipe pastoral.',
-    })
-  }
 
   return { people }
 }
