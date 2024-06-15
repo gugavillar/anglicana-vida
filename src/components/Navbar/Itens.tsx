@@ -33,6 +33,7 @@ export const Itens = ({ menuItens, onClose, ...props }: ItensProps) => {
                     {...(!!onClose && { onClick: onClose })}
                     _hover={{
                       color: 'flesh.200',
+                      transition: 'color 0.3s',
                     }}
                     {...(url === pathname && { color: 'flesh.200' })}
                   >

@@ -6,6 +6,7 @@ import { Itens } from './Itens'
 import { Mobile } from './Mobile'
 import { NavbarProps } from './navbar'
 import { useNavbar } from './useNavbar'
+import { DonationButton } from '../DonationButton'
 
 type WrapperProps = NavbarProps
 
@@ -21,21 +22,27 @@ export const Wrapper = ({ menuItens }: WrapperProps) => {
       maxW="75rem"
       mx="auto"
       gap={8}
-      justify={{ base: 'space-between', md: 'flex-start', lg: 'flex-start' }}
+      justify="space-between"
     >
       <Flex
         h={20}
+        w={{ base: 'full', md: 'full', lg: 'auto' }}
+        px={2}
         align="center"
-        justify="center"
+        justify={{ base: 'space-between', md: 'space-between', lg: 'center' }}
+        gap={12}
         {...(isMobile && { cursor: 'pointer' })}
       >
         <Logo {...(isMobile && { onClick: handleNavigationToHome })} />
+        {isMobile ? (
+          <Mobile menuItens={menuItens} />
+        ) : (
+          <Itens menuItens={menuItens} direction="row" spacing={9} />
+        )}
       </Flex>
-      {isMobile ? (
-        <Mobile menuItens={menuItens} />
-      ) : (
-        <Itens menuItens={menuItens} direction="row" spacing={9} />
-      )}
+      <DonationButton
+        display={{ base: 'none', md: 'none', lg: 'inline-flex' }}
+      />
     </Flex>
   )
 }

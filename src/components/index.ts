@@ -1,6 +1,7 @@
 export * from './CardsComponent'
 export * from './ContentContainer'
 export * from './ContentSermons'
+export * from './DonationButton'
 export * from './Footer'
 export * from './Headings'
 export * from './Icons'

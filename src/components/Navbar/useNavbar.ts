@@ -9,7 +9,7 @@ export const useNavbar = () => {
   const isMobile = useBreakpointValue(
     {
       base: true,
-      md: false,
+      md: true,
       lg: false,
     },
     {
