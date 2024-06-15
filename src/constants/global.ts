@@ -9,3 +9,9 @@ export const breakPointObject = {
   md: 2,
   lg: 3,
 }
+
+export const PIX = {
+  key: process.env.NEXT_PUBLIC_PIX_API,
+  name: 'Igreja Anglicana Vida',
+  city: 'Gravatá',
+}
