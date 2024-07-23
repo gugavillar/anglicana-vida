@@ -2,7 +2,10 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 import { repositoryName } from '@/prismicio'
 
+import { MicrosoftClarity } from '@/components'
+
 export default function Document() {
+  const isDevelopment = process.env.NODE_ENV === 'development'
   return (
     <Html lang="pt-BR">
       <Head>
@@ -38,6 +41,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        {!isDevelopment && <MicrosoftClarity />}
       </body>
     </Html>
   )
