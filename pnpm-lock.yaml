@@ -59,6 +59,9 @@ importers:
       react-intersection-observer:
         specifier: ^9.10.3
         version: 9.10.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react-microsoft-clarity:
+        specifier: ^1.2.0
+        version: 1.2.0
       react-number-format:
         specifier: ^5.4.0
         version: 5.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -2876,6 +2879,9 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-microsoft-clarity@1.2.0:
+    resolution: {integrity: sha512-a1bsJR1uN1daWq3cBc7NheEGPXrotMRE0oFeRio7kXvHawzQfqu5iX9BoYFF9zRUL0dn+Mz57h1fNlcv3pqXEg==}
 
   react-number-format@5.4.0:
     resolution: {integrity: sha512-NWdICrqLhI7rAS8yUeLVd6Wr4cN7UjJ9IBTS0f/a9i7UB4x4Ti70kGnksBtZ7o4Z7YRbvCMMR/jQmkoOBa/4fg==}
@@ -6727,6 +6733,8 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
 
   react-is@16.13.1: {}
+
+  react-microsoft-clarity@1.2.0: {}
 
   react-number-format@5.4.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
