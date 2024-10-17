@@ -1,6 +1,6 @@
 import { memo } from 'react'
 
-import { Icon, IconProps } from '@chakra-ui/react'
+import { Icon, type IconProps } from '@chakra-ui/react'
 
 type LogoProps = IconProps
 

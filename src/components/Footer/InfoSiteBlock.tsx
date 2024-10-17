@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
-import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
+import { type JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { VStack, Link, Flex, Icon } from '@chakra-ui/react'
 

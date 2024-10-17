@@ -1,8 +1,8 @@
 import type { Content } from '@prismicio/client'
 import {
-  JSXMapSerializer,
+  type JSXMapSerializer,
   PrismicRichText,
-  SliceComponentProps,
+  type SliceComponentProps,
 } from '@prismicio/react'
 
 import { Flex, Text, UnorderedList } from '@chakra-ui/react'

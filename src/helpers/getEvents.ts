@@ -1,6 +1,6 @@
 import { createClient } from '@/prismicio'
 import { isFilled, type Content } from '@prismicio/client'
-import { SliceComponentProps } from '@prismicio/react'
+import { type SliceComponentProps } from '@prismicio/react'
 
 export const getEvents = async () => {
   const client = createClient()

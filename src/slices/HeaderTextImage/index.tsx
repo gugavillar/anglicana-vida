@@ -1,9 +1,9 @@
 import type { Content } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next'
 import {
-  JSXMapSerializer,
+  type JSXMapSerializer,
   PrismicRichText,
-  SliceComponentProps,
+  type SliceComponentProps,
 } from '@prismicio/react'
 
 import { Text, VStack, SimpleGrid, GridItem } from '@chakra-ui/react'

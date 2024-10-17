@@ -1,6 +1,6 @@
 import type { Simplify } from '@/prismic-types'
 import type { Content } from '@prismicio/client'
-import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
+import { type JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { VStack, Heading } from '@chakra-ui/react'
 

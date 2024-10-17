@@ -1,7 +1,7 @@
 import { memo } from 'react'
 
 import { DiscipleshipDocument } from '@/prismic-types'
-import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
+import { type JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import { Card, CardBody, Text, VStack, Flex, Icon } from '@chakra-ui/react'
 

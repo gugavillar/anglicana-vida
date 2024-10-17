@@ -1,4 +1,5 @@
-import { Button, ButtonProps, useDisclosure } from '@chakra-ui/react'
+// eslint-disable-next-line import/named
+import { Button, useDisclosure, type ButtonProps } from '@chakra-ui/react'
 
 import { Heart } from 'phosphor-react'
 

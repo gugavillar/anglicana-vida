@@ -1,6 +1,6 @@
 import { PeopleDocument } from '@/prismic-types'
 import { PrismicNextImage } from '@prismicio/next'
-import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
+import { type JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 
 import {
   Card,

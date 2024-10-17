@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 
-import { Box, BoxProps, Flex } from '@chakra-ui/react'
+import { Box, type BoxProps, Flex } from '@chakra-ui/react'
 
 type ContentContainerProps = BoxProps & PropsWithChildren
 

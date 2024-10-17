@@ -1,6 +1,10 @@
 import { ReactNode } from 'react'
 
-import { Skeleton, SkeletonProps, useBreakpointValue } from '@chakra-ui/react'
+import {
+  Skeleton,
+  type SkeletonProps,
+  useBreakpointValue,
+} from '@chakra-ui/react'
 
 import { SwiperContainer } from '../../SwiperContainer'
 

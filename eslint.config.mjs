@@ -34,7 +34,9 @@ const eslintConfig = [
 
     settings: {
       'import/resolver': {
-        typescript: {},
+        typescript: {
+          alwaysTryTypes: true,
+        },
       },
     },
 

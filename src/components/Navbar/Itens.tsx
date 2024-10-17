@@ -2,9 +2,9 @@ import { usePathname } from 'next/navigation'
 
 import { PrismicNextLink } from '@prismicio/next'
 import { PrismicRichText } from '@prismicio/react'
-import { FilledLinkToDocumentField } from '@prismicio/types'
+import { type FilledLinkToDocumentField } from '@prismicio/types'
 
-import { Stack, StackProps, Text } from '@chakra-ui/react'
+import { Stack, type StackProps, Text } from '@chakra-ui/react'
 
 import { NavbarProps } from './navbar'
 

@@ -1,6 +1,6 @@
 import { createClient } from '@/prismicio'
 import { type Content, isFilled } from '@prismicio/client'
-import { SliceComponentProps } from '@prismicio/react'
+import { type SliceComponentProps } from '@prismicio/react'
 
 export const getPeopleByUID = async (
   slice: SliceComponentProps<Content.PastoralTeamSlice>['slice'],

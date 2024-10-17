@@ -1,5 +1,5 @@
 import type { Content } from '@prismicio/client'
-import { SliceComponentProps } from '@prismicio/react'
+import { type SliceComponentProps } from '@prismicio/react'
 
 import { ContentContainer, H3 } from '@/components'
 

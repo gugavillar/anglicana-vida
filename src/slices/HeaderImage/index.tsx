@@ -1,6 +1,6 @@
 import type { Content } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next'
-import { SliceComponentProps } from '@prismicio/react'
+import { type SliceComponentProps } from '@prismicio/react'
 
 import { Flex } from '@chakra-ui/react'
 

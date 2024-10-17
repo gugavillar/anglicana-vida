@@ -5,7 +5,7 @@ import {
   CardBody,
   VStack,
   Text,
-  CardProps,
+  type CardProps,
   Img,
   Link,
   CardFooter,

@@ -1,5 +1,5 @@
 import { type Content } from '@prismicio/client'
-import { SliceComponentProps } from '@prismicio/react'
+import { type SliceComponentProps } from '@prismicio/react'
 
 import { useToast } from '@chakra-ui/react'
 
