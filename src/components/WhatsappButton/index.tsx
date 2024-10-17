@@ -1,15 +1,15 @@
 import Link from 'next/link'
 import { memo } from 'react'
 
-import { KeyTextField } from '@prismicio/client'
+import type * as prismic from '@prismicio/client'
 
 import { Button, Tooltip } from '@chakra-ui/react'
 
 import { WhatsappLogo } from 'phosphor-react'
 
 type WhatsappButtonProps = {
-  message: KeyTextField | undefined
-  number: KeyTextField | undefined
+  message: prismic.KeyTextField | undefined
+  number: prismic.KeyTextField | undefined
 }
 
 export const WhatsappButton = memo(
@@ -44,7 +44,7 @@ export const WhatsappButton = memo(
             color="white"
             p={2}
             iconSpacing={0}
-            bg="whatsapp.500"
+            bg="whatsapp.600"
             _hover={{
               bg: 'whatsapp.700',
               transition: 'background-color 300ms linear',

@@ -1,9 +1,9 @@
-import { KeyTextField } from '@prismicio/client'
+import type * as prismic from '@prismicio/client'
 
-import { Heading, HeadingProps } from '@chakra-ui/react'
+import { Heading, type HeadingProps } from '@chakra-ui/react'
 
 type H4Props = HeadingProps & {
-  children: KeyTextField | undefined
+  children: prismic.KeyTextField | undefined
 }
 
 export const H4 = ({ children, ...props }: H4Props) => {

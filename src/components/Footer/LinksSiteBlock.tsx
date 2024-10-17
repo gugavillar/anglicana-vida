@@ -2,8 +2,8 @@ import type {
   FooterDocumentDataRecommendationItem,
   Simplify,
 } from '@/prismic-types'
+import type * as prismic from '@prismicio/client'
 import { PrismicNextLink } from '@prismicio/next'
-import { KeyTextField } from '@prismicio/types'
 
 import { VStack, Button } from '@chakra-ui/react'
 
@@ -16,7 +16,7 @@ type LinksSiteBlockProps = {
 }
 
 type LabelLinkProps = {
-  label: KeyTextField
+  label: prismic.KeyTextField
 }
 
 const LabelLink = ({ label }: LabelLinkProps) => {
