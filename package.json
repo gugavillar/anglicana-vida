@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next-sitemap",
+    "prebuild": "pnpm run lint",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint ./src",
     "prepare": "husky",
     "check-types": "tsc --noemit",
     "slicemachine": "start-slicemachine"
@@ -44,6 +45,8 @@
     "@rocketseat/eslint-config": "^2.2.2",
     "@slicemachine/adapter-next": "^0.3.51",
     "@types/deep-equal": "^1.0.4",
+    "@types/eslint__eslintrc": "^2.1.2",
+    "@types/eslint__js": "^8.42.3",
     "@types/node": "22.7.6",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.1",
@@ -56,6 +59,8 @@
     "typescript": "5.6.3"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --fix"
+    "*.{js,jsx,ts,tsx}": [
+      "pnpm run lint"
+    ]
   }
 }

@@ -14,7 +14,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   {
-    ignores: ['**/prismicio-types.d.ts'],
+    ignores: ['**/prismicio-types.d.ts', '.next/*'],
   },
   ...fixupConfigRules(
     compat.extends(
@@ -29,14 +29,6 @@ const eslintConfig = [
     languageOptions: {
       globals: {
         JSX: true,
-      },
-    },
-
-    settings: {
-      'import/resolver': {
-        typescript: {
-          alwaysTryTypes: true,
-        },
       },
     },
 
@@ -96,6 +88,12 @@ const eslintConfig = [
           },
         },
       ],
+    },
+    settings: {
+      'import/ignore': ['node_modules/@chakra-ui/react'],
+      'import/resolver': {
+        typescript: {},
+      },
     },
   },
 ]
